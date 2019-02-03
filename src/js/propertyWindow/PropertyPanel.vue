@@ -1,0 +1,248 @@
+<template>
+    <div style="width: 100%; height: 100%;">
+        <div id="property-action-buttons">
+            <input type="radio" class="radio-tab" id="home" value="home" v-model="tab">
+            <label for="home" class="action-item">
+                <i class="far fa-list-alt fa-2x"></i>
+                <span class="tooltip-text tooltip-right">Properties</span>
+            </label>
+            <input type="radio" class="radio-tab" id="condition" value="condition" v-model="tab">
+            <label for="condition" class="action-item">
+                <i class="fas fa-code-branch fa-2x"></i>
+                <span class="tooltip-text tooltip-right">Conditional</span>
+            </label>
+            <input type="radio" class="radio-tab" id="mail" value="mail" v-model="tab">
+            <label for="mail" class="action-item">
+                <i class="far fa-envelope fa-2x"></i>
+                <span class="tooltip-text tooltip-right">Messages</span>
+            </label>
+            <div id="slider"></div>
+        </div>
+        <div id="property-page">
+            <property-header>
+                <input id="name-input" placeholder="Event name" maxlength="15" v-model="selected.eventName" v-on:input="nameChangeHandler(selected)">
+                <i class="far fa-edit"></i>
+                <model-select
+                        id="type-select"
+                        :options="options"
+                        v-model="selected.type"
+                        v-on:input="typeChangeHandler(selected)"
+                        placeholder="Type to search..">
+                </model-select>
+            </property-header>
+            <conditional v-if="tab === 'condition'" v-bind:selected="selected" v-bind:canvas="canvas"></conditional>
+            <mail v-else-if="tab === 'mail'" v-bind:selected="selected" v-bind:canvas="canvas"></mail>
+            <template v-else>
+                <RaidEnemy v-if="selected.type.value.value === 'RaidEnemy'" v-bind:selected="selected"/>
+                <Disease v-else-if="selected.type.value.value === 'Disease'" v-bind:selected="selected"/>
+                <ShipPartCrash v-else-if="selected.type.value.value === 'ShipPartCrash'" v-bind:selected="selected"/>
+                <ManhunterPack v-else-if="selected.type.value.value === 'ManhunterPack'" v-bind:selected="selected"/>
+                <Infestation v-else-if="selected.type.value.value === 'Infestation'" v-bind:selected="selected"/>
+                <RaidFriendly v-else-if="selected.type.value.value === 'RaidFriendly'" v-bind:selected="selected"/>
+                <AnimalInsanitySingle v-else-if="selected.type.value.value === 'AnimalInsanitySingle'" v-bind:selected="selected"/>
+                <AnimalInsanityMass v-else-if="selected.type.value.value === 'AnimalInsanityMass'" v-bind:selected="selected"/>
+                <FarmAnimalsWanderIn v-else-if="selected.type.value.value === 'FarmAnimalsWanderIn'" v-bind:selected="selected"/>
+                <ColdSnap v-else-if="selected.type.value.value === 'ColdSnap'" v-bind:selected="selected"/>
+                <HeatWave v-else-if="selected.type.value.value === 'HeatWave'" v-bind:selected="selected"/>
+                <Aurora v-else-if="selected.type.value.value === 'Aurora'" v-bind:selected="selected"/>
+                <Eclipse v-else-if="selected.type.value.value === 'Eclipse'" v-bind:selected="selected"/>
+                <SolarFlare v-else-if="selected.type.value.value === 'SolarFlare'" v-bind:selected="selected"/>
+                <PsychicDrone v-else-if="selected.type.value.value === 'PsychicDrone'" v-bind:selected="selected"/>
+                <ShortCircuit v-else-if="selected.type.value.value === 'ShortCircuit'" v-bind:selected="selected"/>
+                <CropBlight v-else-if="selected.type.value.value === 'CropBlight'" v-bind:selected="selected"/>
+                <ToxicFallout v-else-if="selected.type.value.value === 'ToxicFallout'" v-bind:selected="selected"/>
+                <VolcanicWinter v-else-if="selected.type.value.value === 'VolcanicWinter'" v-bind:selected="selected"/>
+                <TraderArrivalGeneral v-else-if="selected.type.value.value === 'TraderArrivalGeneral'" v-bind:selected="selected"/>
+                <TraderArrivalSlaver v-else-if="selected.type.value.value === 'TraderArrivalSlaver'" v-bind:selected="selected"/>
+                <TravelerGroup v-else-if="selected.type.value.value === 'TravelerGroup'" v-bind:selected="selected"/>
+                <VisitorGroup v-else-if="selected.type.value.value === 'VisitorGroup'" v-bind:selected="selected"/>
+                <WandererJoin v-else-if="selected.type.value.value === 'WandererJoin'" v-bind:selected="selected"/>
+                <ResourcePodCrash v-else-if="selected.type.value.value === 'ResourcePodCrash'" v-bind:selected="selected"/>
+                <RefugeePodCrash v-else-if="selected.type.value.value === 'RefugeePodCrash'" v-bind:selected="selected"/>
+                <PsychicSoothe v-else-if="selected.type.value.value === 'PsychicSoothe'" v-bind:selected="selected"/>
+                <Alphabeavers v-else-if="selected.type.value.value === 'Alphabeavers'" v-bind:selected="selected"/>
+                <AmbrosiaSprout v-else-if="selected.type.value.value === 'AmbrosiaSprout'" v-bind:selected="selected"/>
+                <Nothing v-else v-bind:selected="selected"/>
+
+            </template>
+        </div>
+    </div>
+</template>
+
+<script>
+  import Conditional from "./Conditional";
+  import Mail from "./Mail";
+  import PropertyHeader from "./PropertyHeader";
+  import {ModelSelect} from 'vue-search-select';
+  import EventTypes from "../storyGraph/EventTypes";
+  import RaidEnemy from "./type/RaidEnemy";
+  import Disease from "./type/Disease";
+  import ShipPartCrash from "./type/ShipPartCrash";
+  import ManhunterPack from "./type/ManhunterPack";
+  import Infestation from "./type/Infestation";
+  import RaidFriendly from "./type/RaidFriendly";
+  import AnimalInsanitySingle from "./type/AnimalInsanitySingle";
+  import AnimalInsanityMass from "./type/AnimalInsanityMass";
+  import FarmAnimalsWanderIn from "./type/FarmAnimalsWanderIn";
+  import ColdSnap from "./type/ColdSnap";
+  import HeatWave from "./type/HeatWave";
+  import Aurora from "./type/Aurora";
+  import Eclipse from "./type/Eclipse";
+  import SolarFlare from "./type/SolarFlare";
+  import PsychicDrone from "./type/PsychicDrone";
+  import ShortCircuit from "./type/ShortCircuit";
+  import CropBlight from "./type/CropBlight";
+  import ToxicFallout from "./type/ToxicFallout";
+  import VolcanicWinter from "./type/VolcanicWinter";
+  import TraderArrivalGeneral from "./type/TraderArrivalGeneral";
+  import TraderArrivalSlaver from "./type/TraderArrivalSlaver";
+  import TravelerGroup from "./type/TravelerGroup";
+  import VisitorGroup from "./type/VisitorGroup";
+  import WandererJoin from "./type/WandererJoin";
+  import ResourcePodCrash from "./type/ResourcePodCrash";
+  import RefugeePodCrash from "./type/RefugeePodCrash";
+  import PsychicSoothe from "./type/PsychicSoothe";
+  import Alphabeavers from "./type/Alphabeavers";
+  import AmbrosiaSprout from "./type/AmbrosiaSprout";
+  import Nothing from "./type/Nothing";
+
+  export default {
+    name : "property-panel",
+    props : ["canvas", "selected"],
+    methods : {
+      nameChangeHandler : function(selected) {
+        selected.refreshName();
+      },
+      typeChangeHandler : function(selected) {
+        selected.refreshType();
+      }
+    },
+    components : {
+      PropertyHeader,
+      ModelSelect,
+      Conditional,
+      Mail,
+      RaidEnemy,
+      Disease,
+      ShipPartCrash,
+      ManhunterPack,
+      Infestation,
+      RaidFriendly,
+      AnimalInsanitySingle,
+      AnimalInsanityMass,
+      FarmAnimalsWanderIn,
+      ColdSnap,
+      HeatWave,
+      Aurora,
+      Eclipse,
+      SolarFlare,
+      PsychicDrone,
+      ShortCircuit,
+      CropBlight,
+      ToxicFallout,
+      VolcanicWinter,
+      TraderArrivalGeneral,
+      TraderArrivalSlaver,
+      TravelerGroup,
+      VisitorGroup,
+      WandererJoin,
+      ResourcePodCrash,
+      RefugeePodCrash,
+      PsychicSoothe,
+      Alphabeavers,
+      AmbrosiaSprout,
+      Nothing,
+    },
+    data() {
+      return {
+        options : EventTypes.Events,
+        tab : "home",
+      }
+    },
+  }
+</script>
+
+<style scoped>
+    #slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 53px;
+        background-color: #FFF;
+
+        transition: top .6s;
+    }
+
+    #condition:checked ~ #slider {
+        top: 53px;
+
+        transition: top .6s;
+    }
+
+    #mail:checked ~ #slider {
+        top: 106px;
+
+        transition: top .6s;
+    }
+
+    #name-input {
+        width: 200px;
+    }
+
+    #property-action-buttons {
+        width: 50px;
+        height: 100%;
+        float: left;
+        position: relative;
+        background-color: #41474e;
+    }
+
+    #property-page {
+        width: calc(100% - 50px);
+        height: 100%;
+        float: right;
+    }
+
+    #type-select {
+        background-color: #15191d;
+        color: #fff;
+        height: 23px;
+        float: right;
+        width: 300px;
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+        min-height: auto;
+        border: none !important;
+    }
+
+    #type-select:focus {
+        border: none !important;
+    }
+
+    .radio-tab {
+        display: none;
+    }
+
+    .action-item {
+        display: block;
+        background-color: hsl(212, 9%, 28%);
+
+        transition: background-color .6s .3s;
+    }
+
+    input:checked + .action-item {
+        background-color: hsl(212, 9%, 22%);
+
+        transition: background-color .6s;
+    }
+
+    @media only screen and (max-width: 1300px) {
+        #type-select {
+            float: left;
+            margin-left: -11px;
+            width: 100%;
+        }
+    }
+</style>

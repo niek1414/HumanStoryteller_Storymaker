@@ -1,0 +1,594 @@
+/*
+ ***********************
+ *    IMPORT FONTS     *
+ ***********************
+*/
+@import url('../fonts/Fonts.css?family=Roboto');
+
+/*
+ ***********************
+ * RESET AND NORMALIZE *
+ ***********************
+*/
+
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address,
+big, code, del, dfn, em, img, q, s, samp, small, strong, sub, sup, tt, var, b, u, i, dl,
+dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr,
+th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu,
+main, nav, output, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+button:focus {
+    outline: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+    margin: 0;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+b,
+strong {
+    font-weight: bolder;
+}
+
+small {
+    font-size: 80%;
+}
+
+figure {
+    margin: 1em 40px;
+}
+
+img {
+    border-style: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow: auto;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+[clear] {
+    clear: both;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/* Box Model */
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* A better looking default horizontal rule */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ *****************
+ * CSS VARIABLES *
+ *****************
+*/
+
+:root {
+    --main-bg-color: #fff; /* For using: var(--main-bg-color); */
+}
+
+/*
+ *****************
+ * MODAL         *
+ *****************
+*/
+
+.v--modal-overlay .v--modal-box {
+    background-color: transparent;
+}
+
+.vue-dialog .dialog-content {
+    background: #2d2d2d;
+    background: -moz-linear-gradient(-45deg, #2d2d2d 0%, #474747 45%, #595959 100%);
+    background: -webkit-linear-gradient(-45deg, #2d2d2d 0%, #474747 45%, #595959 100%);
+    background: linear-gradient(135deg, #2d2d2d 0%, #474747 45%, #595959 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2d2d2d', endColorstr='#595959', GradientType=1);
+}
+
+.vue-dialog-button {
+    background: #505050 !important;
+
+    transition: background-color .6s;
+}
+
+.vue-dialog-button:hover {
+    background: #5d6153 !important;
+
+    transition: background-color .6s;
+}
+
+.v-input__slot {
+    margin-bottom: 5px !important;
+}
+
+.v-messages__message {
+    margin-bottom: 15px !important;
+}
+
+.v-text-field__details {
+    height: 0 !important;
+}
+
+.v-input--selection-controls__ripple {
+    position: absolute !important;
+}
+
+.v-card__text {
+    padding: 2px 16px !important;
+}
+
+.v-card__title--primary {
+    padding-top: 9px !important;
+    padding-bottom: 0px !important;
+    font-size: large !important;
+}
+
+hr {
+    line-height: 1em;
+    position: relative;
+    text-align: center;
+}
+
+hr:after {
+    content: attr(data-content);
+    position: relative;
+    top: -10px;
+    display: inline-block;
+    padding: 0 0.5em;
+    line-height: 1.5em;
+    color: #a2a29d;
+    background-color: #15191d;
+}
+
+#edit-label {
+    background-color: #15191d;
+    color: #ffffff;
+}
+
+/*
+ *******************
+ * PAGE MAIN STYLE *
+ *******************
+*/
+
+#app {
+    min-height: 100% !important;
+    background-color: #15191d !important;
+}
+
+.application--wrap {
+    min-height: 100% !important;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100%;
+}
+
+#main-app {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/images/bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden;
+}
+
+#outer-editor {
+    margin: 60px 20px;
+    background-color: #15191d;
+    padding: 20px 20px 20px 0;
+    border: solid 1px #616c7a;
+    height: calc(100% - 120px);
+    display: flex;
+}
+
+#graph-panel {
+    width: 50%;
+    height: 100%;
+    display: flex;
+}
+
+#right-panel {
+    margin-left: 20px;
+    width: 50%;
+    height: 100%;
+}
+
+#event-panel {
+    background-color: #15191d;
+    height: calc(100% - 90px);
+    border: solid 1px #616c7a;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#avatar-img {
+    width: 100%;
+}
+
+#project-panel {
+    margin-top: 20px;
+    display: flex;
+}
+
+#project-buttons {
+    flex-grow: 1;
+    display: flex;
+    height: 50px;
+    margin-right: 20px;
+    background-color: #41474e;
+}
+
+#graph-buttons {
+    height: 100%;
+    background-color: #41474e;
+    width: 50px;
+}
+
+.action-item {
+    padding: 10px;
+    position: relative;
+    background: none;
+    border: none;
+}
+
+.logout-action {
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    display: block;
+}
+
+.logout-action img {
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.logout-action .tooltip-bottom {
+    left: -36px;
+}
+
+.action-drag {
+    cursor: grab;
+}
+
+.action-button {
+    cursor: pointer;
+}
+
+.action-horizontal {
+    flex-grow: 1;
+    background-color: rgba(46, 50, 56, 0);
+    transition: background-color .6s
+}
+
+.action-horizontal:hover {
+    background-color: rgba(46, 50, 56, 1);
+    transition: background-color .6s;
+}
+
+.action-item i {
+    color: #FFF;
+    text-shadow: #0e0e0e 0px 0px 0px;
+    opacity: 1;
+    transition: text-shadow .6s, color .6s, opacity .6s;
+}
+
+.logout-action i {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    opacity: 0.6;
+}
+
+.action-item:disabled i {
+    color: #6c6c6c;
+    transition: color .6s;
+}
+
+.action-item:hover:not(:disabled) i {
+    text-shadow: #000000 0 0 20px;
+    opacity: 1;
+    transition: text-shadow .6s, opacity .6s;
+}
+
+.action-item i:before {
+    height: 30px;
+    width: 30px;
+    line-height: 1.2;
+    text-align: center;
+    display: block;
+}
+
+#story-graph {
+    background-color: #20262c;
+    border: solid 1px #616c7a;
+    height: 100%;
+    overflow: auto;
+}
+
+#story-canvas {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+/*
+ **************
+ *  TOOLTIPS  *
+ **************
+*/
+
+.action-item:hover:not(.ui-draggable-dragging) .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .6s;
+}
+
+.action-item .tooltip-text {
+    pointer-events: none;
+    visibility: hidden;
+    position: absolute;
+    width: 120px;
+    background-color: #212121;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    z-index: 1;
+    opacity: 0;
+    box-shadow: #0e0e0e 0px 2px 9px 1px;
+    transition: opacity .6s, visibility 0ms 1s;
+}
+
+.tooltip-right {
+    top: 14px;
+    left: 105%;
+}
+
+.tooltip-bottom {
+    top: 58px;
+    left: 10px;
+}
+
+.tooltip-right::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #212121 transparent transparent;
+}
+
+.tooltip-bottom::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%; /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #212121 transparent;
+}
+
+#type-select .icon {
+    position: relative;
+    top: 0;
+}
+
+#type-select input {
+    border: none;
+    color: #FFF;
+    font-size: 1em;
+    padding: 0;
+    height: 23px;
+    margin-left: 10px;
+}
+
+#type-select .text {
+    margin-left: 10px;
+}
+
+#type-select input:focus {
+    border: none !important;
+}
+
+#type-select .menu {
+    background-color: #15191d;
+}
+
+#type-select .item {
+    color: #FFF;
+    border-color: #212121;
+}
+
+/*
+ ****************
+ *  SCROLLBARS  *
+ ****************
+*/
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgb(15, 16, 20);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #171717;
+    box-shadow: inset 2px 1px 4px 0px rgba(138, 138, 138, 0.91);
+    border: 1px solid #000 !important;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgb(34, 34, 34);
+}
+
+::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 0);
+}
+
+/*
+ *******************
+ *  MEDIA QUERIES  *
+ *******************
+*/
+
+/* EXTRA LARGE DISPLAY */
+
+@media only screen and (max-width: 2400px) and (min-width: 1500px) {
+
+}
+
+/* MEDIA FOR NOTEBOOK DISPLAY */
+
+@media only screen and (max-width: 1200px) and (min-width: 300px) {
+
+}
+
+/* MEDIA FOR TABLET DISPLAY */
+
+@media only screen and (max-width: 992px) and (min-width: 300px) {
+
+}
+
+/* MEDIA FOR MEDIUM MOBILE DISPLAY */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+
+}
+
+/* MEDIA FOR LITTLE MOBILE DISPLAY */
+
+@media only screen and (max-width: 480px) and (min-width: 300px) {
+
+}
+
+/*
+ *******************
+ *  PRINT STYLES  *
+ *  DONT TOUCH!!  *
+ *******************
+*/
+
+@media print {
+    *, *:before, *:after, *:first-letter, *:first-line {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a, a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre, blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+
+    p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2, h3 {
+        page-break-after: avoid;
+    }
+}

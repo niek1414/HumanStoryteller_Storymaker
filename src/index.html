@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head itemscope itemtype="http://schema.org/WebSite">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Storymaker - Human Storyteller mod for Rimworld</title>
+
+    <meta name="author" content="KeyboxSoftware">
+    <meta name="keywords" content="Rimworld Mod HumanStoryteller">
+    <meta name="description" content="Human Storyteller is a mod for Rimworld. Create stories for others to play out!">
+
+    <meta itemprop="name" content="HumanStoryteller">
+    <meta itemprop="description" content="Human Storyteller is a mod for Rimworld. Create stories for others to play out!">
+    <meta itemprop="image" content="https://storyteller.keyboxsoftware.nl/images/rep.jpg">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Project">
+
+    <meta property="og:url" content="https://storyteller.keyboxsoftware.nl">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="HumanStoryteller for Rimworld">
+    <meta property="og:image" content="https://storyteller.keyboxsoftware.nl/images/rep.jpg">
+    <meta property="og:description" content="Human Storyteller is a mod for Rimworld. Create stories for others to play out!">
+    <meta property="og:site_name" content="HumanStoryteller">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://storyteller.keyboxsoftware.nl">
+    <meta name="twitter:title" content="HumanStoryteller">
+    <meta name="twitter:description" content="Human Storyteller is a mod for Rimworld. Create stories for others to play out!">
+    <meta name="twitter:image" content="https://storyteller.keyboxsoftware.nl/images/rep.jpg">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
+
+
+    <!--[if IE]>
+    <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+<div id="main-app">
+    <div id="outer-editor">
+        <div id="graph-panel">
+            <div id="graph-buttons">
+                <div id="add-action" class="action-item action-drag draw2d_droppable ui-draggable"><i class="far fa-plus-square fa-2x"></i><span class="tooltip-text tooltip-right">Add event</span></div>
+                <div id="divider-action" class="action-item action-drag draw2d_droppable ui-draggable"><i class="fas fa-divide fa-2x"></i><span class="tooltip-text tooltip-right">Add divider</span></div>
+                <button id="delete-action" class="action-item action-button"><i class="far fa-trash-alt fa-2x"></i><span class="tooltip-text tooltip-right">Remove object</span>
+                </button>
+                <hr style="border: none">
+                <button id="undo-action" class="action-item action-button"><i class="fas fa-undo fa-2x"></i><span class="tooltip-text tooltip-right">Undo action</span></button>
+                <button id="redo-action" class="action-item action-button"><i class="fas fa-redo fa-2x"></i><span class="tooltip-text tooltip-right">Redo action</span></button>
+            </div>
+            <div id="story-graph">
+                <div onselectstart="javascript:/*IE8 hack*/return false" id="story-canvas"></div>
+            </div>
+        </div>
+        <div id="right-panel">
+            <div id="event-panel">
+                <v-app dark>
+
+                    <property-panel v-if="state === 'node' && !selected.isRoot && !selected.isDivider" v-bind:selected="selected" v-bind:canvas="graph"></property-panel>
+                    <detail-panel v-else-if="state === 'node' && selected.isRoot" v-bind:project="graph.projectData"></detail-panel>
+                    <divider-panel v-else-if="state === 'node' && selected.isDivider"></divider-panel>
+                    <stories-panel v-else-if="state === 'stories'" v-bind:stories="selected" v-bind:toolbar="toolbar"></stories-panel>
+                    <editor-info v-else>
+                        <div style="color: #cfcfcf; padding: 50px">Please enable JavaScript :)<br><br>Is JavaScript enabled? Try Google Chrome!<br><br>Are you using Chrome? Then
+                            its a
+                            bug..<br><br> If you know how, please send any console errors to niek@keyboxsoftware.nl,<br><br> Thanks :D
+                        </div>
+                    </editor-info><v-dialog></v-dialog>
+                </v-app>
+            </div>
+            <div id="project-panel">
+                <div id="project-buttons">
+                    <button id="new-story-action" class="action-item action-button action-horizontal"><i class="fas fa-folder-plus fa-2x"></i><span
+                            class="tooltip-text tooltip-bottom">New story</span></button>
+                    <button id="load-story-action" class="action-item action-button action-horizontal"><i class="fas fa-folder-open fa-2x"></i><span
+                            class="tooltip-text tooltip-bottom">Load story</span></button>
+                    <button id="remove-story-action" class="action-item action-button action-horizontal"><i class="fas fa-folder-minus fa-2x"></i><span
+                            class="tooltip-text tooltip-bottom">Delete story</span></button>
+                    <button id="edit-story-action" class="action-item action-button action-horizontal"><i class="fas fa-sliders-h fa-2x"></i><span
+                            class="tooltip-text tooltip-bottom">Story settings</span></button>
+                    <button id="upload-story-action" class="action-item action-button action-horizontal"><i class="fas fa-cloud-upload-alt fa-2x"></i><span
+                            class="tooltip-text tooltip-bottom">Upload / override story</span></button>
+                    <button id="info-story-action" class="action-item action-button action-horizontal"><i class="fas fa-question fa-2x"></i><span
+                            class="tooltip-text tooltip-bottom">Information</span></button>
+                </div>
+                <form method="POST" action="/logout">
+                    <label id="logout-action" class="logout-action action-item action-button">
+                        <input type="submit" style="display: none;">
+                        <img id="avatar-img" alt="">
+                        <i class="fas fa-sign-out-alt fa-2x"></i><span class="tooltip-text tooltip-bottom">Logout</span>
+                    </label>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
