@@ -7,6 +7,7 @@
                 <div v-ripple class="load" v-on:click="load(story.id, toolbar)">
                     <div class="title">{{story.name}}</div>
                     <div>{{story.description}}</div>
+                    <div>{{story.rating}}</div>
                 </div>
                 <div class="remove">
                     <div v-ripple class="remove-inner" v-on:click="remove(story.id, toolbar)"><i class="far fa-trash-alt fa-2x"></i></div>
