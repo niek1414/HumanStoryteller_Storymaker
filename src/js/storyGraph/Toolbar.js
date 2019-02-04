@@ -122,8 +122,28 @@ export default Class.extend({
 
     this.uploadButton = $("#upload-story-action");
     this.uploadButton.button().click($.proxy(function() {
-      this.addStory();
-      console.debug(this.view.toJSON());
+      that.propertyPanel.$modal.show('dialog', {
+        title: 'Remove story?',
+        text: 'This will upload the story to the storybook (server).<br>All mod user will be able to see the story.',
+        buttons: [
+          {
+            title: 'Cancel',
+            default: true,
+            handler: () => {
+              that.propertyPanel.$modal.hide('dialog');
+            }
+          },
+          {
+            title: 'Upload',
+            default: false,
+            handler: () => {
+              that.propertyPanel.$modal.hide('dialog');
+              that.addStory();
+              console.debug(this.view.toJSON());
+            }
+          }
+        ]
+      });
     }, this));
 
     this.infoButton = $("#info-story-action");

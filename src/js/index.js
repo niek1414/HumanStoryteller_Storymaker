@@ -18,6 +18,9 @@ import VModal from 'vue-js-modal'
 import Vuetify from 'vuetify'
 import DividerPanel from "./propertyWindow/DividerPanel";
 
+window.onbeforeunload = function(){
+  return 'All unsaved changes will be discarded!';
+};
 
 // Vue.directive('ripple', Ripple);
 Vue.use(Vuetify, {theme: {primary: '#65b9ff'}});
