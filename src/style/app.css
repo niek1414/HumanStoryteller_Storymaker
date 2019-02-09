@@ -244,10 +244,23 @@ body {
 #outer-editor {
     margin: 60px 20px;
     background-color: #15191d;
-    padding: 20px 20px 20px 0;
+    padding: 20px 20px 0 0;
     border: solid 1px #616c7a;
     height: calc(100% - 120px);
+}
+
+#outer-flex {
+    width: 100%;
+    height: calc(100% - 20px);
     display: flex;
+}
+
+#info-bottom {
+    height: 20px;
+    padding-left: 6px;
+    line-height: 1.4;
+    color: #40464e;
+    width: 100%;
 }
 
 #graph-panel {

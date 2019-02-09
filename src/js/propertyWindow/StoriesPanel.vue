@@ -5,9 +5,11 @@
         <div class="info-box">
             <div v-for="story in stories" class="card">
                 <div v-ripple class="load" v-on:click="load(story.id, toolbar)">
-                    <div class="title">{{story.name}}</div>
+                    <div class="rimTitle">{{story.name}}</div>
                     <div>{{story.description}}</div>
-                    <div>{{story.rating}}</div>
+                    <hr>
+                    <div>Rating:{{story.rating}}, Votes:{{story.votes}}</div>
+                    <div class="note">(Calculated daily)</div>
                 </div>
                 <div class="remove">
                     <div v-ripple class="remove-inner" v-on:click="remove(story.id, toolbar)"><i class="far fa-trash-alt fa-2x"></i></div>
@@ -81,6 +83,7 @@
     }
 
     .load {
+        overflow: auto;
         width: calc(100% - 44px);
         height: 100%;
         padding: 10px;
@@ -111,7 +114,7 @@
         transition: background-color .6s, color .6s;
     }
 
-    .title {
+    .rimTitle {
         font-family: "rimfont", sans-serif;
         font-weight: bold;
     }
@@ -127,5 +130,9 @@
         background: -webkit-linear-gradient(-45deg, #4c4c4c 0%, #595959 44%, #474747 100%);
         background: linear-gradient(135deg, #4c4c4c 0%, #595959 44%, #474747 100%);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4c4c4c', endColorstr='#474747', GradientType=1);
+    }
+
+    .note {
+        color: #a7a7a7;
     }
 </style>
