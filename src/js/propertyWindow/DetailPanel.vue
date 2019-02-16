@@ -4,12 +4,13 @@
 
         <div class="info-box">
             <v-text-field
+                    class="mb-3"
                     label="Story title"
                     v-model="project.name"
             ></v-text-field>
             <v-textarea
                     outline
-                    label="Mail message"
+                    label="Description"
                     v-model="project.description"
             ></v-textarea>
         </div>

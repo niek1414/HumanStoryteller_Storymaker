@@ -8,16 +8,18 @@
         <template v-if="selected.right !== null">
             <v-autocomplete
                     v-model="picked"
-                    :items="availableConditions"
+                    :items="availableConditions.concat(EventTypes[selected.type.value.value].conditions)"
                     label="Add condition"
                     :search-input.sync="search"
             ></v-autocomplete>
             <v-divider v-if="selected.conditions.length > 0" data-content="PICK LEFT IF"></v-divider>
             <template v-for="(con, index) in selected.conditions">
-                <v-card>
+                <v-card :class="availableConditions.concat(EventTypes[selected.type.value.value].conditions).filter(function (i) {return i.value === con.type}).length<1?'invalid':''">
                     <v-card-title primary-title>{{con.type}}</v-card-title>
                     <v-card-text>
                         <PawnHealth v-if="con.type === 'PawnHealth'" v-bind:condition="con"></PawnHealth>
+                        <Dialog v-if="con.type === 'Dialog'" v-bind:condition="con"></Dialog>
+                        <Variable v-if="con.type === 'Variable'" v-bind:condition="con"></Variable>
                     </v-card-text>
                     <v-card-actions>
                         <v-btn flat color="error" v-on:click="selected.conditions = selected.conditions.filter(function(item) {return item !== con})">remove</v-btn>
@@ -31,17 +33,28 @@
 
 <script>
   import PawnHealth from "./condition/PawnHealth";
+  import Dialog from "./condition/Dialog";
+  import EventTypes from "./../storyGraph/EventTypes";
+  import Variable from "./condition/Variable";
 
   export default {
     name : "conditional",
-    components : {PawnHealth},
+    components : {
+      PawnHealth,
+      Variable,
+      Dialog
+    },
     props : ["canvas", "selected"],
     data() {
       return {
-        availableConditions : ['PawnHealth'],
+        availableConditions : [
+          {value : 'PawnHealth', text : 'Pawn health'},
+          {value : 'Variable', text : 'Compare variable'},
+        ],
         picked : null,
         search : "",
         clearOnce : false,
+        EventTypes : EventTypes
       }
     },
     watch : {
@@ -66,5 +79,9 @@
 <style scoped>
     .info-box {
         margin: 30px;
+    }
+
+    .invalid {
+        background-color: #4c2b2b !important;
     }
 </style>

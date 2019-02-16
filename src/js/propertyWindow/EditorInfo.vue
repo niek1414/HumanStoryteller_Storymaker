@@ -13,7 +13,9 @@
         Adding a condition to an event allows you to react on the player's action.<br><br>
         Important: A condition is constantly checked until the next event can be executed.<br>
         So, if initially the condition was false but the event for false is in 3 days the player can still get the event for true if the conditions have changed just before the 3
-        days are over.
+        days are over.<br>
+        I know.. ill make sense when you start to play around with it ;P<br>
+        Questions? >>>placeholder contact link here<<< (hopefully i won't forget to put in the link..)
         </p>
     </div>
 </template>

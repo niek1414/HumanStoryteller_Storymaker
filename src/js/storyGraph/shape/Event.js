@@ -14,6 +14,7 @@ export default draw2d.shape.basic.Rectangle.extend({
     this.eventName = attr.text;
     this.conditions = attr.conditions;
     this.properties = attr.properties;
+    this.storage = attr.storage;
 
     this._super(
       extend({bgColor : "#212533", color : this.type.value.type.color, radius : 4, stroke : 3}, attr),
@@ -110,6 +111,7 @@ export default draw2d.shape.basic.Rectangle.extend({
       y : this.y,
       incident : incident,
       conditions : this.conditions,
+      storage : this.storage
     };
   },
 

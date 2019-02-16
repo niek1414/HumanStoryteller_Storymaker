@@ -1,5 +1,5 @@
 <template>
-    <div style="width: 100%; height: 100%;">
+    <div style="width: 100%; height: 100%; box-shadow: inset 50px 0 0 #41474e;">
         <div id="property-action-buttons">
             <input type="radio" class="radio-tab" id="home" value="home" v-model="tab">
             <label for="home" class="action-item">
@@ -15,6 +15,11 @@
             <label for="mail" class="action-item">
                 <i class="far fa-envelope fa-2x"></i>
                 <span class="tooltip-text tooltip-right">Messages</span>
+            </label>
+            <input type="radio" class="radio-tab" id="variable" value="variable" v-model="tab">
+            <label for="variable" class="action-item">
+                <i class="fas fa-shapes fa-2x"></i>
+                <span class="tooltip-text tooltip-right">Variables</span>
             </label>
             <div id="slider"></div>
         </div>
@@ -32,6 +37,7 @@
             </property-header>
             <conditional v-if="tab === 'condition'" v-bind:selected="selected" v-bind:canvas="canvas"></conditional>
             <mail v-else-if="tab === 'mail'" v-bind:selected="selected" v-bind:canvas="canvas"></mail>
+            <variable v-else-if="tab === 'variable'" v-bind:selected="selected" v-bind:canvas="canvas"></variable>
             <template v-else>
                 <RaidEnemy v-if="selected.type.value.value === 'RaidEnemy'" v-bind:selected="selected"/>
                 <Disease v-else-if="selected.type.value.value === 'Disease'" v-bind:selected="selected"/>
@@ -62,6 +68,7 @@
                 <PsychicSoothe v-else-if="selected.type.value.value === 'PsychicSoothe'" v-bind:selected="selected"/>
                 <Alphabeavers v-else-if="selected.type.value.value === 'Alphabeavers'" v-bind:selected="selected"/>
                 <AmbrosiaSprout v-else-if="selected.type.value.value === 'AmbrosiaSprout'" v-bind:selected="selected"/>
+                <Dialog v-else-if="selected.type.value.value === 'Dialog'" v-bind:selected="selected"/>
                 <Nothing v-else v-bind:selected="selected"/>
 
             </template>
@@ -72,6 +79,7 @@
 <script>
   import Conditional from "./Conditional";
   import Mail from "./Mail";
+  import Variable from "./Variable";
   import PropertyHeader from "./PropertyHeader";
   import {ModelSelect} from 'vue-search-select';
   import EventTypes from "../storyGraph/EventTypes";
@@ -105,6 +113,7 @@
   import Alphabeavers from "./type/Alphabeavers";
   import AmbrosiaSprout from "./type/AmbrosiaSprout";
   import Nothing from "./type/Nothing";
+  import Dialog from "./type/Dialog";
 
   export default {
     name : "property-panel",
@@ -122,6 +131,7 @@
       ModelSelect,
       Conditional,
       Mail,
+      Variable,
       RaidEnemy,
       Disease,
       ShipPartCrash,
@@ -152,6 +162,7 @@
       Alphabeavers,
       AmbrosiaSprout,
       Nothing,
+      Dialog,
     },
     data() {
       return {
@@ -176,13 +187,16 @@
 
     #condition:checked ~ #slider {
         top: 53px;
-
         transition: top .6s;
     }
 
     #mail:checked ~ #slider {
         top: 106px;
+        transition: top .6s;
+    }
 
+    #variable:checked ~ #slider {
+        top: 159px;
         transition: top .6s;
     }
 
@@ -192,9 +206,10 @@
 
     #property-action-buttons {
         width: 50px;
-        height: 100%;
+        z-index: 2;
+        top: 0;
         float: left;
-        position: relative;
+        position: sticky;
         background-color: #41474e;
     }
 

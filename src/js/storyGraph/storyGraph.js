@@ -12,7 +12,6 @@ export default draw2d.Canvas.extend({
     this._super(id, w, h);
     this.projectData = null;
     this.lastRoot = null;
-    this.dirty = false;
 
     this.containerModification();
     this.installPolicies();
@@ -57,7 +56,10 @@ export default draw2d.Canvas.extend({
         if (event.incident.letter === undefined) {
           event.incident.letter = {show : true, type : "Default"};
         }
-        created = this.addEvent(event.x, event.y, type, event.incident, event.conditions, false);
+        if (event.storage === undefined) {
+          event.storage = [];
+        }
+        created = this.addEvent(event.x, event.y, type, event.incident, event.conditions, event.storage, false);
         created.setId(event.uuid);
       }
 
@@ -142,8 +144,8 @@ export default draw2d.Canvas.extend({
     figure.installEditPolicy(new EventFeedbackPolicy());
   },
 
-  addEvent : function(x, y, type = "", properties = {letter : {show : true, type : "Default"}}, conditions = [], createOutputPorts = true) {
-    const d = new Event({width : 100, height : 50, x : x, y : y, type : type, properties : properties, conditions : conditions});
+  addEvent : function(x, y, type = "", properties = {letter : {show : true, type : "Default"}}, conditions = [], storage = [], createOutputPorts = true) {
+    const d = new Event({width : 100, height : 50, x : x, y : y, type : type, properties : properties, conditions : conditions, storage : storage});
 
     d.input = d.createPort("input", new this.inputPortPos);
     d.left = d.createPort("output", new this.outputPortPos);
@@ -156,7 +158,7 @@ export default draw2d.Canvas.extend({
   },
 
   addRoot : function(x, y) {
-    const d = new Event({width : 50, height : 50, radius : 100, x : x, y : y, text : "", type : "Nothing", properties : {letter : {show : false}}});
+    const d = new Event({width : 50, height : 50, radius : 100, x : x, y : y, text : "", type : "Nothing", properties : {letter : {show : false}}, storage : []});
     d.left = d.createPort("output", new this.outputPortPos);
     d.isRoot = true;
     this.add(d);
@@ -165,7 +167,7 @@ export default draw2d.Canvas.extend({
   },
 
   addDivider : function(x, y) {
-    const d = new Event({width : 75, height : 50, color : "#ba7827", radius : 100, x : x, y : y, text : "DIVIDER", type : "Nothing", properties : {letter : {show : false}}});
+    const d = new Event({width : 75, height : 50, color : "#ba7827", radius : 100, x : x, y : y, text : "DIVIDER", type : "Nothing", properties : {letter : {show : false}}, storage : []});
     d.input = d.createPort("input", new this.inputPortPos);
     d.left = d.createPort("output", new this.outputPortPos);
     d.right = d.createPort("output", new this.outputPortPos);
