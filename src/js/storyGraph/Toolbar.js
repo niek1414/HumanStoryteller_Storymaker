@@ -54,23 +54,44 @@ export default Class.extend({
       }
     }, this)).button("option", "disabled", true);
 
+    this.copyButton = $("#copy-action");
+    this.copyButton.button().click($.proxy(function() {
+      const list = this.view.getSelection().getAll();
+      const l = list.getSize();
+      for (let i = 0; i < l; i++) {
+        const item = list.get(i);
+        if (!item instanceof Event) {
+          continue;
+        }
+        if (item.isRoot) {
+          continue;
+        }
+
+        if (item.isDivider){
+          view.addDivider(item.x, item.y + 60);
+        } else {
+          view.addEvent(item.x, item.y + 60, item.type.value.value, JSON.parse(JSON.stringify(item.properties)), JSON.parse(JSON.stringify(item.conditions)), JSON.parse(JSON.stringify(item.storage)));
+        }
+      }
+    }, this)).button("option", "disabled", true);
+
     this.newButton = $("#new-story-action");
     this.newButton.button().click($.proxy(function() {
       that.propertyPanel.$modal.show('dialog', {
-        title: 'New story?',
-        text: 'Creating a new story will delete all local data.<br> To save a story upload it. Are you sure?',
-        buttons: [
+        title : 'New story?',
+        text : 'Creating a new story will delete all local data.<br> To save a story upload it. Are you sure?',
+        buttons : [
           {
-            title: 'Cancel',
-            default: true,
-            handler: () => {
+            title : 'Cancel',
+            default : true,
+            handler : () => {
               that.propertyPanel.$modal.hide('dialog');
             }
           },
           {
-            title: 'Delete my unsaved project',
-            default: false,
-            handler: () => {
+            title : 'Delete my unsaved project',
+            default : false,
+            handler : () => {
               that.propertyPanel.$modal.hide('dialog');
               that.view.newStory();
             }
@@ -87,22 +108,22 @@ export default Class.extend({
     this.removeButton = $("#remove-story-action");
     this.removeButton.button().click($.proxy(function() {
       that.propertyPanel.$modal.show('dialog', {
-        title: 'Remove story?',
-        text: 'This will remove the story from the storybook (server).<br> Are you sure?',
-        buttons: [
+        title : 'Remove story?',
+        text : 'This will remove the story from the storybook (server).<br> Are you sure?',
+        buttons : [
           {
-            title: 'Cancel',
-            default: true,
-            handler: () => {
+            title : 'Cancel',
+            default : true,
+            handler : () => {
               that.propertyPanel.$modal.hide('dialog');
             }
           },
           {
-            title: 'Remove my story from the server',
-            default: false,
-            handler: () => {
+            title : 'Remove my story from the server',
+            default : false,
+            handler : () => {
               that.propertyPanel.$modal.hide('dialog');
-              that.removeStory(that.view.projectData.id);
+              that.removeStory(that.view.projectData.id, true);
             }
           }
         ]
@@ -123,20 +144,20 @@ export default Class.extend({
     this.uploadButton = $("#upload-story-action");
     this.uploadButton.button().click($.proxy(function() {
       that.propertyPanel.$modal.show('dialog', {
-        title: 'Upload story?',
-        text: 'This will upload the story to the storybook (server).<br>All mod user will be able to see the story.',
-        buttons: [
+        title : 'Upload story?',
+        text : 'This will upload the story to the storybook (server).<br>All mod user will be able to see the story.',
+        buttons : [
           {
-            title: 'Cancel',
-            default: true,
-            handler: () => {
+            title : 'Cancel',
+            default : true,
+            handler : () => {
               that.propertyPanel.$modal.hide('dialog');
             }
           },
           {
-            title: 'Upload',
-            default: false,
-            handler: () => {
+            title : 'Upload',
+            default : false,
+            handler : () => {
               that.propertyPanel.$modal.hide('dialog');
               that.addStory();
               console.debug(this.view.toJSON());
@@ -164,6 +185,7 @@ export default Class.extend({
    */
   onSelectionChanged : function(emitter, event) {
     this.deleteButton.button("option", "disabled", !this.viableDeleteSelection() > 0);
+    this.copyButton.button("option", "disabled", !this.viableDeleteSelection() > 0);
   },
 
   /**
@@ -218,7 +240,7 @@ export default Class.extend({
 
   removeStory : function(id, removeLocal = false) {
     const that = this;
-    if (id === null){
+    if (id === null) {
       this.popupMessage("This project has not been uploaded so it can't be removed.<br>To remove the local changes use the 'New story' button.");
       return;
     }
@@ -226,7 +248,7 @@ export default Class.extend({
       url : '/story/' + id,
       type : 'DELETE',
       success : function(data) {
-        if (removeLocal){
+        if (removeLocal) {
           that.view.newStory();
         } else {
           that.loadStories();
@@ -241,7 +263,7 @@ export default Class.extend({
 
   loadStory : function(id) {
     const that = this;
-    if (id === null){
+    if (id === null) {
       this.errorMessage("This story has no id.");
       return;
     }
@@ -271,6 +293,10 @@ export default Class.extend({
         }
       },
       error : function(jqXhr, textStatus, errorThrown) {
+        if (jqXHR.status === 403) {
+          this.popupMessage("Story limit reached. Remove an old story (right side in the load list) or request a limit increase: niek@keyboxsoftware.nl");
+          return;
+        }
         console.log(errorThrown);
         that.errorMessage("Trying to add/update story " + that.view.projectData.id + ", " + errorThrown);
       }
@@ -280,13 +306,13 @@ export default Class.extend({
   popupMessage : function(message) {
     const that = this;
     this.propertyPanel.$modal.show('dialog', {
-      title: 'Message',
-      text: message,
-      buttons: [
+      title : 'Message',
+      text : message,
+      buttons : [
         {
-          title: 'Ok',
-          default: true,
-          handler: () => {
+          title : 'Ok',
+          default : true,
+          handler : () => {
             that.propertyPanel.$modal.hide('dialog');
           }
         }
@@ -297,13 +323,13 @@ export default Class.extend({
   errorMessage : function(message) {
     const that = this;
     this.propertyPanel.$modal.show('dialog', {
-      title: 'Error :(',
-      text: 'Please send the following to niet@keyboxsoftware.nl: <br>' + message,
-      buttons: [
+      title : 'Error :(',
+      text : 'Please send the following to niek@keyboxsoftware.nl: <br>' + message,
+      buttons : [
         {
-          title: ':(',
-          default: true,
-          handler: () => {
+          title : ':(',
+          default : true,
+          handler : () => {
             that.propertyPanel.$modal.hide('dialog');
           }
         }

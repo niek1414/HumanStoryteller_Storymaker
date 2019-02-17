@@ -16,13 +16,33 @@
         ">
             <v-text-field label="Sprout distance" type="number" v-model="selected.properties['Range']"></v-text-field>
         </v-input>
+
+        <v-input :messages="
+            selected.properties['Kind'] ==='' ||
+            selected.properties['Kind'] === undefined
+            ?'Default: Amrosia'
+            :'Plant kind'
+        ">
+            <v-autocomplete
+                    v-model="selected.properties['Kind']"
+                    :items="plants"
+                    label="Plant kind"
+            ></v-autocomplete>
+        </v-input>
     </div>
-</template>ú
+</template>
 
 <script>
+  import EventTypes from "../../storyGraph/EventTypes";
+
   export default {
     props : ["selected"],
-    name : "AmbrosiaSprout"
+    name : "AmbrosiaSprout",
+    data : function() {
+      return {
+        plants : EventTypes.Plants,
+      }
+    }
   }
 </script>
 

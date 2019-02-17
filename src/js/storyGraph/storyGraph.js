@@ -102,7 +102,7 @@ export default draw2d.Canvas.extend({
         }
       }
     }
-    return null;
+    return port === false ? null : port;
   },
 
   fromDocumentToCanvasCoordinate : function(x, y) {

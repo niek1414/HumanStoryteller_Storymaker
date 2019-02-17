@@ -20,6 +20,8 @@
                         <PawnHealth v-if="con.type === 'PawnHealth'" v-bind:condition="con"></PawnHealth>
                         <Dialog v-if="con.type === 'Dialog'" v-bind:condition="con"></Dialog>
                         <Variable v-if="con.type === 'Variable'" v-bind:condition="con"></Variable>
+                        <Random v-if="con.type === 'Random'" v-bind:condition="con"></Random>
+                        <Difficulty v-if="con.type === 'Difficulty'" v-bind:condition="con"></Difficulty>
                     </v-card-text>
                     <v-card-actions>
                         <v-btn flat color="error" v-on:click="selected.conditions = selected.conditions.filter(function(item) {return item !== con})">remove</v-btn>
@@ -36,13 +38,17 @@
   import Dialog from "./condition/Dialog";
   import EventTypes from "./../storyGraph/EventTypes";
   import Variable from "./condition/Variable";
+  import Random from "./condition/Random";
+  import Difficulty from "./condition/Difficulty";
 
   export default {
     name : "conditional",
     components : {
       PawnHealth,
       Variable,
-      Dialog
+      Dialog,
+      Random,
+      Difficulty
     },
     props : ["canvas", "selected"],
     data() {
@@ -50,6 +56,8 @@
         availableConditions : [
           {value : 'PawnHealth', text : 'Pawn health'},
           {value : 'Variable', text : 'Compare variable'},
+          {value : 'Random', text : 'Random chance'},
+          {value : 'Difficulty', text : 'Difficulty'},
         ],
         picked : null,
         search : "",

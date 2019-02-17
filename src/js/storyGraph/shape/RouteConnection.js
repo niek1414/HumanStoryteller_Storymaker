@@ -7,6 +7,7 @@ export default draw2d.Connection.extend({
   NAME : "sankey.shape.Connection",
 
   init : function(attr, setter, getter) {
+
     const _this = this;
     this.defaultRouter = new ManhattenInverseRouter();
     this.label = new draw2d.shape.basic.Label({
@@ -14,7 +15,8 @@ export default draw2d.Connection.extend({
       bgColor : "#20262c",
       fontColor : "#FFFFFF",
       stroke : 2,
-      radius : 8
+      radius : 8,
+      opacity : 0.8
     });
     this.label.weight = -1;
     this.label.parent = this;
@@ -30,11 +32,17 @@ export default draw2d.Connection.extend({
       router : _this.defaultRouter,
       outlineStroke : 4,
       outlineColor : '#2b2b2b',
-      stroke : 15,
+      stroke : 10,
       radius : 0,
       color : '#2f7cad'
     });
-    this.setSourceDecorator(new draw2d.decoration.connection.ArrowDecorator());
+    const color = new draw2d.util.Color(43,43,43);
+    this.sourceDecorator = new draw2d.decoration.connection.ArrowDecorator(15, 10);
+    this.targetDecorator = new draw2d.decoration.connection.CircleDecorator(15, 10);
+    this.sourceDecorator.backgroundColor = color;
+    this.targetDecorator.backgroundColor = color;
+    this.setSourceDecorator(this.sourceDecorator);
+    this.setTargetDecorator(this.targetDecorator);
     if (attr !== undefined && attr.offset !== undefined && this.targetPort.getAbsoluteY() - this.sourcePort.getAbsoluteY() !== attr.offset){
       this.label.customWeight = attr.offset;
       this.setWeight(undefined);
@@ -51,6 +59,7 @@ export default draw2d.Connection.extend({
     if (this.label.weight !== weight) {
       this.setWeight(weight);
     }
+
     this._super(routingHints);
   },
 

@@ -259,6 +259,13 @@ EventTypes.Dialog = {
   ]
 };
 
+EventTypes.Difficulty = {
+  value : "Difficulty",
+  text : "Set difficulty",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
 EventTypes.Events = [
   {text : "Alphabeavers",         value : EventTypes.Alphabeavers},
   {text : "Ambrosia sprouted",    value : EventTypes.AmbrosiaSprout},
@@ -269,6 +276,7 @@ EventTypes.Events = [
   {text : "Cold snap",            value : EventTypes.ColdSnap},
   {text : "Crop blight",          value : EventTypes.CropBlight},
   {text : "Dialog",               value : EventTypes.Dialog},
+  {text : "Difficulty",           value : EventTypes.Difficulty},
   {text : "Disease",              value : EventTypes.Disease},
   {text : "Eclipse",              value : EventTypes.Eclipse},
   {text : "Heat wave",            value : EventTypes.HeatWave},
@@ -303,6 +311,7 @@ EventTypes.EventsAsString = [
   "Cold snap",
   "Crop blight",
   "Dialog",
+  "Difficulty",
   "Disease",
   "Eclipse",
   "Heat wave",
@@ -325,6 +334,66 @@ EventTypes.EventsAsString = [
   "Visitors",
   "Volcanic winter",
   "Wanderer joins",
+];
+
+EventTypes.DifficultyLevel = [
+  {value : 'Peaceful', text : 'Peaceful'},
+  {value : 'Easy', text : 'Easy'},
+  {value : 'Medium', text : 'Medium'},
+  {value : 'Rough', text : 'Rough'},
+  {value : 'Hard', text : 'Hard'},
+  {value : 'Extreme', text : 'Extreme'}
+];
+
+EventTypes.Plants = [
+  {value : "Agarilux", text : "Agarilux"},
+  {value : "Bryolux", text : "Bryolux"},
+  {value : "BurnedTree", text : "Burned tree"},
+  {value : "Glowstool", text : "Glowstool"},
+  {value : "Plant_Agave", text : "Agave"},
+  {value : "Plant_Alocasia", text : "Alocasia"},
+  {value : "Plant_Ambrosia", text : "Ambrosia"},
+  {value : "Plant_Astragalus", text : "Astragalus"},
+  {value : "Plant_Berry", text : "Berry"},
+  {value : "Plant_Brambles", text : "Brambles"},
+  {value : "Plant_Bush", text : "Bush"},
+  {value : "Plant_Chokevine", text : "Chokevine"},
+  {value : "Plant_Clivia", text : "Clivia"},
+  {value : "Plant_Corn", text : "Corn"},
+  {value : "Plant_Cotton", text : "Cotton"},
+  {value : "Plant_Dandelion", text : "Dandelion"},
+  {value : "Plant_Daylily", text : "Daylily"},
+  {value : "Plant_Devilstrand", text : "Devilstrand"},
+  {value : "Plant_Grass", text : "Grass"},
+  {value : "Plant_Haygrass", text : "Haygrass"},
+  {value : "Plant_Healroot", text : "Healroot"},
+  {value : "Plant_HealrootWild", text : "Healroot Wild"},
+  {value : "Plant_Hops", text : "Hops"},
+  {value : "Plant_Moss", text : "Moss"},
+  {value : "Plant_PincushionCactus", text : "Pincushion Cactus"},
+  {value : "Plant_Potato", text : "Potato"},
+  {value : "Plant_Psychoid", text : "Psychoid"},
+  {value : "Plant_Rafflesia", text : "Rafflesia"},
+  {value : "Plant_Rice", text : "Rice"},
+  {value : "Plant_Rose", text : "Rose"},
+  {value : "Plant_SaguaroCactus", text : "Saguaro Cactus"},
+  {value : "Plant_ShrubLow", text : "Shrub Low"},
+  {value : "Plant_Smokeleaf", text : "Smokeleaf"},
+  {value : "Plant_Strawberry", text : "Strawberry"},
+  {value : "Plant_TallGrass", text : "Tall Grass"},
+  {value : "Plant_TreeBamboo", text : "Tree Bamboo"},
+  {value : "Plant_TreeBirch", text : "Tree Birch"},
+  {value : "Plant_TreeCecropia", text : "Tree Cecropia"},
+  {value : "Plant_TreeCocoa", text : "TreeCocoa"},
+  {value : "Plant_TreeCypress", text : "Tree Cypress"},
+  {value : "Plant_TreeDrago", text : "Tree Drago"},
+  {value : "Plant_TreeMaple", text : "Tree Maple"},
+  {value : "Plant_TreeOak", text : "Tree Oak"},
+  {value : "Plant_TreePalm", text : "Tree Palm"},
+  {value : "Plant_TreePine", text : "Tree Pine"},
+  {value : "Plant_TreePoplar", text : "Tree Poplar"},
+  {value : "Plant_TreeTeak", text : "Tree Teak"},
+  {value : "Plant_TreeWillow", text : "Tree Willow"},
 ];
 
 EventTypes.AnimalTypes = [

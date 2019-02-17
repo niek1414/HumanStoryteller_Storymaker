@@ -69,6 +69,7 @@
                 <Alphabeavers v-else-if="selected.type.value.value === 'Alphabeavers'" v-bind:selected="selected"/>
                 <AmbrosiaSprout v-else-if="selected.type.value.value === 'AmbrosiaSprout'" v-bind:selected="selected"/>
                 <Dialog v-else-if="selected.type.value.value === 'Dialog'" v-bind:selected="selected"/>
+                <Difficulty v-else-if="selected.type.value.value === 'Difficulty'" v-bind:selected="selected"/>
                 <Nothing v-else v-bind:selected="selected"/>
 
             </template>
@@ -114,6 +115,7 @@
   import AmbrosiaSprout from "./type/AmbrosiaSprout";
   import Nothing from "./type/Nothing";
   import Dialog from "./type/Dialog";
+  import Difficulty from "./type/Difficulty";
 
   export default {
     name : "property-panel",
@@ -163,6 +165,7 @@
       AmbrosiaSprout,
       Nothing,
       Dialog,
+      Difficulty
     },
     data() {
       return {

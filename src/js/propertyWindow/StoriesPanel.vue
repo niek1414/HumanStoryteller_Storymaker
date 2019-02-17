@@ -43,7 +43,7 @@
               title : 'Remove my story from the server',
               default : false,
               handler : () => {
-                toolbar.removeStory(id, true);
+                toolbar.removeStory(id);
                 toolbar.propertyPanel.$modal.hide('dialog');
               }
             }

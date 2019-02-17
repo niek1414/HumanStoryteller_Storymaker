@@ -10,6 +10,9 @@
         <br><br>
         The number on the connection is the amount of days the event will be offset from the previous event.
         <br><br>
+        Hold shift while scrolling to zoom in & out.<br>
+        To delete a event or connection, highlight it by clicking and then use the <i class="far fa-trash-alt"></i> button.
+        <br><br>
         Adding a condition to an event allows you to react on the player's action.<br><br>
         Important: A condition is constantly checked until the next event can be executed.<br>
         So, if initially the condition was false but the event for false is in 3 days the player can still get the event for true if the conditions have changed just before the 3
