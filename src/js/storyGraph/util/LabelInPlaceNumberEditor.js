@@ -72,7 +72,7 @@ export default draw2d.ui.LabelInplaceEditor.extend({
     const myInt = parseFloat(label);
     if (!isNaN(myInt)) {
       this.label.customWeight = myInt * 100;
-      this.label.parent.setWeight(undefined);
+      this.label.parent.updateWeight(undefined);
     }
     this.html.fadeOut(() => {
       this.html.remove();

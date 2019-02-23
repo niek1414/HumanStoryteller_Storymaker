@@ -13,8 +13,13 @@
             ></v-autocomplete>
         </v-input>
 
-        <v-input messages="2 is twice the strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
-            <v-text-field label="Strength as multiplier" type="number" v-model="selected.properties['Points']"></v-text-field>
+        <v-input :messages="
+            selected.properties['Amount'] ==='' ||
+            selected.properties['Amount'] === undefined
+            ?'Default: between 3 and 5 depending on body size'
+            :'The amount of animals'
+        ">
+            <v-text-field label="Amount" type="number" v-model="selected.properties['Amount']"></v-text-field>
         </v-input>
     </div>
 </template>
@@ -24,7 +29,7 @@
 
   export default {
     props : ["selected"],
-    name : "ManhunterPack",
+    name : "HerdMigration",
     data : function() {
       return {
         animals : EventTypes.AnimalTypes,

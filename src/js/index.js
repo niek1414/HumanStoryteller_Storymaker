@@ -15,6 +15,8 @@ import 'vuetify/dist/vuetify.min.css'
 import VModal from 'vue-js-modal'
 import Vuetify from 'vuetify'
 import DividerPanel from "./propertyWindow/DividerPanel";
+import ConnectionPanel from "./propertyWindow/ConnectionPanel";
+import RouteConnection from "./storyGraph/shape/RouteConnection";
 
 window.onbeforeunload = function() {
   return 'All unsaved changes will be discarded!';
@@ -43,6 +45,9 @@ const propertyPanel = new Vue({
         if (item instanceof Event) {
           this.selected = item;
           this.state = "node";
+        } else if (item instanceof RouteConnection) {
+          this.selected = item;
+          this.state = "connection"
         }
       } else {
         this.selected = null;
@@ -51,7 +56,7 @@ const propertyPanel = new Vue({
       updateInfoBar();
     },
   },
-  components : {PropertyPanel, EditorInfo, DetailPanel, StoriesPanel, DividerPanel}
+  components : {PropertyPanel, EditorInfo, DetailPanel, StoriesPanel, DividerPanel, ConnectionPanel}
 });
 const toolbar = new Toolbar(canvas, propertyPanel);
 propertyPanel.toolbar = toolbar;

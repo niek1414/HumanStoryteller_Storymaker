@@ -23,16 +23,9 @@
 </template>
 
 <script>
-  import EventTypes from "../../storyGraph/EventTypes";
-
   export default {
     props : ["selected"],
     name : "AnimalInsanitySingle",
-    data : function() {
-      return {
-        animals : EventTypes.AnimalTypes,
-      }
-    }
   }
 </script>
 

@@ -3,18 +3,14 @@
         <v-input :messages="
             selected.properties['Kind'] ==='' ||
             selected.properties['Kind'] === undefined
-            ?'Default: random kind of the larger animals'
-            :'Animal kind'
+            ?'Default: random trader (can be orbital)'
+            :'A trader kind. If orbital the player may not notice if it does not have a Comms console'
         ">
             <v-autocomplete
                     v-model="selected.properties['Kind']"
-                    :items="animals"
-                    label="Animal kind"
+                    :items="traders"
+                    label="Trader kind"
             ></v-autocomplete>
-        </v-input>
-
-        <v-input messages="2 is twice the strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
-            <v-text-field label="Strength as multiplier" type="number" v-model="selected.properties['Points']"></v-text-field>
         </v-input>
     </div>
 </template>
@@ -24,10 +20,10 @@
 
   export default {
     props : ["selected"],
-    name : "ManhunterPack",
+    name : "TraderArrival",
     data : function() {
       return {
-        animals : EventTypes.AnimalTypes,
+        traders : EventTypes.Traders,
       }
     }
   }

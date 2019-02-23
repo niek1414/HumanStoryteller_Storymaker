@@ -61,17 +61,31 @@ EventTypes.ManhunterPack = {
   conditions : []
 };
 
+EventTypes.Flashstorm = {
+  value : "Flashstorm",
+  text : "Flashstorm",
+  type : EventTypes.GENERALLY_BAD,
+  conditions : []
+};
+
+EventTypes.MeteoriteImpact = {
+  value : "MeteoriteImpact",
+  text : "Meteorite",
+  type : EventTypes.GENERALLY_GOOD,
+  conditions : []
+};
+
+EventTypes.HerdMigration = {
+  value : "HerdMigration",
+  text : "Herd migration",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
 EventTypes.Infestation = {
   value : "Infestation",
   text : "Infestation",
   type : EventTypes.BIG_THREATS,
-  conditions : []
-};
-
-EventTypes.RaidFriendly = {
-  value : "RaidFriendly",
-  text : "Raid friendly",
-  type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
 
@@ -99,13 +113,6 @@ EventTypes.FarmAnimalsWanderIn = {
 EventTypes.ColdSnap = {
   value : "ColdSnap",
   text : "Cold snap",
-  type : EventTypes.SMALL_THREATS,
-  conditions : []
-};
-
-EventTypes.HeatWave = {
-  value : "HeatWave",
-  text : "Heat wave",
   type : EventTypes.SMALL_THREATS,
   conditions : []
 };
@@ -166,16 +173,9 @@ EventTypes.VolcanicWinter = {
   conditions : []
 };
 
-EventTypes.TraderArrivalGeneral = {
-  value : "TraderArrivalGeneral",
+EventTypes.TraderArrival = {
+  value : "TraderArrival",
   text : "Trader",
-  type : EventTypes.GENERALLY_GOOD,
-  conditions : []
-};
-
-EventTypes.TraderArrivalSlaver = {
-  value : "TraderArrivalSlaver",
-  text : "Trader slaver",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
@@ -226,7 +226,9 @@ EventTypes.RefugeeChased = {
   value : "RefugeeChased",
   text : "Refugee chased",
   type : EventTypes.NEUTRAL,
-  conditions : []
+  conditions : [
+    {value : "Dialog", text : "Dialog"}
+  ]
 };
 
 EventTypes.Alphabeavers = {
@@ -240,6 +242,13 @@ EventTypes.AmbrosiaSprout = {
   value : "AmbrosiaSprout",
   text : "Ambrosia sprouted",
   type : EventTypes.GENERALLY_GOOD,
+  conditions : []
+};
+
+EventTypes.TempFlux = {
+  value : "TempFlux",
+  text : "Cold snap/Heat wave",
+  type : EventTypes.SMALL_THREATS,
   conditions : []
 };
 
@@ -273,28 +282,29 @@ EventTypes.Events = [
   {text : "Animal insanity",      value : EventTypes.AnimalInsanitySingle},
   {text : "Animals join",         value : EventTypes.FarmAnimalsWanderIn},
   {text : "Aurora",               value : EventTypes.Aurora},
-  {text : "Cold snap",            value : EventTypes.ColdSnap},
+  {text : "Cold snap/Heat wave",  value : EventTypes.TempFlux},
   {text : "Crop blight",          value : EventTypes.CropBlight},
   {text : "Dialog",               value : EventTypes.Dialog},
   {text : "Difficulty",           value : EventTypes.Difficulty},
   {text : "Disease",              value : EventTypes.Disease},
   {text : "Eclipse",              value : EventTypes.Eclipse},
-  {text : "Heat wave",            value : EventTypes.HeatWave},
+  {text : "Flashstorm",           value : EventTypes.Flashstorm},
+  {text : "Herd migration",       value : EventTypes.HerdMigration},
   {text : "Infestation",          value : EventTypes.Infestation},
   {text : "Manhunter pack",       value : EventTypes.ManhunterPack},
+  {text : "Meteorite",            value : EventTypes.MeteoriteImpact},
   {text : "Nothing",              value : EventTypes.Nothing},
   {text : "Psychic drone",        value : EventTypes.PsychicDrone},
   {text : "Psychic soothe",       value : EventTypes.PsychicSoothe},
-  {text : "Raid friendly",        value : EventTypes.RaidFriendly},
   {text : "Raid",                 value : EventTypes.RaidEnemy},
   {text : "Refugee crash",        value : EventTypes.RefugeePodCrash},
+  {text : "Refugee chased",       value : EventTypes.RefugeeChased},
   {text : "Resource pod",         value : EventTypes.ResourcePodCrash},
   {text : "Ship part",            value : EventTypes.ShipPartCrash},
   {text : "Short circuit",        value : EventTypes.ShortCircuit},
   {text : "Solar flare",          value : EventTypes.SolarFlare},
   {text : "Toxic fallout",        value : EventTypes.ToxicFallout},
-  {text : "Trader slaver",        value : EventTypes.TraderArrivalSlaver},
-  {text : "Trader",               value : EventTypes.TraderArrivalGeneral},
+  {text : "Trader",               value : EventTypes.TraderArrival},
   {text : "Traveler",             value : EventTypes.TravelerGroup},
   {text : "Visitors",             value : EventTypes.VisitorGroup},
   {text : "Volcanic winter",      value : EventTypes.VolcanicWinter},
@@ -308,27 +318,27 @@ EventTypes.EventsAsString = [
   "Animal insanity",
   "Animals join",
   "Aurora",
-  "Cold snap",
+  "Cold snap/Heat wave",
   "Crop blight",
   "Dialog",
   "Difficulty",
   "Disease",
   "Eclipse",
-  "Heat wave",
+  "Flashstorm",
+  "Herd migration",
   "Infestation",
   "Manhunter pack",
   "Nothing",
   "Psychic drone",
   "Psychic soothe",
-  "Raid friendly",
   "Raid",
   "Refugee crash",
+  "Refugee chased",
   "Resource pod",
   "Ship part",
   "Short circuit",
   "Solar flare",
   "Toxic fallout",
-  "Trader slaver",
   "Trader",
   "Traveler",
   "Visitors",
@@ -343,6 +353,51 @@ EventTypes.DifficultyLevel = [
   {value : 'Rough', text : 'Rough'},
   {value : 'Hard', text : 'Hard'},
   {value : 'Extreme', text : 'Extreme'}
+];
+
+EventTypes.MineableMaterials = [
+  {value : 'MineableSteel', text : 'Mineable steel'},
+  {value : 'MineableSilver', text : 'Mineable silver'},
+  {value : 'MineableGold', text : 'Mineable gold'},
+  {value : 'MineableUranium', text : 'Mineable uranium'},
+  {value : 'MineablePlasteel', text : 'Mineable plasteel'},
+  {value : 'MineableJade', text : 'Mineable jade'},
+  {value : 'MineableComponentsIndustrial', text : 'Mineable components'},
+  {value : 'Sandstone', text : 'Sandstone'},
+  {value : 'Granite', text : 'Granite'},
+  {value : 'Limestone', text : 'Limestone'},
+  {value : 'Slate', text : 'Slate'},
+  {value : 'Marble', text : 'Marble'}
+];
+
+EventTypes.DiseaseTypes = [
+  {value : 'Disease_Flu', text : 'Flu'},
+  {value : 'Disease_Plague', text : 'Plague'},
+  {value : 'Disease_Malaria', text : 'Malaria'},
+  {value : 'Disease_SleepingSickness', text : 'Sleeping Sickness'},
+  {value : 'Disease_FibrousMechanites', text : 'Fibrous Mechanites'},
+  {value : 'Disease_SensoryMechanites', text : 'Sensory Mechanites'},
+  {value : 'Disease_GutWorms', text : 'Gut Worms'},
+  {value : 'Disease_MuscleParasites', text : 'Muscle Parasites'},
+  {value : 'Disease_AnimalFlu', text : 'Animal Flu'},
+  {value : 'Disease_AnimalPlague', text : 'Animal Plague'},
+];
+
+EventTypes.Traders = [
+  {value : 'Caravan_Neolithic_BulkGoods', text : 'Caravan Neolithic Bulk goods'},
+  {value : 'Caravan_Neolithic_WarMerchant', text : 'Caravan Neolithic War merchant'},
+  {value : 'Caravan_Neolithic_Slaver', text : 'Caravan Neolithic Slaver'},
+  {value : 'Caravan_Neolithic_ShamanMerchant', text : 'Caravan Neolithic Shaman merchant'},
+  {value : 'Caravan_Outlander_BulkGoods', text : 'Caravan Outlander Bulk goods'},
+  {value : 'Caravan_Outlander_CombatSupplier', text : 'Caravan Outlander Combat supplier'},
+  {value : 'Caravan_Outlander_PirateMerchant', text : 'Caravan Outlander Pirate merchant'},
+  {value : 'Caravan_Outlander_Exotic', text : 'Caravan Outlander Exotic'},
+  {value : 'Orbital_BulkGoods', text : 'Orbital Bulk goods'},
+  {value : 'Orbital_CombatSupplier', text : 'Orbital Combat supplier'},
+  {value : 'Orbital_Exotic', text : 'Orbital Exotic'},
+  {value : 'Orbital_PirateMerchant', text : 'Orbital Pirate merchant'},
+  {value : 'Visitor_Neolithic_Standard', text : 'Visitor Neolithic Standard'},
+  {value : 'Visitor_Outlander_Standard', text : 'Visitor Outlander Standard'}
 ];
 
 EventTypes.Plants = [

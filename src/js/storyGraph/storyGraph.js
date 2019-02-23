@@ -30,7 +30,7 @@ export default draw2d.Canvas.extend({
 
     var conn = new RouteConnection({
       source : this.addRoot(375, 75).getOutputPort(0),
-      target : this.addEvent(350, 225, "TraderArrivalGeneral").getInputPort(0)
+      target : this.addEvent(350, 225, "TraderArrival").getInputPort(0)
     });
     this.add(conn);
   },

@@ -44,22 +44,23 @@
                 <ShipPartCrash v-else-if="selected.type.value.value === 'ShipPartCrash'" v-bind:selected="selected"/>
                 <ManhunterPack v-else-if="selected.type.value.value === 'ManhunterPack'" v-bind:selected="selected"/>
                 <Infestation v-else-if="selected.type.value.value === 'Infestation'" v-bind:selected="selected"/>
-                <RaidFriendly v-else-if="selected.type.value.value === 'RaidFriendly'" v-bind:selected="selected"/>
                 <AnimalInsanitySingle v-else-if="selected.type.value.value === 'AnimalInsanitySingle'" v-bind:selected="selected"/>
                 <AnimalInsanityMass v-else-if="selected.type.value.value === 'AnimalInsanityMass'" v-bind:selected="selected"/>
                 <FarmAnimalsWanderIn v-else-if="selected.type.value.value === 'FarmAnimalsWanderIn'" v-bind:selected="selected"/>
-                <ColdSnap v-else-if="selected.type.value.value === 'ColdSnap'" v-bind:selected="selected"/>
-                <HeatWave v-else-if="selected.type.value.value === 'HeatWave'" v-bind:selected="selected"/>
+                <TempFlux v-else-if="selected.type.value.value === 'TempFlux'" v-bind:selected="selected"/>
                 <Aurora v-else-if="selected.type.value.value === 'Aurora'" v-bind:selected="selected"/>
                 <Eclipse v-else-if="selected.type.value.value === 'Eclipse'" v-bind:selected="selected"/>
                 <SolarFlare v-else-if="selected.type.value.value === 'SolarFlare'" v-bind:selected="selected"/>
+                <Flashstorm v-else-if="selected.type.value.value === 'Flashstorm'" v-bind:selected="selected"/>
+                <RefugeeChased v-else-if="selected.type.value.value === 'RefugeeChased'" v-bind:selected="selected"/>
+                <HerdMigration v-else-if="selected.type.value.value === 'HerdMigration'" v-bind:selected="selected"/>
                 <PsychicDrone v-else-if="selected.type.value.value === 'PsychicDrone'" v-bind:selected="selected"/>
+                <MeteoriteImpact v-else-if="selected.type.value.value === 'MeteoriteImpact'" v-bind:selected="selected"/>
                 <ShortCircuit v-else-if="selected.type.value.value === 'ShortCircuit'" v-bind:selected="selected"/>
                 <CropBlight v-else-if="selected.type.value.value === 'CropBlight'" v-bind:selected="selected"/>
                 <ToxicFallout v-else-if="selected.type.value.value === 'ToxicFallout'" v-bind:selected="selected"/>
                 <VolcanicWinter v-else-if="selected.type.value.value === 'VolcanicWinter'" v-bind:selected="selected"/>
-                <TraderArrivalGeneral v-else-if="selected.type.value.value === 'TraderArrivalGeneral'" v-bind:selected="selected"/>
-                <TraderArrivalSlaver v-else-if="selected.type.value.value === 'TraderArrivalSlaver'" v-bind:selected="selected"/>
+                <TraderArrival v-else-if="selected.type.value.value === 'TraderArrival'" v-bind:selected="selected"/>
                 <TravelerGroup v-else-if="selected.type.value.value === 'TravelerGroup'" v-bind:selected="selected"/>
                 <VisitorGroup v-else-if="selected.type.value.value === 'VisitorGroup'" v-bind:selected="selected"/>
                 <WandererJoin v-else-if="selected.type.value.value === 'WandererJoin'" v-bind:selected="selected"/>
@@ -71,7 +72,6 @@
                 <Dialog v-else-if="selected.type.value.value === 'Dialog'" v-bind:selected="selected"/>
                 <Difficulty v-else-if="selected.type.value.value === 'Difficulty'" v-bind:selected="selected"/>
                 <Nothing v-else v-bind:selected="selected"/>
-
             </template>
         </div>
     </div>
@@ -89,12 +89,10 @@
   import ShipPartCrash from "./type/ShipPartCrash";
   import ManhunterPack from "./type/ManhunterPack";
   import Infestation from "./type/Infestation";
-  import RaidFriendly from "./type/RaidFriendly";
   import AnimalInsanitySingle from "./type/AnimalInsanitySingle";
   import AnimalInsanityMass from "./type/AnimalInsanityMass";
   import FarmAnimalsWanderIn from "./type/FarmAnimalsWanderIn";
-  import ColdSnap from "./type/ColdSnap";
-  import HeatWave from "./type/HeatWave";
+  import TempFlux from "./type/TempFlux";
   import Aurora from "./type/Aurora";
   import Eclipse from "./type/Eclipse";
   import SolarFlare from "./type/SolarFlare";
@@ -103,8 +101,7 @@
   import CropBlight from "./type/CropBlight";
   import ToxicFallout from "./type/ToxicFallout";
   import VolcanicWinter from "./type/VolcanicWinter";
-  import TraderArrivalGeneral from "./type/TraderArrivalGeneral";
-  import TraderArrivalSlaver from "./type/TraderArrivalSlaver";
+  import TraderArrival from "./type/TraderArrival";
   import TravelerGroup from "./type/TravelerGroup";
   import VisitorGroup from "./type/VisitorGroup";
   import WandererJoin from "./type/WandererJoin";
@@ -116,6 +113,10 @@
   import Nothing from "./type/Nothing";
   import Dialog from "./type/Dialog";
   import Difficulty from "./type/Difficulty";
+  import Flashstorm from "./type/Flashstorm";
+  import HerdMigration from "./type/HerdMigration";
+  import RefugeeChased from "./type/RefugeeChased";
+  import MeteoriteImpact from "./type/MeteoriteImpact";
 
   export default {
     name : "property-panel",
@@ -129,6 +130,10 @@
       }
     },
     components : {
+      MeteoriteImpact,
+      RefugeeChased,
+      HerdMigration,
+      Flashstorm,
       PropertyHeader,
       ModelSelect,
       Conditional,
@@ -139,12 +144,10 @@
       ShipPartCrash,
       ManhunterPack,
       Infestation,
-      RaidFriendly,
       AnimalInsanitySingle,
       AnimalInsanityMass,
       FarmAnimalsWanderIn,
-      ColdSnap,
-      HeatWave,
+      TempFlux,
       Aurora,
       Eclipse,
       SolarFlare,
@@ -153,8 +156,7 @@
       CropBlight,
       ToxicFallout,
       VolcanicWinter,
-      TraderArrivalGeneral,
-      TraderArrivalSlaver,
+      TraderArrival,
       TravelerGroup,
       VisitorGroup,
       WandererJoin,

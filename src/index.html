@@ -81,6 +81,7 @@
                         <property-panel v-if="state === 'node' && !selected.isRoot && !selected.isDivider" v-bind:selected="selected" v-bind:canvas="graph"></property-panel>
                         <detail-panel v-else-if="state === 'node' && selected.isRoot" v-bind:project="graph.projectData"></detail-panel>
                         <divider-panel v-else-if="state === 'node' && selected.isDivider"></divider-panel>
+                        <connection-panel v-else-if="state === 'connection'" v-bind:selected="selected"></connection-panel>
                         <stories-panel v-else-if="state === 'stories'" v-bind:stories="selected" v-bind:toolbar="toolbar"></stories-panel>
                         <editor-info v-else>
                             <div style="color: #cfcfcf; padding: 50px">Please enable JavaScript :)<br><br>Is JavaScript enabled? Try Google Chrome!<br><br>Are you using Chrome?

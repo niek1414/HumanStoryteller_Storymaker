@@ -1,20 +1,20 @@
 <template>
     <div class="info-box">
         <v-input :messages="
-            selected.properties['Amount'] ==='' ||
-            selected.properties['Amount'] === undefined
-            ?'Default: between 10 and 20'
-            :'The amount of plants affected'
-        ">
-            <v-text-field label="Max amount infected" type="number" v-model="selected.properties['Amount']"></v-text-field>
-        </v-input>
-        <v-input :messages="
-            selected.properties['Range'] ==='' ||
-            selected.properties['Range'] === undefined
-            ?'Default: 6 tiles'
+            selected.properties['Radius'] ==='' ||
+            selected.properties['Radius'] === undefined
+            ?'Default: 15 tiles from origin plant'
             :'Amount of tiles that the infection can spread'
         ">
-            <v-text-field label="Infection range" type="number" v-model="selected.properties['Range']"></v-text-field>
+            <v-text-field label="Infection range" type="number" v-model="selected.properties['Radius']"></v-text-field>
+        </v-input>
+        <v-input :messages="
+            selected.properties['Chance'] ==='' ||
+            selected.properties['Chance'] === undefined
+            ?'Default: 0.4 (= 40%)'
+            :'The change (between 0 and 1) of a plant being affected (every plan in the radius is checked once)'
+        ">
+            <v-text-field label="Infection chance" type="number" v-model="selected.properties['Chance']"></v-text-field>
         </v-input>
     </div>
 </template>
