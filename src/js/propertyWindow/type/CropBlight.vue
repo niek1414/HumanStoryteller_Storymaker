@@ -4,7 +4,7 @@
             selected.properties['Radius'] ==='' ||
             selected.properties['Radius'] === undefined
             ?'Default: 15 tiles from origin plant'
-            :'Amount of tiles that the infection can spread'
+            :'Amount of tiles that the infection can spread (Max 56)'
         ">
             <v-text-field label="Infection range" type="number" v-model="selected.properties['Radius']"></v-text-field>
         </v-input>

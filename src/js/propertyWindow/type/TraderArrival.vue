@@ -1,13 +1,13 @@
 <template>
     <div class="info-box">
         <v-input :messages="
-            selected.properties['Kind'] ==='' ||
-            selected.properties['Kind'] === undefined
+            selected.properties['TraderKind'] ==='' ||
+            selected.properties['TraderKind'] === undefined
             ?'Default: random trader (can be orbital)'
             :'A trader kind. If orbital the player may not notice if it does not have a Comms console'
         ">
             <v-autocomplete
-                    v-model="selected.properties['Kind']"
+                    v-model="selected.properties['TraderKind']"
                     :items="traders"
                     label="Trader kind"
             ></v-autocomplete>

@@ -18,13 +18,13 @@
         </v-input>
 
         <v-input :messages="
-            selected.properties['Kind'] ==='' ||
-            selected.properties['Kind'] === undefined
+            selected.properties['PlantKind'] ==='' ||
+            selected.properties['PlantKind'] === undefined
             ?'Default: Amrosia'
             :'Plant kind'
         ">
             <v-autocomplete
-                    v-model="selected.properties['Kind']"
+                    v-model="selected.properties['PlantKind']"
                     :items="plants"
                     label="Plant kind"
             ></v-autocomplete>

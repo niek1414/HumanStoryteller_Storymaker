@@ -61,9 +61,9 @@
                 <ToxicFallout v-else-if="selected.type.value.value === 'ToxicFallout'" v-bind:selected="selected"/>
                 <VolcanicWinter v-else-if="selected.type.value.value === 'VolcanicWinter'" v-bind:selected="selected"/>
                 <TraderArrival v-else-if="selected.type.value.value === 'TraderArrival'" v-bind:selected="selected"/>
-                <TravelerGroup v-else-if="selected.type.value.value === 'TravelerGroup'" v-bind:selected="selected"/>
                 <VisitorGroup v-else-if="selected.type.value.value === 'VisitorGroup'" v-bind:selected="selected"/>
                 <WandererJoin v-else-if="selected.type.value.value === 'WandererJoin'" v-bind:selected="selected"/>
+                <SelfTame v-else-if="selected.type.value.value === 'SelfTame'" v-bind:selected="selected"/>
                 <ResourcePodCrash v-else-if="selected.type.value.value === 'ResourcePodCrash'" v-bind:selected="selected"/>
                 <RefugeePodCrash v-else-if="selected.type.value.value === 'RefugeePodCrash'" v-bind:selected="selected"/>
                 <PsychicSoothe v-else-if="selected.type.value.value === 'PsychicSoothe'" v-bind:selected="selected"/>
@@ -71,6 +71,8 @@
                 <AmbrosiaSprout v-else-if="selected.type.value.value === 'AmbrosiaSprout'" v-bind:selected="selected"/>
                 <Dialog v-else-if="selected.type.value.value === 'Dialog'" v-bind:selected="selected"/>
                 <Difficulty v-else-if="selected.type.value.value === 'Difficulty'" v-bind:selected="selected"/>
+                <WildManWandersIn v-else-if="selected.type.value.value === 'WildManWandersIn'" v-bind:selected="selected"/>
+                <Planetkiller v-else-if="selected.type.value.value === 'Planetkiller'" v-bind:selected="selected"/>
                 <Nothing v-else v-bind:selected="selected"/>
             </template>
         </div>
@@ -102,7 +104,6 @@
   import ToxicFallout from "./type/ToxicFallout";
   import VolcanicWinter from "./type/VolcanicWinter";
   import TraderArrival from "./type/TraderArrival";
-  import TravelerGroup from "./type/TravelerGroup";
   import VisitorGroup from "./type/VisitorGroup";
   import WandererJoin from "./type/WandererJoin";
   import ResourcePodCrash from "./type/ResourcePodCrash";
@@ -117,6 +118,9 @@
   import HerdMigration from "./type/HerdMigration";
   import RefugeeChased from "./type/RefugeeChased";
   import MeteoriteImpact from "./type/MeteoriteImpact";
+  import SelfTame from "./type/SelfTame";
+  import WildManWandersIn from "./type/WildManWandersIn";
+  import Planetkiller from "./type/Planetkiller";
 
   export default {
     name : "property-panel",
@@ -130,6 +134,9 @@
       }
     },
     components : {
+      Planetkiller,
+      WildManWandersIn,
+      SelfTame,
       MeteoriteImpact,
       RefugeeChased,
       HerdMigration,

@@ -123,7 +123,7 @@
         position: relative;
         box-shadow: 0px 0px 19px 1px #000;
         width: 100%;
-        height: 150px;
+        height: 155px;
         margin-bottom: 30px;
         background: #4c4c4c;
         background: -moz-linear-gradient(-45deg, #4c4c4c 0%, #595959 44%, #474747 100%);

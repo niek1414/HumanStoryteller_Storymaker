@@ -5,7 +5,7 @@
         </v-input>
 
         <v-input messages="Name of the chased refugee">
-            <v-text-field label="Refugee name" type="text" v-model="selected.properties['ChasedName']"></v-text-field>
+            <v-text-field label="Refugee name" type="text" v-model="selected.properties['Name']"></v-text-field>
         </v-input>
     </div>
 </template>

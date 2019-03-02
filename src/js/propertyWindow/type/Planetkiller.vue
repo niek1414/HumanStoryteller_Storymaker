@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input messages="Default: between 2.5 and 10.5 days">
+        <v-input messages="Default: between 90 and 500 days">
             <v-text-field label="Duration in days" type="number" v-model="selected.properties['Duration']"></v-text-field>
         </v-input>
     </div>
@@ -9,7 +9,7 @@
 <script>
   export default {
     props : ["selected"],
-    name : "ToxicFallout"
+    name : "Planetkiller"
   }
 </script>
 

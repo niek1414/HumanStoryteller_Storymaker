@@ -10,13 +10,13 @@
         </v-input>
 
         <v-input :messages="
-            selected.properties['Kind'] ==='' ||
-            selected.properties['Kind'] === undefined
+            selected.properties['AnimalKind'] ==='' ||
+            selected.properties['AnimalKind'] === undefined
             ?'Default: random non-wild animal'
             :'Animal kind'
         ">
             <v-autocomplete
-                    v-model="selected.properties['Kind']"
+                    v-model="selected.properties['AnimalKind']"
                     :items="animals"
                     label="Animal kind"
             ></v-autocomplete>

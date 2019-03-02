@@ -1,13 +1,13 @@
 <template>
     <div class="info-box">
         <v-input :messages="
-            selected.properties['Type'] ==='' ||
-            selected.properties['Type'] === undefined
+            selected.properties['MineableRock'] ==='' ||
+            selected.properties['MineableRock'] === undefined
             ?'Default: random kind of material'
             :'Mineable material'
         ">
             <v-autocomplete
-                    v-model="selected.properties['Type']"
+                    v-model="selected.properties['MineableRock']"
                     :items="mineableMaterials"
                     label="Mineable material"
             ></v-autocomplete>

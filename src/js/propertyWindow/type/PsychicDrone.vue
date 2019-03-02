@@ -15,7 +15,7 @@
         <v-input>
             <v-select
                     :items="levels"
-                    v-model="selected.properties['Level']"
+                    v-model="selected.properties['PsyLevel']"
                     label="Severity level"
             ></v-select>
         </v-input>
