@@ -164,7 +164,6 @@
       ToxicFallout,
       VolcanicWinter,
       TraderArrival,
-      TravelerGroup,
       VisitorGroup,
       WandererJoin,
       ResourcePodCrash,
