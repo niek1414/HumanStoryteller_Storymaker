@@ -1,5 +1,5 @@
 <template>
-    <div class="info-box">MAIL</div>
+    <div class="info-box"><p>This event does nothing on its own.<br>Can be used to display a message on its own or create a silent conditional split.</p></div>
 </template>
 
 <script>

@@ -37,6 +37,31 @@ export default draw2d.shape.basic.Rectangle.extend({
     this.input = null;
     this.left = null;
     this.right = null;
+    this.applyTransformation = function () {
+      // let ts = "R" + this.rotationAngle
+      //
+      // if (this.getRotationAngle() === 90 || this.getRotationAngle() === 270) {
+      //   let ratio = this.getHeight() / this.getWidth()
+      //   ts = ts + "S" + ratio + "," + 1 / ratio + "," + (this.getAbsoluteX() + this.getWidth() / 2) + "," + (this.getAbsoluteY() + this.getHeight() / 2)
+      // }
+      //
+      // this.shape.transform(ts)
+
+      return this
+    };
+  },
+
+  setAlpha: function (percent) {
+    // percent = Math.min(1, Math.max(0, parseFloat(percent)))
+    // if (percent === this.alpha) {
+    //   return
+    // }
+    //
+    // this.alpha = percent
+    // this.repaint()
+    // this.fireEvent("change:opacity", {value: this.alpha})
+    //
+    return this
   },
 
   setLabel : function(labelString) {

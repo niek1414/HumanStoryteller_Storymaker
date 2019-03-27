@@ -58,9 +58,10 @@ export default Class.extend({
     this.copyButton.button().click($.proxy(function() {
       const list = this.view.getSelection().getAll();
       const l = list.getSize();
+      let nextSelection = new draw2d.util.ArrayList();
       for (let i = 0; i < l; i++) {
         const item = list.get(i);
-        if (!item instanceof Event) {
+        if (!(item instanceof Event)) {
           continue;
         }
         if (item.isRoot) {
@@ -68,11 +69,20 @@ export default Class.extend({
         }
 
         if (item.isDivider){
-          view.addDivider(item.x, item.y + 60);
+          nextSelection.add(view.addDivider(item.x, item.y + 60));
         } else {
-          view.addEvent(item.x, item.y + 60, item.type.value.value, JSON.parse(JSON.stringify(item.properties)), JSON.parse(JSON.stringify(item.conditions)), JSON.parse(JSON.stringify(item.storage)));
+          nextSelection.add(view.addEvent(item.x, item.y + 60, item.type.value.value, JSON.parse(JSON.stringify(item.properties)), JSON.parse(JSON.stringify(item.conditions)), JSON.parse(JSON.stringify(item.storage))));
         }
       }
+
+      this.view.selection.getAll().each( (i, e) =>{
+        this.view.editPolicy.each( (i, policy) =>{
+          if (typeof policy.unselect === "function") {
+            policy.unselect(this.view, e)
+          }
+        })
+      });
+      this.view.setCurrentSelection(nextSelection);
     }, this)).button("option", "disabled", true);
 
     this.newButton = $("#new-story-action");
@@ -194,7 +204,7 @@ export default Class.extend({
    */
   viableDeleteSelection : function() {
     let count = 0;
-    for (let i = 0, il = this.view.getSelection().getSize(); i < il; i++) {
+    // for (let i = 0, il = this.view.getSelection().getSize(); i < il; i++) {
       this.view.selection.each((i, e) => {
         if (e instanceof Event) {
           if (e.isRoot) {
@@ -202,8 +212,8 @@ export default Class.extend({
           }
         }
         count++;
-      })
-    }
+      });
+    // }
     return count;
   },
   /**

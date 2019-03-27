@@ -36,7 +36,7 @@
         border-color: #737577;
     }
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1370px) {
         #header {
             height: 46px;
         }

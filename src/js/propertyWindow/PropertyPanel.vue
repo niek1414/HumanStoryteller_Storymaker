@@ -62,7 +62,7 @@
                 <VolcanicWinter v-else-if="selected.type.value.value === 'VolcanicWinter'" v-bind:selected="selected"/>
                 <TraderArrival v-else-if="selected.type.value.value === 'TraderArrival'" v-bind:selected="selected"/>
                 <VisitorGroup v-else-if="selected.type.value.value === 'VisitorGroup'" v-bind:selected="selected"/>
-                <WandererJoin v-else-if="selected.type.value.value === 'WandererJoin'" v-bind:selected="selected"/>
+                <CreatePawn v-else-if="selected.type.value.value === 'CreatePawn'" v-bind:selected="selected"/>
                 <SelfTame v-else-if="selected.type.value.value === 'SelfTame'" v-bind:selected="selected"/>
                 <ResourcePodCrash v-else-if="selected.type.value.value === 'ResourcePodCrash'" v-bind:selected="selected"/>
                 <RefugeePodCrash v-else-if="selected.type.value.value === 'RefugeePodCrash'" v-bind:selected="selected"/>
@@ -73,6 +73,16 @@
                 <Difficulty v-else-if="selected.type.value.value === 'Difficulty'" v-bind:selected="selected"/>
                 <WildManWandersIn v-else-if="selected.type.value.value === 'WildManWandersIn'" v-bind:selected="selected"/>
                 <Planetkiller v-else-if="selected.type.value.value === 'Planetkiller'" v-bind:selected="selected"/>
+                <PlayAudio v-else-if="selected.type.value.value === 'PlayAudio'" v-bind:selected="selected"/>
+                <KillPawn v-else-if="selected.type.value.value === 'KillPawn'" v-bind:selected="selected"/>
+                <TimeTravel v-else-if="selected.type.value.value === 'TimeTravel'" v-bind:selected="selected"/>
+                <SetRelation v-else-if="selected.type.value.value === 'SetRelation'" v-bind:selected="selected"/>
+                <HealPawn v-else-if="selected.type.value.value === 'HealPawn'" v-bind:selected="selected"/>
+                <PawnHealth v-else-if="selected.type.value.value === 'PawnHealth'" v-bind:selected="selected"/>
+                <GiveThought v-else-if="selected.type.value.value === 'GiveThought'" v-bind:selected="selected"/>
+                <RenamePawn v-else-if="selected.type.value.value === 'RenamePawn'" v-bind:selected="selected"/>
+                <SolarFlare v-else-if="selected.type.value.value === 'SolarFlare'" v-bind:selected="selected"/>
+                <EditPawn v-else-if="selected.type.value.value === 'EditPawn'" v-bind:selected="selected"/>
                 <Nothing v-else v-bind:selected="selected"/>
             </template>
         </div>
@@ -105,7 +115,7 @@
   import VolcanicWinter from "./type/VolcanicWinter";
   import TraderArrival from "./type/TraderArrival";
   import VisitorGroup from "./type/VisitorGroup";
-  import WandererJoin from "./type/WandererJoin";
+  import WandererJoin from "./type/CreatePawn";
   import ResourcePodCrash from "./type/ResourcePodCrash";
   import RefugeePodCrash from "./type/RefugeePodCrash";
   import PsychicSoothe from "./type/PsychicSoothe";
@@ -121,6 +131,16 @@
   import SelfTame from "./type/SelfTame";
   import WildManWandersIn from "./type/WildManWandersIn";
   import Planetkiller from "./type/Planetkiller";
+  import CreatePawn from "./type/CreatePawn";
+  import PlayAudio from "./type/PlayAudio";
+  import KillPawn from "./type/KillPawn";
+  import TimeTravel from "./type/TimeTravel";
+  import SetRelation from "./type/SetRelation";
+  import HealPawn from "./type/HealPawn";
+  import PawnHealth from "./type/PawnHealth";
+  import GiveThought from "./type/GiveThought";
+  import RenamePawn from "./type/RenamePawn";
+  import EditPawn from "./type/EditPawn";
 
   export default {
     name : "property-panel",
@@ -134,6 +154,12 @@
       }
     },
     components : {
+      EditPawn,
+      RenamePawn,
+      GiveThought,
+      PawnHealth,
+      HealPawn,
+      SetRelation,
       Planetkiller,
       WildManWandersIn,
       SelfTame,
@@ -173,7 +199,11 @@
       AmbrosiaSprout,
       Nothing,
       Dialog,
-      Difficulty
+      Difficulty,
+      CreatePawn,
+      PlayAudio,
+      KillPawn,
+      TimeTravel
     },
     data() {
       return {
@@ -264,7 +294,7 @@
         transition: background-color .6s;
     }
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1370px) {
         #type-select {
             float: left;
             margin-left: -11px;

@@ -6,13 +6,15 @@
             ?'Default: between 1 and 10 depending on colonist count'
             :'Amount of beavers'
         ">
-            <v-text-field label="Beaver amount" type="number" v-model="selected.properties['Amount']"></v-text-field>
+            <NumberField label="Beaver amount" type="number" :myModel.sync="selected.properties['Amount']"></NumberField>
         </v-input>
     </div>
 </template>
 
 <script>
+  import NumberField from "../util/NumberField";
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "Alphabeavers"
   }

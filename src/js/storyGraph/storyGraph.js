@@ -59,7 +59,7 @@ export default draw2d.Canvas.extend({
         if (event.storage === undefined) {
           event.storage = [];
         }
-        created = this.addEvent(event.x, event.y, type, event.incident, event.conditions, event.storage, false);
+        created = this.addEvent(event.x, event.y, type, event.incident, event.conditions, event.storage, true);
         created.setId(event.uuid);
       }
 
@@ -75,7 +75,7 @@ export default draw2d.Canvas.extend({
       if (created.isDivider) {
         created.right = this.loadConnection(created.right.parse, createdList, created, created.right.origin);
       } else {
-        created.right = this.loadConnection(created.right.parse, createdList, created);
+        created.right = this.loadConnection(created.right.parse, createdList, created, created.right.origin);
       }
     }
   },

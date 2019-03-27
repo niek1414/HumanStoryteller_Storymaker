@@ -23,6 +23,10 @@
                         label="Mail message"
                         v-model="selected.properties.letter.message"
                 ></v-textarea>
+                <v-switch
+                        label="Shake screen"
+                        v-model="selected.properties.letter.shake"
+                ></v-switch>
             </template>
         </template>
     </div>

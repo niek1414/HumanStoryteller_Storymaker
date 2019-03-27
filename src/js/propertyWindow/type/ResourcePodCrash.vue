@@ -28,12 +28,43 @@
             </v-input>
 
             <v-input :messages="
+                selected.properties['Stuff'] ==='' ||
+                selected.properties['Stuff'] === undefined
+                ?'Default: default material for item'
+                :'Material of the item (if applicable)'
+            ">
+                <v-autocomplete
+                        v-model="selected.properties['Stuff']"
+                        :items="stuff"
+                        label="Material"
+                ></v-autocomplete>
+            </v-input>
+
+            <v-input :messages="
                 selected.properties['Amount'] ==='' ||
                 selected.properties['Amount'] === undefined
                 ?'Default: 20'
                 :'The amount of items'
             ">
                 <v-text-field label="Amount" type="number" v-model="selected.properties['Amount']"></v-text-field>
+            </v-input>
+            <v-input messages="If enabled, items are placed not dropped.">
+                <v-switch
+                        label="Instantly place"
+                        v-model="selected.properties['InstaPlace']"
+                ></v-switch>
+            </v-input>
+            <v-input :messages="
+                selected.properties['Position'] ==='' ||
+                selected.properties['Position'] === undefined
+                ?'Default: random'
+                :'Drop location'
+            ">
+                <v-autocomplete
+                        v-model="selected.properties['Position']"
+                        :items="positions"
+                        label="Drop position"
+                ></v-autocomplete>
             </v-input>
         </template>
     </div>
@@ -48,7 +79,9 @@
     data : function() {
       return {
         items : EventTypes.Items,
-        qualities : EventTypes.ItemQualities
+        qualities : EventTypes.ItemQualities,
+        stuff : EventTypes.Stuff,
+        positions : EventTypes.Positions
       }
     }
   }

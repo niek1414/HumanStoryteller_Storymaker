@@ -8,9 +8,12 @@ module.exports = {
   entry: [
     './src/js/index.js'
   ],
-
   devServer: {
     hot: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': '*',
+    },
     watchOptions: {
       poll: true
     }

@@ -19,9 +19,18 @@
                     <v-card-text>
                         <PawnHealth v-if="con.type === 'PawnHealth'" v-bind:condition="con"></PawnHealth>
                         <Dialog v-if="con.type === 'Dialog'" v-bind:condition="con"></Dialog>
+                        <Audio v-if="con.type === 'Audio'" v-bind:condition="con"></Audio>
                         <Variable v-if="con.type === 'Variable'" v-bind:condition="con"></Variable>
                         <Random v-if="con.type === 'Random'" v-bind:condition="con"></Random>
                         <Difficulty v-if="con.type === 'Difficulty'" v-bind:condition="con"></Difficulty>
+                        <Time v-if="con.type === 'Time'" v-bind:condition="con"></Time>
+                        <Relation v-if="con.type === 'Relation'" v-bind:condition="con"></Relation>
+                        <ItemMap v-if="con.type === 'ItemMap'" v-bind:condition="con"></ItemMap>
+                        <ItemColony v-if="con.type === 'ItemColony'" v-bind:condition="con"></ItemColony>
+                        <Biome v-if="con.type === 'Biome'" v-bind:condition="con"></Biome>
+                        <Temperature v-if="con.type === 'Temperature'" v-bind:condition="con"></Temperature>
+                        <Colonists v-if="con.type === 'Colonists'" v-bind:condition="con"></Colonists>
+                        <Cheat v-if="con.type === 'Cheat'" v-bind:condition="con"></Cheat>
                     </v-card-text>
                     <v-card-actions>
                         <v-btn flat color="error" v-on:click="selected.conditions = selected.conditions.filter(function(item) {return item !== con})">remove</v-btn>
@@ -40,15 +49,33 @@
   import Variable from "./condition/Variable";
   import Random from "./condition/Random";
   import Difficulty from "./condition/Difficulty";
+  import Time from "./condition/Time";
+  import Relation from "./condition/Relation";
+  import ItemMap from "./condition/ItemMap";
+  import ItemColony from "./condition/ItemColony";
+  import Biome from "./condition/Biome";
+  import Temperature from "./condition/Temperature";
+  import Colonists from "./condition/Colonists";
+  import Audio from "./condition/Audio";
+  import Cheat from "./condition/Cheat";
 
   export default {
     name : "conditional",
     components : {
+      Cheat,
       PawnHealth,
       Variable,
       Dialog,
       Random,
-      Difficulty
+      Difficulty,
+      Time,
+      Relation,
+      ItemMap,
+      ItemColony,
+      Biome,
+      Temperature,
+      Colonists,
+      Audio
     },
     props : ["canvas", "selected"],
     data() {
@@ -58,6 +85,14 @@
           {value : 'Variable', text : 'Compare variable'},
           {value : 'Random', text : 'Random chance'},
           {value : 'Difficulty', text : 'Difficulty'},
+          {value : 'Time', text : 'Time/Season'},
+          {value : 'Relation', text : 'Faction relation'},
+          {value : 'ItemMap', text : 'Items on map'},
+          {value : 'ItemColony', text : 'Items on stockpiles'},
+          {value : 'Biome', text : 'Biome'},
+          {value : 'Temperature', text : 'Temperature'},
+          {value : 'Colonists', text : 'Colonists'},
+          {value : 'Cheat', text : 'Cheat'},
         ],
         picked : null,
         search : "",

@@ -18,6 +18,7 @@ export default draw2d.Connection.extend({
       radius : 8,
       opacity : 0.8
     });
+    this.updateText = null;
     this.customWeight = 0;
     this.customSwitch = false;
     this.label.parent = this;
@@ -49,11 +50,15 @@ export default draw2d.Connection.extend({
   },
 
   calculatePath : function(routingHints) {
-    this.updateWeight();
     this._super(routingHints);
+    if (this.updateText != null) {
+      clearTimeout(this.updateText);
+    }
+    this.updateText = setTimeout(this.updateWeight.bind(this), 10);
   },
 
   updateWeight : function() {
+    this.updateText = null;
     if (this.customSwitch) {
       let fullDayAmount = Math.floor(this.customWeight);
       this.setText(fullDayAmount + this.getDayPart((this.customWeight % 1) * 100));
