@@ -6,7 +6,7 @@
             ?'Default: between 1 and 10 depending on colonist count'
             :'Amount of beavers'
         ">
-            <NumberField label="Beaver amount" type="number" :myModel.sync="selected.properties['Amount']"></NumberField>
+            <NumberField label="Beaver amount" :myModel.sync="selected.properties['Amount']"></NumberField>
         </v-input>
     </div>
 </template>

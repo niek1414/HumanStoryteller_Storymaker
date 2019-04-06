@@ -46,7 +46,7 @@
                 ?'Default: 20'
                 :'The amount of items'
             ">
-                <v-text-field label="Amount" type="number" v-model="selected.properties['Amount']"></v-text-field>
+                <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"></NumberField>
             </v-input>
             <v-input messages="If enabled, items are placed not dropped.">
                 <v-switch
@@ -55,13 +55,13 @@
                 ></v-switch>
             </v-input>
             <v-input :messages="
-                selected.properties['Position'] ==='' ||
-                selected.properties['Position'] === undefined
+                selected.properties['Location'] ==='' ||
+                selected.properties['Location'] === undefined
                 ?'Default: random'
                 :'Drop location'
             ">
                 <v-autocomplete
-                        v-model="selected.properties['Position']"
+                        v-model="selected.properties['Location']"
                         :items="positions"
                         label="Drop position"
                 ></v-autocomplete>
@@ -72,8 +72,10 @@
 
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
+  import NumberField from "../util/NumberField";
 
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "ResourcePodCrash",
     data : function() {

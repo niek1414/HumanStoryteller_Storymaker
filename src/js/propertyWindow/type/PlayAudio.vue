@@ -18,13 +18,15 @@
             ></v-switch>
         </v-input>
         <v-input messages="Volume (between 0 and 1) 0.5 is 50%">
-            <v-text-field label="Volume" type="number" v-model="selected.properties['Volume']"></v-text-field>
+            <NumberField label="Volume" :myModel.sync="selected.properties['Volume']"></NumberField>
         </v-input>
     </div>
 </template>
 
 <script>
+  import NumberField from "../util/NumberField";
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "PlayAudio",
     data : () => ({

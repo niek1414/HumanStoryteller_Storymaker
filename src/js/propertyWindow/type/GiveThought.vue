@@ -33,10 +33,10 @@
                 <v-text-field label="Description text" type="text" v-model="selected.properties['ThoughtDescription']"></v-text-field>
             </v-input>
             <v-input messages="Mood boost (if bigger than 0) or mood loss (if lower than 0)">
-                <v-text-field label="Thought effect" type="number" v-model="selected.properties['ThoughtEffect']"></v-text-field>
+                <NumberField label="Thought effect" :myModel.sync="selected.properties['ThoughtEffect']"></NumberField>
             </v-input>
             <v-input messages="Thought duration in days">
-                <v-text-field label="Thought duration" type="number" v-model="selected.properties['ThoughtDuration']"></v-text-field>
+                <NumberField label="Thought duration" :myModel.sync="selected.properties['ThoughtDuration']"></NumberField>
             </v-input>
         </template>
         <template v-else-if="selected.properties['ThoughtType'] !=='' && selected.properties['ThoughtType'] !== undefined && selected.properties['ThoughtType'] !== 'custom'">
@@ -48,7 +48,9 @@
 </template>
 
 <script>
+  import NumberField from "../util/NumberField";
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "GiveThought",
     data : function() {

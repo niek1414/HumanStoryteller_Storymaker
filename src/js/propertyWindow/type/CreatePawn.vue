@@ -30,10 +30,10 @@
             ></v-switch>
         </v-input>
         <v-input messages="Pawns biological age. Defaults to a random (logical age).">
-            <v-text-field label="Biological age" type="number" v-model="selected.properties['BiologicalAge']"></v-text-field>
+            <NumberField label="Biological age" :myModel.sync="selected.properties['BiologicalAge']"></NumberField>
         </v-input>
         <v-input messages="Pawns chronological age. Defaults to a random (logical age).">
-            <v-text-field label="chronological age" type="number" v-model="selected.properties['ChronologicalAge']"></v-text-field>
+            <NumberField label="Chronological age" :myModel.sync="selected.properties['ChronologicalAge']"></NumberField>
         </v-input>
         <v-input>
             <v-select
@@ -66,22 +66,24 @@
             </v-input>
         </template>
         <v-input messages="2 is twice the budget, 0.5 half and 1 is default. Default (1) is defined by group type.">
-            <v-text-field label="Apparel budget" type="number" v-model="selected.properties['ApparelMoney']"></v-text-field>
+            <NumberField label="Apparel budget" :myModel.sync="selected.properties['ApparelMoney']"></NumberField>
         </v-input>
         <v-input messages="The minimal health points on the gear. On 0 it deteriorates.">
-            <v-text-field label="Minimal apparel points" type="number" v-model="selected.properties['GearHealthMin']"></v-text-field>
+            <NumberField label="Minimal apparel points" :myModel.sync="selected.properties['GearHealthMin']"></NumberField>
         </v-input>
         <v-input
                 messages="The max health points on the gear. 1 is 100%. If you want to increase the likelihood of 100% but still want low values you can set this to more then 1 to increase the odds of 100%">
-            <v-text-field label="Maximal apparel points" type="number" v-model="selected.properties['GearHealthMax']"></v-text-field>
+            <NumberField label="Maximal apparel points" :myModel.sync="selected.properties['GearHealthMax']"></NumberField>
         </v-input>
     </div>
 </template>
 
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
+  import NumberField from "../util/NumberField";
 
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "CreatePawn",
     data : function() {

@@ -31,6 +31,7 @@
                         <Temperature v-if="con.type === 'Temperature'" v-bind:condition="con"></Temperature>
                         <Colonists v-if="con.type === 'Colonists'" v-bind:condition="con"></Colonists>
                         <Cheat v-if="con.type === 'Cheat'" v-bind:condition="con"></Cheat>
+                        <Research v-if="con.type === 'Research'" v-bind:condition="con"></Research>
                     </v-card-text>
                     <v-card-actions>
                         <v-btn flat color="error" v-on:click="selected.conditions = selected.conditions.filter(function(item) {return item !== con})">remove</v-btn>
@@ -58,10 +59,12 @@
   import Colonists from "./condition/Colonists";
   import Audio from "./condition/Audio";
   import Cheat from "./condition/Cheat";
+  import Research from "./condition/Research";
 
   export default {
     name : "conditional",
     components : {
+      Research,
       Cheat,
       PawnHealth,
       Variable,
@@ -93,6 +96,7 @@
           {value : 'Temperature', text : 'Temperature'},
           {value : 'Colonists', text : 'Colonists'},
           {value : 'Cheat', text : 'Cheat'},
+          {value : 'Research', text : 'Research'},
         ],
         picked : null,
         search : "",

@@ -1,7 +1,7 @@
 <template>
     <div class="info-box">
         <v-input messages="2 is twice the strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
-            <v-text-field label="Strength as multiplier" type="number" v-model="selected.properties['Points']"></v-text-field>
+            <NumberField label="Strength as multiplier" :myModel.sync="selected.properties['Points']"></NumberField>
         </v-input>
 
         <v-input :messages="
@@ -21,8 +21,10 @@
 
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
+  import NumberField from "../util/NumberField";
 
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "AnimalInsanityMass",
     data : function() {

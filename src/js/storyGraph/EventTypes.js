@@ -354,6 +354,41 @@ EventTypes.EditPawn = {
   conditions : []
 };
 
+EventTypes.Rules = {
+  value : "Rules",
+  text : "Rules",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
+EventTypes.Research = {
+  value : "Research",
+  text : "Research",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
+EventTypes.DeleteItems = {
+  value : "DeleteItems",
+  text : "Delete items",
+  type : EventTypes.GENERALLY_BAD,
+  conditions : []
+};
+
+EventTypes.OrbitalStrike = {
+  value : "OrbitalStrike",
+  text : "Orbital strike",
+  type : EventTypes.GENERALLY_BAD,
+  conditions : []
+};
+
+EventTypes.MentalBreak = {
+  value : "MentalBreak",
+  text : "Mental break",
+  type : EventTypes.GENERALLY_BAD,
+  conditions : []
+};
+
 EventTypes.Events = [
   {text : "Alphabeavers",         value : EventTypes.Alphabeavers},
   {text : "Ambrosia sprouted",    value : EventTypes.AmbrosiaSprout},
@@ -365,6 +400,7 @@ EventTypes.Events = [
   {text : "Crop blight",          value : EventTypes.CropBlight},
   {text : "Create pawn",          value : EventTypes.CreatePawn},
   {text : "Dialog",               value : EventTypes.Dialog},
+  {text : "Delete items",          value : EventTypes.DeleteItems},
   {text : "Difficulty",           value : EventTypes.Difficulty},
   {text : "Disease",              value : EventTypes.Disease},
   {text : "Eclipse",              value : EventTypes.Eclipse},
@@ -377,7 +413,9 @@ EventTypes.Events = [
   {text : "Kill pawn",            value : EventTypes.KillPawn},
   {text : "Manhunter pack",       value : EventTypes.ManhunterPack},
   {text : "Meteorite",            value : EventTypes.MeteoriteImpact},
+  {text : "Mental break",         value : EventTypes.MentalBreak},
   {text : "Nothing",              value : EventTypes.Nothing},
+  {text : "Orbital strike",       value : EventTypes.OrbitalStrike},
   {text : "Planetkiller",         value : EventTypes.Planetkiller},
   {text : "Psychic drone",        value : EventTypes.PsychicDrone},
   {text : "Psychic soothe",       value : EventTypes.PsychicSoothe},
@@ -388,6 +426,8 @@ EventTypes.Events = [
   {text : "Refugee chased",       value : EventTypes.RefugeeChased},
   {text : "Resource pod",         value : EventTypes.ResourcePodCrash},
   {text : "Rename pawn",          value : EventTypes.RenamePawn},
+  {text : "Rules",                value : EventTypes.Rules},
+  {text : "Research",             value : EventTypes.Research},
   {text : "Ship part",            value : EventTypes.ShipPartCrash},
   {text : "Short circuit",        value : EventTypes.ShortCircuit},
   {text : "Solar flare",          value : EventTypes.SolarFlare},
@@ -412,6 +452,7 @@ EventTypes.EventsAsString = [
   "Crop blight",
   "Create pawn",
   "Dialog",
+  "Delete items",
   "Difficulty",
   "Disease",
   "Eclipse",
@@ -423,7 +464,11 @@ EventTypes.EventsAsString = [
   "Infestation",
   "Kill pawn",
   "Manhunter pack",
+  "Meteorite",
+  "Mental break",
   "Nothing",
+  "Orbital strike",
+  "Planetkiller",
   "Psychic drone",
   "Psychic soothe",
   "Play audio",
@@ -433,6 +478,8 @@ EventTypes.EventsAsString = [
   "Refugee chased",
   "Resource pod",
   "Rename pawn",
+  "Rules",
+  "Research",
   "Ship part",
   "Short circuit",
   "Solar flare",
@@ -442,9 +489,6 @@ EventTypes.EventsAsString = [
   "Trader",
   "Time travel",
   "Visitors",
-  "Volcanic winter",
-  "Wanderer joins",
-  "Wild man wanders in",
 ];
 
 EventTypes.DifficultyLevel = [
@@ -454,6 +498,83 @@ EventTypes.DifficultyLevel = [
   {value : 'Rough', text : 'Rough'},
   {value : 'Hard', text : 'Hard'},
   {value : 'Extreme', text : 'Extreme'}
+];
+
+EventTypes.ResearchProject = [
+  {value : "PsychoidBrewing", text : "Psychoid brewing"},
+  {value : "TreeSowing", text : "Tree sowing"},
+  {value : "Brewing", text : "Beer brewing"},
+  {value : "ComplexFurniture", text : "Complex furniture"},
+  {value : "PassiveCooler", text : "Passive cooler"},
+  {value : "Stonecutting", text : "Stonecutting"},
+  {value : "ComplexClothing", text : "Complex clothing"},
+  {value : "DrugProduction", text : "Drug production"},
+  {value : "Cocoa", text : "Cocoa"},
+  {value : "Devilstrand", text : "Devilstrand"},
+  {value : "CarpetMaking", text : "Carpet making"},
+  {value : "Pemmican", text : "Pemmican"},
+  {value : "Smithing", text : "Smithing"},
+  {value : "RecurveBow", text : "Recurve bow"},
+  {value : "PsychiteRefining", text : "Psychite refining"},
+  {value : "WakeUpProduction", text : "Wake-up production"},
+  {value : "GoJuiceProduction", text : "Go-juice production"},
+  {value : "PenoxycylineProduction", text : "Penoxycyline production"},
+  {value : "LongBlades", text : "Long blades"},
+  {value : "PlateArmor", text : "Plate armor"},
+  {value : "Greatbow", text : "Greatbow"},
+  {value : "Electricity", text : "Electricity"},
+  {value : "Batteries", text : "Battery"},
+  {value : "BiofuelRefining", text : "Biofuel refining"},
+  {value : "WatermillGenerator", text : "Watermill generator"},
+  {value : "NutrientPaste", text : "Nutrient paste"},
+  {value : "SolarPanels", text : "Solar panel"},
+  {value : "AirConditioning", text : "Air conditioning"},
+  {value : "Autodoors", text : "Autodoor"},
+  {value : "Hydroponics", text : "Hydroponics"},
+  {value : "TubeTelevision", text : "Tube television"},
+  {value : "PackagedSurvivalMeal", text : "Packaged survival meal"},
+  {value : "Firefoam", text : "Firefoam"},
+  {value : "IEDs", text : "IEDs"},
+  {value : "GeothermalPower", text : "Geothermal power"},
+  {value : "SterileMaterials", text : "Sterile materials"},
+  {value : "Machining", text : "Machining"},
+  {value : "SmokepopBelt", text : "Smokepop belts"},
+  {value : "Prosthetics", text : "Prosthetics"},
+  {value : "Gunsmithing", text : "Gunsmithing"},
+  {value : "FlakArmor", text : "Flak armor"},
+  {value : "Mortars", text : "Mortars"},
+  {value : "BlowbackOperation", text : "Blowback operation"},
+  {value : "GasOperation", text : "Gas operation"},
+  {value : "GunTurrets", text : "Gun turrets"},
+  {value : "MicroelectronicsBasics", text : "Microelectronics"},
+  {value : "FlatscreenTelevision", text : "Flatscreen television"},
+  {value : "ColoredLights", text : "Colored lights"},
+  {value : "MoisturePump", text : "Moisture pump"},
+  {value : "HospitalBed", text : "Hospital bed"},
+  {value : "TransportPod", text : "Transport pod"},
+  {value : "MedicineProduction", text : "Medicine production"},
+  {value : "LongRangeMineralScanner", text : "Long-range mineral scanner"},
+  {value : "ShieldBelt", text : "Shield belt"},
+  {value : "PrecisionRifling", text : "Precision rifling"},
+  {value : "HeavyTurrets", text : "Autocannon turret"},
+  {value : "MultibarrelWeapons", text : "Multibarrel weapons"},
+  {value : "MultiAnalyzer", text : "Multi-analyzer"},
+  {value : "GroundPenetratingScanner", text : "Ground-penetrating scanner"},
+  {value : "DeepDrilling", text : "Deep drilling"},
+  {value : "VitalsMonitor", text : "Vitals monitor"},
+  {value : "Fabrication", text : "Fabrication"},
+  {value : "AdvancedFabrication", text : "Advanced fabrication"},
+  {value : "Cryptosleep", text : "Cryptosleep casket"},
+  {value : "PoweredArmor", text : "Powered armor"},
+  {value : "ChargedShot", text : "Pulse-charged munitions"},
+  {value : "Bionics", text : "Bionics"},
+  {value : "SniperTurret", text : "Uranium slug turret"},
+  {value : "ShipBasics", text : "Starflight basics"},
+  {value : "ShipCryptosleep", text : "Vacuum cryptosleep casket"},
+  {value : "ShipReactor", text : "Starship reactor"},
+  {value : "ShipEngine", text : "Johnson-Tanaka drive"},
+  {value : "ShipComputerCore", text : "AI persuasion"},
+  {value : "ShipSensorCluster", text : "Starflight sensors"},
 ];
 
 EventTypes.ItemQualities = [

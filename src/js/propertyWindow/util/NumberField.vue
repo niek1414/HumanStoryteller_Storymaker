@@ -1,5 +1,5 @@
 <template>
-    <span style="width: 100%;">
+    <span style="width: 100%; position: relative;">
         <v-text-field v-if="checked" :label="label + ' variable -- input variable name, not a number!'" type="text" v-model="thisModel"></v-text-field>
         <v-text-field v-else :label="label" type="number" v-model="thisModel"></v-text-field>
         <label class="var-checkbox">

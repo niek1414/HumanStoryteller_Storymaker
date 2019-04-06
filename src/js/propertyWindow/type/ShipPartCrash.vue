@@ -6,7 +6,7 @@
             ?'Default: 1 crash part'
             :'The amount of crashed parts'
         ">
-            <v-text-field label="Amount" type="number" v-model="selected.properties['Amount']"></v-text-field>
+            <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"></NumberField>
         </v-input>
 
         <v-input :messages="
@@ -26,8 +26,10 @@
 
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
+  import NumberField from "../util/NumberField";
 
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "ShipPartCrash",
     data : function() {

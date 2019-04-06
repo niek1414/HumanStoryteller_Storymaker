@@ -6,7 +6,7 @@
             ?'Default: between 10 and 20'
             :'The amount of plants'
         ">
-            <v-text-field label="Amount" type="number" v-model="selected.properties['Amount']"></v-text-field>
+            <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"></NumberField>
         </v-input>
         <v-input :messages="
             selected.properties['Range'] ==='' ||
@@ -14,7 +14,7 @@
             ?'Default: 6 tiles'
             :'Distance in tiles that the ambrosia can sprout'
         ">
-            <v-text-field label="Sprout distance" type="number" v-model="selected.properties['Range']"></v-text-field>
+            <NumberField label="Sprout distance" :myModel.sync="selected.properties['Range']"></NumberField>
         </v-input>
 
         <v-input :messages="
@@ -34,8 +34,10 @@
 
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
+  import NumberField from "../util/NumberField";
 
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "AmbrosiaSprout",
     data : function() {

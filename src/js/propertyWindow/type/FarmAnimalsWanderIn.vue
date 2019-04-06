@@ -6,7 +6,7 @@
             ?'Default: between 2 and 10 depending on body size'
             :'Amount of animals'
         ">
-            <v-text-field label="Animal amount" type="number" v-model="selected.properties['Amount']"></v-text-field>
+            <NumberField label="Animal amount" :myModel.sync="selected.properties['Amount']"></NumberField>
         </v-input>
 
         <v-input :messages="
@@ -45,8 +45,10 @@
 
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
+  import NumberField from "../util/NumberField";
 
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "FarmAnimalsWanderIn",
     data : function() {

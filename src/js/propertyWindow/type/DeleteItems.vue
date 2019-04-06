@@ -1,23 +1,23 @@
 <template>
     <div class="info-box">
         <v-input :messages="
-            selected.properties['AnimalKind'] ==='' ||
-            selected.properties['AnimalKind'] === undefined
-            ?'Default: random kind of the larger animals'
-            :'Animal kind'
+            selected.properties['Item'] ==='' ||
+            selected.properties['Item'] === undefined
+            ?'Default: random item'
+            :'The item to drop'
         ">
             <v-autocomplete
-                    v-model="selected.properties['AnimalKind']"
-                    :items="animals"
-                    label="Animal kind"
+                    v-model="selected.properties['Item']"
+                    :items="items"
+                    label="Item to remove"
             ></v-autocomplete>
         </v-input>
 
         <v-input :messages="
             selected.properties['Amount'] ==='' ||
             selected.properties['Amount'] === undefined
-            ?'Default: between 3 and 5 depending on body size'
-            :'The amount of animals'
+            ?'Default: 1'
+            :'The amount of items'
         ">
             <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"></NumberField>
         </v-input>
@@ -31,10 +31,10 @@
   export default {
     components : {NumberField},
     props : ["selected"],
-    name : "HerdMigration",
+    name : "DeleteItems",
     data : function() {
       return {
-        animals : EventTypes.AnimalTypes,
+        items : EventTypes.Items
       }
     }
   }

@@ -50,19 +50,19 @@
             ></v-select>
         </v-input>
         <v-input :messages="
-                selected.properties['Position'] ==='' ||
-                selected.properties['Position'] === undefined
+                selected.properties['Location'] ==='' ||
+                selected.properties['Location'] === undefined
                 ?'Default: unchanged'
                 :'Teleport location'
             ">
             <v-autocomplete
-                    v-model="selected.properties['Position']"
+                    v-model="selected.properties['Location']"
                     :items="positions"
                     label="Position on map"
             ></v-autocomplete>
         </v-input>
         <v-input messages="Pawns biological age (in years). Default is unchanged.">
-            <v-text-field label="Biological age" type="number" v-model="selected.properties['AgeBioYear']"></v-text-field>
+            <NumberField label="Biological age" :myModel.sync="selected.properties['AgeBioYear']"></NumberField>
         </v-input>
 
         <v-divider data-content="SKILLS"></v-divider>
@@ -73,30 +73,32 @@
             ></v-switch>
         </v-input>
         <v-input>
-            <v-text-field label="Animals" type="number" v-model="selected.properties['SkillAnimals']"></v-text-field>
-            <v-text-field label="Artistic" type="number" v-model="selected.properties['SkillArtistic']"></v-text-field>
-            <v-text-field label="Construction" type="number" v-model="selected.properties['SkillConstruction']"></v-text-field>
-            <v-text-field label="Cooking" type="number" v-model="selected.properties['SkillCooking']"></v-text-field>
+            <NumberField label="Animals" :myModel.sync="selected.properties['SkillAnimals']"></NumberField>
+            <NumberField label="Artistic" :myModel.sync="selected.properties['SkillArtistic']"></NumberField>
+            <NumberField label="Construction" :myModel.sync="selected.properties['SkillConstruction']"></NumberField>
+            <NumberField label="Cooking" :myModel.sync="selected.properties['SkillCooking']"></NumberField>
         </v-input>
         <v-input>
-            <v-text-field label="Crafting" type="number" v-model="selected.properties['SkillCrafting']"></v-text-field>
-            <v-text-field label="Plants" type="number" v-model="selected.properties['SkillPlants']"></v-text-field>
-            <v-text-field label="Medicine" type="number" v-model="selected.properties['SkillMedicine']"></v-text-field>
-            <v-text-field label="Melee" type="number" v-model="selected.properties['SkillMelee']"></v-text-field>
+            <NumberField label="Crafting" :myModel.sync="selected.properties['SkillCrafting']"></NumberField>
+            <NumberField label="Plants" :myModel.sync="selected.properties['SkillPlants']"></NumberField>
+            <NumberField label="Medicine" :myModel.sync="selected.properties['SkillMedicine']"></NumberField>
+            <NumberField label="Melee" :myModel.sync="selected.properties['SkillMelee']"></NumberField>
         </v-input>
         <v-input>
-            <v-text-field label="Mining" type="number" v-model="selected.properties['SkillMining']"></v-text-field>
-            <v-text-field label="Intellectual" type="number" v-model="selected.properties['SkillIntellectual']"></v-text-field>
-            <v-text-field label="Shooting" type="number" v-model="selected.properties['SkillShooting']"></v-text-field>
-            <v-text-field label="Social" type="number" v-model="selected.properties['SkillSocial']"></v-text-field>
+            <NumberField label="Mining" :myModel.sync="selected.properties['SkillMining']"></NumberField>
+            <NumberField label="Intellectual" :myModel.sync="selected.properties['SkillIntellectual']"></NumberField>
+            <NumberField label="Shooting" :myModel.sync="selected.properties['SkillShooting']"></NumberField>
+            <NumberField label="Social" :myModel.sync="selected.properties['SkillSocial']"></NumberField>
         </v-input>
     </div>
 </template>
 
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
+  import NumberField from "../util/NumberField";
 
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "EditPawn",
     data : function() {

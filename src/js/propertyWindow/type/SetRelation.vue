@@ -8,13 +8,15 @@
             ></v-select>
         </v-input>
         <v-input messages="Relation change with faction (-20 will worsen the relation)">
-            <v-text-field label="Change in goodwill" type="number" v-model="selected.properties['FactionRelation']"></v-text-field>
+            <NumberField label="Change in goodwill" :myModel.sync="selected.properties['FactionRelation']"></NumberField>
         </v-input>
     </div>
 </template>
 
 <script>
+  import NumberField from "../util/NumberField";
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "SetRelation",
     data : function() {

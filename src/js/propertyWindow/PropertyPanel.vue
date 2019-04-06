@@ -83,6 +83,11 @@
                 <RenamePawn v-else-if="selected.type.value.value === 'RenamePawn'" v-bind:selected="selected"/>
                 <SolarFlare v-else-if="selected.type.value.value === 'SolarFlare'" v-bind:selected="selected"/>
                 <EditPawn v-else-if="selected.type.value.value === 'EditPawn'" v-bind:selected="selected"/>
+                <Rules v-else-if="selected.type.value.value === 'Rules'" v-bind:selected="selected"/>
+                <Research v-else-if="selected.type.value.value === 'Research'" v-bind:selected="selected"/>
+                <DeleteItems v-else-if="selected.type.value.value === 'DeleteItems'" v-bind:selected="selected"/>
+                <OrbitalStrike v-else-if="selected.type.value.value === 'OrbitalStrike'" v-bind:selected="selected"/>
+                <MentalBreak v-else-if="selected.type.value.value === 'MentalBreak'" v-bind:selected="selected"/>
                 <Nothing v-else v-bind:selected="selected"/>
             </template>
         </div>
@@ -141,6 +146,11 @@
   import GiveThought from "./type/GiveThought";
   import RenamePawn from "./type/RenamePawn";
   import EditPawn from "./type/EditPawn";
+  import Rules from "./type/Rules";
+  import Research from "./type/Research";
+  import DeleteItems from "./type/DeleteItems";
+  import OrbitalStrike from "./type/OrbitalStrike";
+  import MentalBreak from "./type/MentalBreak";
 
   export default {
     name : "property-panel",
@@ -154,6 +164,11 @@
       }
     },
     components : {
+      MentalBreak,
+      OrbitalStrike,
+      DeleteItems,
+      Research,
+      Rules,
       EditPawn,
       RenamePawn,
       GiveThought,

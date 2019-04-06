@@ -19,15 +19,17 @@
             ?'Default: 1'
             :'The amount of meteors'
         ">
-            <v-text-field label="Amount" type="number" v-model="selected.properties['Amount']"></v-text-field>
+            <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"></NumberField>
         </v-input>
     </div>
 </template>
 
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
+  import NumberField from "../util/NumberField";
 
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "MeteoriteImpact",
     data : function() {

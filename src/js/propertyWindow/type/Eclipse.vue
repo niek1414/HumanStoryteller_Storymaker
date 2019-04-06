@@ -1,13 +1,15 @@
 <template>
     <div class="info-box">
         <v-input messages="Default: between 0.75 and 1.25 days">
-            <v-text-field label="Duration in days" type="number" v-model="selected.properties['Duration']"></v-text-field>
+            <NumberField label="Duration in days" :myModel.sync="selected.properties['Duration']"></NumberField>
         </v-input>
     </div>
 </template>
 
 <script>
+  import NumberField from "../util/NumberField";
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "Eclipse"
   }

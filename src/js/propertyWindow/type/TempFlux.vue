@@ -6,16 +6,18 @@
         </p>
 
         <v-input messages="Default: between 1.5 and 3.5 days">
-            <v-text-field label="Duration in days" type="number" v-model="selected.properties['Duration']"></v-text-field>
+            <NumberField label="Duration in days" :myModel.sync="selected.properties['Duration']"></NumberField>
         </v-input>
         <v-input messages="Default: -20 (cold snap), for a heat wave the default is 17">
-            <v-text-field label="Change in temperature" type="number" v-model="selected.properties['TempChange']"></v-text-field>
+            <NumberField label="Change in temperature" :myModel.sync="selected.properties['TempChange']"></NumberField>
         </v-input>
     </div>
 </template>
 
 <script>
+  import NumberField from "../util/NumberField";
   export default {
+    components : {NumberField},
     props : ["selected"],
     name : "TempFlux"
   }
