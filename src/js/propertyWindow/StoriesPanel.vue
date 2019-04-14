@@ -15,6 +15,14 @@
                     <div v-ripple class="remove-inner" v-on:click="remove(story.id, toolbar)"><i class="far fa-trash-alt fa-2x"></i></div>
                 </div>
             </div>
+
+            <div class="card">
+                <div v-ripple class="load" v-on:click="loadExample(toolbar)">
+                    <div class="rimTitle">Example story</div>
+                    <div>An example where a few basic events are showcased.</div>
+                    <hr>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -67,6 +75,29 @@
               default : false,
               handler : () => {
                 toolbar.loadStory(id);
+                toolbar.propertyPanel.$modal.hide('dialog');
+              }
+            }
+          ]
+        });
+      },
+      loadExample : function(toolbar) {
+        toolbar.propertyPanel.$modal.show('dialog', {
+          title : 'Override local story?',
+          text : 'This will override the local story.<br> Are you sure?',
+          buttons : [
+            {
+              title : 'Cancel',
+              default : true,
+              handler : () => {
+                toolbar.propertyPanel.$modal.hide('dialog');
+              }
+            },
+            {
+              title : 'Override my local story',
+              default : false,
+              handler : () => {
+                toolbar.loadStory(-1);
                 toolbar.propertyPanel.$modal.hide('dialog');
               }
             }

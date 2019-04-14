@@ -27,7 +27,9 @@
                     label="Arrive mode"
             ></v-select>
         </v-input>
-
+        <v-input messages="ATTENTION: This will generate batches with above parameters until enough and remove redundant if too much. This means it MAY NOT be in line with set difficulty!">
+            <NumberField label="Amount of pawns" :myModel.sync="selected.properties['Amount']"></NumberField>
+        </v-input>
         <v-input messages="Assigned from top to bottom. Name overflow will be ignored.">
             <v-combobox
                     v-model="selected.properties['Names']"

@@ -3,13 +3,28 @@
         <v-input messages="Name of the wild man">
             <v-text-field label="Pawn name" type="text" v-model="selected.properties['Name']"></v-text-field>
         </v-input>
+        <v-input>
+            <v-select
+                    :items="genderTypes"
+                    v-model="selected.properties['Gender']"
+                    label="Gender"
+            ></v-select>
+        </v-input>
     </div>
 </template>
 
 <script>
   export default {
     props : ["selected"],
-    name : "WildManWandersIn"
+    name : "WildManWandersIn",
+    data : function() {
+      return {
+        genderTypes : [
+          {value : "MALE", text : "Male"},
+          {value : "FEMALE", text : "Female"}
+        ]
+      }
+    }
   }
 </script>
 

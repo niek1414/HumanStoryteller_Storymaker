@@ -389,6 +389,27 @@ EventTypes.MentalBreak = {
   conditions : []
 };
 
+EventTypes.Quest = {
+  value : "Quest",
+  text : "Quest",
+  type : EventTypes.GENERALLY_GOOD,
+  conditions : []
+};
+
+EventTypes.TradeRequest = {
+  value : "TradeRequest",
+  text : "Trade request",
+  type : EventTypes.GENERALLY_GOOD,
+  conditions : []
+};
+
+EventTypes.CreateSettlement = {
+  value : "CreateSettlement",
+  text : "Create settlement",
+  type : EventTypes.GENERALLY_GOOD,
+  conditions : []
+};
+
 EventTypes.Events = [
   {text : "Alphabeavers",         value : EventTypes.Alphabeavers},
   {text : "Ambrosia sprouted",    value : EventTypes.AmbrosiaSprout},
@@ -399,8 +420,9 @@ EventTypes.Events = [
   {text : "Cold snap/Heat wave",  value : EventTypes.TempFlux},
   {text : "Crop blight",          value : EventTypes.CropBlight},
   {text : "Create pawn",          value : EventTypes.CreatePawn},
+  {text : "Create settlement",    value : EventTypes.CreateSettlement},
   {text : "Dialog",               value : EventTypes.Dialog},
-  {text : "Delete items",          value : EventTypes.DeleteItems},
+  {text : "Delete items",         value : EventTypes.DeleteItems},
   {text : "Difficulty",           value : EventTypes.Difficulty},
   {text : "Disease",              value : EventTypes.Disease},
   {text : "Eclipse",              value : EventTypes.Eclipse},
@@ -421,6 +443,7 @@ EventTypes.Events = [
   {text : "Psychic soothe",       value : EventTypes.PsychicSoothe},
   {text : "Play audio",           value : EventTypes.PlayAudio},
   {text : "Pawn health",          value : EventTypes.PawnHealth},
+  {text : "Quest",                value : EventTypes.Quest},
   {text : "Raid",                 value : EventTypes.RaidEnemy},
   {text : "Refugee crash",        value : EventTypes.RefugeePodCrash},
   {text : "Refugee chased",       value : EventTypes.RefugeeChased},
@@ -436,6 +459,7 @@ EventTypes.Events = [
   {text : "Toxic fallout",        value : EventTypes.ToxicFallout},
   {text : "Trader",               value : EventTypes.TraderArrival},
   {text : "Time travel",          value : EventTypes.TimeTravel},
+  {text : "Trade request",        value : EventTypes.TradeRequest},
   {text : "Visitors",             value : EventTypes.VisitorGroup},
   {text : "Volcanic winter",      value : EventTypes.VolcanicWinter},
   {text : "Wild man wanders in",  value : EventTypes.WildManWandersIn},
@@ -451,6 +475,7 @@ EventTypes.EventsAsString = [
   "Cold snap/Heat wave",
   "Crop blight",
   "Create pawn",
+  "Create settlement",
   "Dialog",
   "Delete items",
   "Difficulty",
@@ -473,6 +498,7 @@ EventTypes.EventsAsString = [
   "Psychic soothe",
   "Play audio",
   "Pawn health",
+  "Quest",
   "Raid",
   "Refugee crash",
   "Refugee chased",
@@ -488,7 +514,10 @@ EventTypes.EventsAsString = [
   "Toxic fallout",
   "Trader",
   "Time travel",
+  "Trade request",
   "Visitors",
+  "Volcanic winter",
+  "Wild man wanders in",
 ];
 
 EventTypes.DifficultyLevel = [

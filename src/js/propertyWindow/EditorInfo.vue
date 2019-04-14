@@ -8,7 +8,8 @@
         <br><br>
         Your root node (the circle) is the start point. By clicking on the root node you can access project settings like project name.
         <br><br>
-        The number on the connection is the amount of days the event will be offset from the previous event.
+        The number on the connection is the amount of days the event will be offset from the previous event.<br>
+        Click on the connection to change this or drag the event around.
         <br><br>
         Hold shift while scrolling to zoom in & out.<br>
         To delete a event or connection, highlight it by clicking and then use the <i class="far fa-trash-alt"></i> button.
@@ -18,6 +19,8 @@
         So, if initially the condition was false but the event for false is in 3 days the player can still get the event for true if the conditions have changed just before the 3
         days are over.<br>
         I know.. ill make sense when you start to play around with it ;P<br>
+        <br>
+        Created your story? <b>Publish it</b> by changing the publish setting in the project settings.
         Questions? >>>placeholder contact link here<<< (hopefully i won't forget to put in the link..)
         </p>
     </div>

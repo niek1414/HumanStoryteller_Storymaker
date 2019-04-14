@@ -88,7 +88,33 @@
                 <DeleteItems v-else-if="selected.type.value.value === 'DeleteItems'" v-bind:selected="selected"/>
                 <OrbitalStrike v-else-if="selected.type.value.value === 'OrbitalStrike'" v-bind:selected="selected"/>
                 <MentalBreak v-else-if="selected.type.value.value === 'MentalBreak'" v-bind:selected="selected"/>
+                <Quest v-else-if="selected.type.value.value === 'Quest'" v-bind:selected="selected"/>
+                <TradeRequest v-else-if="selected.type.value.value === 'TradeRequest'" v-bind:selected="selected"/>
+                <CreateSettlement v-else-if="selected.type.value.value === 'CreateSettlement'" v-bind:selected="selected"/>
                 <Nothing v-else v-bind:selected="selected"/>
+                <v-divider></v-divider>
+                <div class="info-box">
+                    <v-input messages="If you spawned a map with a name, enable this to specify it.">
+                        <v-switch
+                                label="Specific map"
+                                v-model="selected.properties['CustomTarget']"
+                        ></v-switch>
+                    </v-input>
+                    <template v-if="selected.properties['CustomTarget']">
+                        <v-input messages="Name of the map on which the event will be executed.">
+                            <v-text-field label="Map" type="text" v-model="selected.properties['Target']"></v-text-field>
+                        </v-input>
+                    </template>
+                    <template v-else>
+                        <v-input messages="The map on which the event will be executed.">
+                            <v-select
+                                    :items="targets"
+                                    v-model="selected.properties['Target']"
+                                    label="Map"
+                            ></v-select>
+                        </v-input>
+                    </template>
+                </div>
             </template>
         </div>
     </div>
@@ -121,6 +147,7 @@
   import TraderArrival from "./type/TraderArrival";
   import VisitorGroup from "./type/VisitorGroup";
   import WandererJoin from "./type/CreatePawn";
+  import CreatePawn from "./type/CreatePawn";
   import ResourcePodCrash from "./type/ResourcePodCrash";
   import RefugeePodCrash from "./type/RefugeePodCrash";
   import PsychicSoothe from "./type/PsychicSoothe";
@@ -136,7 +163,6 @@
   import SelfTame from "./type/SelfTame";
   import WildManWandersIn from "./type/WildManWandersIn";
   import Planetkiller from "./type/Planetkiller";
-  import CreatePawn from "./type/CreatePawn";
   import PlayAudio from "./type/PlayAudio";
   import KillPawn from "./type/KillPawn";
   import TimeTravel from "./type/TimeTravel";
@@ -151,6 +177,9 @@
   import DeleteItems from "./type/DeleteItems";
   import OrbitalStrike from "./type/OrbitalStrike";
   import MentalBreak from "./type/MentalBreak";
+  import Quest from "./type/Quest";
+  import TradeRequest from "./type/TradeRequest";
+  import CreateSettlement from "./type/CreateSettlement";
 
   export default {
     name : "property-panel",
@@ -164,6 +193,9 @@
       }
     },
     components : {
+      CreateSettlement,
+      TradeRequest,
+      Quest,
       MentalBreak,
       OrbitalStrike,
       DeleteItems,
@@ -224,6 +256,11 @@
       return {
         options : EventTypes.Events,
         tab : "home",
+        targets : [
+          {value : "FirstOfPlayer", text : "First map of the player"},
+          {value : "RandomOfPlayer", text : "Random map of player"},
+          {value : "SameAsLastEvent", text : "Same as last event"},
+        ]
       }
     },
   }
@@ -315,5 +352,9 @@
             margin-left: -11px;
             width: 100%;
         }
+    }
+
+    .info-box {
+        margin: 30px;
     }
 </style>

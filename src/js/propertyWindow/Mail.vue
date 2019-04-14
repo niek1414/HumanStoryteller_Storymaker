@@ -27,6 +27,10 @@
                         label="Shake screen"
                         v-model="selected.properties.letter.shake"
                 ></v-switch>
+                <v-switch
+                        label="Instantly popup"
+                        v-model="selected.properties.letter.force"
+                ></v-switch>
             </template>
         </template>
     </div>

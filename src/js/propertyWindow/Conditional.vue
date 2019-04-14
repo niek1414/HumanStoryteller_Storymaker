@@ -30,8 +30,11 @@
                         <Biome v-if="con.type === 'Biome'" v-bind:condition="con"></Biome>
                         <Temperature v-if="con.type === 'Temperature'" v-bind:condition="con"></Temperature>
                         <Colonists v-if="con.type === 'Colonists'" v-bind:condition="con"></Colonists>
+                        <ColonistsOnMap v-if="con.type === 'ColonistsOnMap'" v-bind:condition="con"></ColonistsOnMap>
                         <Cheat v-if="con.type === 'Cheat'" v-bind:condition="con"></Cheat>
                         <Research v-if="con.type === 'Research'" v-bind:condition="con"></Research>
+                        <Colonies v-if="con.type === 'Colonies'" v-bind:condition="con"></Colonies>
+                        <MapCreated v-if="con.type === 'MapCreated'" v-bind:condition="con"></MapCreated>
                     </v-card-text>
                     <v-card-actions>
                         <v-btn flat color="error" v-on:click="selected.conditions = selected.conditions.filter(function(item) {return item !== con})">remove</v-btn>
@@ -60,10 +63,16 @@
   import Audio from "./condition/Audio";
   import Cheat from "./condition/Cheat";
   import Research from "./condition/Research";
+  import Colonies from "./condition/Colonies";
+  import MapCreated from "./condition/MapCreated";
+  import ColonistsOnMap from "./condition/ColonistsOnMap";
 
   export default {
     name : "conditional",
     components : {
+      ColonistsOnMap,
+      MapCreated,
+      Colonies,
       Research,
       Cheat,
       PawnHealth,
@@ -92,9 +101,12 @@
           {value : 'Relation', text : 'Faction relation'},
           {value : 'ItemMap', text : 'Items on map'},
           {value : 'ItemColony', text : 'Items on stockpiles'},
+          {value : 'MapCreated', text : 'Map created'},
           {value : 'Biome', text : 'Biome'},
           {value : 'Temperature', text : 'Temperature'},
           {value : 'Colonists', text : 'Colonists'},
+          {value : 'ColonistsOnMap', text : 'Colonists on map'},
+          {value : 'Colonies', text : 'Colonies'},
           {value : 'Cheat', text : 'Cheat'},
           {value : 'Research', text : 'Research'},
         ],

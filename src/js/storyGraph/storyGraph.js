@@ -25,7 +25,8 @@ export default draw2d.Canvas.extend({
     this.projectData = {
       id : null,
       name : "My story",
-      description : "Small description explaining stuff... like.. uhm? Difficulty? What? I'am a coder, not a placeholder writer.. -.- "
+      description : "Small description explaining stuff... like.. uhm? Difficulty? What? I'am a coder, not a placeholder writer.. -.- ",
+      publish : false
     };
 
     var conn = new RouteConnection({
@@ -40,7 +41,8 @@ export default draw2d.Canvas.extend({
     this.projectData = {
       id : data.id,
       name : data.name,
-      description : data.description
+      description : data.description,
+      publish : data.publish === undefined ? false : data.publish
     };
     const createdList = [];
     for (const event of data.storyline.story) {
@@ -196,7 +198,7 @@ export default draw2d.Canvas.extend({
 
   toJSON : function() {
     const story = [];
-    const data = {name : this.projectData.name, description : this.projectData.description, story : story};
+    const data = {name : this.projectData.name, description : this.projectData.description, publish : this.projectData.publish, story : story};
     const figures = this.getFigures();
     const figureLength = figures.getSize();
     for (let i = 0; i < figureLength; i++) {
@@ -210,7 +212,7 @@ export default draw2d.Canvas.extend({
   },
 
   saveStory : function() {
-    let data = {name : this.projectData.name, description : this.projectData.description, data : this.toJSON()};
+    let data = {name : this.projectData.name, description : this.projectData.description, publish : this.projectData.publish, data : this.toJSON()};
     if (this.projectData.id != null) {
       data.id = this.projectData.id;
     }

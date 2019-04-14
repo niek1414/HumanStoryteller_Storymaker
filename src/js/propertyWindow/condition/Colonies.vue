@@ -8,7 +8,7 @@
                     </v-input>
                 </v-flex>
                 <v-flex xs6>
-                    <v-input messages="Amount of colonists to compare to (don't confuse with colonies)">
+                    <v-input messages="Amount of colonies to compare to (don't confuse with colonists)">
                         <v-text-field label="Constant" type="number" v-model="condition['constant']"></v-text-field>
                     </v-input>
                 </v-flex>
@@ -20,7 +20,7 @@
 <script>
   export default {
     props : ["condition"],
-    name : "Colonists",
+    name : "Colonies",
     data : () => ({
       numeralCompares : [
         {value : 'Less', text : 'Less than'},

@@ -13,6 +13,12 @@
                     label="Description"
                     v-model="project.description"
             ></v-textarea>
+            <v-input messages="Publicly visible. Change becomes active after upload!">
+                <v-switch
+                        label="Show publicly"
+                        v-model="project.publish"
+                ></v-switch>
+            </v-input>
         </div>
     </div>
 </template>
