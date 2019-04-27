@@ -9,6 +9,7 @@
                     :items="factionTypes"
                     v-model="selected.properties['Faction']"
                     label="Faction"
+                    clearable=true
             ></v-select>
         </v-input>
 
@@ -27,12 +28,12 @@
     data : function() {
       return {
         factionTypes : [
-          {value : "PlayerColony", text : "Player Colony"},
           {value : "OutlanderCivil", text : "Outlander Civil"},
           {value : "OutlanderRough", text : "Outlander Rough"},
+          {value : "Pirate", text : "Pirate"},
+          {value : "PlayerColony", text : "Player Colony"},
           {value : "TribeCivil", text : "Tribe Civil"},
           {value : "TribeRough", text : "Tribe Rough"},
-          {value : "Pirate", text : "Pirate"},
         ],
       }
     }

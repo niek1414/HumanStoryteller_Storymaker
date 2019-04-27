@@ -5,10 +5,14 @@
                     :items="factionTypes"
                     v-model="selected.properties['Faction']"
                     label="Faction"
+                    clearable=true
             ></v-select>
         </v-input>
         <v-input messages="Relation change with faction (-20 will worsen the relation)">
             <NumberField label="Change in goodwill" :myModel.sync="selected.properties['FactionRelation']"></NumberField>
+        </v-input>
+        <v-input messages="Use this field if you want to rename the faction. (Leave empty otherwise)">
+            <v-text-field label="New faction name" type="text" v-model="selected.properties['NewName']"></v-text-field>
         </v-input>
     </div>
 </template>
@@ -22,16 +26,10 @@
     data : function() {
       return {
         factionTypes : [
-          // {value : "Ancients", text : "Ancients"},
-          // {value : "AncientsHostile", text : "Ancients Hostile"},
-          // {value : "Mechanoid", text : "Mechanoid"},
-          // {value : "Insect", text : "Insect"},
           {value : "OutlanderCivil", text : "Outlander Civil"},
           {value : "OutlanderRough", text : "Outlander Rough"},
           {value : "TribeCivil", text : "Tribe Civil"},
           {value : "TribeRough", text : "Tribe Rough"},
-          // {value : "Pirate", text : "Pirate"},
-          // {value : "PlayerColony", text : "Player Colony"},
         ]
       }
     }

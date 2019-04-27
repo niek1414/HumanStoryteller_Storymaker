@@ -15,6 +15,7 @@
                     :items="factionTypes"
                     v-model="selected.properties['Faction']"
                     label="Faction"
+                    clearable=true
             ></v-select>
         </v-input>
         <v-input messages="Create new born?">
@@ -40,6 +41,7 @@
                     :items="genderTypes"
                     v-model="selected.properties['Gender']"
                     label="Gender"
+                    clearable=true
             ></v-select>
         </v-input>
         <v-input>
@@ -55,7 +57,8 @@
                         :items="itemQuality"
                         v-model="selected.properties['ItemQuality']"
                         label="Weapon quality (if applicable)"
-                ></v-select>
+                    clearable=true
+            ></v-select>
             </v-input>
             <v-input>
                 <v-autocomplete
@@ -91,14 +94,14 @@
         factionTypes : [
           {value : "Ancients", text : "Ancients"},
           {value : "AncientsHostile", text : "Ancients Hostile"},
-          {value : "Mechanoid", text : "Mechanoid"},
           {value : "Insect", text : "Insect"},
+          {value : "Mechanoid", text : "Mechanoid"},
           {value : "OutlanderCivil", text : "Outlander Civil"},
           {value : "OutlanderRough", text : "Outlander Rough"},
-          {value : "TribeCivil", text : "Tribe Civil"},
-          {value : "TribeRough", text : "Tribe Rough"},
           {value : "Pirate", text : "Pirate"},
           {value : "PlayerColony", text : "Player Colony"},
+          {value : "TribeCivil", text : "Tribe Civil"},
+          {value : "TribeRough", text : "Tribe Rough"},
         ],
         pawnKind : EventTypes.PawnKind,
         weapons : EventTypes.Weapons,

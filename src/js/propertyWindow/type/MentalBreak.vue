@@ -23,6 +23,7 @@
                     :items="mentalBreak"
                     v-model="selected.properties['MentalBreak']"
                     label="Mental break"
+                    clearable=true
             ></v-select>
         </v-input>
     </div>
@@ -35,25 +36,25 @@
     data : function() {
       return {
         mentalBreak : [
+          {value : "BedroomTantrum", text : "Bedroom tantrum"},
           {value : "Berserk", text : "Berserk"},
-          {value : "FireStartingSpree", text : "Starting fire spree"},
           {value : "Binging_Food", text : "Binging food"},
           {value : "Catatonic", text : "Catatonic"},
+          {value : "CorpseObsession", text : "Corpse obsession"},
+          {value : "GiveUpExit", text : "Give up (to exit)"},
+          {value : "InsultingSpree", text : "Insulting spree"},
           {value : "Jailbreaker", text : "Jailbreaker"},
-          {value : "Slaughterer", text : "Slaughterer"},
           {value : "MurderousRage", text : "Murderous rage"},
           {value : "RunWild", text : "Run wild"},
-          {value : "GiveUpExit", text : "Give up (to exit)"},
-          {value : "Wander_Psychotic", text : "Wander - Psychotic"},
+          {value : "SadisticRage", text : "Sadistic tage"},
+          {value : "Slaughterer", text : "Slaughterer"},
+          {value : "FireStartingSpree", text : "Starting fire spree"},
           {value : "Tantrum", text : "Tantrum"},
           {value : "TargetedTantrum", text : "Targeted tantrum"},
-          {value : "BedroomTantrum", text : "Bedroom tantrum"},
-          {value : "SadisticRage", text : "Sadistic tage"},
-          {value : "CorpseObsession", text : "Corpse obsession"},
+          {value : "TargetedInsultingSpree", text : "Targeted insulting spree"},
+          {value : "Wander_Psychotic", text : "Wander - Psychotic"},
           {value : "Wander_Sad", text : "Wander - Sad"},
           {value : "Wander_OwnRoom", text : "Wander - Own room"},
-          {value : "InsultingSpree", text : "Insulting spree"},
-          {value : "TargetedInsultingSpree", text : "Targeted insulting spree"},
         ],
       }
     }

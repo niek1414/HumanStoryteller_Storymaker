@@ -17,6 +17,11 @@ export default Class.extend({
       success : function(data) {
         that.user = data;
         $("#avatar-img").attr("src", that.user.avatar);
+        if (that.user.id === 1) {
+          window.LoadStory = function(id) {
+            that.loadStory(id)
+          };
+        }
       },
       error : function(jqXhr, textStatus, errorThrown) {
         console.log(errorThrown);
@@ -68,15 +73,15 @@ export default Class.extend({
           continue;
         }
 
-        if (item.isDivider){
+        if (item.isDivider) {
           nextSelection.add(view.addDivider(item.x, item.y + 60));
         } else {
           nextSelection.add(view.addEvent(item.x, item.y + 60, item.type.value.value, JSON.parse(JSON.stringify(item.properties)), JSON.parse(JSON.stringify(item.conditions)), JSON.parse(JSON.stringify(item.storage))));
         }
       }
 
-      this.view.selection.getAll().each( (i, e) =>{
-        this.view.editPolicy.each( (i, policy) =>{
+      this.view.selection.getAll().each((i, e) => {
+        this.view.editPolicy.each((i, policy) => {
           if (typeof policy.unselect === "function") {
             policy.unselect(this.view, e)
           }
@@ -205,14 +210,14 @@ export default Class.extend({
   viableDeleteSelection : function() {
     let count = 0;
     // for (let i = 0, il = this.view.getSelection().getSize(); i < il; i++) {
-      this.view.selection.each((i, e) => {
-        if (e instanceof Event) {
-          if (e.isRoot) {
-            return;
-          }
+    this.view.selection.each((i, e) => {
+      if (e instanceof Event) {
+        if (e.isRoot) {
+          return;
         }
-        count++;
-      });
+      }
+      count++;
+    });
     // }
     return count;
   },
@@ -276,8 +281,149 @@ export default Class.extend({
     if (id === null) {
       this.errorMessage("This story has no id.");
       return;
-    } else if (id === -1){
-      that.view.loadStory({id: null, name: "The very first story!", description: "About a princess and - i am a programmer not a story writer oke?", publish: false, storyline: {"name":"The very first story!","description":"About a princess and - i am a programmer not a story writer oke?","story":[{"uuid":"root","name":"","left":{"offset":0,"uuid":"500a7e13-50a7-81b1-634f-2293f3ca1cf8"},"right":null,"x":375,"y":75,"incident":{"type":"Nothing","letter":{"show":false}},"storage":[]},{"uuid":"500a7e13-50a7-81b1-634f-2293f3ca1cf8","name":"Nothing","left":{"offset":1,"uuid":"e888ac78-b499-e101-4b9f-94fe0f1c4892"},"right":null,"x":350,"y":200,"incident":{"type":"Nothing","letter":{"show":true,"type":"PositiveEvent","title":"Demo","message":"Every story has a timeline with events.\nThis event only has a message connected.\nThe next one will be a RAID D:","shake":false,"force":true}},"conditions":[],"storage":[]},{"uuid":"97efb26e-4bc7-0486-4245-b4940c62b26a","name":"Raid","left":{"offset":5,"uuid":"3907b029-4a61-a8f6-c1f4-792fa15f76a6"},"right":null,"x":356,"y":431,"incident":{"type":"RaidEnemy","letter":{"show":true,"type":"ThreatBig","shake":true,"force":false,"title":"Raid with params","message":"This raid has additional parameters ( like x2 strength & spawning in center of the map, good luck ;) )\nI added some battle music, enjoy!"},"Points":"2","Strategy":"ImmediateAttackSappers","ArriveMode":"CenterDrop","Names":["bert","birt","bort","burt","bart","jan","jon","jin","jun","jen"]},"conditions":[],"storage":[]},{"uuid":"3907b029-4a61-a8f6-c1f4-792fa15f76a6","name":"Dialog","left":{"offset":0,"uuid":"6b2700d0-ee3a-b3a7-e542-18d2dd131110"},"right":{"offset":5,"uuid":"46e437ac-acff-2f72-9a38-7fc5249e1d53"},"x":356,"y":511,"incident":{"type":"Dialog","letter":{"show":true,"type":"NeutralEvent","title":"O my, a choice?","message":"The timeline can split depending on a user action!"},"Duration":"0.05"},"conditions":[{"type":"Dialog","response":"Accepted"}],"storage":[]},{"uuid":"6b2700d0-ee3a-b3a7-e542-18d2dd131110","name":"Meteorite","left":{"offset":1,"uuid":"ce5ab06a-6267-f06b-4269-38c5b3857f48"},"right":null,"x":287,"y":605,"incident":{"type":"MeteoriteImpact","letter":{"show":true,"type":"NeutralEvent","title":"You accepted","message":"Have some meteorites"},"MineableRock":"MineableGold","Amount":"4"},"conditions":[],"storage":[]},{"uuid":"46e437ac-acff-2f72-9a38-7fc5249e1d53","name":"Cold snap/Heat wave","left":{"offset":1,"uuid":"ce5ab06a-6267-f06b-4269-38c5b3857f48"},"right":null,"x":408,"y":607,"incident":{"type":"TempFlux","letter":{"show":true,"type":"NegativeEvent","title":"You declined D:","message":"Have a cold snap of -50","shake":true,"force":false},"Duration":"3","TempChange":"-50"},"conditions":[],"storage":[]},{"uuid":"ce5ab06a-6267-f06b-4269-38c5b3857f48","name":"Research","left":null,"right":null,"x":369,"y":707,"incident":{"type":"Research","letter":{"show":true,"type":"NeutralEvent","title":"That was my small demo","message":"Now go to http://storyteller.keyboxsoftware.nl to create your own story!"},"Projects":["ShipBasics"]},"conditions":[],"storage":[]},{"uuid":"D__e888ac78-b499-e101-4b9f-94fe0f1c4892","name":"DIVIDER","left":{"offset":0,"uuid":"405f4b6c-96ff-cecc-3e57-36e5e8043eec"},"right":{"offset":0,"uuid":"97efb26e-4bc7-0486-4245-b4940c62b26a"},"x":363,"y":296,"incident":{"type":"Nothing","letter":{"show":false}},"storage":[]},{"uuid":"405f4b6c-96ff-cecc-3e57-36e5e8043eec","name":"Play audio","left":null,"right":null,"x":236,"y":430,"incident":{"type":"PlayAudio","letter":{"show":true,"type":"Default"},"Author":"FunWithSound","File":"369/369251_6456158-lq.mp3","IsSong":true},"conditions":[],"storage":[]}]}});
+    } else if (id === -1) {
+      that.view.loadStory({
+        id : null, name : "The very first story!", description : "About a princess and - i am a programmer not a story writer oke?", publish : false, storyline : {
+          "name" : "The very first story!",
+          "description" : "About a princess and - i am a programmer not a story writer oke?",
+          "story" : [{
+            "uuid" : "root",
+            "name" : "",
+            "left" : {"offset" : 0, "uuid" : "500a7e13-50a7-81b1-634f-2293f3ca1cf8"},
+            "right" : null,
+            "x" : 375,
+            "y" : 75,
+            "incident" : {"type" : "Nothing", "letter" : {"show" : false}},
+            "storage" : []
+          }, {
+            "uuid" : "500a7e13-50a7-81b1-634f-2293f3ca1cf8",
+            "name" : "Nothing",
+            "left" : {"offset" : 1, "uuid" : "e888ac78-b499-e101-4b9f-94fe0f1c4892"},
+            "right" : null,
+            "x" : 350,
+            "y" : 200,
+            "incident" : {
+              "type" : "Nothing",
+              "letter" : {
+                "show" : true,
+                "type" : "PositiveEvent",
+                "title" : "Demo",
+                "message" : "Every story has a timeline with events.\nThis event only has a message connected.\nThe next one will be a RAID D:",
+                "shake" : false,
+                "force" : true
+              }
+            },
+            "conditions" : [],
+            "storage" : []
+          }, {
+            "uuid" : "97efb26e-4bc7-0486-4245-b4940c62b26a",
+            "name" : "Raid",
+            "left" : {"offset" : 5, "uuid" : "3907b029-4a61-a8f6-c1f4-792fa15f76a6"},
+            "right" : null,
+            "x" : 356,
+            "y" : 431,
+            "incident" : {
+              "type" : "RaidEnemy",
+              "letter" : {
+                "show" : true,
+                "type" : "ThreatBig",
+                "shake" : true,
+                "force" : false,
+                "title" : "Raid with params",
+                "message" : "This raid has additional parameters ( like x2 strength & spawning in center of the map, good luck ;) )\nI added some battle music, enjoy!"
+              },
+              "Points" : "2",
+              "Strategy" : "ImmediateAttackSappers",
+              "ArriveMode" : "CenterDrop",
+              "Names" : ["bert", "birt", "bort", "burt", "bart", "jan", "jon", "jin", "jun", "jen"]
+            },
+            "conditions" : [],
+            "storage" : []
+          }, {
+            "uuid" : "3907b029-4a61-a8f6-c1f4-792fa15f76a6",
+            "name" : "Dialog",
+            "left" : {"offset" : 0, "uuid" : "6b2700d0-ee3a-b3a7-e542-18d2dd131110"},
+            "right" : {"offset" : 5, "uuid" : "46e437ac-acff-2f72-9a38-7fc5249e1d53"},
+            "x" : 356,
+            "y" : 511,
+            "incident" : {
+              "type" : "Dialog",
+              "letter" : {"show" : true, "type" : "NeutralEvent", "title" : "O my, a choice?", "message" : "The timeline can split depending on a user action!"},
+              "Duration" : "0.05"
+            },
+            "conditions" : [{"type" : "Dialog", "response" : "Accepted"}],
+            "storage" : []
+          }, {
+            "uuid" : "6b2700d0-ee3a-b3a7-e542-18d2dd131110",
+            "name" : "Meteorite",
+            "left" : {"offset" : 1, "uuid" : "ce5ab06a-6267-f06b-4269-38c5b3857f48"},
+            "right" : null,
+            "x" : 287,
+            "y" : 605,
+            "incident" : {
+              "type" : "MeteoriteImpact",
+              "letter" : {"show" : true, "type" : "NeutralEvent", "title" : "You accepted", "message" : "Have some meteorites"},
+              "MineableRock" : "MineableGold",
+              "Amount" : "4"
+            },
+            "conditions" : [],
+            "storage" : []
+          }, {
+            "uuid" : "46e437ac-acff-2f72-9a38-7fc5249e1d53",
+            "name" : "Cold snap/Heat wave",
+            "left" : {"offset" : 1, "uuid" : "ce5ab06a-6267-f06b-4269-38c5b3857f48"},
+            "right" : null,
+            "x" : 408,
+            "y" : 607,
+            "incident" : {
+              "type" : "TempFlux",
+              "letter" : {"show" : true, "type" : "NegativeEvent", "title" : "You declined D:", "message" : "Have a cold snap of -50", "shake" : true, "force" : false},
+              "Duration" : "3",
+              "TempChange" : "-50"
+            },
+            "conditions" : [],
+            "storage" : []
+          }, {
+            "uuid" : "ce5ab06a-6267-f06b-4269-38c5b3857f48",
+            "name" : "Research",
+            "left" : null,
+            "right" : null,
+            "x" : 369,
+            "y" : 707,
+            "incident" : {
+              "type" : "Research",
+              "letter" : {
+                "show" : true,
+                "type" : "NeutralEvent",
+                "title" : "That was my small demo",
+                "message" : "Now go to http://storyteller.keyboxsoftware.nl to create your own story!"
+              },
+              "Projects" : ["ShipBasics"]
+            },
+            "conditions" : [],
+            "storage" : []
+          }, {
+            "uuid" : "D__e888ac78-b499-e101-4b9f-94fe0f1c4892",
+            "name" : "DIVIDER",
+            "left" : {"offset" : 0, "uuid" : "405f4b6c-96ff-cecc-3e57-36e5e8043eec"},
+            "right" : {"offset" : 0, "uuid" : "97efb26e-4bc7-0486-4245-b4940c62b26a"},
+            "x" : 363,
+            "y" : 296,
+            "incident" : {"type" : "Nothing", "letter" : {"show" : false}},
+            "storage" : []
+          }, {
+            "uuid" : "405f4b6c-96ff-cecc-3e57-36e5e8043eec",
+            "name" : "Play audio",
+            "left" : null,
+            "right" : null,
+            "x" : 236,
+            "y" : 430,
+            "incident" : {"type" : "PlayAudio", "letter" : {"show" : true, "type" : "Default"}, "Author" : "FunWithSound", "File" : "369/369251_6456158-lq.mp3", "IsSong" : true},
+            "conditions" : [],
+            "storage" : []
+          }]
+        }
+      });
       return;
     }
     $.ajax({

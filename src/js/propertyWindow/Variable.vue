@@ -19,11 +19,18 @@
                                         <v-select :items="modifications" label="Modification type" type="text" v-model="storage['Modification']"></v-select>
                                     </v-input>
                                 </v-flex>
-                                <v-flex xs4>
-                                    <v-input messages="The number at the end of the modification. (`var` add 1 becomes var + 1)">
-                                        <v-text-field label="Constant" type="number" v-model="storage['Constant']"></v-text-field>
+                                <template v-if="storage['Modification'] === 'EqualVar'">
+                                    <v-input messages="The name of the variable to copy. This is case sensitive">
+                                        <v-text-field label="Variable name" type="text" v-model="storage['NewVar']"></v-text-field>
                                     </v-input>
-                                </v-flex>
+                                </template>
+                                <template v-else>
+                                    <v-flex xs4>
+                                        <v-input messages="The number at the end of the modification. (`var` add 1 becomes var + 1)">
+                                            <v-text-field label="Constant" type="number" v-model="storage['Constant']"></v-text-field>
+                                        </v-input>
+                                    </v-flex>
+                                </template>
                             </v-layout>
                         </v-container>
                     </v-card-text>
@@ -65,6 +72,7 @@
         {value : 'Divide', text : 'Divide by'},
         {value : 'Multiply', text : 'Multiply by'},
         {value : 'Equal', text : 'Set to'},
+        {value : 'EqualVar', text : 'Set to variable..'},
       ],
     }),
     methods : {

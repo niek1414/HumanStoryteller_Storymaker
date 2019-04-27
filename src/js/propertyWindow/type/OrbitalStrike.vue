@@ -8,6 +8,7 @@
                     :items="orbitalType"
                     v-model="selected.properties['OrbitalType']"
                     label="Type"
+                    clearable=true
             ></v-select>
         </v-input>
     </div>
@@ -20,9 +21,9 @@
     data : function() {
       return {
         orbitalType : [
-          {value : "Tornado", text : "Tornado"},
           {value : "PowerBeam", text : "Orbital power beam"},
           {value : "Bombardment", text : "Orbital bombardment"},
+          {value : "Tornado", text : "Tornado"},
         ]
       }
     }

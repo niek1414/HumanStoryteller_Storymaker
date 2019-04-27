@@ -8,7 +8,8 @@
                                 :items="factionTypes"
                                 v-model="condition['faction']"
                                 label="Faction"
-                        ></v-select>
+                    clearable=true
+            ></v-select>
                     </v-input>
                 </v-flex>
                 <v-flex xs4>

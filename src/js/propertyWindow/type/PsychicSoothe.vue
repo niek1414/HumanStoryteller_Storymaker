@@ -9,6 +9,7 @@
                     :items="genderTypes"
                     v-model="selected.properties['Gender']"
                     label="Gender"
+                    clearable=true
             ></v-select>
         </v-input>
     </div>

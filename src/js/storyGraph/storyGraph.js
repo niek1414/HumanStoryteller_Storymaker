@@ -26,7 +26,7 @@ export default draw2d.Canvas.extend({
       id : null,
       name : "My story",
       description : "Small description explaining stuff... like.. uhm? Difficulty? What? I'am a coder, not a placeholder writer.. -.- ",
-      publish : false
+      publish : false,
     };
 
     var conn = new RouteConnection({
@@ -48,7 +48,7 @@ export default draw2d.Canvas.extend({
     for (const event of data.storyline.story) {
       let created;
       if (event.uuid === "root") {
-        created = this.addRoot(event.x, event.y);
+        created = this.addRoot(event.x, event.y, event.incident);
       } else if (event.uuid.startsWith("D__")) {
         created = this.addDivider(event.x, event.y);
         created.setId(event.uuid.substring(3));
@@ -159,8 +159,8 @@ export default draw2d.Canvas.extend({
     return d;
   },
 
-  addRoot : function(x, y) {
-    const d = new Event({width : 50, height : 50, radius : 100, x : x, y : y, text : "", type : "Nothing", properties : {letter : {show : false}}, storage : []});
+  addRoot : function(x, y, properties = {letter : {show : false}}) {
+    const d = new Event({width : 50, height : 50, radius : 100, x : x, y : y, text : "", type : "Root", properties : properties, storage : []});
     d.left = d.createPort("output", new this.outputPortPos);
     d.isRoot = true;
     this.add(d);

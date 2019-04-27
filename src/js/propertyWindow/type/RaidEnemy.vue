@@ -6,6 +6,7 @@
 
         <v-input messages="If the faction is friendly at the time, they will come but not attack">
             <v-select
+                    clearable
                     :items="factionTypes"
                     v-model="selected.properties['Faction']"
                     label="Faction"
@@ -14,6 +15,7 @@
 
         <v-input messages="Not all factions are usable for all strategies and arrive modes">
             <v-select
+                    clearable
                     :items="strategyTypes"
                     v-model="selected.properties['Strategy']"
                     label="Strategy"
@@ -22,6 +24,7 @@
 
         <v-input>
             <v-select
+                    clearable
                     :items="arriveModeTypes"
                     v-model="selected.properties['ArriveMode']"
                     label="Arrive mode"
@@ -60,32 +63,28 @@
     data : function() {
       return {
         factionTypes : [
-          // {value : "Ancients", text : "Ancients"},
-          // {value : "AncientsHostile", text : "Ancients Hostile"},
           {value : "Mechanoid", text : "Mechanoid"},
-          // {value : "Insect", text : "Insect"},
           {value : "OutlanderCivil", text : "Outlander Civil"},
           {value : "OutlanderRough", text : "Outlander Rough"},
+          {value : "Pirate", text : "Pirate"},
           {value : "TribeCivil", text : "Tribe Civil"},
           {value : "TribeRough", text : "Tribe Rough"},
-          {value : "Pirate", text : "Pirate"},
-          // {value : "PlayerColony", text : "Player Colony"},
         ],
 
         strategyTypes : [
           {value : "ImmediateAttack", text : "Immediate attack"},
-          {value : "StageThenAttack", text : "Stage then attack"},
           {value : "ImmediateAttackSmart", text : "Immediate attack smart"},
           {value : "ImmediateAttackSappers", text : "Immediate attack sappers"},
           {value : "Siege", text : "Siege"},
+          {value : "StageThenAttack", text : "Preparing then attack"},
         ],
 
         arriveModeTypes : [
+          {value : "CenterDrop", text : "Center drop"},
           {value : "EdgeWalkIn", text : "Edge walk in"},
           {value : "EdgeDrop", text : "Edge drop"},
           {value : "EdgeWalkInGroups", text : "Edge walk in groups"},
           {value : "EdgeDropGroups", text : "Edge drop groups"},
-          {value : "CenterDrop", text : "Center drop"},
           {value : "RandomDrop", text : "Random drop"},
         ],
       }

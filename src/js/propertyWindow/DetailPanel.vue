@@ -19,6 +19,38 @@
                         v-model="project.publish"
                 ></v-switch>
             </v-input>
+            <v-divider data-content="MAP GENERATION & SELECTION"></v-divider>
+            <v-input messages="Force map generation settings?">
+                <v-switch
+                        label="Override map variables"
+                        v-model="selected.properties['OverrideMapGen']"
+                ></v-switch>
+            </v-input>
+            <template v-if="selected.properties['OverrideMapGen']">
+                <v-input messages="Seed used in map generation">
+                    <v-text-field label="Random seed" type="text" v-model="selected.properties['Seed']"></v-text-field>
+                </v-input>
+                <v-input messages="Amount of world that needs to be generated. 0 to 1 where 0.5 is 50%">
+                    <v-text-field label="World coverage" type="number" v-model="selected.properties['Coverage']"></v-text-field>
+                </v-input>
+                <v-input messages="Amount of rain. 0 to 1 where 1 is a lot of rain.">
+                    <v-text-field label="Rainfall" type="number" v-model="selected.properties['Rainfall']"></v-text-field>
+                </v-input>
+                <v-input messages="Temperature in the world. 0 is very cold and 1 very warm">
+                    <v-text-field label="Temperature" type="number" v-model="selected.properties['Temperature']"></v-text-field>
+                </v-input>
+            </template>
+            <v-input messages="Force player starting location?">
+                <v-switch
+                        label="Override landing location"
+                        v-model="selected.properties['OverrideMapLoc']"
+                ></v-switch>
+            </v-input>
+            <template v-if="selected.properties['OverrideMapLoc']">
+                <v-input messages="Number can be found ingame top-left on world selection screen (with mod enabled).">
+                    <v-text-field label="First landing site" type="number" v-model="selected.properties['Site']"></v-text-field>
+                </v-input>
+            </template>
         </div>
     </div>
 </template>
@@ -28,7 +60,7 @@
 
   export default {
     name : "detail-panel",
-    props : ["project"],
+    props : ["project", "selected"],
     components : {PropertyHeader}
   }
 </script>

@@ -31,6 +31,7 @@
                         <Temperature v-if="con.type === 'Temperature'" v-bind:condition="con"></Temperature>
                         <Colonists v-if="con.type === 'Colonists'" v-bind:condition="con"></Colonists>
                         <ColonistsOnMap v-if="con.type === 'ColonistsOnMap'" v-bind:condition="con"></ColonistsOnMap>
+                        <ColonistOnMap v-if="con.type === 'ColonistOnMap'" v-bind:condition="con"></ColonistOnMap>
                         <Cheat v-if="con.type === 'Cheat'" v-bind:condition="con"></Cheat>
                         <Research v-if="con.type === 'Research'" v-bind:condition="con"></Research>
                         <Colonies v-if="con.type === 'Colonies'" v-bind:condition="con"></Colonies>
@@ -66,10 +67,12 @@
   import Colonies from "./condition/Colonies";
   import MapCreated from "./condition/MapCreated";
   import ColonistsOnMap from "./condition/ColonistsOnMap";
+  import ColonistOnMap from "./condition/ColonistOnMap";
 
   export default {
     name : "conditional",
     components : {
+      ColonistOnMap,
       ColonistsOnMap,
       MapCreated,
       Colonies,
@@ -106,6 +109,7 @@
           {value : 'Temperature', text : 'Temperature'},
           {value : 'Colonists', text : 'Colonists'},
           {value : 'ColonistsOnMap', text : 'Colonists on map'},
+          {value : 'ColonistOnMap', text : 'Colonist on map'},
           {value : 'Colonies', text : 'Colonies'},
           {value : 'Cheat', text : 'Cheat'},
           {value : 'Research', text : 'Research'},

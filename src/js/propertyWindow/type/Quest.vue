@@ -8,6 +8,7 @@
                     :items="questTypes"
                     v-model="selected.properties['QuestType']"
                     label="QuestType"
+                    clearable=true
             ></v-select>
         </v-input>
         <template v-if="selected.properties['QuestType'] === 'DownedRefugee'
@@ -21,6 +22,7 @@
                     :items="threatTypes"
                     v-model="selected.properties['ThreatType']"
                     label="ThreatType"
+                    clearable=true
             ></v-select>
         </v-input>
         <v-input messages="2 is twice the strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
@@ -111,7 +113,8 @@
                         :items="factionTypes"
                         v-model="selected.properties['Faction']"
                         label="Faction"
-                ></v-select>
+                    clearable=true
+            ></v-select>
             </v-input>
             <v-divider data-content="ELIMINATE CAMP REWARD"></v-divider>
             <v-input messages="If enabled, a reward is given for eliminating all threats.">
@@ -175,7 +178,8 @@
                             :items="factionTypes"
                             v-model="selected.properties['RewardFaction']"
                             label="Friendly faction"
-                    ></v-select>
+                    clearable=true
+            ></v-select>
                 </v-input>
                 <v-input :messages="
                 selected.properties['RewardFactionRelation'] ==='' ||
@@ -226,26 +230,26 @@
         stuff : EventTypes.Stuff,
         mineableMaterials : EventTypes.MineableMaterials,
         questTypes : [
-          {value : "Nothing", text : "No objective"},
-          {value : "ItemStash", text : "Item stash"},
-          {value : "PreciousLump", text : "Precious mineable lump"},
           {value : "DownedRefugee", text : "Downed refugee"},
+          {value : "ItemStash", text : "Item stash"},
+          {value : "Nothing", text : "No objective"},
+          {value : "PreciousLump", text : "Precious mineable lump"},
           {value : "PrisonerWillingToJoin", text : "Prisoner willing to join"},
         ],
         threatTypes : [
-          {value : "Outpost", text : "Outpost"},
-          {value : "Turrets", text : "Turrets"},
-          {value : "Manhunters", text : "Manhunters"},
-          {value : "SleepingMechanoids", text : "Sleeping mechanoids"},
           {value : "AmbushHidden", text : "Ambush hidden"},
           {value : "AmbushEdge", text : "Ambush edge"},
+          {value : "Manhunters", text : "Manhunters"},
+          {value : "Outpost", text : "Outpost"},
+          {value : "SleepingMechanoids", text : "Sleeping mechanoids"},
+          {value : "Turrets", text : "Turrets"},
         ],
         factionTypes : [
           {value : "OutlanderCivil", text : "Outlander Civil"},
           {value : "OutlanderRough", text : "Outlander Rough"},
+          {value : "Pirate", text : "Pirate"},
           {value : "TribeCivil", text : "Tribe Civil"},
           {value : "TribeRough", text : "Tribe Rough"},
-          {value : "Pirate", text : "Pirate"},
         ],
       }
     }

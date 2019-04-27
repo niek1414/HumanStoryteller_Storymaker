@@ -111,7 +111,8 @@
                                     :items="targets"
                                     v-model="selected.properties['Target']"
                                     label="Map"
-                            ></v-select>
+                    clearable=true
+            ></v-select>
                         </v-input>
                     </template>
                 </div>
