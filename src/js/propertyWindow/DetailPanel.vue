@@ -22,11 +22,19 @@
             <v-divider data-content="MAP GENERATION & SELECTION"></v-divider>
             <v-input messages="Force map generation settings?">
                 <v-switch
-                        label="Override map variables"
+                        label="Override map & opening variables"
                         v-model="selected.properties['OverrideMapGen']"
                 ></v-switch>
             </v-input>
             <template v-if="selected.properties['OverrideMapGen']">
+                <v-input messages="Starting pawn amount">
+                    <v-text-field label="Pawn amount" type="number" v-model="selected.properties['PawnAmount']"></v-text-field>
+                </v-input>
+                <v-textarea
+                    outline
+                    label="Opening text"
+                    v-model="selected.properties['Opening']"
+                ></v-textarea>
                 <v-input messages="Seed used in map generation">
                     <v-text-field label="Random seed" type="text" v-model="selected.properties['Seed']"></v-text-field>
                 </v-input>

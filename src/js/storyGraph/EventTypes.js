@@ -674,6 +674,8 @@ EventTypes.Positions = [
   {value : 'Random', text : 'Random'},
   {value : 'RandomEdge', text : 'Random edge'},
   {value : 'Center', text : 'Map center'},
+  {value : 'OutsideColony', text : 'Just outside colony'},
+  {value : 'Siege', text : 'Siege location'},
 ];
 
 EventTypes.MineableMaterials = [
