@@ -13,6 +13,7 @@
                     </v-input>
                 </v-flex>
             </v-layout>
+            <p>Uses same map the event is executed on.</p>
         </v-container>
     </div>
 </template>
@@ -25,7 +26,7 @@
       numeralCompares : [
         {value : 'Less', text : 'Less than'},
         {value : 'More', text : 'More than'},
-        {value : 'Equal', text : 'Equal than'}
+        {value : 'Equal', text : 'Equal'}
       ],
     })
   }

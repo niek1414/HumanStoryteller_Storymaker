@@ -105,6 +105,7 @@
         ],
         pawnKind : EventTypes.PawnKind,
         weapons : EventTypes.Weapons,
+        stuff : EventTypes.Stuff,
         itemQuality : EventTypes.ItemQualities,
         genderTypes : [
           {value : "MALE", text : "Male"},

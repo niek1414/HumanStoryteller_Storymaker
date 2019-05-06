@@ -98,7 +98,7 @@ export default draw2d.Canvas.extend({
           this.add(new RouteConnection({
             source : newPort,
             target : created.input,
-            offset : parseInt(connection.offset)
+            offset : parseFloat(connection.offset)
           }));
           return newPort;
         }

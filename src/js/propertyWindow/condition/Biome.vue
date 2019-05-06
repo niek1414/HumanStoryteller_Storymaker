@@ -11,6 +11,7 @@
                     ></v-autocomplete>
                 </v-flex>
             </v-layout>
+            <p>Uses same map the event is executed on.</p>
         </v-container>
     </div>
 </template>

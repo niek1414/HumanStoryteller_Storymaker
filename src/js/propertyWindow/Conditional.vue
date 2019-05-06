@@ -17,25 +17,30 @@
                 <v-card :class="availableConditions.concat(EventTypes[selected.type.value.value].conditions).filter(function (i) {return i.value === con.type}).length<1?'invalid':''">
                     <v-card-title primary-title>{{con.type}}</v-card-title>
                     <v-card-text>
-                        <PawnHealth v-if="con.type === 'PawnHealth'" v-bind:condition="con"></PawnHealth>
-                        <Dialog v-if="con.type === 'Dialog'" v-bind:condition="con"></Dialog>
                         <Audio v-if="con.type === 'Audio'" v-bind:condition="con"></Audio>
-                        <Variable v-if="con.type === 'Variable'" v-bind:condition="con"></Variable>
-                        <Random v-if="con.type === 'Random'" v-bind:condition="con"></Random>
-                        <Difficulty v-if="con.type === 'Difficulty'" v-bind:condition="con"></Difficulty>
-                        <Time v-if="con.type === 'Time'" v-bind:condition="con"></Time>
-                        <Relation v-if="con.type === 'Relation'" v-bind:condition="con"></Relation>
-                        <ItemMap v-if="con.type === 'ItemMap'" v-bind:condition="con"></ItemMap>
-                        <ItemColony v-if="con.type === 'ItemColony'" v-bind:condition="con"></ItemColony>
                         <Biome v-if="con.type === 'Biome'" v-bind:condition="con"></Biome>
-                        <Temperature v-if="con.type === 'Temperature'" v-bind:condition="con"></Temperature>
+                        <Cheat v-if="con.type === 'Cheat'" v-bind:condition="con"></Cheat>
+                        <Colonies v-if="con.type === 'Colonies'" v-bind:condition="con"></Colonies>
+                        <ColonistOnMap v-if="con.type === 'ColonistOnMap'" v-bind:condition="con"></ColonistOnMap>
                         <Colonists v-if="con.type === 'Colonists'" v-bind:condition="con"></Colonists>
                         <ColonistsOnMap v-if="con.type === 'ColonistsOnMap'" v-bind:condition="con"></ColonistsOnMap>
-                        <ColonistOnMap v-if="con.type === 'ColonistOnMap'" v-bind:condition="con"></ColonistOnMap>
-                        <Cheat v-if="con.type === 'Cheat'" v-bind:condition="con"></Cheat>
-                        <Research v-if="con.type === 'Research'" v-bind:condition="con"></Research>
-                        <Colonies v-if="con.type === 'Colonies'" v-bind:condition="con"></Colonies>
+                        <Dialog v-if="con.type === 'Dialog'" v-bind:condition="con"></Dialog>
+                        <Difficulty v-if="con.type === 'Difficulty'" v-bind:condition="con"></Difficulty>
+                        <ItemColony v-if="con.type === 'ItemColony'" v-bind:condition="con"></ItemColony>
+                        <ItemMap v-if="con.type === 'ItemMap'" v-bind:condition="con"></ItemMap>
                         <MapCreated v-if="con.type === 'MapCreated'" v-bind:condition="con"></MapCreated>
+                        <PawnHealth v-if="con.type === 'PawnHealth'" v-bind:condition="con"></PawnHealth>
+                        <Random v-if="con.type === 'Random'" v-bind:condition="con"></Random>
+                        <Relation v-if="con.type === 'Relation'" v-bind:condition="con"></Relation>
+                        <Research v-if="con.type === 'Research'" v-bind:condition="con"></Research>
+                        <Temperature v-if="con.type === 'Temperature'" v-bind:condition="con"></Temperature>
+                        <Time v-if="con.type === 'Time'" v-bind:condition="con"></Time>
+                        <Quest v-if="con.type === 'Quest'" v-bind:condition="con"></Quest>
+                        <Trade v-if="con.type === 'Trade'" v-bind:condition="con"></Trade>
+                        <Traveled v-if="con.type === 'Traveled'" v-bind:condition="con"></Traveled>
+                        <Variable v-if="con.type === 'Variable'" v-bind:condition="con"></Variable>
+                        <PawnState v-if="con.type === 'PawnState'" v-bind:condition="con"></PawnState>
+                        <PawnLocation v-if="con.type === 'PawnLocation'" v-bind:condition="con"></PawnLocation>
                     </v-card-text>
                     <v-card-actions>
                         <v-btn flat color="error" v-on:click="selected.conditions = selected.conditions.filter(function(item) {return item !== con})">remove</v-btn>
@@ -68,10 +73,20 @@
   import MapCreated from "./condition/MapCreated";
   import ColonistsOnMap from "./condition/ColonistsOnMap";
   import ColonistOnMap from "./condition/ColonistOnMap";
+  import Quest from "./condition/Quest";
+  import Trade from "./condition/Trade";
+  import Traveled from "./condition/Traveled";
+  import PawnState from "./condition/PawnState";
+  import PawnLocation from "./condition/PawnLocation";
 
   export default {
     name : "conditional",
     components : {
+      PawnLocation,
+      PawnState,
+      Traveled,
+      Trade,
+      Quest,
       ColonistOnMap,
       ColonistsOnMap,
       MapCreated,
@@ -96,23 +111,25 @@
     data() {
       return {
         availableConditions : [
-          {value : 'PawnHealth', text : 'Pawn health'},
-          {value : 'Variable', text : 'Compare variable'},
-          {value : 'Random', text : 'Random chance'},
-          {value : 'Difficulty', text : 'Difficulty'},
-          {value : 'Time', text : 'Time/Season'},
-          {value : 'Relation', text : 'Faction relation'},
-          {value : 'ItemMap', text : 'Items on map'},
-          {value : 'ItemColony', text : 'Items on stockpiles'},
-          {value : 'MapCreated', text : 'Map created'},
           {value : 'Biome', text : 'Biome'},
-          {value : 'Temperature', text : 'Temperature'},
+          {value : 'Cheat', text : 'Cheat'},
+          {value : 'Colonies', text : 'Colonies'},
+          {value : 'ColonistOnMap', text : 'Colonist on map'},
           {value : 'Colonists', text : 'Colonists'},
           {value : 'ColonistsOnMap', text : 'Colonists on map'},
-          {value : 'ColonistOnMap', text : 'Colonist on map'},
-          {value : 'Colonies', text : 'Colonies'},
-          {value : 'Cheat', text : 'Cheat'},
+          {value : 'Variable', text : 'Compare variable'},
+          {value : 'Difficulty', text : 'Difficulty'},
+          {value : 'Relation', text : 'Faction relation'},
+          {value : 'PawnHealth', text : 'Health of pawn '},
+          {value : 'ItemMap', text : 'Items on map'},
+          {value : 'ItemColony', text : 'Items on stockpiles'},
+          {value : 'PawnLocation', text : 'Location of pawn'},
+          {value : 'MapCreated', text : 'Map created'},
+          {value : 'Random', text : 'Random chance'},
           {value : 'Research', text : 'Research'},
+          {value : 'PawnState', text : 'State of pawn'},
+          {value : 'Temperature', text : 'Temperature'},
+          {value : 'Time', text : 'Time/Season'},
         ],
         picked : null,
         search : "",

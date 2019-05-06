@@ -9,7 +9,7 @@
                 </v-flex>
                 <v-flex xs6>
                     <v-input messages="Condition of the pawn">
-                        <v-select :items="healthConditions" label="Health condition" type="text" v-model="condition['healthCondition']"></v-select>
+                        <v-select :items="pawnConditions" label="State" type="text" v-model="condition['pawnCondition']"></v-select>
                     </v-input>
                 </v-flex>
             </v-layout>
@@ -20,9 +20,9 @@
 <script>
   export default {
     props : ["condition"],
-    name : "PawnHealth",
+    name : "PawnState",
     data : () => ({
-      healthConditions : ['Alive', 'Dead', 'Healthy', 'InjuredOrDead', 'InjuredButAlive']
+      pawnConditions : ['Colonist', 'Prisoner']
     })
   }
 </script>

@@ -3,8 +3,8 @@
         <v-container grid-list-md pa-0 ma-0>
             <v-layout align-center justify-space-between row>
                 <v-flex xs12>
-                    <v-input messages="Status of the quest">
-                        <v-select :items="questResponse" label="Quest status" type="text" v-model="condition['questState']"></v-select>
+                    <v-input messages="Status of the trade (If expired before expiry time you can conclude it has been used).">
+                        <v-select :items="tradeResponse" label="Quest status" type="text" v-model="condition['tradeState']"></v-select>
                     </v-input>
                 </v-flex>
             </v-layout>
@@ -15,11 +15,10 @@
 <script>
   export default {
     props : ["condition"],
-    name : "Quest",
+    name : "Trade",
     data : () => ({
-      questResponse : [
+      tradeResponse : [
         'Pending',
-        'Entered',
         'Expired'
       ]
     })

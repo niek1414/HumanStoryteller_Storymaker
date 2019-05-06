@@ -54,17 +54,13 @@
                         v-model="selected.properties['InstaPlace']"
                 ></v-switch>
             </v-input>
-            <v-input :messages="
-                selected.properties['Location'] ==='' ||
-                selected.properties['Location'] === undefined
-                ?'Default: random'
-                :'Drop location'
-            ">
-                <v-autocomplete
+            <v-input messages="Drop location, default is random (Select from list, type pawn name or enter tile as x:y:z)">
+                <v-combobox
                         v-model="selected.properties['Location']"
                         :items="positions"
                         label="Drop position"
-                ></v-autocomplete>
+                        :return-object="false"
+                ></v-combobox>
             </v-input>
         </template>
     </div>

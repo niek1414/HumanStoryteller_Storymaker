@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input messages="Default: between 0.125 and 0.35 days">
+        <v-input messages="Default: between 0.125 and 0.35 days. May be cut short due to the time of day.">
             <NumberField label="Duration in days" :myModel.sync="selected.properties['Duration']"></NumberField>
         </v-input>
     </div>

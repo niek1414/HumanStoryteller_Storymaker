@@ -16,6 +16,10 @@
         <v-input messages="Settlement name that is displayed">
             <v-text-field label="Settlement name" type="text" v-model="selected.properties['SettlementName']"></v-text-field>
         </v-input>
+
+        <v-input messages="Number can be found ingame top-left on world selection screen (with mod enabled).">
+            <v-text-field label="Map tile" type="number" v-model="selected.properties['Site']"></v-text-field>
+        </v-input>
     </div>
 </template>
 

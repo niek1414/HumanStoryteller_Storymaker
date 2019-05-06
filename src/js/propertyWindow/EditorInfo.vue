@@ -3,7 +3,14 @@
         <property-header>Welcome to the storymaker!</property-header>
 
         <p class="info-text">Here you can create and publish stories that can be played in Rimworld by using the <b>Human Storyteller</b> mod.<br>
-        To start, drag-and-drop the <i class="far fa-plus-square"></i> icon on the field to the right.<br>
+        I created three interactive tutorials to help you along. More of a 'Self-Education' person? No problem, just start on the panel on the left!
+
+        Created your story? <b>Publish it</b> by changing the publish setting in the project settings.
+        Questions? <a href="https://discord.gg/auDTBCz">Join on discord!</a>
+
+        If you like reading better:
+
+        Start by drag-and-dropping the <i class="far fa-plus-square"></i> icon on the field to the right.<br>
         By connecting events you create a storyline. By clicking on a event you can change its type and properties.
         <br><br>
         Your root node (the circle) is the start point. By clicking on the root node you can access project settings like project name.
@@ -20,8 +27,6 @@
         days are over.<br>
         I know.. ill make sense when you start to play around with it ;P<br>
         <br>
-        Created your story? <b>Publish it</b> by changing the publish setting in the project settings.
-        Questions? >>>placeholder contact link here<<< (hopefully i won't forget to put in the link..)
         </p>
     </div>
 </template>

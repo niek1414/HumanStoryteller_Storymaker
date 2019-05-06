@@ -50,17 +50,13 @@
                     clearable=true
             ></v-select>
         </v-input>
-        <v-input :messages="
-                selected.properties['Location'] ==='' ||
-                selected.properties['Location'] === undefined
-                ?'Default: unchanged'
-                :'Teleport location'
-            ">
-            <v-autocomplete
+        <v-input messages="Teleport location (Select from list, type pawn name or enter tile as x:y:z)">
+            <v-combobox
                     v-model="selected.properties['Location']"
                     :items="positions"
                     label="Position on map"
-            ></v-autocomplete>
+                    :return-object="false"
+            ></v-combobox>
         </v-input>
         <v-input messages="Pawns biological age (in years). Default is unchanged.">
             <NumberField label="Biological age" :myModel.sync="selected.properties['AgeBioYear']"></NumberField>

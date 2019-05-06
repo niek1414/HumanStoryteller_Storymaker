@@ -91,6 +91,7 @@
                 <Quest v-else-if="selected.type.value.value === 'Quest'" v-bind:selected="selected"/>
                 <TradeRequest v-else-if="selected.type.value.value === 'TradeRequest'" v-bind:selected="selected"/>
                 <CreateSettlement v-else-if="selected.type.value.value === 'CreateSettlement'" v-bind:selected="selected"/>
+                <IntentGiver v-else-if="selected.type.value.value === 'IntentGiver'" v-bind:selected="selected"/>
                 <Nothing v-else v-bind:selected="selected"/>
                 <v-divider></v-divider>
                 <div class="info-box">
@@ -111,8 +112,8 @@
                                     :items="targets"
                                     v-model="selected.properties['Target']"
                                     label="Map"
-                    clearable=true
-            ></v-select>
+                                    clearable=true
+                            ></v-select>
                         </v-input>
                     </template>
                 </div>
@@ -181,6 +182,7 @@
   import Quest from "./type/Quest";
   import TradeRequest from "./type/TradeRequest";
   import CreateSettlement from "./type/CreateSettlement";
+  import IntentGiver from "./type/IntentGiver";
 
   export default {
     name : "property-panel",
@@ -194,6 +196,7 @@
       }
     },
     components : {
+      IntentGiver,
       CreateSettlement,
       TradeRequest,
       Quest,
@@ -261,6 +264,7 @@
           {value : "FirstOfPlayer", text : "First map of the player"},
           {value : "RandomOfPlayer", text : "Random map of player"},
           {value : "SameAsLastEvent", text : "Same as last event"},
+          {value : "LastColonized", text : "Last colonized by player"},
         ]
       }
     },

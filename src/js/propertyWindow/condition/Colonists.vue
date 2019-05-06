@@ -25,7 +25,7 @@
       numeralCompares : [
         {value : 'Less', text : 'Less than'},
         {value : 'More', text : 'More than'},
-        {value : 'Equal', text : 'Equal than'}
+        {value : 'Equal', text : 'Equal'}
       ],
     })
   }

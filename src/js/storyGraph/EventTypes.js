@@ -400,14 +400,18 @@ EventTypes.Quest = {
   value : "Quest",
   text : "Quest",
   type : EventTypes.GENERALLY_GOOD,
-  conditions : []
+  conditions : [
+    {value : "Quest", text : "Quest"}
+  ]
 };
 
 EventTypes.TradeRequest = {
   value : "TradeRequest",
   text : "Trade request",
   type : EventTypes.GENERALLY_GOOD,
-  conditions : []
+  conditions : [
+    {value : "Trade", text : "Trade"}
+  ]
 };
 
 EventTypes.CreateSettlement = {
@@ -415,6 +419,15 @@ EventTypes.CreateSettlement = {
   text : "Create settlement",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
+};
+
+EventTypes.IntentGiver = {
+  value : "IntentGiver",
+  text : "Intent & Job-Giver",
+  type : EventTypes.NEUTRAL,
+  conditions : [
+    {value : "Traveled", text : "Traveled"}
+  ]
 };
 
 EventTypes.Events = [
@@ -439,6 +452,7 @@ EventTypes.Events = [
   {text : "Herd migration",       value : EventTypes.HerdMigration},
   {text : "Heal pawn",            value : EventTypes.HealPawn},
   {text : "Infestation",          value : EventTypes.Infestation},
+  {text : "Intent & Job-Giver",   value : EventTypes.IntentGiver},
   {text : "Kill pawn",            value : EventTypes.KillPawn},
   {text : "Manhunter pack",       value : EventTypes.ManhunterPack},
   {text : "Meteorite",            value : EventTypes.MeteoriteImpact},
@@ -494,6 +508,7 @@ EventTypes.EventsAsString = [
   "Herd migration",
   "Heal pawn",
   "Infestation",
+  "Intent & Job-Giver",
   "Kill pawn",
   "Manhunter pack",
   "Meteorite",

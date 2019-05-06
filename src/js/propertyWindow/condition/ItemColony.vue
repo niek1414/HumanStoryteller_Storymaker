@@ -21,7 +21,10 @@
                     </v-input>
                 </v-flex>
             </v-layout>
-            <p>Note: This could be demanding if used frequently</p>
+            <p>
+                Note 1: This could be demanding if used frequently
+                Note 2: Uses same map the event is executed on.
+            </p>
         </v-container>
     </div>
 </template>
@@ -36,7 +39,7 @@
       numeralCompares : [
         {value : 'Less', text : 'Less than'},
         {value : 'More', text : 'More than'},
-        {value : 'Equal', text : 'Equal than'}
+        {value : 'Equal', text : 'Equal'}
       ],
       itemType : EventTypes.Items
     })
