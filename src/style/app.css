@@ -266,7 +266,12 @@ body {
 #graph-panel {
     width: 50%;
     height: 100%;
+}
+
+#flow-wrapper {
+    height: 100%;
     display: flex;
+    flex-direction: column;
 }
 
 #right-panel {
@@ -304,6 +309,7 @@ body {
     height: 100%;
     background-color: #41474e;
     width: 50px;
+    float: left;
 }
 
 .action-item {

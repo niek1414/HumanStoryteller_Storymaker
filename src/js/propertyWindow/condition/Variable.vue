@@ -4,7 +4,11 @@
             <v-layout align-center justify-space-between row>
                 <v-flex xs4>
                     <v-input messages="The name of the variable">
-                        <v-text-field label="Variable" type="text" v-model="condition['name']"></v-text-field>
+                        <v-autocomplete
+                                label="Variable"
+                                :items="variables"
+                                v-model="condition['name']"
+                        ></v-autocomplete>
                     </v-input>
                 </v-flex>
                 <v-flex xs4>
@@ -13,8 +17,8 @@
                     </v-input>
                 </v-flex>
                 <v-flex xs4>
-                    <v-input messages="Constant value to compare to">
-                        <v-text-field label="Constant" type="number" v-model="condition['constant']"></v-text-field>
+                    <v-input messages="Value to compare to">
+                        <NumberField label="Constant" :myModel.sync="condition['constant']"></NumberField>
                     </v-input>
                 </v-flex>
             </v-layout>
@@ -23,7 +27,9 @@
 </template>
 
 <script>
+  import NumberField from "../util/NumberField";
   export default {
+    components : {NumberField},
     props : ["condition"],
     name : "Variable",
     data : () => ({
@@ -31,7 +37,12 @@
         {value : 'Less', text : 'Less than'},
         {value : 'More', text : 'More than'},
         {value : 'Equal', text : 'Equal'}]
-    })
+    }),
+    computed : {
+      variables : function(){
+        return window.toolbar.view.getVariables();
+      }
+    }
   }
 </script>
 

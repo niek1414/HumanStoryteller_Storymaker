@@ -4,7 +4,7 @@
 
         <div class="info-box">
             <div v-for="story in stories" class="card">
-                <div v-ripple class="load" v-on:click="load(story.id, toolbar)">
+                <div v-ripple class="tutorial" v-on:click="load(story.id, toolbar)">
                     <div class="rimTitle">{{story.name}}</div>
                     <div>{{story.description}}</div>
                     <hr>
@@ -17,7 +17,7 @@
             </div>
 
             <div class="card">
-                <div v-ripple class="load" v-on:click="loadExample(toolbar)">
+                <div v-ripple class="tutorial" v-on:click="loadExample(toolbar)">
                     <div class="rimTitle">Example story</div>
                     <div>An example where a few basic events are showcased.</div>
                     <hr>
@@ -113,7 +113,7 @@
         margin: 30px;
     }
 
-    .load {
+    .tutorial {
         overflow: auto;
         width: calc(100% - 44px);
         height: 100%;

@@ -19,7 +19,7 @@
                 </v-flex>
                 <v-flex xs4>
                     <v-input messages="Relation with player (-100 to 100 cap)">
-                        <v-text-field label="Constant" type="number" v-model="condition['constant']"></v-text-field>
+                        <NumberField label="Constant" :myModel.sync="condition['constant']"></NumberField>
                     </v-input>
                 </v-flex>
             </v-layout>
@@ -28,7 +28,9 @@
 </template>
 
 <script>
+  import NumberField from "../util/NumberField";
   export default {
+    components : {NumberField},
     props : ["condition"],
     name : "Relation",
     data : () => ({

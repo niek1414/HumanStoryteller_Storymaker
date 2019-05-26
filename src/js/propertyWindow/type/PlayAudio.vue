@@ -1,7 +1,8 @@
 <template>
     <div class="info-box">
         <p>
-            You can use <a href="https://freesound.org/" target="_blank">https://freesound.org/</a> to play songs or sounds in your story.<br>
+            You can use <a href="https://freesound.org/" target="_blank">FreeSound.org</a> or <a href="https://soundcloud.com/" target="_blank">SoundCloud</a> to play songs or
+            sounds in your story.<br>
             Not found what you where searching for? Why not <a href="https://freesound.org/home/upload/" target="_blank">upload it yourself</a>? (Mind copyright)<br>
             Found audio you like? Just paste the full URL in the field below and wait for the author and audio file fields to be filled.
         </p>
@@ -25,6 +26,7 @@
 
 <script>
   import NumberField from "../util/NumberField";
+
   export default {
     components : {NumberField},
     props : ["selected"],
@@ -37,33 +39,55 @@
     methods : {
       getMetadata() {
         const that = this;
-        $.get(this.url,
-          function(data) {
-            const ownerDocument = document.implementation.createHTMLDocument('virtual');
+        if (that.url.includes("freesound")) {
+          $.get(this.url,
+            function(data) {
 
-            let artist = $(data, ownerDocument).filter('meta[property="og:audio:artist"]');
-            if (artist === undefined){
-              artist = ""
-            } else {
-              artist = artist.attr("content");
-            }
-            that.selected.properties['Author'] = artist;
+              const ownerDocument = document.implementation.createHTMLDocument('virtual');
 
-            let audio = $(data, ownerDocument).filter('meta[property="og:audio"]');
-            if (audio === undefined){
-              audio = ""
-            } else {
-              audio = audio.attr("content").split("/");
-              audio = audio[audio.length - 2] + "/" + audio[audio.length - 1];
-            }
-            that.selected.properties['File'] = audio;
+              let artist = $(data, ownerDocument).filter('meta[property="og:audio:artist"]');
+              if (artist === undefined) {
+                artist = ""
+              } else {
+                artist = artist.attr("content");
+              }
+              that.selected.properties['Author'] = artist;
+
+              let audio = $(data, ownerDocument).filter('meta[property="og:audio"]');
+              if (audio === undefined) {
+                that.fake += "a";
+                that.error = true;
+                return;
+              } else {
+                audio = audio.attr("content").split("/");
+                audio = audio[audio.length - 2] + "/" + audio[audio.length - 1];
+              }
+              that.selected.properties['File'] = "f__" + audio;
+              that.fake += "a";
+              that.error = false;
+
+            }).fail(function() {
+            that.error = true;
+            that.selected.properties['File'] = "";
+            that.selected.properties['Author'] = "";
+          });
+        } else if (that.url.includes("soundcloud")) {
+          $.get("https://api.soundcloud.com/resolve.json?url=" + encodeURI(that.url) + "&client_id=NmW1FlPaiL94ueEu7oziOWjYEzZzQDcK", function(data) {
             that.fake += "a";
-            that.error = false;
+            that.selected.properties['File'] = "s__" + data.id;
+            that.selected.properties['Author'] = data.user.permalink_url;
           }).fail(function() {
+            that.fake += "a";
+            that.error = true;
+            that.selected.properties['File'] = "";
+            that.selected.properties['Author'] = "";
+          });
+        } else {
+          that.fake += "a";
           that.error = true;
           that.selected.properties['File'] = "";
           that.selected.properties['Author'] = "";
-        });
+        }
       }
     }
   }

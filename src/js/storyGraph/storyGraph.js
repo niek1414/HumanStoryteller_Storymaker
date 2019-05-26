@@ -1,5 +1,6 @@
 import draw2d from 'draw2d';
 import Event from './shape/Event'
+import EventTypes from './EventTypes'
 import EventFeedbackPolicy from "./policy/EventFeedbackPolicy";
 import DragEventConnectionCreatePolicy from "./policy/DragEventConnectionCreatePolicy";
 import CoronaDragDecorationPolicy from "./policy/CoronaDragDecorationPolicy";
@@ -36,18 +37,20 @@ export default draw2d.Canvas.extend({
     this.add(conn);
   },
 
-  loadStory : function(data) {
+  loadStory : function(data, tutorial = false) {
     this.clear();
     this.projectData = {
       id : data.id,
       name : data.name,
       description : data.description,
-      publish : data.publish === undefined ? false : data.publish
+      publish : data.publish === undefined ? false : data.publish,
+      tutorial : tutorial,
     };
     const createdList = [];
-    for (const event of data.storyline.story) {
+    for (const event of data.storyline === undefined ? data.story : data.storyline.story) {
       let created;
       if (event.uuid === "root") {
+        delete event.incident.type;
         created = this.addRoot(event.x, event.y, event.incident);
       } else if (event.uuid.startsWith("D__")) {
         created = this.addDivider(event.x, event.y);
@@ -74,11 +77,7 @@ export default draw2d.Canvas.extend({
 
     for (const created of createdList) {
       created.left = this.loadConnection(created.left.parse, createdList, created, created.left.origin);
-      if (created.isDivider) {
-        created.right = this.loadConnection(created.right.parse, createdList, created, created.right.origin);
-      } else {
-        created.right = this.loadConnection(created.right.parse, createdList, created, created.right.origin);
-      }
+      created.right = this.loadConnection(created.right.parse, createdList, created, created.right.origin);
     }
   },
 
@@ -169,7 +168,18 @@ export default draw2d.Canvas.extend({
   },
 
   addDivider : function(x, y) {
-    const d = new Event({width : 75, height : 50, color : "#ba7827", radius : 100, x : x, y : y, text : "DIVIDER", type : "Nothing", properties : {letter : {show : false}}, storage : []});
+    const d = new Event({
+      width : 75,
+      height : 50,
+      color : "#ba7827",
+      radius : 100,
+      x : x,
+      y : y,
+      text : "DIVIDER",
+      type : "Nothing",
+      properties : {letter : {show : false}},
+      storage : []
+    });
     d.input = d.createPort("input", new this.inputPortPos);
     d.left = d.createPort("output", new this.outputPortPos);
     d.right = d.createPort("output", new this.outputPortPos);
@@ -194,6 +204,27 @@ export default draw2d.Canvas.extend({
     } else {
       this.getCommandStack().execute(new AddEvent(this, x - 50, y - 25));
     }
+  },
+
+  getVariables : function() {
+    const variables = JSON.parse(JSON.stringify(EventTypes.SystemVariables));
+    const figures = this.getFigures();
+    const figureLength = figures.getSize();
+    for (let i = 0; i < figureLength; i++) {
+      const item = figures.get(i);
+      if (!(item instanceof Event)) {
+        continue;
+      }
+      const l = item.storage.length;
+      for (let j = 0; j < l; j++) {
+        const s = item.storage[j];
+        if (s['Name'] === undefined || !s['Name']){
+          continue;
+        }
+        variables.push(s['Name']);
+      }
+    }
+    return variables;
   },
 
   toJSON : function() {

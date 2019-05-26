@@ -9,7 +9,7 @@
                 </v-flex>
                 <v-flex xs6>
                     <v-input messages="Temperature to compare to">
-                        <v-text-field label="Constant" type="number" v-model="condition['constant']"></v-text-field>
+                        <NumberField label="Constant" :myModel.sync="condition['constant']"></NumberField>
                     </v-input>
                 </v-flex>
             </v-layout>
@@ -19,7 +19,9 @@
 </template>
 
 <script>
+  import NumberField from "../util/NumberField";
   export default {
+    components : {NumberField},
     props : ["condition"],
     name : "Temperature",
     data : () => ({

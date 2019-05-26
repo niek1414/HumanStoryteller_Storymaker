@@ -107,6 +107,7 @@ export default Class.extend({
             title : 'Delete my unsaved project',
             default : false,
             handler : () => {
+              window.updateTutorial(0, false);
               that.propertyPanel.$modal.hide('dialog');
               that.view.newStory();
             }
@@ -122,6 +123,10 @@ export default Class.extend({
 
     this.removeButton = $("#remove-story-action");
     this.removeButton.button().click($.proxy(function() {
+      if (that.view.projectData.tutorial) {
+        that.popupMessage("Can't remove a tutorial story");
+        return;
+      }
       that.propertyPanel.$modal.show('dialog', {
         title : 'Remove story?',
         text : 'This will remove the story from the storybook (server).<br> Are you sure?',
@@ -158,6 +163,10 @@ export default Class.extend({
 
     this.uploadButton = $("#upload-story-action");
     this.uploadButton.button().click($.proxy(function() {
+      if (that.view.projectData.tutorial) {
+        that.popupMessage("Can't upload a tutorial story");
+        return;
+      }
       that.propertyPanel.$modal.show('dialog', {
         title : 'Upload story?',
         text : 'This will upload the story to the storybook (server).<br>All mod user will be able to see the story.',
@@ -233,6 +242,9 @@ export default Class.extend({
   stackChanged : function(event) {
     this.undoButton.button("option", "disabled", !event.getStack().canUndo());
     this.redoButton.button("option", "disabled", !event.getStack().canRedo());
+    if (window.onStoryEdit !== undefined) {
+      window.onStoryEdit(this.view);
+    }
   },
 
   loadStories : function() {
@@ -258,6 +270,9 @@ export default Class.extend({
     if (id === null) {
       this.popupMessage("This project has not been uploaded so it can't be removed.<br>To remove the local changes use the 'New story' button.");
       return;
+    } else if (that.view.projectData.tutorial) {
+      that.popupMessage("Can't remove a tutorial story");
+      return;
     }
     $.ajax({
       url : '/story/' + id,
@@ -282,6 +297,8 @@ export default Class.extend({
       this.errorMessage("This story has no id.");
       return;
     } else if (id === -1) {
+      window.updateTutorial(0);
+      //<editor-fold desc="Example story">
       that.view.loadStory({
         id : null, name : "The very first story!", description : "About a princess and - i am a programmer not a story writer oke?", publish : false, storyline : {
           "name" : "The very first story!",
@@ -425,11 +442,13 @@ export default Class.extend({
         }
       });
       return;
+      //</editor-fold>
     }
     $.ajax({
       url : '/storybook/story/' + id,
       type : 'GET',
       success : function(data) {
+        window.updateTutorial(0);
         that.view.loadStory(data);
       },
       error : function(jqXhr, textStatus, errorThrown) {
@@ -440,6 +459,10 @@ export default Class.extend({
   },
 
   addStory : function() {
+    if (this.view.projectData.tutorial) {
+      this.popupMessage("Can't upload a tutorial story");
+      return;
+    }
     const that = this;
     $.ajax({
       url : '/story',

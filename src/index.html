@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head itemscope itemtype="http://schema.org/WebSite">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -78,20 +78,26 @@
                     <button id="undo-action" class="action-item action-button"><i class="fas fa-undo fa-2x"></i><span class="tooltip-text tooltip-right">Undo action</span></button>
                     <button id="redo-action" class="action-item action-button"><i class="fas fa-redo fa-2x"></i><span class="tooltip-text tooltip-right">Redo action</span></button>
                 </div>
-                <div id="story-graph">
-                    <div onselectstart="javascript:/*IE8 hack*/return false" id="story-canvas"></div>
+                <div id="flow-wrapper">
+                    <div id="story-graph">
+                        <div onselectstart="javascript:/*IE8 hack*/return false" id="story-canvas"></div>
+                    </div>
+                    <div id="left-panel">
+                        <basic-tutorial v-if="tutorial === 1"></basic-tutorial>
+                        <intermediate-tutorial v-else-if="tutorial === 2"></intermediate-tutorial>
+                        <expert-tutorial v-else-if="tutorial === 3"></expert-tutorial>
+                    </div>
                 </div>
             </div>
             <div id="right-panel">
                 <div id="event-panel">
                     <v-app dark>
-
                         <property-panel v-if="state === 'node' && !selected.isRoot && !selected.isDivider" v-bind:selected="selected" v-bind:canvas="graph"></property-panel>
                         <detail-panel v-else-if="state === 'node' && selected.isRoot" v-bind:project="graph.projectData" v-bind:selected="selected"></detail-panel>
                         <divider-panel v-else-if="state === 'node' && selected.isDivider"></divider-panel>
                         <connection-panel v-else-if="state === 'connection'" v-bind:selected="selected"></connection-panel>
                         <stories-panel v-else-if="state === 'stories'" v-bind:stories="selected" v-bind:toolbar="toolbar"></stories-panel>
-                        <editor-info v-else>
+                        <editor-info v-else v-bind:toolbar="toolbar">
                             <div style="color: #cfcfcf; padding: 50px">Please enable JavaScript :)<br><br>Is JavaScript enabled? Try Google Chrome!<br><br>Are you using Chrome?
                                 Then
                                 its a
@@ -130,5 +136,4 @@
     </div>
 </div>
 </body>
-
 </html>

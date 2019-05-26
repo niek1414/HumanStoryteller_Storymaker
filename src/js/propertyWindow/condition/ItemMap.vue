@@ -17,7 +17,7 @@
                 </v-flex>
                 <v-flex xs4>
                     <v-input messages="Amount value to compare to">
-                        <v-text-field label="Constant" type="number" v-model="condition['constant']"></v-text-field>
+                        <NumberField label="Constant" :myModel.sync="condition['constant']"></NumberField>
                     </v-input>
                 </v-flex>
             </v-layout>
@@ -31,8 +31,10 @@
 
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
+  import NumberField from "../util/NumberField";
 
   export default {
+    components : {NumberField},
     props : ["condition"],
     name : "ItemMap",
     data : () => ({

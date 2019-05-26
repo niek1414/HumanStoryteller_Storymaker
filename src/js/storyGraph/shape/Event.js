@@ -12,9 +12,9 @@ export default draw2d.shape.basic.Rectangle.extend({
     this.type = {text : this.type.text, value : this.type };
     attr.text = attr.text === undefined ? this.type.text : attr.text;
     this.eventName = attr.text;
-    this.conditions = attr.conditions;
-    this.properties = attr.properties;
-    this.storage = attr.storage;
+    this.conditions = attr.conditions ? attr.conditions : [];
+    this.properties = attr.properties ? attr.properties : {};
+    this.storage = attr.storage ? attr.storage : [];
 
     this._super(
       extend({bgColor : "#212533", color : this.type.value.type.color, radius : 4, stroke : 3}, attr),
@@ -122,11 +122,9 @@ export default draw2d.shape.basic.Rectangle.extend({
   },
 
   toJSON : function() {
-    const incident = {
-      type : this.type.value.value
-    };
+    const incident = JSON.parse(JSON.stringify(this.properties))
+    incident.type = this.type.value.value;
 
-    Object.assign(incident, this.properties);
     return {
       uuid : this.isRoot ? "root" : (this.isDivider ? "D__" + this.getId() : this.getId()),
       name : this.eventName,

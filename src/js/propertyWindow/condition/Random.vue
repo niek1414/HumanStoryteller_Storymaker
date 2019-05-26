@@ -4,7 +4,7 @@
             <v-layout align-center justify-space-between row>
                 <v-flex xs12>
                     <v-input messages="Chance in % (0 or lower is always RIGHT, 100 or higher is always LEFT, 50 is an even mix.)">
-                        <v-text-field label="Chance" type="number" v-model="condition['chance']"></v-text-field>
+                        <NumberField label="Chance" :myModel.sync="condition['chance']"></NumberField>
                     </v-input>
                 </v-flex>
             </v-layout>
@@ -13,7 +13,9 @@
 </template>
 
 <script>
+  import NumberField from "../util/NumberField";
   export default {
+    components : {NumberField},
     props : ["condition"],
     name : "Random"
   }

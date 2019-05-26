@@ -431,59 +431,59 @@ EventTypes.IntentGiver = {
 };
 
 EventTypes.Events = [
-  {text : "Alphabeavers",         value : EventTypes.Alphabeavers},
-  {text : "Ambrosia sprouted",    value : EventTypes.AmbrosiaSprout},
-  {text : "Animal insanity all",  value : EventTypes.AnimalInsanityMass},
-  {text : "Animal insanity",      value : EventTypes.AnimalInsanitySingle},
-  {text : "Animals join",         value : EventTypes.FarmAnimalsWanderIn},
-  {text : "Aurora",               value : EventTypes.Aurora},
-  {text : "Cold snap/Heat wave",  value : EventTypes.TempFlux},
-  {text : "Crop blight",          value : EventTypes.CropBlight},
-  {text : "Create pawn",          value : EventTypes.CreatePawn},
-  {text : "Create settlement",    value : EventTypes.CreateSettlement},
-  {text : "Dialog",               value : EventTypes.Dialog},
-  {text : "Delete items",         value : EventTypes.DeleteItems},
-  {text : "Difficulty",           value : EventTypes.Difficulty},
-  {text : "Disease",              value : EventTypes.Disease},
-  {text : "Eclipse",              value : EventTypes.Eclipse},
-  {text : "Edit pawn",            value : EventTypes.EditPawn},
-  {text : "Flashstorm",           value : EventTypes.Flashstorm},
-  {text : "Give thought",         value : EventTypes.GiveThought},
-  {text : "Herd migration",       value : EventTypes.HerdMigration},
-  {text : "Heal pawn",            value : EventTypes.HealPawn},
-  {text : "Infestation",          value : EventTypes.Infestation},
-  {text : "Intent & Job-Giver",   value : EventTypes.IntentGiver},
-  {text : "Kill pawn",            value : EventTypes.KillPawn},
-  {text : "Manhunter pack",       value : EventTypes.ManhunterPack},
-  {text : "Meteorite",            value : EventTypes.MeteoriteImpact},
-  {text : "Mental break",         value : EventTypes.MentalBreak},
-  {text : "Nothing",              value : EventTypes.Nothing},
-  {text : "Orbital strike",       value : EventTypes.OrbitalStrike},
-  {text : "Planetkiller",         value : EventTypes.Planetkiller},
-  {text : "Psychic drone",        value : EventTypes.PsychicDrone},
-  {text : "Psychic soothe",       value : EventTypes.PsychicSoothe},
-  {text : "Play audio",           value : EventTypes.PlayAudio},
-  {text : "Pawn health",          value : EventTypes.PawnHealth},
-  {text : "Quest",                value : EventTypes.Quest},
-  {text : "Raid",                 value : EventTypes.RaidEnemy},
-  {text : "Refugee crash",        value : EventTypes.RefugeePodCrash},
-  {text : "Refugee chased",       value : EventTypes.RefugeeChased},
-  {text : "Resource pod",         value : EventTypes.ResourcePodCrash},
-  {text : "Rename pawn",          value : EventTypes.RenamePawn},
-  {text : "Rules",                value : EventTypes.Rules},
-  {text : "Research",             value : EventTypes.Research},
-  {text : "Ship part",            value : EventTypes.ShipPartCrash},
-  {text : "Short circuit",        value : EventTypes.ShortCircuit},
-  {text : "Solar flare",          value : EventTypes.SolarFlare},
-  {text : "Self tame",            value : EventTypes.SelfTame},
-  {text : "Set relation",         value : EventTypes.SetRelation},
-  {text : "Toxic fallout",        value : EventTypes.ToxicFallout},
-  {text : "Trader",               value : EventTypes.TraderArrival},
-  {text : "Time travel",          value : EventTypes.TimeTravel},
-  {text : "Trade request",        value : EventTypes.TradeRequest},
-  {text : "Visitors",             value : EventTypes.VisitorGroup},
-  {text : "Volcanic winter",      value : EventTypes.VolcanicWinter},
-  {text : "Wild man wanders in",  value : EventTypes.WildManWandersIn},
+  {text : "Alphabeavers", value : EventTypes.Alphabeavers},
+  {text : "Ambrosia sprouted", value : EventTypes.AmbrosiaSprout},
+  {text : "Animal insanity all", value : EventTypes.AnimalInsanityMass},
+  {text : "Animal insanity", value : EventTypes.AnimalInsanitySingle},
+  {text : "Animals join", value : EventTypes.FarmAnimalsWanderIn},
+  {text : "Aurora", value : EventTypes.Aurora},
+  {text : "Cold snap/Heat wave", value : EventTypes.TempFlux},
+  {text : "Crop blight", value : EventTypes.CropBlight},
+  {text : "Create pawn", value : EventTypes.CreatePawn},
+  {text : "Create settlement", value : EventTypes.CreateSettlement},
+  {text : "Dialog", value : EventTypes.Dialog},
+  {text : "Delete items", value : EventTypes.DeleteItems},
+  {text : "Difficulty", value : EventTypes.Difficulty},
+  {text : "Disease", value : EventTypes.Disease},
+  {text : "Eclipse", value : EventTypes.Eclipse},
+  {text : "Edit pawn", value : EventTypes.EditPawn},
+  {text : "Flashstorm", value : EventTypes.Flashstorm},
+  {text : "Give thought", value : EventTypes.GiveThought},
+  {text : "Herd migration", value : EventTypes.HerdMigration},
+  {text : "Heal pawn", value : EventTypes.HealPawn},
+  {text : "Infestation", value : EventTypes.Infestation},
+  {text : "Intent & Job-Giver", value : EventTypes.IntentGiver},
+  {text : "Kill pawn", value : EventTypes.KillPawn},
+  {text : "Manhunter pack", value : EventTypes.ManhunterPack},
+  {text : "Meteorite", value : EventTypes.MeteoriteImpact},
+  {text : "Mental break", value : EventTypes.MentalBreak},
+  {text : "Nothing", value : EventTypes.Nothing},
+  {text : "Orbital strike", value : EventTypes.OrbitalStrike},
+  {text : "Planetkiller", value : EventTypes.Planetkiller},
+  {text : "Psychic drone", value : EventTypes.PsychicDrone},
+  {text : "Psychic soothe", value : EventTypes.PsychicSoothe},
+  {text : "Play audio", value : EventTypes.PlayAudio},
+  {text : "Pawn health", value : EventTypes.PawnHealth},
+  {text : "Quest", value : EventTypes.Quest},
+  {text : "Raid", value : EventTypes.RaidEnemy},
+  {text : "Refugee crash", value : EventTypes.RefugeePodCrash},
+  {text : "Refugee chased", value : EventTypes.RefugeeChased},
+  {text : "Resource pod", value : EventTypes.ResourcePodCrash},
+  {text : "Rename pawn", value : EventTypes.RenamePawn},
+  {text : "Rules", value : EventTypes.Rules},
+  {text : "Research", value : EventTypes.Research},
+  {text : "Ship part", value : EventTypes.ShipPartCrash},
+  {text : "Short circuit", value : EventTypes.ShortCircuit},
+  {text : "Solar flare", value : EventTypes.SolarFlare},
+  {text : "Self tame", value : EventTypes.SelfTame},
+  {text : "Set relation", value : EventTypes.SetRelation},
+  {text : "Toxic fallout", value : EventTypes.ToxicFallout},
+  {text : "Trader", value : EventTypes.TraderArrival},
+  {text : "Time travel", value : EventTypes.TimeTravel},
+  {text : "Trade request", value : EventTypes.TradeRequest},
+  {text : "Visitors", value : EventTypes.VisitorGroup},
+  {text : "Volcanic winter", value : EventTypes.VolcanicWinter},
+  {text : "Wild man wanders in", value : EventTypes.WildManWandersIn},
 ];
 
 EventTypes.EventsAsString = [
@@ -542,6 +542,7 @@ EventTypes.EventsAsString = [
   "Wild man wanders in",
 ];
 
+//<editor-fold desc="DifficultyLevel">
 EventTypes.DifficultyLevel = [
   {value : 'Peaceful', text : 'Peaceful'},
   {value : 'Easy', text : 'Easy'},
@@ -550,7 +551,15 @@ EventTypes.DifficultyLevel = [
   {value : 'Hard', text : 'Hard'},
   {value : 'Extreme', text : 'Extreme'}
 ];
-
+//</editor-fold>
+//<editor-fold desc="SystemVariables">
+EventTypes.SystemVariables = [
+  "_DAYS",
+  "_TREAT_POINTS",
+  "_WEALTH"
+];
+//</editor-fold>
+//<editor-fold desc="ResearchProject">
 EventTypes.ResearchProject = [
   {value : "AdvancedFabrication", text : "Advanced fabrication"},
   {value : "ShipComputerCore", text : "AI persuasion"},
@@ -627,7 +636,8 @@ EventTypes.ResearchProject = [
   {value : "WakeUpProduction", text : "Wake-up production"},
   {value : "WatermillGenerator", text : "Watermill generator"},
 ];
-
+//</editor-fold>
+//<editor-fold desc="ItemQualities">
 EventTypes.ItemQualities = [
   {value : 'Awful', text : 'Awful'},
   {value : 'Poor', text : 'Poor'},
@@ -636,7 +646,8 @@ EventTypes.ItemQualities = [
   {value : 'Excellent', text : 'Excellent'},
   {value : 'Masterwork', text : 'Masterwork'}
 ];
-
+//</editor-fold>
+//<editor-fold desc="Stuff">
 EventTypes.Stuff = [
   {value : 'WoolAlpaca', text : 'Alpaca wool'},
   {value : 'Leather_Bear', text : 'Bearskin'},
@@ -678,13 +689,15 @@ EventTypes.Stuff = [
   {value : 'Leather_Wolf', text : 'Wolfskin'},
   {value : 'WoodLog', text : 'Wood'},
 ];
-
+//</editor-fold>
+//<editor-fold desc="ShipParts">
 EventTypes.ShipParts = [
   {value : 'CrashedPsychicEmanatorShipPart', text : 'Mechanoid ship part (Emanator)'},
   {value : 'CrashedPoisonShipPart', text : 'Mechanoid ship part (Poison)'},
   {value : 'ShipChunk', text : 'Ship chunk (metal)'},
 ];
-
+//</editor-fold>
+//<editor-fold desc="Positions">
 EventTypes.Positions = [
   {value : 'Random', text : 'Random'},
   {value : 'RandomEdge', text : 'Random edge'},
@@ -692,7 +705,8 @@ EventTypes.Positions = [
   {value : 'OutsideColony', text : 'Just outside colony'},
   {value : 'Siege', text : 'Siege location'},
 ];
-
+//</editor-fold>
+//<editor-fold desc="MineableMaterials">
 EventTypes.MineableMaterials = [
   {value : 'MineableSteel', text : 'Mineable steel'},
   {value : 'MineableSilver', text : 'Mineable silver'},
@@ -707,7 +721,8 @@ EventTypes.MineableMaterials = [
   {value : 'Slate', text : 'Slate'},
   {value : 'Marble', text : 'Marble'}
 ];
-
+//</editor-fold>
+//<editor-fold desc="PawnKind">
 EventTypes.PawnKind = [
   {value : 'Alpaca', text : 'Alpaca'},
   {value : 'Alphabeaver', text : 'Alphabeaver'},
@@ -797,7 +812,8 @@ EventTypes.PawnKind = [
   {value : 'WildBoar', text : 'Wild boar'},
   {value : 'YorkshireTerrier', text : 'Yorkshire terrier'},
 ];
-
+//</editor-fold>
+//<editor-fold desc="DiseaseTypes">
 EventTypes.DiseaseTypes = [
   {value : 'Disease_AnimalFlu', text : 'Animal Flu'},
   {value : 'Disease_AnimalPlague', text : 'Animal Plague'},
@@ -810,7 +826,8 @@ EventTypes.DiseaseTypes = [
   {value : 'Disease_SensoryMechanites', text : 'Sensory Mechanites'},
   {value : 'Disease_SleepingSickness', text : 'Sleeping Sickness'},
 ];
-
+//</editor-fold>
+//<editor-fold desc="Biomes">
 EventTypes.Biomes = [
   {value : 'AridShrubland', text : 'Arid shrubland'},
   {value : 'BorealForest', text : 'Boreal forest'},
@@ -827,7 +844,8 @@ EventTypes.Biomes = [
   {value : 'TropicalSwamp', text : 'Tropical swamp'},
   {value : 'Tundra', text : 'Tundra'},
 ];
-
+//</editor-fold>
+//<editor-fold desc="Weapons">
 EventTypes.Weapons = [
   {value : 'None', text : 'none'},
   {value : 'Gun_AssaultRifle', text : 'Assault rifle'},
@@ -874,7 +892,8 @@ EventTypes.Weapons = [
   {value : 'Gun_TurretSniper', text : 'Uranium slug cannon'},
   {value : 'WoodLog', text : 'Wood'},
 ];
-
+//</editor-fold>
+//<editor-fold desc="Traders">
 EventTypes.Traders = [
   {value : 'Caravan_Neolithic_BulkGoods', text : 'Caravan Neolithic Bulk goods'},
   {value : 'Caravan_Neolithic_ShamanMerchant', text : 'Caravan Neolithic Shaman merchant'},
@@ -891,7 +910,8 @@ EventTypes.Traders = [
   {value : 'Visitor_Neolithic_Standard', text : 'Visitor Neolithic Standard'},
   {value : 'Visitor_Outlander_Standard', text : 'Visitor Outlander Standard'}
 ];
-
+//</editor-fold>
+//<editor-fold desc="Plants">
 EventTypes.Plants = [
   {value : "Agarilux", text : "Agarilux"},
   {value : "Plant_Agave", text : "Agave"},
@@ -942,7 +962,8 @@ EventTypes.Plants = [
   {value : "Plant_TreeWillow", text : "Tree Willow"},
   {value : "Plant_TreeCocoa", text : "TreeCocoa"},
 ];
-
+//</editor-fold>
+//<editor-fold desc="AnimalTypes">
 EventTypes.AnimalTypes = [
   {value : "Alpaca", text : "Alpaca"},
   {value : "Alphabeaver", text : "Alphabeaver"},
@@ -997,7 +1018,8 @@ EventTypes.AnimalTypes = [
   {value : "WildBoar", text : "Wild Boar"},
   {value : "YorkshireTerrier", text : "Yorkshire Terrier"},
 ];
-
+//</editor-fold>
+//<editor-fold desc="Items">
 EventTypes.Items = [
   {value : "ComponentSpacer", text : "Advanced component"},
   {value : "Apparel_AdvancedHelmet", text : "Advanced helmet"},
@@ -1372,5 +1394,6 @@ EventTypes.Items = [
   {value : "Meat_YorkshireTerrier", text : "Yorkshire terrier meat"},
   {value : "Corpse_YorkshireTerrier", text : "Yorkshire terrier corpse"},
 ];
+//</editor-fold>
 
 export default EventTypes;

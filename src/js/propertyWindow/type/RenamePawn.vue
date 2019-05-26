@@ -5,7 +5,7 @@
         <v-input messages="Current name of the pawn (can be empty, see above)">
             <v-text-field label="Current name" type="text" v-model="selected.properties['Name']"></v-text-field>
         </v-input>
-        <v-input messages="New name of the pawn">
+        <v-input messages="New name of the pawn, MANDATORY">
             <v-text-field label="New name" type="text" v-model="selected.properties['NewName']"></v-text-field>
         </v-input>
     </div>

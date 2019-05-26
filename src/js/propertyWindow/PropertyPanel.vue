@@ -267,7 +267,7 @@
           {value : "LastColonized", text : "Last colonized by player"},
         ]
       }
-    },
+    }
   }
 </script>
 

@@ -27,7 +27,7 @@
                                 <template v-else>
                                     <v-flex xs4>
                                         <v-input messages="The number at the end of the modification. (`var` add 1 becomes var + 1)">
-                                            <v-text-field label="Constant" type="number" v-model="storage['Constant']"></v-text-field>
+                                            <NumberField label="Constant" :myModel.sync="storage['Constant']"></NumberField>
                                         </v-input>
                                     </v-flex>
                                 </template>
@@ -62,8 +62,10 @@
 </template>
 
 <script>
+  import NumberField from "./util/NumberField";
   export default {
     name : "variable",
+    components : {NumberField},
     props : ["canvas", "selected"],
     data : () => ({
       modifications : [
@@ -72,7 +74,6 @@
         {value : 'Divide', text : 'Divide by'},
         {value : 'Multiply', text : 'Multiply by'},
         {value : 'Equal', text : 'Set to'},
-        {value : 'EqualVar', text : 'Set to variable..'},
       ],
     }),
     methods : {
