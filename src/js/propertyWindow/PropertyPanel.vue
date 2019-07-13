@@ -92,6 +92,8 @@
                 <TradeRequest v-else-if="selected.type.value.value === 'TradeRequest'" v-bind:selected="selected"/>
                 <CreateSettlement v-else-if="selected.type.value.value === 'CreateSettlement'" v-bind:selected="selected"/>
                 <IntentGiver v-else-if="selected.type.value.value === 'IntentGiver'" v-bind:selected="selected"/>
+                <CreateStructure v-else-if="selected.type.value.value === 'CreateStructure'" v-bind:selected="selected"/>
+                <DestroyPosition v-else-if="selected.type.value.value === 'DestroyPosition'" v-bind:selected="selected"/>
                 <Nothing v-else v-bind:selected="selected"/>
                 <v-divider></v-divider>
                 <div class="info-box">
@@ -183,6 +185,8 @@
   import TradeRequest from "./type/TradeRequest";
   import CreateSettlement from "./type/CreateSettlement";
   import IntentGiver from "./type/IntentGiver";
+  import CreateStructure from "./type/CreateStructure";
+  import DestroyPosition from "./type/DestroyPosition";
 
   export default {
     name : "property-panel",
@@ -196,6 +200,8 @@
       }
     },
     components : {
+      DestroyPosition,
+      CreateStructure,
       IntentGiver,
       CreateSettlement,
       TradeRequest,

@@ -1,6 +1,7 @@
 <template>
     <div class="info-box">
-        <v-input messages="Map name. Not displayed but can be used to referenced in story. (Before executing an event it is smart to check if it is generated & visable by the player using `created map` check.)">
+        <v-input
+                messages="Map name. Not displayed but can be used to referenced in story. (Before executing an event it is smart to check if it is generated & visable by the player using `created map` check.)">
             <v-text-field label="Map name" type="text" v-model="selected.properties['MapName']"></v-text-field>
         </v-input>
         <v-input messages="Quest type. Specifies whats at the core of the quest map.">
@@ -13,9 +14,14 @@
         </v-input>
         <template v-if="selected.properties['QuestType'] === 'DownedRefugee'
         || selected.properties['QuestType'] === 'PrisonerWillingToJoin'">
-            <v-input messages="Pawn name in map center.">
-                <v-text-field label="Pawn name" type="text" v-model="selected.properties['Name']"></v-text-field>
+            <v-input messages="Identifiable name for pawn in map center.">
+                <v-text-field label="Pawn name" type="text" v-model="selected.properties['OutName']"></v-text-field>
             </v-input>
+            <span style="width: 100%; position: relative; display: flex; flex-wrap: wrap;">
+                <v-text-field label="First name" type="text" v-model="selected.properties['FirstName']"></v-text-field>
+                <v-text-field label="Nick name" type="text" v-model="selected.properties['NickName']"></v-text-field>
+                <v-text-field label="Last name" type="text" v-model="selected.properties['LastName']"></v-text-field>
+            </span>
         </template>
         <v-input messages="Kind of threat on the quest map. Default: no threat.">
             <v-select
@@ -113,8 +119,8 @@
                         :items="factionTypes"
                         v-model="selected.properties['Faction']"
                         label="Faction"
-                    clearable=true
-            ></v-select>
+                        clearable=true
+                ></v-select>
             </v-input>
             <v-divider data-content="ELIMINATE CAMP REWARD"></v-divider>
             <v-input messages="If enabled, a reward is given for eliminating all threats.">
@@ -178,8 +184,8 @@
                             :items="factionTypes"
                             v-model="selected.properties['RewardFaction']"
                             label="Friendly faction"
-                    clearable=true
-            ></v-select>
+                            clearable=true
+                    ></v-select>
                 </v-input>
                 <v-input :messages="
                 selected.properties['RewardFactionRelation'] ==='' ||
@@ -195,7 +201,7 @@
         && selected.properties['ThreatType'] !== undefined">
             <v-input messages="Assigned from top to bottom. Name overflow will be ignored.">
                 <v-combobox
-                        v-model="selected.properties['Names']"
+                        v-model="selected.properties['OutNames']"
                         :items="[]"
                         multiple
                         small-chips

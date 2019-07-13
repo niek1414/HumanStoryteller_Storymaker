@@ -218,13 +218,35 @@ export default draw2d.Canvas.extend({
       const l = item.storage.length;
       for (let j = 0; j < l; j++) {
         const s = item.storage[j];
-        if (s['Name'] === undefined || !s['Name']){
+        if (s['Name'] === undefined || !s['Name']) {
           continue;
         }
         variables.push(s['Name']);
       }
     }
     return variables;
+  },
+
+  getNames : function() {
+    const names = [];
+    const figures = this.getFigures();
+    const figureLength = figures.getSize();
+    for (let i = 0; i < figureLength; i++) {
+      const item = figures.get(i);
+      if (!(item instanceof Event)) {
+        continue;
+      }
+      for (const prop in item.properties) {
+        if (item.properties.hasOwnProperty(prop)) {
+          if (prop === "OutName") {
+            names.push(item.properties['OutName']);
+          } else if (prop === "OutNames") {
+            names.push.apply(names, item.properties['OutNames']);
+          }
+        }
+      }
+    }
+    return names;
   },
 
   toJSON : function() {

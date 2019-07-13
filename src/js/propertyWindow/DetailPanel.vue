@@ -58,6 +58,17 @@
                 <v-input messages="Number can be found ingame top-left on world selection screen (with mod enabled).">
                     <v-text-field label="First landing site" type="number" v-model="selected.properties['Site']"></v-text-field>
                 </v-input>
+                <v-input messages="Minimal 200, maximal 400. Default is 250">
+                    <v-text-field label="Map size" type="number" v-model="selected.properties['MapSize']"></v-text-field>
+                </v-input>
+                <v-input messages="Default is 'Auto'">
+                    <v-select
+                            :items="seasons"
+                            v-model="selected.properties['StartSeason']"
+                            label="Starting season"
+                            clearable=true
+                    ></v-select>
+                </v-input>
             </template>
         </div>
     </div>
@@ -69,7 +80,20 @@
   export default {
     name : "detail-panel",
     props : ["project", "selected"],
-    components : {PropertyHeader}
+    components : {PropertyHeader},
+    data : function() {
+      return {
+        seasons : [
+          {value : "Auto", text : "Auto"},
+          {value : "Spring", text : "Spring"},
+          {value : "Summer", text : "Summer"},
+          {value : "Fall", text : "Fall"},
+          {value : "Winter", text : "Winter"},
+          {value : "PermanentSummer", text : "Permanent summer"},
+          {value : "PermanentWinter", text : "Permanent winter"},
+        ]
+      }
+    }
   }
 </script>
 

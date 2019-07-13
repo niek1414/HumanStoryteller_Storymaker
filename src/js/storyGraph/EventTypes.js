@@ -347,6 +347,20 @@ EventTypes.GiveThought = {
   conditions : []
 };
 
+EventTypes.CreateStructure = {
+  value : "CreateStructure",
+  text : "Create structure",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
+EventTypes.DestroyPosition = {
+  value : "DestroyPosition",
+  text : "Destroy position",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
 EventTypes.RenamePawn = {
   value : "RenamePawn",
   text : "Rename pawn",
@@ -441,8 +455,10 @@ EventTypes.Events = [
   {text : "Crop blight", value : EventTypes.CropBlight},
   {text : "Create pawn", value : EventTypes.CreatePawn},
   {text : "Create settlement", value : EventTypes.CreateSettlement},
+  {text : "Create structure", value : EventTypes.CreateStructure},
   {text : "Dialog", value : EventTypes.Dialog},
   {text : "Delete items", value : EventTypes.DeleteItems},
+  {text : "Destroy position", value : EventTypes.DestroyPosition},
   {text : "Difficulty", value : EventTypes.Difficulty},
   {text : "Disease", value : EventTypes.Disease},
   {text : "Eclipse", value : EventTypes.Eclipse},
@@ -704,6 +720,7 @@ EventTypes.Positions = [
   {value : 'Center', text : 'Map center'},
   {value : 'OutsideColony', text : 'Just outside colony'},
   {value : 'Siege', text : 'Siege location'},
+  {value : 'Pointer', text : 'Mouse pointer'},
 ];
 //</editor-fold>
 //<editor-fold desc="MineableMaterials">
@@ -1017,6 +1034,71 @@ EventTypes.AnimalTypes = [
   {value : "Warg", text : "Warg"},
   {value : "WildBoar", text : "Wild Boar"},
   {value : "YorkshireTerrier", text : "Yorkshire Terrier"},
+];
+//</editor-fold>
+//<editor-fold desc="PawnTraits">
+EventTypes.PawnTraits = [
+  {value : "Nudist|0", text : "Nudist"},
+  {value : "Bloodlust|0", text : "Bloodlust"},
+  {value : "Kind|0", text : "Kind"},
+  {value : "Psychopath|0", text : "Psychopath"},
+  {value : "Cannibal|0", text : "Cannibal"},
+  {value : "Abrasive|0", text : "Abrasive"},
+  {value : "TooSmart|0", text : "Too smart"},
+  {value : "Brawler|0", text : "Brawler"},
+  {value : "Masochist|0", text : "Masochist"},
+  {value : "NightOwl|0", text : "Night owl"},
+  {value : "Greedy|0", text : "Greedy"},
+  {value : "Jealous|0", text : "Jealous"},
+  {value : "Ascetic|0", text : "Ascetic"},
+  {value : "Gay|0", text : "Gay"},
+  {value : "AnnoyingVoice|0", text : "Annoying voice"},
+  {value : "CreepyBreathing|0", text : "Creepy breathing"},
+  {value : "Pyromaniac|0", text : "Pyromaniac"},
+  {value : "Wimp|0", text : "Wimp"},
+  {value : "Nimble|0", text : "Nimble"},
+  {value : "FastLearner|0", text : "Fast learner"},
+  {value : "Undergrounder|0", text : "Undergrounder"},
+  {value : "Transhumanist|0", text : "Transhumanist"},
+  {value : "BodyPurist|0", text : "Body purist"},
+  {value : "DislikesMen|0", text : "Misandrist"},
+  {value : "DislikesWomen|0", text : "Misogynist"},
+  {value : "GreatMemory|0", text : "Great memory"},
+  {value : "Tough|0", text : "Tough"},
+  {value : "Gourmand|0", text : "Gourmand"},
+  {value : "QuickSleeper|0", text : "Quick sleeper"},
+  {value : "SpeedOffset|-1", text : "Slowpoke"},
+  {value : "SpeedOffset|1", text : "Fast walker"},
+  {value : "SpeedOffset|2", text : "Jogger"},
+  {value : "DrugDesire|2", text : "Chemical fascination"},
+  {value : "DrugDesire|1", text : "Chemical interest"},
+  {value : "DrugDesire|-1", text : "Teetotaler"},
+  {value : "NaturalMood|2", text : "Sanguine"},
+  {value : "NaturalMood|1", text : "Optimist"},
+  {value : "NaturalMood|-1", text : "Pessimist"},
+  {value : "NaturalMood|-2", text : "Depressive"},
+  {value : "Nerves|2", text : "Iron-willed"},
+  {value : "Nerves|1", text : "Steadfast"},
+  {value : "Nerves|-1", text : "Nervous"},
+  {value : "Nerves|-2", text : "Volatile"},
+  {value : "Neurotic|1", text : "Neurotic"},
+  {value : "Neurotic|2", text : "Very neurotic"},
+  {value : "Industriousness|2", text : "Industrious"},
+  {value : "Industriousness|1", text : "Hard worker"},
+  {value : "Industriousness|-1", text : "Lazy"},
+  {value : "Industriousness|-2", text : "Slothful"},
+  {value : "PsychicSensitivity|2", text : "Psychically hypersensitive"},
+  {value : "PsychicSensitivity|1", text : "Psychically sensitive"},
+  {value : "PsychicSensitivity|-1", text : "Psychically dull"},
+  {value : "PsychicSensitivity|-2", text : "Psychically deaf"},
+  {value : "ShootingAccuracy|1", text : "Careful shooter"},
+  {value : "ShootingAccuracy|-1", text : "Trigger-happy"},
+  {value : "Beauty|2", text : "Beautiful"},
+  {value : "Beauty|1", text : "Pretty"},
+  {value : "Beauty|-1", text : "Ugly"},
+  {value : "Beauty|-2", text : "Staggeringly ugly"},
+  {value : "Immunity|1", text : "Super-immune"},
+  {value : "Immunity|-1", text : "Sickly"},
 ];
 //</editor-fold>
 //<editor-fold desc="Items">

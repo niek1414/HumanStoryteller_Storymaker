@@ -1,5 +1,5 @@
 <template>
-    <span style="width: 100%; position: relative;">
+    <span :style="dynamic ? 'position: relative;' : 'width: 100%; position: relative;'">
         <v-autocomplete
                 v-if="checked" :label="label + ' variable'"
                 :items="variables"
@@ -15,7 +15,7 @@
 
 <script>
   export default {
-    props : ["label", "myModel"],
+    props : ["label", "myModel", "dynamic"],
     name : "NumberField",
     data() {
       return {

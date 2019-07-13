@@ -2,7 +2,7 @@
     <div class="info-box">
         <v-input messages="Names of pawns that are visiting. If less pawns spawn, the first are assigned (Left-to-right).">
             <v-combobox
-                    v-model="selected.properties['Names']"
+                    v-model="selected.properties['OutNames']"
                     :items="[]"
                     multiple
                     small-chips

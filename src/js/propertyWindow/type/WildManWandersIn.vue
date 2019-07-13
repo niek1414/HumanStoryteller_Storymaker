@@ -1,7 +1,7 @@
 <template>
     <div class="info-box">
-        <v-input messages="Name of the wild man">
-            <v-text-field label="Pawn name" type="text" v-model="selected.properties['Name']"></v-text-field>
+        <v-input messages="Identifiable name of the wild man">
+            <v-text-field label="Pawn name" type="text" v-model="selected.properties['OutName']"></v-text-field>
         </v-input>
         <v-input>
             <v-select

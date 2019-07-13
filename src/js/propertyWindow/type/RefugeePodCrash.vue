@@ -1,8 +1,14 @@
 <template>
     <div class="info-box">
-        <v-input messages="Name of the crashed refugee">
-            <v-text-field label="Refugee name" type="text" v-model="selected.properties['Name']"></v-text-field>
+        <v-input messages="Identifiable name of the crashed refugee">
+            <v-text-field label="Refugee name" type="text" v-model="selected.properties['OutName']"></v-text-field>
         </v-input>
+
+        <span style="width: 100%; position: relative; display: flex; flex-wrap: wrap;">
+            <v-text-field label="First name" type="text" v-model="selected.properties['FirstName']"></v-text-field>
+            <v-text-field label="Nick name" type="text" v-model="selected.properties['NickName']"></v-text-field>
+            <v-text-field label="Last name" type="text" v-model="selected.properties['LastName']"></v-text-field>
+        </span>
     </div>
 </template>
 

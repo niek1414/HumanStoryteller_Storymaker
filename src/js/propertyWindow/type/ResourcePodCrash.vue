@@ -54,13 +54,8 @@
                         v-model="selected.properties['InstaPlace']"
                 ></v-switch>
             </v-input>
-            <v-input messages="Drop location, default is random (Select from list, type pawn name or enter tile as x:y:z)">
-                <v-combobox
-                        v-model="selected.properties['Location']"
-                        :items="positions"
-                        label="Drop position"
-                        :return-object="false"
-                ></v-combobox>
+            <v-input messages="Drop location, default is random">
+                <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
             </v-input>
         </template>
     </div>
@@ -69,9 +64,10 @@
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
   import NumberField from "../util/NumberField";
+  import LocationField from "../util/LocationField";
 
   export default {
-    components : {NumberField},
+    components : {LocationField, NumberField},
     props : ["selected"],
     name : "ResourcePodCrash",
     data : function() {

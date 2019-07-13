@@ -1,23 +1,18 @@
 <template>
     <div class="info-box">
         <v-input messages="Names of pawns to edit.">
-            <v-combobox
+            <v-autocomplete
                     v-model="selected.properties['Names']"
-                    :items="[]"
+                    :items="names"
                     multiple
                     small-chips
-            >
-                <template slot="no-data">
-                    <v-list-tile>
-                        <v-list-tile-content>
-                            <v-list-tile-title>
-                                Press <kbd>enter</kbd> to create a new name
-                            </v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </template>
-            </v-combobox>
+            ></v-autocomplete>
         </v-input>
+        <span style="width: 100%; position: relative; display: flex; flex-wrap: wrap;">
+            <v-text-field label="First name" type="text" v-model="selected.properties['FirstName']"></v-text-field>
+            <v-text-field label="Nick name" type="text" v-model="selected.properties['NickName']"></v-text-field>
+            <v-text-field label="Last name" type="text" v-model="selected.properties['LastName']"></v-text-field>
+        </span>
         <v-input messages="Strip pawn?">
             <v-switch
                     label="Strip"
@@ -50,16 +45,19 @@
                     clearable=true
             ></v-select>
         </v-input>
-        <v-input messages="Teleport location (Select from list, type pawn name or enter tile as x:y:z)">
-            <v-combobox
-                    v-model="selected.properties['Location']"
-                    :items="positions"
-                    label="Position on map"
-                    :return-object="false"
-            ></v-combobox>
+        <v-input messages="Teleport to location, default does not teleport">
+            <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
         </v-input>
         <v-input messages="Pawns biological age (in years). Default is unchanged.">
             <NumberField label="Biological age" :myModel.sync="selected.properties['AgeBioYear']"></NumberField>
+        </v-input>
+        <v-input messages="Pawn traits. Default does nothing. One or more selected will first clear existing traits.">
+            <v-autocomplete
+                    v-model="selected.properties['Traits']"
+                    :items="pawnTraits"
+                    multiple
+                    small-chips
+            ></v-autocomplete>
         </v-input>
 
         <v-divider data-content="SKILLS"></v-divider>
@@ -93,9 +91,10 @@
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
   import NumberField from "../util/NumberField";
+  import LocationField from "../util/LocationField";
 
   export default {
-    components : {NumberField},
+    components : {LocationField, NumberField},
     props : ["selected"],
     name : "EditPawn",
     data : function() {
@@ -108,7 +107,13 @@
           {value : "TribeCivil", text : "Tribe Civil"},
           {value : "TribeRough", text : "Tribe Rough"},
         ],
-        positions : EventTypes.Positions
+        positions : EventTypes.Positions,
+        pawnTraits : EventTypes.PawnTraits
+      }
+    },
+    computed : {
+      names : function() {
+        return window.toolbar.view.getNames();
       }
     }
   }

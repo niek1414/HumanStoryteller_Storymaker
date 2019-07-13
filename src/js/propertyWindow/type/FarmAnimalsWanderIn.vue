@@ -24,7 +24,7 @@
 
         <v-input messages="Assigned from top to bottom. Name overflow will be ignored.">
             <v-combobox
-                    v-model="selected.properties['Names']"
+                    v-model="selected.properties['OutNames']"
                     :items="[]"
                     multiple
                     small-chips

@@ -4,7 +4,11 @@
             <v-layout align-center justify-space-between row>
                 <v-flex xs6>
                     <v-input messages="Name of the pawn">
-                        <v-text-field label="Pawn name" type="text" v-model="condition['pawnName']"></v-text-field>
+                        <v-autocomplete
+                                v-model="condition['pawnName']"
+                                :items="names"
+                                small-chips
+                        ></v-autocomplete>
                     </v-input>
                 </v-flex>
                 <v-flex xs6>
@@ -23,7 +27,12 @@
     name : "PawnState",
     data : () => ({
       pawnConditions : ['Colonist', 'Prisoner']
-    })
+    }),
+    computed : {
+      names : function() {
+        return window.toolbar.view.getNames();
+      }
+    }
   }
 </script>
 

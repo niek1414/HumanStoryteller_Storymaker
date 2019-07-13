@@ -23,7 +23,7 @@
             More of a 'Self-Education' person? No problem, just start on the panel on the left!<br>
             <br><br>
             <span style="font-size: 120%">Created your story? <b>Publish it</b> by changing the publish setting in the project settings.<br>
-                Questions? <a href="https://discord.gg/auDTBCz">Join on discord!</a></span><br>
+                Questions? <a href="https://discord.gg/auDTBCz" target="_BLANK">Join on discord!</a></span><br>
             <br><br><br>
             If you like reading better:<br>
             <br>

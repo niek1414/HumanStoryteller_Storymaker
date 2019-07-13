@@ -7,9 +7,14 @@
                     label="Pawn kind"
             ></v-autocomplete>
         </v-input>
-        <v-input messages="Name of the created pawn">
-            <v-text-field label="Pawn name" type="text" v-model="selected.properties['Name']"></v-text-field>
+        <v-input messages="Identifiable name of the created pawn">
+            <v-text-field label="Pawn name" type="text" v-model="selected.properties['OutName']"></v-text-field>
         </v-input>
+        <span style="width: 100%; position: relative; display: flex; flex-wrap: wrap;">
+            <v-text-field label="First name" type="text" v-model="selected.properties['FirstName']"></v-text-field>
+            <v-text-field label="Nick name" type="text" v-model="selected.properties['NickName']"></v-text-field>
+            <v-text-field label="Last name" type="text" v-model="selected.properties['LastName']"></v-text-field>
+        </span>
         <v-input messages="The faction of the pawn. If colony, the pawn will join. WARNING: If the pawn type is not compatible with the faction, the pawn may not spawn or worse!">
             <v-select
                     :items="factionTypes"

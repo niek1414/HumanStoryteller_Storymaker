@@ -4,8 +4,8 @@
             <NumberField label="Strength as multiplier" :myModel.sync="selected.properties['Points']"></NumberField>
         </v-input>
 
-        <v-input messages="Name of the chased refugee">
-            <v-text-field label="Refugee name" type="text" v-model="selected.properties['Name']"></v-text-field>
+        <v-input messages="Identifiable name of the chased refugee">
+            <v-text-field label="Refugee name" type="text" v-model="selected.properties['OutName']"></v-text-field>
         </v-input>
     </div>
 </template>

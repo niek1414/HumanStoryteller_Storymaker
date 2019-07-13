@@ -1,22 +1,12 @@
 <template>
     <div class="info-box">
         <v-input messages="Names of pawns to apply the effect.">
-            <v-combobox
+            <v-autocomplete
                     v-model="selected.properties['Names']"
-                    :items="[]"
+                    :items="names"
                     multiple
                     small-chips
-            >
-                <template slot="no-data">
-                    <v-list-tile>
-                        <v-list-tile-content>
-                            <v-list-tile-title>
-                                Press <kbd>enter</kbd> to create a new name
-                            </v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </template>
-            </v-combobox>
+            ></v-autocomplete>
         </v-input>
         <v-input messages="The break status to apply">
             <v-select
@@ -56,6 +46,11 @@
           {value : "Wander_Sad", text : "Wander - Sad"},
           {value : "Wander_OwnRoom", text : "Wander - Own room"},
         ],
+      }
+    },
+    computed : {
+      names : function() {
+        return window.toolbar.view.getNames();
       }
     }
   }

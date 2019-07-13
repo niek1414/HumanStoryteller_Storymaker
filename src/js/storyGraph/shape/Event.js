@@ -92,6 +92,7 @@ export default draw2d.shape.basic.Rectangle.extend({
       this.updateLabel(this.type.value.text);
       this.eventName = this.type.value.text;
     }
+    this.properties = {letter : {show : true, type : "Default"}};
     this.setColor(this.type.value.type.color);
   },
 

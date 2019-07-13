@@ -15,7 +15,7 @@
         <v-input messages="Names of pawns. If none given, a random amount (specified by disease type) will become sick.<br> Giving a human an animal sickness or the other way around is unspecified behavior.">
             <v-combobox
                     v-model="selected.properties['Names']"
-                    :items="[]"
+                    :items="names"
                     multiple
                     small-chips
             >
@@ -42,6 +42,11 @@
     data : function() {
       return {
         diseaseTypes : EventTypes.DiseaseTypes,
+      }
+    },
+    computed : {
+      names : function() {
+        return window.toolbar.view.getNames();
       }
     }
   }

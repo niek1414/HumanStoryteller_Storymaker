@@ -1,22 +1,12 @@
 <template>
     <div class="info-box">
         <v-input messages="Names of pawns to give thought.">
-            <v-combobox
+            <v-autocomplete
                     v-model="selected.properties['Names']"
-                    :items="[]"
+                    :items="names"
                     multiple
                     small-chips
-            >
-                <template slot="no-data">
-                    <v-list-tile>
-                        <v-list-tile-content>
-                            <v-list-tile-title>
-                                Press <kbd>enter</kbd> to create a new name
-                            </v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </template>
-            </v-combobox>
+            ></v-autocomplete>
         </v-input>
         <v-input messages="Thought type (Select *custom* to make your own)">
             <v-autocomplete
@@ -49,6 +39,7 @@
 
 <script>
   import NumberField from "../util/NumberField";
+
   export default {
     components : {NumberField},
     props : ["selected"],
@@ -277,6 +268,11 @@
           {value : "WitnessedDeathBloodlust", text : "Witnessed death with bloodlust"},
           {value : "Woman", text : "Woman"},
         ]
+      }
+    },
+    computed : {
+      names : function() {
+        return window.toolbar.view.getNames();
       }
     }
   }

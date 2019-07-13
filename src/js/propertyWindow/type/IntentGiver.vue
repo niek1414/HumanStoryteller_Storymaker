@@ -1,22 +1,12 @@
 <template>
     <div class="info-box">
         <v-input messages="Names of pawns to give thought.">
-            <v-combobox
+            <v-autocomplete
                     v-model="selected.properties['Names']"
-                    :items="[]"
+                    :items="names"
                     multiple
                     small-chips
-            >
-                <template slot="no-data">
-                    <v-list-tile>
-                        <v-list-tile-content>
-                            <v-list-tile-title>
-                                Press <kbd>enter</kbd> to create a new name
-                            </v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </template>
-            </v-combobox>
+            ></v-autocomplete>
         </v-input>
         <v-input messages="Intent type">
             <v-autocomplete
@@ -88,13 +78,8 @@
         <template v-else-if="selected.properties['IntentType'] === 'TravelAndExit'
                             || selected.properties['IntentType'] === 'Travel'
                             || selected.properties['IntentType'] === 'DefendPoint'">
-            <v-input messages="Location, default is random (Select from list, type pawn name or enter tile as x:y:z)">
-                <v-combobox
-                        v-model="selected.properties['FirstStringParam']"
-                        :items="positions"
-                        label="Position"
-                        :return-object="false"
-                ></v-combobox>
+            <v-input messages="Location, default is random">
+                <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
             </v-input>
             <v-input messages="How fast the pawn needs to act">
                 <v-autocomplete
@@ -119,9 +104,10 @@
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
   import NumberField from "../util/NumberField";
+  import LocationField from "../util/LocationField";
 
   export default {
-    components : {NumberField},
+    components : {LocationField, NumberField},
     props : ["selected"],
     name : "IntentGiver",
     data : function() {
@@ -175,6 +161,11 @@
           {value : "Wait", text : "Wait / clear queue"},
         ],
         positions : EventTypes.Positions
+      }
+    },
+    computed : {
+      names : function() {
+        return window.toolbar.view.getNames();
       }
     }
   }

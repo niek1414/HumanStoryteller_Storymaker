@@ -9,7 +9,11 @@
                 </v-flex>
                 <v-flex xs6>
                     <v-input messages="Name of the pawn">
-                        <v-text-field label="Pawn name" type="text" v-model="condition['pawnName']"></v-text-field>
+                        <v-autocomplete
+                                v-model="condition['pawnName']"
+                                :items="names"
+                                small-chips
+                        ></v-autocomplete>
                     </v-input>
                 </v-flex>
             </v-layout>
@@ -20,7 +24,12 @@
 <script>
   export default {
     props : ["condition"],
-    name : "ColonistOnMap"
+    name : "ColonistOnMap",
+    computed : {
+      names : function() {
+        return window.toolbar.view.getNames();
+      }
+    }
   }
 </script>
 

@@ -1,8 +1,5 @@
 <template>
     <div class="info-box">
-        <v-input messages="Name pawn to spawn on. (If empty or unknown position is random)">
-            <v-text-field label="Pawn name" type="text" v-model="selected.properties['Name']"></v-text-field>
-        </v-input>
         <v-input messages="Orbital strike type">
             <v-select
                     :items="orbitalType"
@@ -11,11 +8,17 @@
                     clearable=true
             ></v-select>
         </v-input>
+        <v-input messages="Strike location, default is random">
+            <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
+        </v-input>
     </div>
 </template>
 
 <script>
+  import LocationField from "../util/LocationField";
+
   export default {
+    components : {LocationField},
     props : ["selected"],
     name : "OrbitalStrike",
     data : function() {
