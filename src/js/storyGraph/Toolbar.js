@@ -17,11 +17,6 @@ export default Class.extend({
       success : function(data) {
         that.user = data;
         $("#avatar-img").attr("src", that.user.avatar);
-        if (that.user.id === 1) {
-          window.LoadStory = function(id) {
-            that.loadStory(id)
-          };
-        }
       },
       error : function(jqXhr, textStatus, errorThrown) {
         console.log(errorThrown);

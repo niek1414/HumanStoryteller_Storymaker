@@ -43,8 +43,8 @@ export default draw2d.Connection.extend({
     this.targetDecorator.backgroundColor = color;
     this.setSourceDecorator(this.sourceDecorator);
     this.setTargetDecorator(this.targetDecorator);
-    if (attr !== undefined && attr.offset !== undefined && this.targetPort.getAbsoluteY() - this.sourcePort.getAbsoluteY() !== attr.offset) {
-      this.customWeight = attr.offset / 100;
+    if (attr !== undefined && attr.offset !== undefined && this.targetPort.getAbsoluteY() - this.sourcePort.getAbsoluteY() !== attr.offset / 10) {
+      this.customWeight = attr.offset / 1000;
       this.customSwitch = true;
     }
   },
@@ -82,7 +82,7 @@ export default draw2d.Connection.extend({
   },
 
   getWeight : function() {
-    return this.customSwitch ? this.customWeight * 100 : this.targetPort.getAbsoluteY() - this.sourcePort.getAbsoluteY();
+    return this.customSwitch ? this.customWeight * 1000 : this.targetPort.getAbsoluteY() - this.sourcePort.getAbsoluteY() * 10;
   },
 
   getDayPart : function(procent) {

@@ -8,6 +8,12 @@
                     small-chips
             ></v-autocomplete>
         </v-input>
+        <v-input messages="Enable to despawn pawn. Disable to spawn pawn. (If pawn is already in this state, nothing happens.)">
+            <v-switch
+                    label="Despawn or spawn?"
+                    v-model="selected.properties['Despawn']"
+            ></v-switch>
+        </v-input>
         <span style="width: 100%; position: relative; display: flex; flex-wrap: wrap;">
             <v-text-field label="First name" type="text" v-model="selected.properties['FirstName']"></v-text-field>
             <v-text-field label="Nick name" type="text" v-model="selected.properties['NickName']"></v-text-field>
@@ -31,7 +37,7 @@
                     v-model="selected.properties['Banish']"
             ></v-switch>
         </v-input>
-        <v-input messages="If selected, pawn will be drafted">
+        <v-input messages="If selected, pawn will be drafted, otherwise undrafted if applicable">
             <v-switch
                     label="Set drafted"
                     v-model="selected.properties['SetDrafted']"
@@ -42,7 +48,7 @@
                     :items="factionTypes"
                     v-model="selected.properties['Faction']"
                     label="Faction"
-                    clearable=true
+                    :clearable=true
             ></v-select>
         </v-input>
         <v-input messages="Teleport to location, default does not teleport">
@@ -59,6 +65,7 @@
                     small-chips
             ></v-autocomplete>
         </v-input>
+        <v-divider data-content="GEAR"></v-divider>
 
         <v-divider data-content="SKILLS"></v-divider>
         <v-input messages="If enabled, skills (below) are added (or removed if - is used), otherwise it just sets the skill to the specified level.">

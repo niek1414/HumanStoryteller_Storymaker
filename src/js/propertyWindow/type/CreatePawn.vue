@@ -1,5 +1,11 @@
 <template>
     <div class="info-box">
+        <v-input messages="Create the pawn but don't spawn it on the map. Can be used for radio messages or to spawn later.<br>Note: Unspawned pawns without an identifiable name can not be used and will be deleted.">
+            <v-switch
+                    label="Don't spawn"
+                    v-model="selected.properties['NoSpawn']"
+            ></v-switch>
+        </v-input>
         <v-input messages="The faction of the pawn. If colony, the pawn will join.">
             <v-autocomplete
                     v-model="selected.properties['PawnKind']"
@@ -20,7 +26,7 @@
                     :items="factionTypes"
                     v-model="selected.properties['Faction']"
                     label="Faction"
-                    clearable=true
+                    :clearable=true
             ></v-select>
         </v-input>
         <v-input messages="Create new born?">
@@ -46,33 +52,10 @@
                     :items="genderTypes"
                     v-model="selected.properties['Gender']"
                     label="Gender"
-                    clearable=true
+                    :clearable=true
             ></v-select>
         </v-input>
-        <v-input>
-            <v-autocomplete
-                    v-model="selected.properties['Weapon']"
-                    :items="weapons"
-                    label="Weapon"
-            ></v-autocomplete>
-        </v-input>
-        <template v-if="selected.properties['Weapon'] !=='' && selected.properties['Weapon'] !== undefined">
-            <v-input>
-                <v-select
-                        :items="itemQuality"
-                        v-model="selected.properties['ItemQuality']"
-                        label="Weapon quality (if applicable)"
-                    clearable=true
-            ></v-select>
-            </v-input>
-            <v-input>
-                <v-autocomplete
-                        v-model="selected.properties['Stuff']"
-                        :items="stuff"
-                        label="Weapon material (if applicable)"
-                ></v-autocomplete>
-            </v-input>
-        </template>
+        <ThingField label="Weapon" :myModel.sync="selected.properties['Weapon']" :things="weapons"></ThingField>
         <v-input messages="2 is twice the budget, 0.5 half and 1 is default. Default (1) is defined by group type.">
             <NumberField label="Apparel budget" :myModel.sync="selected.properties['ApparelMoney']"></NumberField>
         </v-input>
@@ -89,9 +72,10 @@
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
   import NumberField from "../util/NumberField";
+  import ThingField from "../util/ThingField";
 
   export default {
-    components : {NumberField},
+    components : {ThingField, NumberField},
     props : ["selected"],
     name : "CreatePawn",
     data : function() {

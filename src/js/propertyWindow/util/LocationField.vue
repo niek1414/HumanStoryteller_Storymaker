@@ -4,7 +4,7 @@
                 :items="isOffset ? offsetTypes : types"
                 v-model="myModel.Type"
                 :label="isOffset ? 'Offset type' : 'Location type'"
-                clearable=true
+                :clearable=true
                 v-on:change="clean()"
         ></v-select>
         <template v-if="myModel.Type === 'Preset'">
@@ -12,7 +12,7 @@
                     :items="positions"
                     v-model="myModel.Value"
                     label="Preset type"
-                    clearable=true
+                    :clearable=true
             ></v-select>
         </template>
         <template v-else-if="myModel.Type === 'Pawn'">
@@ -20,7 +20,7 @@
                     :items="names"
                     v-model="myModel.Value"
                     label="Pawn name"
-                    clearable=true
+                    :clearable=true
             ></v-autocomplete>
         </template>
         <template v-else-if="myModel.Type === 'Precise'">
@@ -32,7 +32,7 @@
                     label="Zone (paste from in-game)"
                     type="text"
                     v-model="myModel.Value"
-                    clearable=true
+                    :clearable=true
             ></v-text-field>
             <LocationField :myModel.sync="myModel.Offset" :isOffset="true"></LocationField>
         </template>

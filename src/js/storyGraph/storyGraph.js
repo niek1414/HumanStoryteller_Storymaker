@@ -145,7 +145,11 @@ export default draw2d.Canvas.extend({
     figure.installEditPolicy(new EventFeedbackPolicy());
   },
 
-  addEvent : function(x, y, type = "", properties = {letter : {show : true, type : "Default"}}, conditions = [], storage = [], createOutputPorts = true) {
+  addEvent : function(x, y, type = "", properties = {
+    CustomTarget : "Preset",
+    TargetPreset : "FirstOfPlayer",
+    letter : {show : true, type : "Default"}
+  }, conditions = [], storage = [], createOutputPorts = true) {
     const d = new Event({width : 100, height : 50, x : x, y : y, type : type, properties : properties, conditions : conditions, storage : storage});
 
     d.input = d.createPort("input", new this.inputPortPos);

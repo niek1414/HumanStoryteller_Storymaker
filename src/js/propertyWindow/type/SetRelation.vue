@@ -5,7 +5,7 @@
                     :items="factionTypes"
                     v-model="selected.properties['Faction']"
                     label="Faction"
-                    clearable=true
+                    :clearable=true
             ></v-select>
         </v-input>
         <v-input messages="Relation change with faction (-20 will worsen the relation)">

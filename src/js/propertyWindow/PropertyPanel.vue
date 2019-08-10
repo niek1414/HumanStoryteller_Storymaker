@@ -68,6 +68,11 @@
                 <RefugeePodCrash v-else-if="selected.type.value.value === 'RefugeePodCrash'" v-bind:selected="selected"/>
                 <PsychicSoothe v-else-if="selected.type.value.value === 'PsychicSoothe'" v-bind:selected="selected"/>
                 <Alphabeavers v-else-if="selected.type.value.value === 'Alphabeavers'" v-bind:selected="selected"/>
+                <ChapterSplash v-else-if="selected.type.value.value === 'ChapterSplash'" v-bind:selected="selected"/>
+                <ControlCamera v-else-if="selected.type.value.value === 'ControlCamera'" v-bind:selected="selected"/>
+                <MovieMode v-else-if="selected.type.value.value === 'MovieMode'" v-bind:selected="selected"/>
+                <RadioMessage v-else-if="selected.type.value.value === 'RadioMessage'" v-bind:selected="selected"/>
+                <SpeedControl v-else-if="selected.type.value.value === 'SpeedControl'" v-bind:selected="selected"/>
                 <AmbrosiaSprout v-else-if="selected.type.value.value === 'AmbrosiaSprout'" v-bind:selected="selected"/>
                 <Dialog v-else-if="selected.type.value.value === 'Dialog'" v-bind:selected="selected"/>
                 <Difficulty v-else-if="selected.type.value.value === 'Difficulty'" v-bind:selected="selected"/>
@@ -97,25 +102,32 @@
                 <Nothing v-else v-bind:selected="selected"/>
                 <v-divider></v-divider>
                 <div class="info-box">
-                    <v-input messages="If you spawned a map with a name, enable this to specify it.">
-                        <v-switch
-                                label="Specific map"
-                                v-model="selected.properties['CustomTarget']"
-                        ></v-switch>
+                    <v-input messages="How to specify the map?">
+                        <v-radio-group v-model="selected.properties['CustomTarget']">
+                            <v-radio  value="Preset" label="Preset"/>
+                            <v-radio value="Name" label="Name"/>
+                            <v-radio value="Tile" label="Tile"/>
+                        </v-radio-group>
                     </v-input>
-                    <template v-if="selected.properties['CustomTarget']">
+                    <template v-if="selected.properties['CustomTarget'] === 'Name'">
                         <v-input messages="Name of the map on which the event will be executed.">
-                            <v-text-field label="Map" type="text" v-model="selected.properties['Target']"></v-text-field>
+                            <v-text-field label="Map name" type="text" v-model="selected.properties['TargetName']"></v-text-field>
                         </v-input>
                     </template>
-                    <template v-else>
+                    <template v-else-if="selected.properties['CustomTarget'] === 'Preset'">
                         <v-input messages="The map on which the event will be executed.">
                             <v-select
                                     :items="targets"
-                                    v-model="selected.properties['Target']"
-                                    label="Map"
-                                    clearable=true
+                                    v-model="selected.properties['TargetPreset']"
+                                    label="Map preset"
+                                    :clearable=true
                             ></v-select>
+                        </v-input>
+                    </template>
+                    <template v-else-if="selected.properties['CustomTarget'] === 'Tile'">
+                        <v-input
+                                messages="Tile of the map on which the event will be executed. Best used when targeting a map tile and not a map (there may be no map on the tile)">
+                            <v-text-field label="Map tile" type="number" v-model="selected.properties['TargetTile']"></v-text-field>
                         </v-input>
                     </template>
                 </div>
@@ -187,6 +199,11 @@
   import IntentGiver from "./type/IntentGiver";
   import CreateStructure from "./type/CreateStructure";
   import DestroyPosition from "./type/DestroyPosition";
+  import ChapterSplash from "./type/ChapterSplash";
+  import RadioMessage from "./type/RadioMessage";
+  import SpeedControl from "./type/SpeedControl";
+  import ControlCamera from "./type/ControlCamera";
+  import MovieMode from "./type/MovieMode";
 
   export default {
     name : "property-panel",
@@ -200,6 +217,11 @@
       }
     },
     components : {
+      MovieMode,
+      ControlCamera,
+      SpeedControl,
+      RadioMessage,
+      ChapterSplash,
       DestroyPosition,
       CreateStructure,
       IntentGiver,

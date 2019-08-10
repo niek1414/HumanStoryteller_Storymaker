@@ -66,7 +66,7 @@
                             :items="seasons"
                             v-model="selected.properties['StartSeason']"
                             label="Starting season"
-                            clearable=true
+                            :clearable=true
                     ></v-select>
                 </v-input>
             </template>

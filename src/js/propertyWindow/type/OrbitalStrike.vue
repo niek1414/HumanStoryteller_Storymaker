@@ -5,7 +5,7 @@
                     :items="orbitalType"
                     v-model="selected.properties['OrbitalType']"
                     label="Type"
-                    clearable=true
+                    :clearable=true
             ></v-select>
         </v-input>
         <v-input messages="Strike location, default is random">

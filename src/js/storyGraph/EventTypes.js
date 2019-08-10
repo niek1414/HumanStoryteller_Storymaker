@@ -261,6 +261,41 @@ EventTypes.Alphabeavers = {
   conditions : []
 };
 
+EventTypes.ChapterSplash = {
+  value : "ChapterSplash",
+  text : "Chapter splash",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
+EventTypes.ControlCamera = {
+  value : "ControlCamera",
+  text : "Control camera",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
+EventTypes.MovieMode = {
+  value : "MovieMode",
+  text : "Movie mode",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
+EventTypes.RadioMessage = {
+  value : "RadioMessage",
+  text : "Radio message",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
+EventTypes.SpeedControl = {
+  value : "SpeedControl",
+  text : "Speed control",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
 EventTypes.AmbrosiaSprout = {
   value : "AmbrosiaSprout",
   text : "Ambrosia sprouted",
@@ -451,6 +486,8 @@ EventTypes.Events = [
   {text : "Animal insanity", value : EventTypes.AnimalInsanitySingle},
   {text : "Animals join", value : EventTypes.FarmAnimalsWanderIn},
   {text : "Aurora", value : EventTypes.Aurora},
+  {text : "Chapter splash", value : EventTypes.ChapterSplash},
+  {text : "Control camera", value : EventTypes.ControlCamera},
   {text : "Cold snap/Heat wave", value : EventTypes.TempFlux},
   {text : "Crop blight", value : EventTypes.CropBlight},
   {text : "Create pawn", value : EventTypes.CreatePawn},
@@ -473,6 +510,7 @@ EventTypes.Events = [
   {text : "Manhunter pack", value : EventTypes.ManhunterPack},
   {text : "Meteorite", value : EventTypes.MeteoriteImpact},
   {text : "Mental break", value : EventTypes.MentalBreak},
+  {text : "Movie mode", value : EventTypes.MovieMode},
   {text : "Nothing", value : EventTypes.Nothing},
   {text : "Orbital strike", value : EventTypes.OrbitalStrike},
   {text : "Planetkiller", value : EventTypes.Planetkiller},
@@ -482,6 +520,7 @@ EventTypes.Events = [
   {text : "Pawn health", value : EventTypes.PawnHealth},
   {text : "Quest", value : EventTypes.Quest},
   {text : "Raid", value : EventTypes.RaidEnemy},
+  {text : "Radio message", value : EventTypes.RadioMessage},
   {text : "Refugee crash", value : EventTypes.RefugeePodCrash},
   {text : "Refugee chased", value : EventTypes.RefugeeChased},
   {text : "Resource pod", value : EventTypes.ResourcePodCrash},
@@ -493,6 +532,7 @@ EventTypes.Events = [
   {text : "Solar flare", value : EventTypes.SolarFlare},
   {text : "Self tame", value : EventTypes.SelfTame},
   {text : "Set relation", value : EventTypes.SetRelation},
+  {text : "Speed control", value : EventTypes.SpeedControl},
   {text : "Toxic fallout", value : EventTypes.ToxicFallout},
   {text : "Trader", value : EventTypes.TraderArrival},
   {text : "Time travel", value : EventTypes.TimeTravel},
@@ -509,6 +549,8 @@ EventTypes.EventsAsString = [
   "Animal insanity",
   "Animals join",
   "Aurora",
+  "Chapter splash",
+  "Control camera",
   "Cold snap/Heat wave",
   "Crop blight",
   "Create pawn",
@@ -529,6 +571,7 @@ EventTypes.EventsAsString = [
   "Manhunter pack",
   "Meteorite",
   "Mental break",
+  "Movie mode",
   "Nothing",
   "Orbital strike",
   "Planetkiller",
@@ -538,6 +581,7 @@ EventTypes.EventsAsString = [
   "Pawn health",
   "Quest",
   "Raid",
+  "Radio message",
   "Refugee crash",
   "Refugee chased",
   "Resource pod",
@@ -549,6 +593,7 @@ EventTypes.EventsAsString = [
   "Solar flare",
   "Self tame",
   "Set relation",
+  "Speed control",
   "Toxic fallout",
   "Trader",
   "Time travel",

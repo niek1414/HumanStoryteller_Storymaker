@@ -13,7 +13,7 @@
                     :items="healthActions"
                     v-model="selected.properties['HealthAction']"
                     label="Effect"
-                    clearable=true
+                    :clearable=true
             ></v-select>
         </v-input>
         <template v-if="selected.properties['HealthAction'] === 'MissingBodyPart' || selected.properties['HealthAction'] === 'StabBodyPart'">
@@ -22,7 +22,7 @@
                         :items="bodyParts"
                         v-model="selected.properties['BodyPart']"
                         label="Body part"
-                    clearable=true
+                    :clearable=true
             ></v-select>
             </v-input>
         </template>

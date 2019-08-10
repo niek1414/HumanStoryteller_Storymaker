@@ -110,7 +110,6 @@
         if (this.recursiveHint(this.activeStep.graph, graph.lastRoot, []) === null && !this.activeStep.button) {
           this.next();
         }
-        console.log("test");
       }, 1000),
       stop : function() {
         window.updateTutorial(0);
@@ -226,9 +225,9 @@
             return `The node '${actualNode.eventName}' should have a ${side} connection to an event.`
           }
 
-          if (!shouldIgnore(exampleConn, "offset")) {
-            if (Math.abs(exampleConn.offset - actualConn.offset) > 10) {
-              return `The node '${actualNode.eventName}' has a ${side} connection with a length of ${Math.round(actualConn.offset) / 100} but should be ${exampleConn.offset / 100}.`
+          if (!shouldIgnore(exampleConn, "offset")) {//todo test
+            if (Math.abs(exampleConn.offset - actualConn.offset) > 100) {
+              return `The node '${actualNode.eventName}' has a ${side} connection with a length of ${Math.round(actualConn.offset) / 1000} but should be ${exampleConn.offset / 1000}.`
             }
           }
 

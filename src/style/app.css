@@ -241,7 +241,7 @@ body {
     overflow: hidden;
 }
 
-#join-discord{
+#join-discord {
     height: 50px;
     background-color: #3f51b5;
     color: #fff;
@@ -503,9 +503,8 @@ body {
  ****************
 */
 
-::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
+html {
+    background: #0c111a;
 }
 
 /* Track */

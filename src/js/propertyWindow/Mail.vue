@@ -10,7 +10,7 @@
                         :items="mailType"
                         v-model="selected.properties.letter.type"
                         label="Type"
-                    clearable=true
+                    :clearable=true
             ></v-select>
             </v-input>
             <template mt-3 v-if="selected.properties.letter.type !== 'Default'">

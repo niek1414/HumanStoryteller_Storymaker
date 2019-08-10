@@ -2,7 +2,6 @@ import 'babel-polyfill'
 import '../style/app.css';
 
 import StoryGraph from './storyGraph/storyGraph';
-import EventTypes from './storyGraph/EventTypes';
 import Toolbar from "./storyGraph/Toolbar";
 import Event from "./storyGraph/shape/Event"
 
@@ -237,3 +236,19 @@ function ajaxCache() {
     }
   });
 }
+
+//DEBUG
+window.LoadStory = function(id) {
+  toolbar.loadStory(id)
+};
+
+window.LoadStoryJson = function(data) {
+  var wrapData = {id : 0,
+    name : "Loaded test story",
+    description : "This story is loaded through the debug function.",
+    publish :  false,
+    tutorial : false,
+    storyline : data
+  };
+  toolbar.view.loadStory(wrapData)
+};

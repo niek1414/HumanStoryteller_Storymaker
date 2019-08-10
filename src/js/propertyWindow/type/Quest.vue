@@ -9,7 +9,7 @@
                     :items="questTypes"
                     v-model="selected.properties['QuestType']"
                     label="QuestType"
-                    clearable=true
+                    :clearable=true
             ></v-select>
         </v-input>
         <template v-if="selected.properties['QuestType'] === 'DownedRefugee'
@@ -28,7 +28,7 @@
                     :items="threatTypes"
                     v-model="selected.properties['ThreatType']"
                     label="ThreatType"
-                    clearable=true
+                    :clearable=true
             ></v-select>
         </v-input>
         <v-input messages="2 is twice the strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
@@ -119,7 +119,7 @@
                         :items="factionTypes"
                         v-model="selected.properties['Faction']"
                         label="Faction"
-                        clearable=true
+                        :clearable=true
                 ></v-select>
             </v-input>
             <v-divider data-content="ELIMINATE CAMP REWARD"></v-divider>
@@ -184,7 +184,7 @@
                             :items="factionTypes"
                             v-model="selected.properties['RewardFaction']"
                             label="Friendly faction"
-                            clearable=true
+                            :clearable=true
                     ></v-select>
                 </v-input>
                 <v-input :messages="

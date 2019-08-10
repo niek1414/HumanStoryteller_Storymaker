@@ -9,7 +9,7 @@
                     :items="genderTypes"
                     v-model="selected.properties['Gender']"
                     label="Gender"
-                    clearable=true
+                    :clearable=true
             ></v-select>
         </v-input>
 
@@ -18,7 +18,7 @@
                     :items="levels"
                     v-model="selected.properties['PsyLevel']"
                     label="Severity level"
-                    clearable=true
+                    :clearable=true
             ></v-select>
         </v-input>
     </div>
