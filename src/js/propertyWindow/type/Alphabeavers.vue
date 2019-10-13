@@ -1,6 +1,7 @@
 <template>
     <div class="info-box">
-        <v-input :messages="
+        <v-input class="property-box"
+                :messages="
             selected.properties['Amount'] ==='' ||
             selected.properties['Amount'] === undefined
             ?'Default: between 1 and 10 depending on colonist count'
@@ -13,6 +14,7 @@
 
 <script>
   import NumberField from "../util/NumberField";
+
   export default {
     components : {NumberField},
     props : ["selected"],
@@ -21,7 +23,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

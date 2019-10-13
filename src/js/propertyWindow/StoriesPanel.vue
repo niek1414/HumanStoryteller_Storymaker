@@ -109,10 +109,6 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
-
     .tutorial {
         overflow: auto;
         width: calc(100% - 44px);

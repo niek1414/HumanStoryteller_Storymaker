@@ -1,10 +1,10 @@
 <template>
     <div class="info-box">
-        <v-input messages="2 is twice the strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
+        <v-input class="property-box" messages="2 is twice the strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
             <NumberField label="Strength as multiplier" :myModel.sync="selected.properties['Points']"></NumberField>
         </v-input>
 
-        <v-input messages="If the faction is friendly at the time, they will come but not attack">
+        <v-input class="property-box" messages="If the faction is friendly at the time, they will come but not attack">
             <v-select
                     clearable
                     :items="factionTypes"
@@ -13,7 +13,7 @@
             ></v-select>
         </v-input>
 
-        <v-input messages="Not all factions are usable for all strategies and arrive modes">
+        <v-input class="property-box" messages="Not all factions are usable for all strategies and arrive modes">
             <v-select
                     clearable
                     :items="strategyTypes"
@@ -22,7 +22,7 @@
             ></v-select>
         </v-input>
 
-        <v-input>
+        <v-input class="property-box">
             <v-select
                     clearable
                     :items="arriveModeTypes"
@@ -30,13 +30,14 @@
                     label="Arrive mode"
             ></v-select>
         </v-input>
-        <v-input messages="ATTENTION: This will generate batches with above parameters until enough and remove redundant if too much. This means it MAY NOT be in line with set difficulty!">
+        <v-input class="property-box" messages="ATTENTION: This will generate batches with above parameters until enough and remove redundant if too much. This means it MAY NOT be in line with set difficulty!">
             <NumberField label="Amount of pawns" :myModel.sync="selected.properties['Amount']"></NumberField>
         </v-input>
-        <v-input messages="Assigned from top to bottom. Name overflow will be ignored.">
+        <v-input class="property-box" messages="Assigned from top to bottom. Name overflow will be ignored.">
             <v-combobox
                     v-model="selected.properties['OutNames']"
                     :items="[]"
+                    label="Identifiable names"
                     multiple
                     small-chips
             >
@@ -93,7 +94,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

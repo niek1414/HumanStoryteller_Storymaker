@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['Amount'] ==='' ||
             selected.properties['Amount'] === undefined
             ?'Default: between 2 and 10 depending on body size'
@@ -9,7 +9,7 @@
             <NumberField label="Animal amount" :myModel.sync="selected.properties['Amount']"></NumberField>
         </v-input>
 
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['AnimalKind'] ==='' ||
             selected.properties['AnimalKind'] === undefined
             ?'Default: random non-wild animal'
@@ -22,10 +22,11 @@
             ></v-autocomplete>
         </v-input>
 
-        <v-input messages="Assigned from top to bottom. Name overflow will be ignored.">
+        <v-input class="property-box" messages="Assigned from top to bottom. Name overflow will be ignored.">
             <v-combobox
                     v-model="selected.properties['OutNames']"
                     :items="[]"
+                    label="Identifiable names"
                     multiple
                     small-chips
             >
@@ -60,7 +61,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

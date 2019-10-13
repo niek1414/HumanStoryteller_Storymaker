@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input messages="Names of pawns to heal.">
+        <v-input class="property-box" messages="Names of pawns to heal.">
             <v-autocomplete
                     v-model="selected.properties['Names']"
                     :items="names"
@@ -8,7 +8,7 @@
                     small-chips
             ></v-autocomplete>
         </v-input>
-        <v-input messages="If enabled, even permanent injuries are healed.">
+        <v-input class="property-box" messages="If enabled even permanent injuries are healed.">
             <v-switch
                     label="Miracle"
                     v-model="selected.properties['Miracle']"
@@ -30,7 +30,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

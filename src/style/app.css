@@ -405,6 +405,22 @@ body {
     font-family: 'Open Sans', sans-serif !important;
 }
 
+.property-box {
+    padding: 4px 7px 0 15px;
+    margin-top: 5px;
+    transition: background-color .2s;
+    background: #8686860d;
+}
+
+.property-box:hover, .property-box:focus-within {
+    background: #3e3e3e0d;
+    transition: background-color .2s;
+}
+
+.info-box {
+    margin: 20px;
+}
+
 /*
  **************
  *  TOOLTIPS  *
@@ -502,6 +518,11 @@ body {
  *  SCROLLBARS  *
  ****************
 */
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
 
 html {
     background: #0c111a;

@@ -71,6 +71,7 @@
                 <ChapterSplash v-else-if="selected.type.value.value === 'ChapterSplash'" v-bind:selected="selected"/>
                 <ControlCamera v-else-if="selected.type.value.value === 'ControlCamera'" v-bind:selected="selected"/>
                 <MovieMode v-else-if="selected.type.value.value === 'MovieMode'" v-bind:selected="selected"/>
+                <RenameMap v-else-if="selected.type.value.value === 'RenameMap'" v-bind:selected="selected"/>
                 <RadioMessage v-else-if="selected.type.value.value === 'RadioMessage'" v-bind:selected="selected"/>
                 <SpeedControl v-else-if="selected.type.value.value === 'SpeedControl'" v-bind:selected="selected"/>
                 <AmbrosiaSprout v-else-if="selected.type.value.value === 'AmbrosiaSprout'" v-bind:selected="selected"/>
@@ -99,35 +100,37 @@
                 <IntentGiver v-else-if="selected.type.value.value === 'IntentGiver'" v-bind:selected="selected"/>
                 <CreateStructure v-else-if="selected.type.value.value === 'CreateStructure'" v-bind:selected="selected"/>
                 <DestroyPosition v-else-if="selected.type.value.value === 'DestroyPosition'" v-bind:selected="selected"/>
+                <CoupleDecouple v-else-if="selected.type.value.value === 'CoupleDecouple'" v-bind:selected="selected"/>
+                <FadeBlack v-else-if="selected.type.value.value === 'FadeBlack'" v-bind:selected="selected"/>
                 <Nothing v-else v-bind:selected="selected"/>
                 <v-divider></v-divider>
                 <div class="info-box">
                     <v-input messages="How to specify the map?">
-                        <v-radio-group v-model="selected.properties['CustomTarget']">
+                        <v-radio-group v-model="selected.properties['Target']['CustomTarget']">
                             <v-radio  value="Preset" label="Preset"/>
                             <v-radio value="Name" label="Name"/>
                             <v-radio value="Tile" label="Tile"/>
                         </v-radio-group>
                     </v-input>
-                    <template v-if="selected.properties['CustomTarget'] === 'Name'">
+                    <template v-if="selected.properties['Target']['CustomTarget'] === 'Name'">
                         <v-input messages="Name of the map on which the event will be executed.">
-                            <v-text-field label="Map name" type="text" v-model="selected.properties['TargetName']"></v-text-field>
+                            <v-text-field label="Map name" type="text" v-model="selected.properties['Target']['TargetName']"></v-text-field>
                         </v-input>
                     </template>
-                    <template v-else-if="selected.properties['CustomTarget'] === 'Preset'">
+                    <template v-else-if="selected.properties['Target']['CustomTarget'] === 'Preset'">
                         <v-input messages="The map on which the event will be executed.">
                             <v-select
                                     :items="targets"
-                                    v-model="selected.properties['TargetPreset']"
+                                    v-model="selected.properties['Target']['TargetPreset']"
                                     label="Map preset"
                                     :clearable=true
                             ></v-select>
                         </v-input>
                     </template>
-                    <template v-else-if="selected.properties['CustomTarget'] === 'Tile'">
+                    <template v-else-if="selected.properties['Target']['CustomTarget'] === 'Tile'">
                         <v-input
                                 messages="Tile of the map on which the event will be executed. Best used when targeting a map tile and not a map (there may be no map on the tile)">
-                            <v-text-field label="Map tile" type="number" v-model="selected.properties['TargetTile']"></v-text-field>
+                            <v-text-field label="Map tile" type="number" v-model="selected.properties['Target']['TargetTile']"></v-text-field>
                         </v-input>
                     </template>
                 </div>
@@ -204,6 +207,9 @@
   import SpeedControl from "./type/SpeedControl";
   import ControlCamera from "./type/ControlCamera";
   import MovieMode from "./type/MovieMode";
+  import RenameMap from "./type/RenameMap";
+  import CoupleDecouple from "./type/CoupleDecouple";
+  import FadeBlack from "./type/FadeBlack";
 
   export default {
     name : "property-panel",
@@ -217,6 +223,9 @@
       }
     },
     components : {
+      FadeBlack,
+      CoupleDecouple,
+      RenameMap,
       MovieMode,
       ControlCamera,
       SpeedControl,
@@ -385,9 +394,5 @@
             margin-left: -11px;
             width: 100%;
         }
-    }
-
-    .info-box {
-        margin: 30px;
     }
 </style>

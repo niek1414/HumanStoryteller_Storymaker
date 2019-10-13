@@ -1,41 +1,51 @@
 <template>
     <span style="width: 100%; position: relative; display: flex;">
-        <v-select
-                :items="things"
-                v-model="myModel.Thing"
-                :label="label"
-                :clearable=true
-                v-on:change="clean()"
-        ></v-select>
-        <template v-if="myModel.Thing">
+        <v-input class="property-box" :messages="message">
             <v-select
-                    :items="stuffs"
-                    v-model="myModel.Stuff"
-                    label="Material (if applicable)"
+                    :items="things"
+                    v-model="myModel.Thing"
+                    :label="label"
                     :clearable=true
+                    v-on:change="clean()"
             ></v-select>
-            <v-select
-                    :items="qualities"
-                    v-model="myModel.Quality"
-                    label="Quality (if applicable)"
-                    :clearable=true
-            ></v-select>
-        </template>
+            <template v-if="myModel.Thing">
+                <v-select
+                        v-if="!hasNoStuff"
+                        :items="stuffs"
+                        v-model="myModel.Stuff"
+                        label="Material (if applicable)"
+                        :clearable=true
+                ></v-select>
+                <v-select
+                        v-if="!hasNoQuality"
+                        :items="qualities"
+                        v-model="myModel.Quality"
+                        label="Quality (if applicable)"
+                        :clearable=true
+                ></v-select>
+                <NumberField v-if="hasAmount" label="Amount" :myModel.sync="myModel.Amount" :dynamic="true"></NumberField>
+            </template>
+        </v-input>
     </span>
 </template>
 
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
+  import NumberField from "./NumberField";
 
   export default {
-    props : ["label", "myModel", "things"],
+    components : {NumberField},
+    props : ["label", "message", "myModel", "things", "hasAmount", "hasNoQuality", "hasNoStuff"],
     name : "ThingField",
-    beforeMount : function() {
+    beforeUpdate : function() {
       if (!(this.myModel && typeof this.myModel === 'object')) {
         this.myModel = {};
       }
     },
     data() {
+      if (!(this.myModel && typeof this.myModel === 'object')) {
+        this.myModel = {};
+      }
       return {
         stuffs : EventTypes.Stuff,
         qualities : EventTypes.ItemQualities,
@@ -43,6 +53,9 @@
     },
     methods : {
       clean : function() {
+        if (!(this.myModel && typeof this.myModel === 'object')) {
+          this.myModel = {};
+        }
         var temp = this.myModel.Thing;
         this.myModel = {};
         this.myModel.Thing = temp;

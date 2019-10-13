@@ -1,9 +1,9 @@
 <template>
     <div class="info-box">
-        <v-input messages="Identifiable name of the wild man">
+        <v-input class="property-box" messages="Identifiable name of the wild man">
             <v-text-field label="Pawn name" type="text" v-model="selected.properties['OutName']"></v-text-field>
         </v-input>
-        <v-input>
+        <v-input class="property-box">
             <v-select
                     :items="genderTypes"
                     v-model="selected.properties['Gender']"
@@ -30,7 +30,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

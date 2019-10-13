@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input messages="Identifiable name of the pawn (can be empty, will show 'unknown')">
+        <v-input class="property-box" messages="Identifiable name of the pawn (can be empty, will use 'Narrator' icon and name)">
             <v-autocomplete
                     v-model="selected.properties['Name']"
                     :items="names"
@@ -8,11 +8,13 @@
                     label="Current name"
             ></v-autocomplete>
         </v-input>
-        <v-textarea
-                outline
-                label="Radio message"
-                v-model="selected.properties['Message']"
-        ></v-textarea>
+        <v-input class="property-box" messages="Message content">
+            <v-textarea
+                    outline
+                    label="Radio message"
+                    v-model="selected.properties['Message']"
+            ></v-textarea>
+        </v-input>
     </div>
 </template>
 
@@ -29,7 +31,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

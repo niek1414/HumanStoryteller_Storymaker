@@ -261,6 +261,13 @@ EventTypes.Alphabeavers = {
   conditions : []
 };
 
+EventTypes.CoupleDecouple = {
+  value : "CoupleDecouple",
+  text : "(De)couple map",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
 EventTypes.ChapterSplash = {
   value : "ChapterSplash",
   text : "Chapter splash",
@@ -278,6 +285,20 @@ EventTypes.ControlCamera = {
 EventTypes.MovieMode = {
   value : "MovieMode",
   text : "Movie mode",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
+EventTypes.FadeBlack = {
+  value : "FadeBlack",
+  text : "Fade to black",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
+EventTypes.RenameMap = {
+  value : "RenameMap",
+  text : "Rename map",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -386,7 +407,9 @@ EventTypes.CreateStructure = {
   value : "CreateStructure",
   text : "Create structure",
   type : EventTypes.NEUTRAL,
-  conditions : []
+  conditions : [
+    {value : "CreatedStructure", text : "Created structure"}
+  ]
 };
 
 EventTypes.DestroyPosition = {
@@ -498,8 +521,10 @@ EventTypes.Events = [
   {text : "Destroy position", value : EventTypes.DestroyPosition},
   {text : "Difficulty", value : EventTypes.Difficulty},
   {text : "Disease", value : EventTypes.Disease},
+  {text : "(De)couple map", value : EventTypes.CoupleDecouple},
   {text : "Eclipse", value : EventTypes.Eclipse},
   {text : "Edit pawn", value : EventTypes.EditPawn},
+  {text : "Fade to black", value : EventTypes.FadeBlack},
   {text : "Flashstorm", value : EventTypes.Flashstorm},
   {text : "Give thought", value : EventTypes.GiveThought},
   {text : "Herd migration", value : EventTypes.HerdMigration},
@@ -511,6 +536,7 @@ EventTypes.Events = [
   {text : "Meteorite", value : EventTypes.MeteoriteImpact},
   {text : "Mental break", value : EventTypes.MentalBreak},
   {text : "Movie mode", value : EventTypes.MovieMode},
+  {text : "Rename map", value : EventTypes.RenameMap},
   {text : "Nothing", value : EventTypes.Nothing},
   {text : "Orbital strike", value : EventTypes.OrbitalStrike},
   {text : "Planetkiller", value : EventTypes.Planetkiller},
@@ -555,12 +581,16 @@ EventTypes.EventsAsString = [
   "Crop blight",
   "Create pawn",
   "Create settlement",
+  "Create structure",
   "Dialog",
   "Delete items",
+  "Destroy position",
   "Difficulty",
   "Disease",
+  "(De)couple map",
   "Eclipse",
   "Edit pawn",
+  "Fade to black",
   "Flashstorm",
   "Give thought",
   "Herd migration",
@@ -572,6 +602,7 @@ EventTypes.EventsAsString = [
   "Meteorite",
   "Mental break",
   "Movie mode",
+  "Rename map",
   "Nothing",
   "Orbital strike",
   "Planetkiller",

@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input messages="Names of pawns to kill.">
+        <v-input class="property-box" messages="Names of pawns to kill.">
             <v-autocomplete
                     v-model="selected.properties['Names']"
                     :items="names"
@@ -8,7 +8,7 @@
                     small-chips
             ></v-autocomplete>
         </v-input>
-        <v-input messages="If enabled, pawn is deleted (without notification) and removed from the history.">
+        <v-input class="property-box" messages="If enabled pawn is deleted (without notification) and removed from the history.">
             <v-switch
                     label="Destroy"
                     v-model="selected.properties['Destroy']"
@@ -30,7 +30,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

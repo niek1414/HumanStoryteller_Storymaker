@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['Disease'] ==='' ||
             selected.properties['Disease'] === undefined
             ?'Default: random disease'
@@ -12,7 +12,7 @@
                     label="Diseases"
             ></v-autocomplete>
         </v-input>
-        <v-input messages="Names of pawns. If none given, a random amount (specified by disease type) will become sick.<br> Giving a human an animal sickness or the other way around is unspecified behavior.">
+        <v-input class="property-box" messages="Names of pawns. If none given, a random amount (specified by disease type) will become sick.<br> Giving a human an animal sickness or the other way around is unspecified behavior.">
             <v-combobox
                     v-model="selected.properties['Names']"
                     :items="names"
@@ -53,7 +53,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

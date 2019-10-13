@@ -146,9 +146,14 @@ export default draw2d.Canvas.extend({
   },
 
   addEvent : function(x, y, type = "", properties = {
-    CustomTarget : "Preset",
-    TargetPreset : "FirstOfPlayer",
-    letter : {show : true, type : "Default"}
+    Target : {
+      CustomTarget : "Preset",
+      TargetPreset : "FirstOfPlayer"
+    },
+    letter : {
+      show : true,
+      type : "Default"
+    }
   }, conditions = [], storage = [], createOutputPorts = true) {
     const d = new Event({width : 100, height : 50, x : x, y : y, type : type, properties : properties, conditions : conditions, storage : storage});
 
@@ -246,6 +251,26 @@ export default draw2d.Canvas.extend({
             names.push(item.properties['OutName']);
           } else if (prop === "OutNames") {
             names.push.apply(names, item.properties['OutNames']);
+          }
+        }
+      }
+    }
+    return names;
+  },
+
+  getGroups : function() {
+    const names = [];
+    const figures = this.getFigures();
+    const figureLength = figures.getSize();
+    for (let i = 0; i < figureLength; i++) {
+      const item = figures.get(i);
+      if (!(item instanceof Event)) {
+        continue;
+      }
+      for (const prop in item.properties) {
+        if (item.properties.hasOwnProperty(prop)) {
+          if (prop === "OutGroup") {
+            names.push(item.properties['OutGroup']);
           }
         }
       }

@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input messages="Names of pawns to apply the effect.">
+        <v-input class="property-box" messages="Names of pawns to apply the effect.">
             <v-autocomplete
                     v-model="selected.properties['Names']"
                     :items="names"
@@ -8,7 +8,7 @@
                     small-chips
             ></v-autocomplete>
         </v-input>
-        <v-input messages="The break status to apply">
+        <v-input class="property-box" messages="The break status to apply">
             <v-select
                     :items="mentalBreak"
                     v-model="selected.properties['MentalBreak']"
@@ -57,7 +57,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

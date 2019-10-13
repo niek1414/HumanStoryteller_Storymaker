@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input messages="Orbital strike type">
+        <v-input class="property-box" messages="Orbital strike type">
             <v-select
                     :items="orbitalType"
                     v-model="selected.properties['OrbitalType']"
@@ -8,7 +8,7 @@
                     :clearable=true
             ></v-select>
         </v-input>
-        <v-input messages="Strike location, default is random">
+        <v-input class="property-box" messages="Strike location, default is random">
             <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
         </v-input>
     </div>
@@ -34,7 +34,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

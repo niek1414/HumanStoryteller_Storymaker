@@ -38,6 +38,7 @@
                         <Quest v-if="con.type === 'Quest'" v-bind:condition="con"></Quest>
                         <Trade v-if="con.type === 'Trade'" v-bind:condition="con"></Trade>
                         <Traveled v-if="con.type === 'Traveled'" v-bind:condition="con"></Traveled>
+                        <CreatedStructure v-if="con.type === 'CreatedStructure'" v-bind:condition="con"></CreatedStructure>
                         <Variable v-if="con.type === 'Variable'" v-bind:condition="con"></Variable>
                         <PawnState v-if="con.type === 'PawnState'" v-bind:condition="con"></PawnState>
                         <PawnLocation v-if="con.type === 'PawnLocation'" v-bind:condition="con"></PawnLocation>
@@ -78,10 +79,12 @@
   import Traveled from "./condition/Traveled";
   import PawnState from "./condition/PawnState";
   import PawnLocation from "./condition/PawnLocation";
+  import CreatedStructure from "./condition/CreatedStructure";
 
   export default {
     name : "conditional",
     components : {
+      CreatedStructure,
       PawnLocation,
       PawnState,
       Traveled,
@@ -157,10 +160,6 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
-
     .invalid {
         background-color: #4c2b2b !important;
     }

@@ -1,18 +1,20 @@
 <template>
     <div class="info-box">
-        <v-input messages="Complete current research?">
+        <v-input class="property-box" messages="Complete current research?">
             <v-switch
                     label="Complete current research"
                     v-model="selected.properties['FinishCurrent']"
             ></v-switch>
         </v-input>
 
-        <v-autocomplete messages="Research to finish. All preconditions will also be researched."
-                        v-model="selected.properties['Projects']"
-                        multiple
-                        :items="projects"
-                        label="Projects"
-        ></v-autocomplete>
+        <v-input class="property-box" messages="Research to finish. All preconditions will also be researched.">
+            <v-autocomplete
+                    v-model="selected.properties['Projects']"
+                    multiple
+                    :items="projects"
+                    label="Projects"
+            ></v-autocomplete>
+        </v-input>
     </div>
 </template>
 
@@ -33,7 +35,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input messages="Default does not change speed">
+        <v-input class="property-box" messages="Default does not change speed">
             <v-select
                     :items="speedTypes"
                     v-model="selected.properties['Speed']"
@@ -8,7 +8,7 @@
                     :clearable=true
             ></v-select>
         </v-input>
-        <v-input messages="Lock the current speed & remove time buttons?</br>Note 1: If off, controls are unlocked if locked</br>Note 2: Locking while paused is a <b>bad</b> idea..</br>Note 3: opening the main menu still pauses the game">
+        <v-input class="property-box" messages="Lock the current speed & remove time buttons?</br>Note 1: If off, controls are unlocked if locked</br>Note 2: Locking while paused is a <b>bad</b> idea..</br>Note 3: opening the main menu still pauses the game">
             <v-switch
                     label="Lock speed controls"
                     v-model="selected.properties['LockControls']"
@@ -37,7 +37,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

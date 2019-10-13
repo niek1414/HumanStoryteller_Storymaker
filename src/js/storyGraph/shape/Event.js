@@ -9,12 +9,15 @@ export default draw2d.shape.basic.Rectangle.extend({
     this.label = null;
     const found = EventTypes[attr.type];
     this.type = found === undefined ? EventTypes.RaidEnemy : found;
-    this.type = {text : this.type.text, value : this.type };
+    this.type = {text : this.type.text, value : this.type};
     attr.text = attr.text === undefined ? this.type.text : attr.text;
     this.eventName = attr.text;
     this.conditions = attr.conditions ? attr.conditions : [];
     this.properties = attr.properties ? attr.properties : {};
     this.storage = attr.storage ? attr.storage : [];
+    if (!this.properties['Target']) {
+      this.properties['Target'] = {};
+    }
 
     this._super(
       extend({bgColor : "#212533", color : this.type.value.type.color, radius : 4, stroke : 3}, attr),
@@ -37,7 +40,7 @@ export default draw2d.shape.basic.Rectangle.extend({
     this.input = null;
     this.left = null;
     this.right = null;
-    this.applyTransformation = function () {
+    this.applyTransformation = function() {
       // let ts = "R" + this.rotationAngle
       //
       // if (this.getRotationAngle() === 90 || this.getRotationAngle() === 270) {
@@ -51,7 +54,7 @@ export default draw2d.shape.basic.Rectangle.extend({
     };
   },
 
-  setAlpha: function (percent) {
+  setAlpha : function(percent) {
     // percent = Math.min(1, Math.max(0, parseFloat(percent)))
     // if (percent === this.alpha) {
     //   return
@@ -92,7 +95,16 @@ export default draw2d.shape.basic.Rectangle.extend({
       this.updateLabel(this.type.value.text);
       this.eventName = this.type.value.text;
     }
-    this.properties = {letter : {show : true, type : "Default"}};
+    this.properties = {
+      Target : {
+        CustomTarget : "Preset",
+        TargetPreset : "FirstOfPlayer"
+      },
+      letter : {
+        show : true,
+        type : "Default"
+      }
+    };
     this.setColor(this.type.value.type.color);
   },
 

@@ -1,10 +1,10 @@
 <template>
     <div class="info-box">
-        <v-input messages="Default: between 1.5 and 3 days">
+        <v-input class="property-box" messages="Default: between 1.5 and 3 days">
             <NumberField label="Duration in days" :myModel.sync="selected.properties['Duration']"></NumberField>
         </v-input>
 
-        <v-input>
+        <v-input class="property-box">
             <v-select
                     :items="genderTypes"
                     v-model="selected.properties['Gender']"
@@ -33,7 +33,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

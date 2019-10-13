@@ -82,7 +82,7 @@ export default draw2d.Connection.extend({
   },
 
   getWeight : function() {
-    return this.customSwitch ? this.customWeight * 1000 : this.targetPort.getAbsoluteY() - this.sourcePort.getAbsoluteY() * 10;
+    return this.customSwitch ? this.customWeight * 1000 : (this.targetPort.getAbsoluteY() - this.sourcePort.getAbsoluteY()) * 10;
   },
 
   getDayPart : function(procent) {

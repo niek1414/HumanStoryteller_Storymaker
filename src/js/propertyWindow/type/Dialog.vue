@@ -2,7 +2,7 @@
     <div class="info-box">
         <p>To customize the message title and text, use the mail icon on the left.<br>
         To react to the user decision add the event specific condition `Dialog` in the condition tab (just above the mail icon).</p>
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['Silver'] ==='' ||
             selected.properties['Silver'] === undefined
             ?'Default: free'
@@ -10,7 +10,7 @@
         ">
             <NumberField label="Silver price" :myModel.sync="selected.properties['Silver']"></NumberField>
         </v-input>
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['Duration'] ==='' ||
             selected.properties['Duration'] === undefined
             ?'Default: 1 day (to show instantly just input 0.001 and never expire is 0)'
@@ -31,7 +31,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

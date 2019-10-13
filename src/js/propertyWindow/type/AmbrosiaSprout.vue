@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['Amount'] ==='' ||
             selected.properties['Amount'] === undefined
             ?'Default: between 10 and 20'
@@ -8,7 +8,7 @@
         ">
             <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"></NumberField>
         </v-input>
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['Range'] ==='' ||
             selected.properties['Range'] === undefined
             ?'Default: 6 tiles'
@@ -17,7 +17,7 @@
             <NumberField label="Sprout distance" :myModel.sync="selected.properties['Range']"></NumberField>
         </v-input>
 
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['PlantKind'] ==='' ||
             selected.properties['PlantKind'] === undefined
             ?'Default: Amrosia'
@@ -49,7 +49,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

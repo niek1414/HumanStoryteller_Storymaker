@@ -1,10 +1,10 @@
 <template>
     <div class="info-box">
-        <v-input messages="Trader defence strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
+        <v-input class="property-box" messages="Trader defence strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
             <NumberField label="Strength as multiplier" :myModel.sync="selected.properties['Points']"></NumberField>
         </v-input>
 
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['TraderKind'] ==='' ||
             selected.properties['TraderKind'] === undefined
             ?'Default: random trader (can be orbital)'
@@ -16,10 +16,11 @@
                     label="Trader kind"
             ></v-autocomplete>
         </v-input>
-        <v-input messages="Assigned from top to bottom. Name overflow will be ignored.">
+        <v-input class="property-box" messages="Assigned from top to bottom. Name overflow will be ignored.">
             <v-combobox
                     v-model="selected.properties['OutNames']"
                     :items="[]"
+                    label="Identifiable names"
                     multiple
                     small-chips
             >
@@ -54,7 +55,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

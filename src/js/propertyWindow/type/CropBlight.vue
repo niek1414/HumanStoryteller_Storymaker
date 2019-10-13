@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['Radius'] ==='' ||
             selected.properties['Radius'] === undefined
             ?'Default: 15 tiles from origin plant'
@@ -8,7 +8,7 @@
         ">
             <NumberField label="Infection range" :myModel.sync="selected.properties['Radius']"></NumberField>
         </v-input>
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['Chance'] ==='' ||
             selected.properties['Chance'] === undefined
             ?'Default: 0.4 (= 40%)'
@@ -29,7 +29,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

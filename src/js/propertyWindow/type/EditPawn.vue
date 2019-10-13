@@ -1,49 +1,44 @@
 <template>
     <div class="info-box">
-        <v-input messages="Names of pawns to edit.">
-            <v-autocomplete
-                    v-model="selected.properties['Names']"
-                    :items="names"
-                    multiple
-                    small-chips
-            ></v-autocomplete>
+        <v-input class="property-box" messages="Target pawns">
+            <PawnGroupField :myModel.sync="selected.properties['Names']"/>
         </v-input>
-        <v-input messages="Enable to despawn pawn. Disable to spawn pawn. (If pawn is already in this state, nothing happens.)">
+        <v-input class="property-box" messages="Enable to despawn pawn. Disable to spawn pawn. (If pawn is already in this state, nothing happens.)">
             <v-switch
                     label="Despawn or spawn?"
                     v-model="selected.properties['Despawn']"
             ></v-switch>
         </v-input>
-        <span style="width: 100%; position: relative; display: flex; flex-wrap: wrap;">
+        <v-input class="property-box" messages="Pawn display name" style="width: 100%; position: relative; display: flex; flex-wrap: wrap;">
             <v-text-field label="First name" type="text" v-model="selected.properties['FirstName']"></v-text-field>
             <v-text-field label="Nick name" type="text" v-model="selected.properties['NickName']"></v-text-field>
             <v-text-field label="Last name" type="text" v-model="selected.properties['LastName']"></v-text-field>
-        </span>
-        <v-input messages="Strip pawn?">
+        </v-input>
+        <v-input class="property-box" messages="Strip pawn?">
             <v-switch
                     label="Strip"
                     v-model="selected.properties['Strip']"
             ></v-switch>
         </v-input>
-        <v-input messages="Clear pawn mind? (Will stop with current job, stops mental breaks, wakes etc..)">
+        <v-input class="property-box" messages="Clear pawn mind? (Will stop with current job, stops mental breaks, wakes etc..)">
             <v-switch
                     label="Clear mind"
                     v-model="selected.properties['ClearMind']"
             ></v-switch>
         </v-input>
-        <v-input messages="Banish pawn from colony?">
+        <v-input class="property-box" messages="Banish pawn from colony?">
             <v-switch
                     label="Banish"
                     v-model="selected.properties['Banish']"
             ></v-switch>
         </v-input>
-        <v-input messages="If selected, pawn will be drafted, otherwise undrafted if applicable">
+        <v-input class="property-box" messages="If selected, pawn will be drafted, otherwise undrafted if applicable">
             <v-switch
                     label="Set drafted"
                     v-model="selected.properties['SetDrafted']"
             ></v-switch>
         </v-input>
-        <v-input messages="New faction of the pawn (empty is unchanged)">
+        <v-input class="property-box" messages="New faction of the pawn (empty is unchanged)">
             <v-select
                     :items="factionTypes"
                     v-model="selected.properties['Faction']"
@@ -51,16 +46,17 @@
                     :clearable=true
             ></v-select>
         </v-input>
-        <v-input messages="Teleport to location, default does not teleport">
+        <v-input class="property-box" messages="Teleport to location, default does not teleport">
             <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
         </v-input>
-        <v-input messages="Pawns biological age (in years). Default is unchanged.">
+        <v-input class="property-box" messages="Pawns biological age (in years). Default is unchanged.">
             <NumberField label="Biological age" :myModel.sync="selected.properties['AgeBioYear']"></NumberField>
         </v-input>
-        <v-input messages="Pawn traits. Default does nothing. One or more selected will first clear existing traits.">
+        <v-input class="property-box" messages="Pawn traits. Default does nothing. One or more selected will first clear existing traits.">
             <v-autocomplete
                     v-model="selected.properties['Traits']"
                     :items="pawnTraits"
+                    label="Traits"
                     multiple
                     small-chips
             ></v-autocomplete>
@@ -68,25 +64,25 @@
         <v-divider data-content="GEAR"></v-divider>
 
         <v-divider data-content="SKILLS"></v-divider>
-        <v-input messages="If enabled, skills (below) are added (or removed if - is used), otherwise it just sets the skill to the specified level.">
+        <v-input class="property-box" messages="If enabled skills (below) are added (or removed if - is used), otherwise it just sets the skill to the specified level.">
             <v-switch
                     label="Add skills"
                     v-model="selected.properties['SkillAdd']"
             ></v-switch>
         </v-input>
-        <v-input>
+        <v-input class="property-box">
             <NumberField label="Animals" :myModel.sync="selected.properties['SkillAnimals']"></NumberField>
             <NumberField label="Artistic" :myModel.sync="selected.properties['SkillArtistic']"></NumberField>
             <NumberField label="Construction" :myModel.sync="selected.properties['SkillConstruction']"></NumberField>
             <NumberField label="Cooking" :myModel.sync="selected.properties['SkillCooking']"></NumberField>
         </v-input>
-        <v-input>
+        <v-input class="property-box">
             <NumberField label="Crafting" :myModel.sync="selected.properties['SkillCrafting']"></NumberField>
             <NumberField label="Plants" :myModel.sync="selected.properties['SkillPlants']"></NumberField>
             <NumberField label="Medicine" :myModel.sync="selected.properties['SkillMedicine']"></NumberField>
             <NumberField label="Melee" :myModel.sync="selected.properties['SkillMelee']"></NumberField>
         </v-input>
-        <v-input>
+        <v-input class="property-box">
             <NumberField label="Mining" :myModel.sync="selected.properties['SkillMining']"></NumberField>
             <NumberField label="Intellectual" :myModel.sync="selected.properties['SkillIntellectual']"></NumberField>
             <NumberField label="Shooting" :myModel.sync="selected.properties['SkillShooting']"></NumberField>
@@ -99,9 +95,10 @@
   import EventTypes from "../../storyGraph/EventTypes";
   import NumberField from "../util/NumberField";
   import LocationField from "../util/LocationField";
+  import PawnGroupField from "../util/PawnGroupField";
 
   export default {
-    components : {LocationField, NumberField},
+    components : {PawnGroupField, LocationField, NumberField},
     props : ["selected"],
     name : "EditPawn",
     data : function() {
@@ -127,7 +124,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

@@ -1,9 +1,10 @@
 <template>
     <div class="info-box">
-        <v-input messages="Names of pawns that are visiting. If less pawns spawn, the first are assigned (Left-to-right).">
+        <v-input class="property-box" messages="Names of pawns that are visiting. If less pawns spawn, the first are assigned (Left-to-right).">
             <v-combobox
                     v-model="selected.properties['OutNames']"
                     :items="[]"
+                    label="Identifiable names"
                     multiple
                     small-chips
             >
@@ -30,7 +31,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input messages="Names of pawns to give thought.">
+        <v-input class="property-box" messages="Names of pawns to give thought.">
             <v-autocomplete
                     v-model="selected.properties['Names']"
                     :items="names"
@@ -8,7 +8,7 @@
                     small-chips
             ></v-autocomplete>
         </v-input>
-        <v-input messages="Intent type">
+        <v-input class="property-box" messages="Intent type">
             <v-autocomplete
                     v-model="selected.properties['IntentType']"
                     :items="thoughtTypes"
@@ -16,20 +16,20 @@
             ></v-autocomplete>
         </v-input>
         <template v-if="selected.properties['IntentType'] === 'Joinable_MarriageCeremony'">
-            <v-input messages="NOT OPTIONAL: Pawn name">
+            <v-input class="property-box" messages="NOT OPTIONAL: Pawn name">
                 <v-text-field label="First fiance" type="text" v-model="selected.properties['FirstStringParam']"></v-text-field>
             </v-input>
-            <v-input messages="NOT OPTIONAL: Pawn name">
+            <v-input class="property-box" messages="NOT OPTIONAL: Pawn name">
                 <v-text-field label="Second fiance" type="text" v-model="selected.properties['SecondStringParam']"></v-text-field>
             </v-input>
         </template>
         <template v-else-if="selected.properties['IntentType'] === 'Siege'">
-            <v-input messages="2 is twice the strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
+            <v-input class="property-box" messages="2 is twice the strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
                 <NumberField label="Strength as multiplier" :myModel.sync="selected.properties['FirstNumberParam']"></NumberField>
             </v-input>
         </template>
         <template v-else-if="selected.properties['IntentType'] === 'Wait'">
-            <v-input messages="To clean queue without wait just put to 0">
+            <v-input class="property-box" messages="To clean queue without wait just put to 0">
                 <NumberField label="Time in ticks to wait" :myModel.sync="selected.properties['FirstNumberParam']"></NumberField>
             </v-input>
         </template>
@@ -49,13 +49,14 @@
                             || selected.properties['IntentType'] === 'Kidnap'
                             || selected.properties['IntentType'] === 'PrisonerExecution'
                             || selected.properties['IntentType'] === 'Slaughter'">
-            <v-input messages="NOT OPTIONAL: Pawn name">
+            <v-input class="property-box" messages="NOT OPTIONAL: Pawn name">
+                <!--                TODO Names name-->
                 <v-text-field label="Pawn to target" type="text" v-model="selected.properties['FirstStringParam']"></v-text-field>
             </v-input>
-            <v-input messages="Time in ticks before job complete, empty is infinite">
+            <v-input class="property-box" messages="Time in ticks before job complete, empty is infinite">
                 <NumberField label="Time in ticks" :myModel.sync="selected.properties['FirstNumberParam']"></NumberField>
             </v-input>
-            <v-input messages="If enabled, queue job">
+            <v-input class="property-box" messages="If enabled queue job">
                 <v-switch
                         label="Should queue?"
                         v-model="selected.properties['Queue']"
@@ -65,10 +66,10 @@
         <template v-else-if="selected.properties['IntentType'] === 'Vomit'
                             || selected.properties['IntentType'] === 'LayDown'
                             || selected.properties['IntentType'] === 'UnloadYourInventory'">
-            <v-input messages="Time in ticks before job complete, empty is infinite">
+            <v-input class="property-box" messages="Time in ticks before job complete, empty is infinite">
                 <NumberField label="Time in ticks" :myModel.sync="selected.properties['FirstNumberParam']"></NumberField>
             </v-input>
-            <v-input messages="If enabled, queue job. If off it also clears intent.">
+            <v-input class="property-box" messages="If enabled queue job. If off it also clears intent.">
                 <v-switch
                         label="Should queue?"
                         v-model="selected.properties['Queue']"
@@ -78,10 +79,10 @@
         <template v-else-if="selected.properties['IntentType'] === 'TravelAndExit'
                             || selected.properties['IntentType'] === 'Travel'
                             || selected.properties['IntentType'] === 'DefendPoint'">
-            <v-input messages="Location, default is random">
+            <v-input class="property-box" messages="Location, default is random">
                 <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
             </v-input>
-            <v-input messages="How fast the pawn needs to act">
+            <v-input class="property-box" messages="How fast the pawn needs to act">
                 <v-autocomplete
                         v-model="selected.properties['SecondStringParam']"
                         :items="urgency"
@@ -90,7 +91,7 @@
             </v-input>
         </template>
         <template v-else-if="selected.properties['IntentType'] === 'ExitMapBest'">
-            <v-input messages="How fast the pawn needs to act">
+            <v-input class="property-box" messages="How fast the pawn needs to act">
                 <v-autocomplete
                         v-model="selected.properties['FirstStringParam']"
                         :items="urgency"
@@ -172,7 +173,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

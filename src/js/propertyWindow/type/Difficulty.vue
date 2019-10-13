@@ -1,7 +1,7 @@
 <template>
     <div class="info-box">
         <p>Does not have a default mail notification.</p>
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['Difficulty'] ==='' ||
             selected.properties['Difficulty'] === undefined
             ?'Default: does nothing'
@@ -31,7 +31,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

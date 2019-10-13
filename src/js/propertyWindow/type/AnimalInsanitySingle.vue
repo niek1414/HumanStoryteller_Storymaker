@@ -1,7 +1,7 @@
 <template>
     <div class="info-box">
         <p>While called Animal insanity, if one or more pawn names are not animals they will still go berserk.</p>
-        <v-input messages="Names of pawns. If none given, a random (weak if before day 7) animal will be picked.">
+        <v-input class="property-box" messages="Names of pawns. If none given, a random (weak if before day 7) animal will be picked.">
             <v-autocomplete
                     v-model="selected.properties['Names']"
                     :items="names"
@@ -25,7 +25,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

@@ -1,10 +1,10 @@
 <template>
     <div class="info-box">
-        <v-input messages="2 is twice the strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
+        <v-input class="property-box" messages="2 is twice the strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
             <NumberField label="Strength as multiplier" :myModel.sync="selected.properties['Points']"></NumberField>
         </v-input>
 
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['AnimalKind'] ==='' ||
             selected.properties['AnimalKind'] === undefined
             ?'Default: random kind with minimal three on the map'
@@ -36,7 +36,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

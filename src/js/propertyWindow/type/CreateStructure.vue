@@ -10,10 +10,10 @@
             <li>Select the 'Creator tools' tab</li>
             <li>Click 'copy home area' and follow the instructions</li>
         </ol>
-        <v-input messages="Paste here">
+        <v-input class="property-box" messages="Paste here">
             <v-text-field label="Structure" type="text" v-model="selected.properties['Structure']"></v-text-field>
         </v-input>
-        <v-input messages="Structure location offset (from structure origin), default is 0:0">
+        <v-input class="property-box" messages="Structure location offset (from structure origin), default is 0:0">
             <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
         </v-input>
     </div>
@@ -30,7 +30,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

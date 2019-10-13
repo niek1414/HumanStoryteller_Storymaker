@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['Amount'] ==='' ||
             selected.properties['Amount'] === undefined
             ?'Default: 1 crash part'
@@ -9,7 +9,7 @@
             <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"></NumberField>
         </v-input>
 
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['ShipCrashedPart'] ==='' ||
             selected.properties['ShipCrashedPart'] === undefined
             ?'Default: Mechanoid ship part (Emanator)'
@@ -41,7 +41,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

@@ -52,6 +52,11 @@
         this.myModel = {};
       }
     },
+    beforeUpdate : function() {
+      if (!(this.myModel && typeof this.myModel === 'object')) {
+        this.myModel = {};
+      }
+    },
     data() {
       return {
         types : [

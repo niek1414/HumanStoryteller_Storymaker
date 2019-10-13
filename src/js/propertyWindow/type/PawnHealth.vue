@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input messages="Names of pawns to apply the effect.">
+        <v-input class="property-box" messages="Names of pawns to apply the effect.">
             <v-autocomplete
                     v-model="selected.properties['Names']"
                     :items="names"
@@ -8,7 +8,7 @@
                     small-chips
             ></v-autocomplete>
         </v-input>
-        <v-input messages="The effect to apply">
+        <v-input class="property-box" messages="The effect to apply">
             <v-select
                     :items="healthActions"
                     v-model="selected.properties['HealthAction']"
@@ -17,7 +17,7 @@
             ></v-select>
         </v-input>
         <template v-if="selected.properties['HealthAction'] === 'MissingBodyPart' || selected.properties['HealthAction'] === 'StabBodyPart'">
-            <v-input messages="The body part to apply the effect to">
+            <v-input class="property-box" messages="The body part to apply the effect to">
                 <v-select
                         :items="bodyParts"
                         v-model="selected.properties['BodyPart']"
@@ -120,7 +120,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

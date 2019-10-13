@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['AnimalKind'] ==='' ||
             selected.properties['AnimalKind'] === undefined
             ?'Default: random kind of the larger animals'
@@ -13,7 +13,7 @@
             ></v-autocomplete>
         </v-input>
 
-        <v-input :messages="
+        <v-input class="property-box" :messages="
             selected.properties['Amount'] ==='' ||
             selected.properties['Amount'] === undefined
             ?'Default: between 3 and 5 depending on body size'
@@ -41,7 +41,4 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
 </style>

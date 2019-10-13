@@ -98,10 +98,6 @@
 </script>
 
 <style scoped>
-    .info-box {
-        margin: 30px;
-    }
-
     b {
         font-family: "Open Sans Semibold", sans-serif;
         font-weight: bold;
