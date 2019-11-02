@@ -39,7 +39,12 @@
             title : `Divider #2`,
             content : `Now add an event to the left and right divider. These events <b>WILL NOT<b/> respect the offset time but fire right away when the divider is reached!`,
             name : "i6",
-          },
+          }, {
+            title : `That's it for this tutorial`,
+            content : `At first it may seem complex but just play around with it!`,
+            name : "i6",
+            button : true,
+          }
         ]
       }
     },

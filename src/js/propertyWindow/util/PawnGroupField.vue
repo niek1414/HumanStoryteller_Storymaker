@@ -15,10 +15,28 @@
                            v-model="filter['Include']"
                    ></v-switch>
                </b>
+               <Awake v-if="filter.type === 'Awake'" v-bind:filter="filter"></Awake>
+               <Downed v-if="filter.type === 'Downed'" v-bind:filter="filter"></Downed>
                <Drafted v-if="filter.type === 'Drafted'" v-bind:filter="filter"></Drafted>
+               <Faction v-if="filter.type === 'Faction'" v-bind:filter="filter"></Faction>
+               <Fighting v-if="filter.type === 'Fighting'" v-bind:filter="filter"></Fighting>
+               <Indoors v-if="filter.type === 'Indoors'" v-bind:filter="filter"></Indoors>
+               <Kind v-if="filter.type === 'Kind'" v-bind:filter="filter"></Kind>
+               <Male v-if="filter.type === 'Male'" v-bind:filter="filter"></Male>
+               <Prisoner v-if="filter.type === 'Prisoner'" v-bind:filter="filter"></Prisoner>
+               <Relation v-if="filter.type === 'Relation'" v-bind:filter="filter"></Relation>
+               <Starving v-if="filter.type === 'Starving'" v-bind:filter="filter"></Starving>
+               <CanReach v-if="filter.type === 'CanReach'" v-bind:filter="filter"></CanReach>
+               <IsHumanlike v-if="filter.type === 'IsHumanlike'" v-bind:filter="filter"></IsHumanlike>
+               <InBed v-if="filter.type === 'InBed'" v-bind:filter="filter"></InBed>
+               <IsKidnapped v-if="filter.type === 'IsKidnapped'" v-bind:filter="filter"></IsKidnapped>
+               <OnFire v-if="filter.type === 'OnFire'" v-bind:filter="filter"></OnFire>
+               <UnderRoof v-if="filter.type === 'UnderRoof'" v-bind:filter="filter"></UnderRoof>
+               <NaturalAgeUnder v-if="filter.type === 'NaturalAgeUnder'" v-bind:filter="filter"></NaturalAgeUnder>
+               <PrisonerInCell v-if="filter.type === 'PrisonerInCell'" v-bind:filter="filter"></PrisonerInCell>
+               <CanSeeOneOf v-if="filter.type === 'CanSeeOneOf'" v-bind:filter="filter"></CanSeeOneOf>
                <div class="delete-filter">
                    <v-btn flat color="error" v-on:click="deleteFilter(filter.uuid)">
-<!--                       TODO fix delete-->
                        remove
                    </v-btn>
                </div>
@@ -34,9 +52,47 @@
   import NumberField from "./NumberField";
   import PawnGroupSourceField from "./PawnGroupSourceField";
   import Drafted from "./filter/Drafted";
+  import Awake from "./filter/Awake";
+  import Downed from "./filter/Downed";
+  import Faction from "./filter/Faction";
+  import Fighting from "./filter/Fighting";
+  import Indoors from "./filter/Indoors";
+  import Kind from "./filter/Kind";
+  import Male from "./filter/Male";
+  import Prisoner from "./filter/Prisoner";
+  import Relation from "./filter/Relation";
+  import Starving from "./filter/Starving";
+  import CanReach from "./filter/CanReach";
+  import InBed from "./filter/InBed";
+  import IsKidnapped from "./filter/IsHumanlike";
+  import OnFire from "./filter/OnFire";
+  import UnderRoof from "./filter/UnderRoof";
+  import NaturalAgeUnder from "./filter/NaturalAgeUnder";
+  import PrisonerInCell from "./filter/PrisonerInCell";
+  import CanSeeOneOf from "./filter/CanSeeOneOf";
+  import IsHumanlike from "./filter/IsKidnapped";
 
   export default {
     components : {
+      IsHumanlike,
+      CanSeeOneOf,
+      PrisonerInCell,
+      NaturalAgeUnder,
+      UnderRoof,
+      OnFire,
+      IsKidnapped,
+      InBed,
+      CanReach,
+      Starving,
+      Relation,
+      Prisoner,
+      Male,
+      Kind,
+      Indoors,
+      Fighting,
+      Faction,
+      Downed,
+      Awake,
       Drafted,
       PawnGroupSourceField,
       NumberField
@@ -61,6 +117,7 @@
           {value : 'Downed', text : 'Is downed'},
           {value : 'Drafted', text : 'Is drafted'},
           {value : 'Fighting', text : 'Is fighting'},
+          {value : 'IsHumanlike', text : 'Is humanlike'},
           {value : 'InBed', text : 'Is in bed'},
           {value : 'Indoors', text : 'Is indoors'},
           {value : 'IsKidnapped', text : 'Is kidnapped'},
@@ -116,15 +173,31 @@
     .filter-rule {
         width: 100%;
         display: flex;
+        box-shadow: inset 0 -2px 0 0 #ffffff0d;
     }
 
-    .filter-rule div {
+    .filter-rule:nth-child(odd) {
+        width: 100%;
+        display: flex;
+    }
+
+    /deep/ .filter-rule > span {
+        width: 100%;
+        display: flex;
+    }
+
+    /deep/ .filter-rule > span > div:first-child {
+        white-space: nowrap;
+    }
+
+    /deep/ .filter-rule > span > div {
         font-weight: bold;
         line-height: 4;
         padding-left: 5px;
     }
 
     .delete-filter {
+        line-height: 1 !important;;
         display: flex;
         place-items: center;
         margin-left: auto;

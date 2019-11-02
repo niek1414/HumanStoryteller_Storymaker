@@ -28,6 +28,7 @@
                         <Difficulty v-if="con.type === 'Difficulty'" v-bind:condition="con"></Difficulty>
                         <ItemColony v-if="con.type === 'ItemColony'" v-bind:condition="con"></ItemColony>
                         <ItemMap v-if="con.type === 'ItemMap'" v-bind:condition="con"></ItemMap>
+                        <GroupCount v-if="con.type === 'GroupCount'" v-bind:condition="con"></GroupCount>
                         <MapCreated v-if="con.type === 'MapCreated'" v-bind:condition="con"></MapCreated>
                         <PawnHealth v-if="con.type === 'PawnHealth'" v-bind:condition="con"></PawnHealth>
                         <Random v-if="con.type === 'Random'" v-bind:condition="con"></Random>
@@ -80,10 +81,12 @@
   import PawnState from "./condition/PawnState";
   import PawnLocation from "./condition/PawnLocation";
   import CreatedStructure from "./condition/CreatedStructure";
+  import GroupCount from "./condition/GroupCount";
 
   export default {
     name : "conditional",
     components : {
+      GroupCount,
       CreatedStructure,
       PawnLocation,
       PawnState,
@@ -120,6 +123,7 @@
           {value : 'ColonistOnMap', text : 'Colonist on map'},
           {value : 'Colonists', text : 'Colonists'},
           {value : 'ColonistsOnMap', text : 'Colonists on map'},
+          {value : 'GroupCount', text : 'Pawn group count'},
           {value : 'Variable', text : 'Compare variable'},
           {value : 'Difficulty', text : 'Difficulty'},
           {value : 'Relation', text : 'Faction relation'},

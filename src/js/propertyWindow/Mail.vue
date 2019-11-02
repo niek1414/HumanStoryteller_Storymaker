@@ -14,16 +14,15 @@
             ></v-select>
             </v-input>
             <template mt-3 v-if="selected.properties.letter.type !== 'Default'">
-                <v-text-field
-                        outline
+                <SmartTextArea
                         label="Mail title"
-                        v-model="selected.properties.letter.title"
-                ></v-text-field>
-                <v-textarea
-                        outline
+                        :myModel.sync="selected.properties.letter.title"
+                ></SmartTextArea>
+                <SmartTextArea
                         label="Mail message"
-                        v-model="selected.properties.letter.message"
-                ></v-textarea>
+                        :myModel.sync="selected.properties.letter.message"
+                        :start-big="true"
+                ></SmartTextArea>
                 <v-switch
                         label="Shake screen"
                         v-model="selected.properties.letter.shake"
@@ -38,8 +37,10 @@
 </template>
 
 <script>
+  import SmartTextArea from "./util/SmartTextArea";
   export default {
     name : "mail",
+    components : {SmartTextArea},
     props : ["canvas", "selected"],
     data : function() {
       return {

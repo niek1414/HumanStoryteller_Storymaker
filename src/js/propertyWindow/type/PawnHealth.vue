@@ -1,12 +1,7 @@
 <template>
     <div class="info-box">
-        <v-input class="property-box" messages="Names of pawns to apply the effect.">
-            <v-autocomplete
-                    v-model="selected.properties['Names']"
-                    :items="names"
-                    multiple
-                    small-chips
-            ></v-autocomplete>
+        <v-input class="property-box" messages="Target pawns.">
+            <PawnGroupField :myModel.sync="selected.properties['Pawns']"/>
         </v-input>
         <v-input class="property-box" messages="The effect to apply">
             <v-select
@@ -30,7 +25,9 @@
 </template>
 
 <script>
+  import PawnGroupField from "../util/PawnGroupField";
   export default {
+    components : {PawnGroupField},
     props : ["selected"],
     name : "HealPawn",
     data : function() {
@@ -109,11 +106,6 @@
           {value : "SightSensor", text : "Visual sensor"},
           {value : "Waist", text : "Waist"},
         ],
-      }
-    },
-    computed : {
-      names : function() {
-        return window.toolbar.view.getNames();
       }
     }
   }

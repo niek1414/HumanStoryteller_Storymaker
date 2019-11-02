@@ -80,7 +80,10 @@
                 <WildManWandersIn v-else-if="selected.type.value.value === 'WildManWandersIn'" v-bind:selected="selected"/>
                 <Planetkiller v-else-if="selected.type.value.value === 'Planetkiller'" v-bind:selected="selected"/>
                 <PlayAudio v-else-if="selected.type.value.value === 'PlayAudio'" v-bind:selected="selected"/>
+                <ShowImage v-else-if="selected.type.value.value === 'ShowImage'" v-bind:selected="selected"/>
                 <KillPawn v-else-if="selected.type.value.value === 'KillPawn'" v-bind:selected="selected"/>
+                <PointTo v-else-if="selected.type.value.value === 'PointTo'" v-bind:selected="selected"/>
+                <SavePawnGroup v-else-if="selected.type.value.value === 'SavePawnGroup'" v-bind:selected="selected"/>
                 <TimeTravel v-else-if="selected.type.value.value === 'TimeTravel'" v-bind:selected="selected"/>
                 <SetRelation v-else-if="selected.type.value.value === 'SetRelation'" v-bind:selected="selected"/>
                 <HealPawn v-else-if="selected.type.value.value === 'HealPawn'" v-bind:selected="selected"/>
@@ -210,6 +213,9 @@
   import RenameMap from "./type/RenameMap";
   import CoupleDecouple from "./type/CoupleDecouple";
   import FadeBlack from "./type/FadeBlack";
+  import SavePawnGroup from "./type/SavePawnGroup";
+  import ShowImage from "./type/ShowImage";
+  import PointTo from "./type/PointTo";
 
   export default {
     name : "property-panel",
@@ -223,6 +229,9 @@
       }
     },
     components : {
+      PointTo,
+      ShowImage,
+      SavePawnGroup,
       FadeBlack,
       CoupleDecouple,
       RenameMap,

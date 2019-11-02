@@ -1,12 +1,7 @@
 <template>
     <div class="info-box">
-        <v-input class="property-box" messages="Names of pawns to give thought.">
-            <v-autocomplete
-                    v-model="selected.properties['Names']"
-                    :items="names"
-                    multiple
-                    small-chips
-            ></v-autocomplete>
+        <v-input class="property-box" messages="Target pawns">
+            <PawnGroupField :myModel.sync="selected.properties['Pawns']"/>
         </v-input>
         <v-input class="property-box" messages="Intent type">
             <v-autocomplete
@@ -17,10 +12,20 @@
         </v-input>
         <template v-if="selected.properties['IntentType'] === 'Joinable_MarriageCeremony'">
             <v-input class="property-box" messages="NOT OPTIONAL: Pawn name">
-                <v-text-field label="First fiance" type="text" v-model="selected.properties['FirstStringParam']"></v-text-field>
+                <v-autocomplete
+                        v-model="selected.properties['FirstStringParam']"
+                        :items="names"
+                        small-chips
+                        label="First fiance"
+                ></v-autocomplete>
             </v-input>
             <v-input class="property-box" messages="NOT OPTIONAL: Pawn name">
-                <v-text-field label="Second fiance" type="text" v-model="selected.properties['SecondStringParam']"></v-text-field>
+                <v-autocomplete
+                        v-model="selected.properties['SecondStringParam']"
+                        :items="names"
+                        small-chips
+                        label="Second fiance"
+                ></v-autocomplete>
             </v-input>
         </template>
         <template v-else-if="selected.properties['IntentType'] === 'Siege'">
@@ -50,8 +55,12 @@
                             || selected.properties['IntentType'] === 'PrisonerExecution'
                             || selected.properties['IntentType'] === 'Slaughter'">
             <v-input class="property-box" messages="NOT OPTIONAL: Pawn name">
-                <!--                TODO Names name-->
-                <v-text-field label="Pawn to target" type="text" v-model="selected.properties['FirstStringParam']"></v-text-field>
+                <v-autocomplete
+                        v-model="selected.properties['FirstStringParam']"
+                        :items="names"
+                        small-chips
+                        label="Pawn to target"
+                ></v-autocomplete>
             </v-input>
             <v-input class="property-box" messages="Time in ticks before job complete, empty is infinite">
                 <NumberField label="Time in ticks" :myModel.sync="selected.properties['FirstNumberParam']"></NumberField>
@@ -106,9 +115,10 @@
   import EventTypes from "../../storyGraph/EventTypes";
   import NumberField from "../util/NumberField";
   import LocationField from "../util/LocationField";
+  import PawnGroupField from "../util/PawnGroupField";
 
   export default {
-    components : {LocationField, NumberField},
+    components : {PawnGroupField, LocationField, NumberField},
     props : ["selected"],
     name : "IntentGiver",
     data : function() {

@@ -1,26 +1,18 @@
 <template>
     <div class="info-box">
         <p>While called Animal insanity, if one or more pawn names are not animals they will still go berserk.</p>
-        <v-input class="property-box" messages="Names of pawns. If none given, a random (weak if before day 7) animal will be picked.">
-            <v-autocomplete
-                    v-model="selected.properties['Names']"
-                    :items="names"
-                    multiple
-                    small-chips
-            ></v-autocomplete>
+        <v-input class="property-box" messages="Target pawns. If none given, a random (weak if before day 7) animal will be picked.">
+            <PawnGroupField :myModel.sync="selected.properties['Pawns']"/>
         </v-input>
     </div>
 </template>
 
 <script>
+  import PawnGroupField from "../util/PawnGroupField";
   export default {
+    components : {PawnGroupField},
     props : ["selected"],
-    name : "AnimalInsanitySingle",
-    computed : {
-      names : function() {
-        return window.toolbar.view.getNames();
-      }
-    }
+    name : "AnimalInsanitySingle"
   }
 </script>
 

@@ -24,6 +24,10 @@ main, nav, output, section, summary, time, mark, audio, video {
     vertical-align: baseline;
 }
 
+em {
+    font-style: italic !important;
+}
+
 button:focus {
     outline: 0;
 }

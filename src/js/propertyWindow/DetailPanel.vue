@@ -30,11 +30,12 @@
                 <v-input messages="Starting pawn amount">
                     <v-text-field label="Pawn amount" type="number" v-model="selected.properties['PawnAmount']"></v-text-field>
                 </v-input>
-                <v-textarea
-                    outline
-                    label="Opening text"
-                    v-model="selected.properties['Opening']"
-                ></v-textarea>
+                <SmartTextArea
+                        label="Opening text"
+                        :myModel.sync="selected.properties['Opening']"
+                        :has-no-interaction="true"
+                        :start-big="true"
+                ></SmartTextArea>
                 <v-input messages="Seed used in map generation">
                     <v-text-field label="Random seed" type="text" v-model="selected.properties['Seed']"></v-text-field>
                 </v-input>
@@ -76,11 +77,12 @@
 
 <script>
   import PropertyHeader from "./PropertyHeader";
+  import SmartTextArea from "./util/SmartTextArea";
 
   export default {
     name : "detail-panel",
     props : ["project", "selected"],
-    components : {PropertyHeader},
+    components : {SmartTextArea, PropertyHeader},
     data : function() {
       return {
         seasons : [

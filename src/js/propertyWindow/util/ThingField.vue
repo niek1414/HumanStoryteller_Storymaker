@@ -1,21 +1,21 @@
 <template>
     <span style="width: 100%; position: relative; display: flex;">
         <v-input class="property-box" :messages="message">
-            <v-select
-                    :items="things"
+            <v-autocomplete
                     v-model="myModel.Thing"
+                    :items="things"
                     :label="label"
                     :clearable=true
                     v-on:change="clean()"
-            ></v-select>
+            ></v-autocomplete>
             <template v-if="myModel.Thing">
-                <v-select
+                <v-autocomplete
                         v-if="!hasNoStuff"
                         :items="stuffs"
                         v-model="myModel.Stuff"
                         label="Material (if applicable)"
                         :clearable=true
-                ></v-select>
+                ></v-autocomplete>
                 <v-select
                         v-if="!hasNoQuality"
                         :items="qualities"
@@ -25,6 +25,7 @@
                 ></v-select>
                 <NumberField v-if="hasAmount" label="Amount" :myModel.sync="myModel.Amount" :dynamic="true"></NumberField>
             </template>
+            <slot></slot>
         </v-input>
     </span>
 </template>

@@ -12,41 +12,23 @@
                     label="Diseases"
             ></v-autocomplete>
         </v-input>
-        <v-input class="property-box" messages="Names of pawns. If none given, a random amount (specified by disease type) will become sick.<br> Giving a human an animal sickness or the other way around is unspecified behavior.">
-            <v-combobox
-                    v-model="selected.properties['Names']"
-                    :items="names"
-                    multiple
-                    small-chips
-            >
-                <template slot="no-data">
-                    <v-list-tile>
-                        <v-list-tile-content>
-                            <v-list-tile-title>
-                                Press <kbd>enter</kbd> to create a new name
-                            </v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </template>
-            </v-combobox>
+        <v-input class="property-box" messages="Target pawns. If none given, a random amount (specified by disease type) will become sick.<br> Giving a human an animal sickness or the other way around is unspecified behavior.">
+            <PawnGroupField :myModel.sync="selected.properties['Pawns']"/>
         </v-input>
     </div>
 </template>
 
 <script>
   import EventTypes from "../../storyGraph/EventTypes";
+  import PawnGroupField from "../util/PawnGroupField";
 
   export default {
+    components : {PawnGroupField},
     props : ["selected"],
     name : "Disease",
     data : function() {
       return {
         diseaseTypes : EventTypes.DiseaseTypes,
-      }
-    },
-    computed : {
-      names : function() {
-        return window.toolbar.view.getNames();
       }
     }
   }

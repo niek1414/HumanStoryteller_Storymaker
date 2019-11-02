@@ -1,13 +1,11 @@
 <template>
     <div class="info-box">
+        <p>Note that the found pawns will be saved, not the filter itself.</p>
         <v-input class="property-box" messages="Target pawns">
             <PawnGroupField :myModel.sync="selected.properties['Pawns']"/>
         </v-input>
-        <v-input class="property-box" messages="If enabled pawn is deleted (without notification) and removed from the history.">
-            <v-switch
-                    label="Destroy"
-                    v-model="selected.properties['Destroy']"
-            ></v-switch>
+        <v-input class="property-box" messages="Name of the group">
+            <v-text-field label="Group name" type="text" v-model="selected.properties['OutGroup']"></v-text-field>
         </v-input>
     </div>
 </template>
@@ -17,12 +15,7 @@
   export default {
     components : {PawnGroupField},
     props : ["selected"],
-    name : "KillPawn",
-    computed : {
-      names : function() {
-        return window.toolbar.view.getNames();
-      }
-    }
+    name : "SavePawnGroup"
   }
 </script>
 

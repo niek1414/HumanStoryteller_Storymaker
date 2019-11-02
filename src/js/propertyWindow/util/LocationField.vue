@@ -1,5 +1,5 @@
 <template>
-    <span style="width: 100%; position: relative; display: flex; flex-wrap: wrap;">
+    <span style="width: 100%; position: relative; display: flex; flex-wrap: wrap; font-weight: normal; line-height: 1;">
         <v-select
                 :items="isOffset ? offsetTypes : types"
                 v-model="myModel.Type"

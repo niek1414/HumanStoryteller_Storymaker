@@ -1,12 +1,7 @@
 <template>
     <div class="info-box">
-        <v-input class="property-box" messages="Names of pawns to heal.">
-            <v-autocomplete
-                    v-model="selected.properties['Names']"
-                    :items="names"
-                    multiple
-                    small-chips
-            ></v-autocomplete>
+        <v-input class="property-box" messages="Target pawns.">
+            <PawnGroupField :myModel.sync="selected.properties['Pawns']"/>
         </v-input>
         <v-input class="property-box" messages="If enabled even permanent injuries are healed.">
             <v-switch
@@ -18,14 +13,11 @@
 </template>
 
 <script>
+  import PawnGroupField from "../util/PawnGroupField";
   export default {
+    components : {PawnGroupField},
     props : ["selected"],
-    name : "HealPawn",
-    computed : {
-      names : function() {
-        return window.toolbar.view.getNames();
-      }
-    }
+    name : "HealPawn"
   }
 </script>
 

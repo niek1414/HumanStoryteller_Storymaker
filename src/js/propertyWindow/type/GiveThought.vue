@@ -1,12 +1,7 @@
 <template>
     <div class="info-box">
-        <v-input class="property-box" messages="Names of pawns to give thought.">
-            <v-autocomplete
-                    v-model="selected.properties['Names']"
-                    :items="names"
-                    multiple
-                    small-chips
-            ></v-autocomplete>
+        <v-input class="property-box" messages="Target pawns">
+            <PawnGroupField :myModel.sync="selected.properties['Pawns']"/>
         </v-input>
         <v-input class="property-box" messages="Thought type (Select *custom* to make your own)">
             <v-autocomplete
@@ -31,8 +26,12 @@
         </template>
         <template v-else-if="selected.properties['ThoughtType'] !=='' && selected.properties['ThoughtType'] !== undefined && selected.properties['ThoughtType'] !== 'custom'">
             <v-input class="property-box" messages="Name of other pawn (if type contains {0})">
-<!--                TODO Names name-->
-                <v-text-field label="Other pawn" type="text" v-model="selected.properties['OtherPawn']"></v-text-field>
+                <v-autocomplete
+                        v-model="selected.properties['OtherPawn']"
+                        :items="names"
+                        label="Other pawn"
+                        small-chips
+                ></v-autocomplete>
             </v-input>
         </template>
     </div>
@@ -40,9 +39,10 @@
 
 <script>
   import NumberField from "../util/NumberField";
+  import PawnGroupField from "../util/PawnGroupField";
 
   export default {
-    components : {NumberField},
+    components : {PawnGroupField, NumberField},
     props : ["selected"],
     name : "GiveThought",
     data : function() {

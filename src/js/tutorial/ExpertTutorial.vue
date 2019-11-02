@@ -31,7 +31,12 @@
             title : `Variable in property`,
             content : `To use our new variable just go to raid's <LearnHover img="propertyTab.png">property tab</LearnHover>. We want to enter our 'counter' variable in the 'Strength as multiplier' field. To do this, <LearnHover img="variableSwitch.png">switch the property to variable input</LearnHover>. And then select the counter variable in the dropdown.`,
             name : "e4",
-          },
+          }, {
+            title : `That's it for this tutorial`,
+            content : `Still questions about variables or something else?<br/>Just ask in the discord!`,
+            name : "e4",
+            button : true,
+          }
         ]
       }
     },

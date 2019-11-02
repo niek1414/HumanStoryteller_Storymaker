@@ -7,7 +7,7 @@
                     v-model="selected.properties['NoSpawn']"
             ></v-switch>
         </v-input>
-        <v-input class="property-box" messages="The faction of the pawn. If colony, the pawn will join.">
+        <v-input class="property-box" messages="The type of pawn.">
             <v-autocomplete
                     v-model="selected.properties['PawnKind']"
                     :items="pawnKind"

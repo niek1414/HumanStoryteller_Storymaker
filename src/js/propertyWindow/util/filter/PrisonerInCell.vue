@@ -1,7 +1,7 @@
 <template>
     <span>
         <div>
-            when pawn is drafted.
+            when pawn is a prisoner in a cell.
         </div>
     </span>
 </template>
@@ -9,7 +9,7 @@
 <script>
   export default {
     props : ["filter"],
-    name : "Drafted"
+    name : "PrisonerInCell"
   }
 </script>
 

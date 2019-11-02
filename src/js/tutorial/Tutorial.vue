@@ -1,60 +1,60 @@
 <template>
-    <div v-if="!loading" class="tutorial-container">
+    <div class="tutorial-container" v-if="!loading">
         <v-speed-dial
-                v-model="fab"
+                direction="top"
                 right
                 top
-                direction="top"
                 transition="slide-y-reverse-transition"
+                v-model="fab"
         >
             <v-btn
-                    slot="activator"
                     color="#41474e"
-                    fab
                     dark
+                    fab
+                    slot="activator"
                     v-model="fab"
             >
                 <v-icon>settings</v-icon>
                 <v-icon>close</v-icon>
             </v-btn>
             <v-btn
-                    fab
-                    dark
-                    small
                     color="green"
+                    dark
+                    fab
+                    small
                     v-on:click="hint"
             >
                 <v-icon>help_outline</v-icon>
             </v-btn>
             <v-btn
-                    fab
-                    dark
-                    small
                     color="orange"
+                    dark
+                    fab
+                    small
                     v-on:click="reset"
             >
                 <v-icon>restore</v-icon>
             </v-btn>
             <v-btn
-                    fab
-                    dark
-                    small
                     color="red"
+                    dark
+                    fab
+                    small
                     v-on:click="stop"
             >
                 <v-icon>stop</v-icon>
             </v-btn>
         </v-speed-dial>
         <Step
-                v-if="currentStep === index"
-                v-for="(step, index) of steps"
-                :key="index"
-                :step="step"
-                :next="next"
                 :finish="isLast"
+                :key="index"
+                :next="next"
+                :step="step"
+                v-for="(step, index) of steps"
+                v-if="currentStep === index"
         />
     </div>
-    <p v-else class="loading">loading...</p>
+    <p class="loading" v-else>loading...</p>
 </template>
 
 <script>
@@ -168,16 +168,36 @@
             if (exampleNode.properties.hasOwnProperty(p)) {
               function displayValue() {
                 let displayValue = exampleNode.properties[p];
-                if (!Array.isArray(displayValue)) {
-                  if (displayValue.startsWith("v_")){
-                    displayValue = "variable with name:" + displayValue;
-                  }
+                if (Array.isArray(displayValue)) {
+                  return "set: " + displayValue.join(", ");
+                }
+                if (typeof displayValue === "boolean") {
                   return displayValue;
                 }
-                return "set: " + displayValue.join(", ")
+                if (typeof displayValue === 'object') {
+                  return JSON.stringify(displayValue);
+                }
+                if (displayValue.startsWith("v_")) {
+                  displayValue = "variable with name:" + displayValue;
+                }
+                return displayValue;
               }
 
-              if ((!actualNode.properties.hasOwnProperty(p) || !_.isEqual(actualNode.properties[p], exampleNode.properties[p])) && !shouldIgnore(exampleNode.properties, p)) {
+              let result;
+              if (typeof exampleNode.properties[p] === 'object' && !Array.isArray(exampleNode.properties[p])) {
+                result = true;
+                for (let q in exampleNode.properties[p]) {
+                  if (exampleNode.properties[p].hasOwnProperty(q)) {
+                    if (!_.isEqual(actualNode.properties[p][q], exampleNode.properties[p][q]) && !shouldIgnore(exampleNode.properties[p], q)){
+                      result = false;
+                    }
+                  }
+                }
+              } else {
+                result = _.isEqual(actualNode.properties[p], exampleNode.properties[p]);
+              }
+
+              if ((!actualNode.properties.hasOwnProperty(p) || !result) && !shouldIgnore(exampleNode.properties, p)) {
                 return `The event '${name(actualNode)}' should have set property ${p} to ${displayValue()}`
               }
             }
@@ -225,7 +245,7 @@
             return `The node '${actualNode.eventName}' should have a ${side} connection to an event.`
           }
 
-          if (!shouldIgnore(exampleConn, "offset")) {//todo test
+          if (!shouldIgnore(exampleConn, "offset")) {
             if (Math.abs(exampleConn.offset - actualConn.offset) > 100) {
               return `The node '${actualNode.eventName}' has a ${side} connection with a length of ${Math.round(actualConn.offset) / 1000} but should be ${exampleConn.offset / 1000}.`
             }

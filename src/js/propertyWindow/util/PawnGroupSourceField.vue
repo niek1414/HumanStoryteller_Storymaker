@@ -13,6 +13,7 @@
                     v-model="myModel.Names"
                     label="Pawn name"
                     :clearable=true
+                    multiple
             ></v-autocomplete>
         </template>
         <template v-else-if="myModel.Type === 'PawnGroup'">
@@ -21,6 +22,7 @@
                     v-model="myModel.Groups"
                     label="Pawn group"
                     :clearable=true
+                    multiple
             ></v-autocomplete>
         </template>
     </span>

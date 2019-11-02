@@ -38,11 +38,11 @@
             name : "b4",
           }, {
             title : `Event properties`,
-            content : `A pawn's <b>name</b> can be used to reference it in other events.<br/>Input as <LearnHover img="newName.png">new name</LearnHover> 'bob' (names are not case sensitive but this tutorial is).<br/>By leaving the current name empty, a random colonist will be picked.<br/>Unless clearly stated, every property is optional!`,
+            content : `A pawn's <b>name</b> can be used to reference it in other events.<br/>Input as <LearnHover img="newName.png">new name</LearnHover> 'bob' (names are not case sensitive but this tutorial is).<br/>Check the unnamed colonist option, a random (unnamed) colonist will be picked.<br/>Unless clearly stated, every property is optional!`,
             name : "b5",
           }, {
             title : `End with a bang`,
-            content : `Let's add a new event with type 'Orbital strike', connect that to our 'Rename pawn'. Enter 'bob' as our victim and 'Orbital power beam' as type.<br/>If your stuck, don't forget to use the hint button on the right.`,
+            content : `Let's add a new event with type 'Orbital strike', connect that to our 'Rename pawn'. Select as location 'Pawn' and then 'bob' as our victim and 'Orbital power beam' as type.<br/>If your stuck, don't forget to use the hint button on the right.`,
             name : "b6",
           }, {
             title : `That's it for the first tutorial`,

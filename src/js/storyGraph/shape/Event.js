@@ -16,7 +16,16 @@ export default draw2d.shape.basic.Rectangle.extend({
     this.properties = attr.properties ? attr.properties : {};
     this.storage = attr.storage ? attr.storage : [];
     if (!this.properties['Target']) {
-      this.properties['Target'] = {};
+      this.properties['Target'] = {
+        CustomTarget : "Preset",
+        TargetPreset : "FirstOfPlayer"
+      };
+    }
+    if (!this.properties['letter']) {
+      this.properties['letter'] = {
+        show : true,
+        type : "Default"
+      };
     }
 
     this._super(

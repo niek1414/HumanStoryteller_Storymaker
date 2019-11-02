@@ -250,6 +250,27 @@ EventTypes.TimeTravel = {
 EventTypes.KillPawn = {
   value : "KillPawn",
   text : "Kill pawn",
+  type : EventTypes.GENERALLY_BAD,
+  conditions : []
+};
+
+EventTypes.PointTo = {
+  value : "PointTo",
+  text : "Point to",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
+EventTypes.ShowImage = {
+  value : "ShowImage",
+  text : "Show image",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
+EventTypes.SavePawnGroup = {
+  value : "SavePawnGroup",
+  text : "Save pawn group",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
@@ -415,7 +436,7 @@ EventTypes.CreateStructure = {
 EventTypes.DestroyPosition = {
   value : "DestroyPosition",
   text : "Destroy position",
-  type : EventTypes.NEUTRAL,
+  type : EventTypes.SMALL_THREATS,
   conditions : []
 };
 
@@ -540,6 +561,7 @@ EventTypes.Events = [
   {text : "Nothing", value : EventTypes.Nothing},
   {text : "Orbital strike", value : EventTypes.OrbitalStrike},
   {text : "Planetkiller", value : EventTypes.Planetkiller},
+  {text : "Point to", value : EventTypes.PointTo},
   {text : "Psychic drone", value : EventTypes.PsychicDrone},
   {text : "Psychic soothe", value : EventTypes.PsychicSoothe},
   {text : "Play audio", value : EventTypes.PlayAudio},
@@ -553,6 +575,8 @@ EventTypes.Events = [
   {text : "Rename pawn", value : EventTypes.RenamePawn},
   {text : "Rules", value : EventTypes.Rules},
   {text : "Research", value : EventTypes.Research},
+  {text : "Show image", value : EventTypes.ShowImage},
+  {text : "Save pawn group", value : EventTypes.SavePawnGroup},
   {text : "Ship part", value : EventTypes.ShipPartCrash},
   {text : "Short circuit", value : EventTypes.ShortCircuit},
   {text : "Solar flare", value : EventTypes.SolarFlare},
@@ -606,6 +630,7 @@ EventTypes.EventsAsString = [
   "Nothing",
   "Orbital strike",
   "Planetkiller",
+  "Point to",
   "Psychic drone",
   "Psychic soothe",
   "Play audio",
@@ -619,6 +644,8 @@ EventTypes.EventsAsString = [
   "Rename pawn",
   "Rules",
   "Research",
+  "Show image",
+  "Save pawn group",
   "Ship part",
   "Short circuit",
   "Solar flare",

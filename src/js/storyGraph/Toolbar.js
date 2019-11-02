@@ -298,44 +298,54 @@ export default Class.extend({
         id : null, name : "The very first story!", description : "About a princess and - i am a programmer not a story writer oke?", publish : false, storyline : {
           "name" : "The very first story!",
           "description" : "About a princess and - i am a programmer not a story writer oke?",
+          "publish" : false,
           "story" : [{
             "uuid" : "root",
             "name" : "",
-            "left" : {"offset" : 0, "uuid" : "500a7e13-50a7-81b1-634f-2293f3ca1cf8"},
+            "left" : {"offset" : 0, "uuid" : "b6e61e78-5c0b-8132-c5a7-cad77acc1eb4"},
             "right" : null,
-            "x" : 375,
-            "y" : 75,
-            "incident" : {"type" : "Nothing", "letter" : {"show" : false}},
+            "x" : 371,
+            "y" : 63,
+            "incident" : {
+              "letter" : {"show" : false},
+              "Target" : {},
+              "OverrideMapGen" : true,
+              "PawnAmount" : "1",
+              "Opening" : "<p>Welcome, this is a short demo for a subset of features for the <strong>HumanStoryteller </strong>mod.</p>",
+              "Seed" : "HumanStoryteller",
+              "type" : "Root"
+            },
+            "conditions" : [],
             "storage" : []
           }, {
             "uuid" : "500a7e13-50a7-81b1-634f-2293f3ca1cf8",
-            "name" : "Nothing",
-            "left" : {"offset" : 1, "uuid" : "e888ac78-b499-e101-4b9f-94fe0f1c4892"},
+            "name" : "Radio message",
+            "left" : {"offset" : 10, "uuid" : "e888ac78-b499-e101-4b9f-94fe0f1c4892"},
             "right" : null,
-            "x" : 350,
-            "y" : 200,
+            "x" : 330,
+            "y" : 274,
             "incident" : {
-              "type" : "Nothing",
+              "Target" : {"CustomTarget" : "Preset", "TargetPreset" : "FirstOfPlayer"},
               "letter" : {
                 "show" : true,
                 "type" : "PositiveEvent",
-                "title" : "Demo",
-                "message" : "Every story has a timeline with events.\nThis event only has a message connected.\nThe next one will be a RAID D:",
-                "shake" : false,
-                "force" : true
-              }
+                "title" : "<p>Demo</p>",
+                "message" : "<p>Every story has a timeline with events. This event only has a message connected. <br>The next one will be a <font size=\"6\">RAID!</font></p>"
+              },
+              "Name" : "firstPawn",
+              "Message" : "<p>Let me introduce, i am <span>@firstPawn:FullName</span>.<br>But you can call me <span>@firstPawn:ShortName</span>!</p>",
+              "type" : "RadioMessage"
             },
             "conditions" : [],
             "storage" : []
           }, {
             "uuid" : "97efb26e-4bc7-0486-4245-b4940c62b26a",
             "name" : "Raid",
-            "left" : {"offset" : 5, "uuid" : "3907b029-4a61-a8f6-c1f4-792fa15f76a6"},
+            "left" : {"offset" : 10, "uuid" : "3907b029-4a61-a8f6-c1f4-792fa15f76a6"},
             "right" : null,
-            "x" : 356,
-            "y" : 431,
+            "x" : 352,
+            "y" : 508,
             "incident" : {
-              "type" : "RaidEnemy",
               "letter" : {
                 "show" : true,
                 "type" : "ThreatBig",
@@ -347,7 +357,9 @@ export default Class.extend({
               "Points" : "2",
               "Strategy" : "ImmediateAttackSappers",
               "ArriveMode" : "CenterDrop",
-              "Names" : ["bert", "birt", "bort", "burt", "bart", "jan", "jon", "jin", "jun", "jen"]
+              "Names" : ["bert", "birt", "bort", "burt", "bart", "jan", "jon", "jin", "jun", "jen"],
+              "Target" : {"CustomTarget" : "Preset", "TargetPreset" : "FirstOfPlayer"},
+              "type" : "RaidEnemy"
             },
             "conditions" : [],
             "storage" : []
@@ -356,61 +368,68 @@ export default Class.extend({
             "name" : "Dialog",
             "left" : {"offset" : 0, "uuid" : "6b2700d0-ee3a-b3a7-e542-18d2dd131110"},
             "right" : {"offset" : 5, "uuid" : "46e437ac-acff-2f72-9a38-7fc5249e1d53"},
-            "x" : 356,
-            "y" : 511,
+            "x" : 353,
+            "y" : 590,
             "incident" : {
-              "type" : "Dialog",
-              "letter" : {"show" : true, "type" : "NeutralEvent", "title" : "O my, a choice?", "message" : "The timeline can split depending on a user action!"},
-              "Duration" : "0.05"
+              "letter" : {
+                "show" : true,
+                "type" : "NeutralEvent",
+                "title" : "<p>O my, a <strong>choice</strong>?</p>",
+                "message" : "<p>The timeline can split depending on a user action!<br>Will you <em>accept</em>?</p>",
+                "force" : true
+              }, "Duration" : "0.004", "Target" : {"CustomTarget" : "Preset", "TargetPreset" : "FirstOfPlayer"}, "type" : "Dialog"
             },
             "conditions" : [{"type" : "Dialog", "response" : "Accepted"}],
             "storage" : []
           }, {
             "uuid" : "6b2700d0-ee3a-b3a7-e542-18d2dd131110",
             "name" : "Meteorite",
-            "left" : {"offset" : 1, "uuid" : "ce5ab06a-6267-f06b-4269-38c5b3857f48"},
+            "left" : {"offset" : 10, "uuid" : "ce5ab06a-6267-f06b-4269-38c5b3857f48"},
             "right" : null,
-            "x" : 287,
-            "y" : 605,
+            "x" : 283,
+            "y" : 685,
             "incident" : {
-              "type" : "MeteoriteImpact",
               "letter" : {"show" : true, "type" : "NeutralEvent", "title" : "You accepted", "message" : "Have some meteorites"},
               "MineableRock" : "MineableGold",
-              "Amount" : "4"
+              "Amount" : "6",
+              "Target" : {"CustomTarget" : "Preset", "TargetPreset" : "FirstOfPlayer"},
+              "type" : "MeteoriteImpact"
             },
             "conditions" : [],
             "storage" : []
           }, {
             "uuid" : "46e437ac-acff-2f72-9a38-7fc5249e1d53",
             "name" : "Cold snap/Heat wave",
-            "left" : {"offset" : 1, "uuid" : "ce5ab06a-6267-f06b-4269-38c5b3857f48"},
+            "left" : {"offset" : 10, "uuid" : "ce5ab06a-6267-f06b-4269-38c5b3857f48"},
             "right" : null,
-            "x" : 408,
-            "y" : 607,
+            "x" : 404,
+            "y" : 686,
             "incident" : {
-              "type" : "TempFlux",
               "letter" : {"show" : true, "type" : "NegativeEvent", "title" : "You declined D:", "message" : "Have a cold snap of -50", "shake" : true, "force" : false},
               "Duration" : "3",
-              "TempChange" : "-50"
+              "TempChange" : "-50",
+              "Target" : {"CustomTarget" : "Preset", "TargetPreset" : "FirstOfPlayer"},
+              "type" : "TempFlux"
             },
             "conditions" : [],
             "storage" : []
           }, {
             "uuid" : "ce5ab06a-6267-f06b-4269-38c5b3857f48",
-            "name" : "Research",
+            "name" : "Planetkiller",
             "left" : null,
             "right" : null,
-            "x" : 369,
-            "y" : 707,
+            "x" : 366,
+            "y" : 786,
             "incident" : {
-              "type" : "Research",
+              "Target" : {"CustomTarget" : "Preset", "TargetPreset" : "FirstOfPlayer"},
               "letter" : {
                 "show" : true,
-                "type" : "NeutralEvent",
-                "title" : "That was my small demo",
-                "message" : "Now go to http://storyteller.keyboxsoftware.nl to create your own story!"
+                "type" : "ThreatBig",
+                "title" : "<p>This was the small demo</p>",
+                "message" : "<p>Now go to <em>https://storytellertest.keyboxsoftware.nl/ </em>to create your own stories!</p>",
+                "force" : true
               },
-              "Projects" : ["ShipBasics"]
+              "type" : "Planetkiller"
             },
             "conditions" : [],
             "storage" : []
@@ -419,18 +438,43 @@ export default Class.extend({
             "name" : "DIVIDER",
             "left" : {"offset" : 0, "uuid" : "405f4b6c-96ff-cecc-3e57-36e5e8043eec"},
             "right" : {"offset" : 0, "uuid" : "97efb26e-4bc7-0486-4245-b4940c62b26a"},
-            "x" : 363,
-            "y" : 296,
-            "incident" : {"type" : "Nothing", "letter" : {"show" : false}},
+            "x" : 359,
+            "y" : 374,
+            "incident" : {"letter" : {"show" : false}, "Target" : {}, "type" : "Nothing"},
+            "conditions" : [],
             "storage" : []
           }, {
             "uuid" : "405f4b6c-96ff-cecc-3e57-36e5e8043eec",
             "name" : "Play audio",
             "left" : null,
             "right" : null,
-            "x" : 236,
-            "y" : 430,
-            "incident" : {"type" : "PlayAudio", "letter" : {"show" : true, "type" : "Default"}, "Author" : "FunWithSound", "File" : "369/369251_6456158-lq.mp3", "IsSong" : true},
+            "x" : 232,
+            "y" : 508,
+            "incident" : {
+              "letter" : {"show" : true, "type" : "Default"},
+              "Author" : "FunWithSound",
+              "File" : "369/369251_6456158-lq.mp3",
+              "IsSong" : true,
+              "Target" : {"CustomTarget" : "Preset", "TargetPreset" : "FirstOfPlayer"},
+              "type" : "PlayAudio"
+            },
+            "conditions" : [],
+            "storage" : []
+          }, {
+            "uuid" : "b6e61e78-5c0b-8132-c5a7-cad77acc1eb4",
+            "name" : "Rename pawn",
+            "left" : {"offset" : 0, "uuid" : "500a7e13-50a7-81b1-634f-2293f3ca1cf8"},
+            "right" : null,
+            "x" : 332,
+            "y" : 173,
+            "incident" : {
+              "Target" : {"CustomTarget" : "Preset", "TargetPreset" : "FirstOfPlayer"},
+              "letter" : {"show" : true, "type" : "Default"},
+              "Pawns" : {"Filters" : [], "Source" : {}},
+              "UnnamedColonist" : true,
+              "OutName" : "firstPawn",
+              "type" : "RenamePawn"
+            },
             "conditions" : [],
             "storage" : []
           }]

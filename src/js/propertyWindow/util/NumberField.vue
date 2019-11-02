@@ -1,5 +1,5 @@
 <template>
-    <span :style="dynamic ? 'position: relative;' : 'width: 100%; position: relative;'">
+    <span :style="dynamic ? 'position: relative;' : 'width: 100%; position: relative;display: flex;font-weight: normal;line-height: 1;'">
         <v-autocomplete
                 v-if="checked" :label="label + ' variable'"
                 :items="variables"
@@ -7,7 +7,7 @@
         ></v-autocomplete>
         <v-text-field v-else :label="label" type="number" v-model="thisModel"></v-text-field>
         <label class="var-checkbox">
-            <input v-model="checked" type="checkbox" style="display: none;">
+            <input v-model="checked"  type="checkbox" style="display: none;">
             <i :class="'fas fa-shapes' + (checked ? ' checked' : '')"></i>
         </label>
     </span>
@@ -36,6 +36,12 @@
       },
       variables : function(){
         return window.toolbar.view.getVariables();
+      }
+    },
+    watch : {
+      checked : function(newChecked) {
+        this.thisModel = "";
+        this.$emit('update:myModel', "");
       }
     }
   }
