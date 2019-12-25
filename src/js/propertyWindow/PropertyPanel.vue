@@ -52,6 +52,8 @@
                 <Eclipse v-else-if="selected.type.value.value === 'Eclipse'" v-bind:selected="selected"/>
                 <SolarFlare v-else-if="selected.type.value.value === 'SolarFlare'" v-bind:selected="selected"/>
                 <Flashstorm v-else-if="selected.type.value.value === 'Flashstorm'" v-bind:selected="selected"/>
+                <Unfog v-else-if="selected.type.value.value === 'Unfog'" v-bind:selected="selected"/>
+                <BubbleMessage v-else-if="selected.type.value.value === 'BubbleMessage'" v-bind:selected="selected"/>
                 <RefugeeChased v-else-if="selected.type.value.value === 'RefugeeChased'" v-bind:selected="selected"/>
                 <HerdMigration v-else-if="selected.type.value.value === 'HerdMigration'" v-bind:selected="selected"/>
                 <PsychicDrone v-else-if="selected.type.value.value === 'PsychicDrone'" v-bind:selected="selected"/>
@@ -59,6 +61,7 @@
                 <ShortCircuit v-else-if="selected.type.value.value === 'ShortCircuit'" v-bind:selected="selected"/>
                 <CropBlight v-else-if="selected.type.value.value === 'CropBlight'" v-bind:selected="selected"/>
                 <ToxicFallout v-else-if="selected.type.value.value === 'ToxicFallout'" v-bind:selected="selected"/>
+                <TransferPawn v-else-if="selected.type.value.value === 'TransferPawn'" v-bind:selected="selected"/>
                 <VolcanicWinter v-else-if="selected.type.value.value === 'VolcanicWinter'" v-bind:selected="selected"/>
                 <TraderArrival v-else-if="selected.type.value.value === 'TraderArrival'" v-bind:selected="selected"/>
                 <VisitorGroup v-else-if="selected.type.value.value === 'VisitorGroup'" v-bind:selected="selected"/>
@@ -71,6 +74,7 @@
                 <ChapterSplash v-else-if="selected.type.value.value === 'ChapterSplash'" v-bind:selected="selected"/>
                 <ControlCamera v-else-if="selected.type.value.value === 'ControlCamera'" v-bind:selected="selected"/>
                 <MovieMode v-else-if="selected.type.value.value === 'MovieMode'" v-bind:selected="selected"/>
+                <OnHit v-else-if="selected.type.value.value === 'OnHit'" v-bind:selected="selected"/>
                 <RenameMap v-else-if="selected.type.value.value === 'RenameMap'" v-bind:selected="selected"/>
                 <RadioMessage v-else-if="selected.type.value.value === 'RadioMessage'" v-bind:selected="selected"/>
                 <SpeedControl v-else-if="selected.type.value.value === 'SpeedControl'" v-bind:selected="selected"/>
@@ -216,6 +220,10 @@
   import SavePawnGroup from "./type/SavePawnGroup";
   import ShowImage from "./type/ShowImage";
   import PointTo from "./type/PointTo";
+  import TransferPawn from "./type/TransferPawn";
+  import BubbleMessage from "./type/BubbleMessage";
+  import Unfog from "./type/Unfog";
+  import OnHit from "./type/OnHit";
 
   export default {
     name : "property-panel",
@@ -229,6 +237,10 @@
       }
     },
     components : {
+      OnHit,
+      Unfog,
+      BubbleMessage,
+      TransferPawn,
       PointTo,
       ShowImage,
       SavePawnGroup,

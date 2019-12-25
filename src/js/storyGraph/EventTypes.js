@@ -68,6 +68,13 @@ EventTypes.Flashstorm = {
   conditions : []
 };
 
+EventTypes.Unfog = {
+  value : "Unfog",
+  text : "(Un)Fog",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
 EventTypes.MeteoriteImpact = {
   value : "MeteoriteImpact",
   text : "Meteorite",
@@ -179,6 +186,13 @@ EventTypes.ToxicFallout = {
   value : "ToxicFallout",
   text : "Toxic fallout",
   type : EventTypes.GENERALLY_BAD,
+  conditions : []
+};
+
+EventTypes.TransferPawn = {
+  value : "TransferPawn",
+  text : "Transfer pawn",
+  type : EventTypes.NEUTRAL,
   conditions : []
 };
 
@@ -310,6 +324,13 @@ EventTypes.MovieMode = {
   conditions : []
 };
 
+EventTypes.OnHit = {
+  value : "OnHit",
+  text : "On hit",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
 EventTypes.FadeBlack = {
   value : "FadeBlack",
   text : "Fade to black",
@@ -327,6 +348,13 @@ EventTypes.RenameMap = {
 EventTypes.RadioMessage = {
   value : "RadioMessage",
   text : "Radio message",
+  type : EventTypes.NEUTRAL,
+  conditions : []
+};
+
+EventTypes.BubbleMessage = {
+  value : "BubbleMessage",
+  text : "Bubble message",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -530,6 +558,7 @@ EventTypes.Events = [
   {text : "Animal insanity", value : EventTypes.AnimalInsanitySingle},
   {text : "Animals join", value : EventTypes.FarmAnimalsWanderIn},
   {text : "Aurora", value : EventTypes.Aurora},
+  {text : "Bubble message", value : EventTypes.BubbleMessage},
   {text : "Chapter splash", value : EventTypes.ChapterSplash},
   {text : "Control camera", value : EventTypes.ControlCamera},
   {text : "Cold snap/Heat wave", value : EventTypes.TempFlux},
@@ -559,6 +588,7 @@ EventTypes.Events = [
   {text : "Movie mode", value : EventTypes.MovieMode},
   {text : "Rename map", value : EventTypes.RenameMap},
   {text : "Nothing", value : EventTypes.Nothing},
+  {text : "On hit", value : EventTypes.OnHit},
   {text : "Orbital strike", value : EventTypes.OrbitalStrike},
   {text : "Planetkiller", value : EventTypes.Planetkiller},
   {text : "Point to", value : EventTypes.PointTo},
@@ -584,9 +614,11 @@ EventTypes.Events = [
   {text : "Set relation", value : EventTypes.SetRelation},
   {text : "Speed control", value : EventTypes.SpeedControl},
   {text : "Toxic fallout", value : EventTypes.ToxicFallout},
+  {text : "Transfer pawn", value : EventTypes.TransferPawn},
   {text : "Trader", value : EventTypes.TraderArrival},
   {text : "Time travel", value : EventTypes.TimeTravel},
   {text : "Trade request", value : EventTypes.TradeRequest},
+  {text : "(Un)Fog", value : EventTypes.Unfog},
   {text : "Visitors", value : EventTypes.VisitorGroup},
   {text : "Volcanic winter", value : EventTypes.VolcanicWinter},
   {text : "Wild man wanders in", value : EventTypes.WildManWandersIn},
@@ -599,6 +631,7 @@ EventTypes.EventsAsString = [
   "Animal insanity",
   "Animals join",
   "Aurora",
+  "Bubble message",
   "Chapter splash",
   "Control camera",
   "Cold snap/Heat wave",
@@ -628,6 +661,7 @@ EventTypes.EventsAsString = [
   "Movie mode",
   "Rename map",
   "Nothing",
+  "On hit",
   "Orbital strike",
   "Planetkiller",
   "Point to",
@@ -653,10 +687,12 @@ EventTypes.EventsAsString = [
   "Set relation",
   "Speed control",
   "Toxic fallout",
+  "Transfer pawn",
   "Trader",
   "Time travel",
   "Trade request",
   "Visitors",
+  "(Un)Fog",
   "Volcanic winter",
   "Wild man wanders in",
 ];

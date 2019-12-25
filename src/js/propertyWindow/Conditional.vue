@@ -42,6 +42,8 @@
                         <CreatedStructure v-if="con.type === 'CreatedStructure'" v-bind:condition="con"></CreatedStructure>
                         <Variable v-if="con.type === 'Variable'" v-bind:condition="con"></Variable>
                         <PawnState v-if="con.type === 'PawnState'" v-bind:condition="con"></PawnState>
+                        <PlayerCanSee v-if="con.type === 'PlayerCanSee'" v-bind:condition="con"></PlayerCanSee>
+                        <CaravanLocation v-if="con.type === 'CaravanLocation'" v-bind:condition="con"></CaravanLocation>
                         <PawnLocation v-if="con.type === 'PawnLocation'" v-bind:condition="con"></PawnLocation>
                     </v-card-text>
                     <v-card-actions>
@@ -82,10 +84,14 @@
   import PawnLocation from "./condition/PawnLocation";
   import CreatedStructure from "./condition/CreatedStructure";
   import GroupCount from "./condition/GroupCount";
+  import PlayerCanSee from "./condition/PlayerCanSee";
+  import CaravanLocation from "./condition/CaravanLocation";
 
   export default {
     name : "conditional",
     components : {
+      CaravanLocation,
+      PlayerCanSee,
       GroupCount,
       CreatedStructure,
       PawnLocation,
@@ -119,6 +125,7 @@
         availableConditions : [
           {value : 'Biome', text : 'Biome'},
           {value : 'Cheat', text : 'Cheat'},
+          {value : 'CaravanLocation', text : 'Caravan location'},
           {value : 'Colonies', text : 'Colonies'},
           {value : 'ColonistOnMap', text : 'Colonist on map'},
           {value : 'Colonists', text : 'Colonists'},
@@ -135,6 +142,7 @@
           {value : 'Random', text : 'Random chance'},
           {value : 'Research', text : 'Research'},
           {value : 'PawnState', text : 'State of pawn'},
+          {value : 'PlayerCanSee', text : 'Player can see'},
           {value : 'Temperature', text : 'Temperature'},
           {value : 'Time', text : 'Time/Season'},
         ],

@@ -51,6 +51,7 @@
       }
       return {
         types : [
+          {value : "All", text : "All pawns (most inefficient)"},
           {value : "AllOnMap", text : "All pawns on map"},
           {value : "Pawns", text : "Named pawns"},
           {value : "PawnGroup", text : "Predefined group"},

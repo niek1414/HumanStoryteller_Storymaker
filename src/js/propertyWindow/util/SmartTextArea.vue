@@ -77,7 +77,7 @@
         <div :class="'v-input v-textarea v-text-field v-text-field--enclosed v-text-field--outline theme--dark ' + (isFocused?'v-input--is-focused primary--text':'')"
              v-on:click="focusInput()">
             <div class="v-input__control">
-                <div class="v-input__slot">
+                <div class="v-input__slot" style="overflow: auto;">
                     <div class="v-text-field__slot">
                         <label :class="'v-label theme--dark ' + (isFocused?' primary--text ':'') + (isFocused || pullUp?' v-label--active ' : '')" aria-hidden="true"
                                style="left: 0; right: auto; position: absolute;" v-text="label">

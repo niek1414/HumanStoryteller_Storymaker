@@ -37,7 +37,7 @@
                         label="Site type"
                 ></v-autocomplete>
             </v-input>
-            <v-input class="property-box" messages="If enabled the map is decoupled from the world (time stands still & user can't see it). On entering of the site the map will be coupled again.">
+            <v-input class="property-box" messages="If enabled the map is decoupled from the world (time stands still & user can't see it). On entering of the site the map will be coupled again.<br>If disabled the map will NEVER be cleaned up automatically.">
                 <v-switch
                         label="Decouple on generation"
                         v-model="selected.properties['DecoupleNow']"
