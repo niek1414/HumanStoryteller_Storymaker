@@ -64,13 +64,13 @@
   import Starving from "./filter/Starving";
   import CanReach from "./filter/CanReach";
   import InBed from "./filter/InBed";
-  import IsKidnapped from "./filter/IsHumanlike";
+  import IsHumanlike from "./filter/IsHumanlike";
   import OnFire from "./filter/OnFire";
   import UnderRoof from "./filter/UnderRoof";
   import NaturalAgeUnder from "./filter/NaturalAgeUnder";
   import PrisonerInCell from "./filter/PrisonerInCell";
   import CanSeeOneOf from "./filter/CanSeeOneOf";
-  import IsHumanlike from "./filter/IsKidnapped";
+  import IsKidnapped from "./filter/IsKidnapped";
 
   export default {
     components : {

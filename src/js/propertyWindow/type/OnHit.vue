@@ -13,7 +13,7 @@
         <v-input class="property-box" messages="Whether to always mis, always hit or leave the chance unaltered">
             <v-select
                     :items="hitResponseTypes"
-                    v-model="selected.properties['Faction']"
+                    v-model="selected.properties['HitResponse']"
                     label="Response"
                     :clearable=true
             ></v-select>

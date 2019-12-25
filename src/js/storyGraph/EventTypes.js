@@ -328,7 +328,9 @@ EventTypes.OnHit = {
   value : "OnHit",
   text : "On hit",
   type : EventTypes.NEUTRAL,
-  conditions : []
+  conditions : [
+    {value : "QueueEvent", text : "Queued event fired"}
+  ]
 };
 
 EventTypes.FadeBlack = {

@@ -39,6 +39,7 @@
                         <Quest v-if="con.type === 'Quest'" v-bind:condition="con"></Quest>
                         <Trade v-if="con.type === 'Trade'" v-bind:condition="con"></Trade>
                         <Traveled v-if="con.type === 'Traveled'" v-bind:condition="con"></Traveled>
+                        <QueueEvent v-if="con.type === 'QueueEvent'" v-bind:condition="con"></QueueEvent>
                         <CreatedStructure v-if="con.type === 'CreatedStructure'" v-bind:condition="con"></CreatedStructure>
                         <Variable v-if="con.type === 'Variable'" v-bind:condition="con"></Variable>
                         <PawnState v-if="con.type === 'PawnState'" v-bind:condition="con"></PawnState>
@@ -86,10 +87,12 @@
   import GroupCount from "./condition/GroupCount";
   import PlayerCanSee from "./condition/PlayerCanSee";
   import CaravanLocation from "./condition/CaravanLocation";
+  import QueueEvent from "./condition/QueueEvent";
 
   export default {
     name : "conditional",
     components : {
+      QueueEvent,
       CaravanLocation,
       PlayerCanSee,
       GroupCount,
