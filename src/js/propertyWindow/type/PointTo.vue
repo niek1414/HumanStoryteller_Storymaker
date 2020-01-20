@@ -4,11 +4,11 @@
             <v-switch
                     label="Remove all pointers"
                     v-model="selected.properties['RemoveAll']"
-            ></v-switch>
+            />
         </v-input>
         <template v-if="!selected.properties['RemoveAll']">
             <v-input class="property-box" messages="Location to point at">
-                <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
+                <LocationField :myModel.sync="selected.properties['Location']"/>
             </v-input>
         </template>
     </div>

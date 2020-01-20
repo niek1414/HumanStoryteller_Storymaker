@@ -6,7 +6,7 @@
             ?'Default: between 2 and 10 depending on body size'
             :'Amount of animals'
         ">
-            <NumberField label="Animal amount" :myModel.sync="selected.properties['Amount']"></NumberField>
+            <NumberField label="Animal amount" :myModel.sync="selected.properties['Amount']"/>
         </v-input>
 
         <v-input class="property-box" :messages="
@@ -19,7 +19,7 @@
                     v-model="selected.properties['AnimalKind']"
                     :items="animals"
                     label="Animal kind"
-            ></v-autocomplete>
+            />
         </v-input>
 
         <v-input class="property-box" messages="Assigned from top to bottom. Name overflow will be ignored.">

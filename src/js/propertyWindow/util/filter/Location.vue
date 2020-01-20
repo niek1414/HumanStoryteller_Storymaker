@@ -1,10 +1,10 @@
 <template>
     <span>
         <div>
-            when pawn can see one of
+            when pawn is within
         </div>
         <div>
-            <PawnGroupSourceField :myModel.sync="filter['Target']"/>
+            <LocationField :myModel.sync="filter['Location']"/>
         </div>
         <div>
             .
@@ -13,11 +13,12 @@
 </template>
 
 <script>
-  import PawnGroupSourceField from "../PawnGroupSourceField";
+  import LocationField from "../LocationField";
+
   export default {
-    components : {PawnGroupSourceField},
+    components : {LocationField},
     props : ["filter"],
-    name : "CanSeeOneOf"
+    name : "Location"
   }
 </script>
 

@@ -2,7 +2,7 @@
     <div class="step">
         <div class="title">{{step.title}}</div>
         <div class="content">
-            <component :is="componentLoader"></component>
+            <component :is="componentLoader"/>
         </div>
         <v-btn class="next-button" v-on:click="next" v-if="step.button">Next step</v-btn>
     </div>

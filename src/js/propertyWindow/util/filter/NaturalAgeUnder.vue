@@ -4,7 +4,7 @@
             when pawn is younger than
         </div>
         <div>
-            <NumberField label="Age" :myModel.sync="filter['Age']"></NumberField>
+            <NumberField label="Age" :myModel.sync="filter['Age']"/>
         </div>
         <div>
             .

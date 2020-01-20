@@ -10,7 +10,7 @@
                     v-model="selected.properties['Disease']"
                     :items="diseaseTypes"
                     label="Diseases"
-            ></v-autocomplete>
+            />
         </v-input>
         <v-input class="property-box" messages="Target pawns. If none given, a random amount (specified by disease type) will become sick.<br> Giving a human an animal sickness or the other way around is unspecified behavior.">
             <PawnGroupField :myModel.sync="selected.properties['Pawns']"/>

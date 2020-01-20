@@ -7,13 +7,13 @@
                     small-chips
                     v-model="selected.properties['Name']"
                     :clearable=true
-            ></v-autocomplete>
+            />
         </v-input>
         <SmartTextArea
                 :myModel.sync="selected.properties['Message']"
                 :start-big="true"
                 label="Radio message"
-        ></SmartTextArea>
+        />
     </div>
 </template>
 

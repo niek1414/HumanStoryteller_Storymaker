@@ -5,7 +5,7 @@
             <PawnGroupField :myModel.sync="selected.properties['Pawns']"/>
         </v-input>
         <v-input class="property-box" messages="Name of the group">
-            <v-text-field label="Group name" type="text" v-model="selected.properties['OutGroup']"></v-text-field>
+            <v-text-field label="Group name" type="text" v-model="selected.properties['OutGroup']"/>
         </v-input>
     </div>
 </template>

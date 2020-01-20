@@ -1,9 +1,9 @@
 <template>
     <div class="info-box">
         <v-input class="property-box" messages="Time until offer is gone.">
-            <NumberField label="Duration in days" :myModel.sync="selected.properties['Duration']"></NumberField>
+            <NumberField label="Duration in days" :myModel.sync="selected.properties['Duration']"/>
         </v-input>
-        <v-divider data-content="REQUESTED ITEMS"></v-divider>
+        <v-divider data-content="REQUESTED ITEMS"/>
         <ThingField
                 label="Item to trade"
                 message="The item(s) that are requested. Default: random items"
@@ -13,7 +13,7 @@
                 :has-no-quality="true"
                 :has-no-stuff="true">
         </ThingField>
-        <v-divider data-content="REWARDED ITEMS"></v-divider>
+        <v-divider data-content="REWARDED ITEMS"/>
         <ThingField
                 label="Item to reward"
                 message="The item(s) that the player receives on trade completion. Default: matching the request"

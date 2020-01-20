@@ -1,7 +1,7 @@
 <template>
     <div>
         <div id="header">
-            <slot></slot>
+            <slot/>
         </div>
         <hr class="line"/>
     </div>

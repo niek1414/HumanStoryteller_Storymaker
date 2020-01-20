@@ -1069,6 +1069,52 @@ EventTypes.Traders = [
   {value : 'Visitor_Outlander_Standard', text : 'Visitor Outlander Standard'}
 ];
 //</editor-fold>
+//<editor-fold desc="ThingCategories">
+EventTypes.ThingCategories = [
+  {value : 'Undefined', text : 'Undefined'},
+  {value : 'Nothing', text : 'Nothing'},
+  {value : 'Everything', text : 'Everything'},
+  {value : 'HaulableEver', text : 'Ever haulable'},
+  {value : 'HaulableAlways', text : 'Always haulable'},
+  {value : 'FoodSource', text : 'Food source'},
+  {value : 'FoodSourceNotPlantOrTree', text : 'Food source not plant or tree'},
+  {value : 'Corpse', text : 'Corpse'},
+  {value : 'Blueprint', text : 'Blueprint'},
+  {value : 'BuildingArtificial', text : 'Artificial building'},
+  {value : 'BuildingFrame', text : 'Building frame'},
+  {value : 'Pawn', text : 'Pawn'},
+  {value : 'PotentialBillGiver', text : 'Potential bill giver'},
+  {value : 'Medicine', text : 'Medicine'},
+  {value : 'Filth', text : 'Filth'},
+  {value : 'AttackTarget', text : 'Attackable target'},
+  {value : 'Weapon', text : 'Weapon'},
+  {value : 'Refuelable', text : 'Refuelable'},
+  {value : 'HaulableEverOrMinifiable', text : 'Ever haulable or minifiable'},
+  {value : 'Drug', text : 'Drug'},
+  {value : 'Shell', text : 'Shell'},
+  {value : 'HarvestablePlant', text : 'Harvestable plant'},
+  {value : 'Fire', text : 'Fire'},
+  {value : 'Plant', text : 'Plant'},
+  {value : 'Construction', text : 'Construction'},
+  {value : 'HasGUIOverlay', text : 'Has GUI overlay'},
+  {value : 'Apparel', text : 'Apparel'},
+  {value : 'MinifiedThing', text : 'Minified Thing'},
+  {value : 'Grave', text : 'Grave'},
+  {value : 'Art', text : 'Art'},
+  {value : 'ThingHolder', text : 'Thing Holder'},
+  {value : 'ActiveDropPod', text : 'Active drop pod'},
+  {value : 'Transporter', text : 'Transporter'},
+  {value : 'LongRangeMineralScanner', text : 'Long range mineral scanner'},
+  {value : 'AffectsSky', text : 'Affects sky'},
+  {value : 'PsychicDroneEmanator', text : 'Psychic drone emanator'},
+  {value : 'WindSource', text : 'Wind source'},
+  {value : 'AlwaysFlee', text : 'Always flee'},
+  {value : 'ResearchBench', text : 'Research bench'},
+  {value : 'Facility', text : 'Facility'},
+  {value : 'AffectedByFacilities', text : 'Affected by facilities'},
+  {value : 'CreatesInfestations', text : 'Creates infestations'},
+];
+//</editor-fold>
 //<editor-fold desc="Plants">
 EventTypes.Plants = [
   {value : "Agarilux", text : "Agarilux"},

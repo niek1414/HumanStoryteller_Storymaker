@@ -2,7 +2,7 @@
     <div class="info-box">
         <v-input class="property-box"
                 messages="Map name. Not displayed but can be used to referenced in story. (Before executing an event it is smart to check if it is generated & visable by the player using `created map` check.)">
-            <v-text-field label="Map name" type="text" v-model="selected.properties['MapName']"></v-text-field>
+            <v-text-field label="Map name" type="text" v-model="selected.properties['MapName']"/>
         </v-input>
         <v-input class="property-box" messages="Quest type. Specifies whats at the core of the quest map.">
             <v-select
@@ -10,17 +10,17 @@
                     v-model="selected.properties['QuestType']"
                     label="QuestType"
                     :clearable=true
-            ></v-select>
+            />
         </v-input>
         <template v-if="selected.properties['QuestType'] === 'DownedRefugee'
         || selected.properties['QuestType'] === 'PrisonerWillingToJoin'">
             <v-input class="property-box" messages="Identifiable name for pawn in map center.">
-                <v-text-field label="Pawn name" type="text" v-model="selected.properties['OutName']"></v-text-field>
+                <v-text-field label="Pawn name" type="text" v-model="selected.properties['OutName']"/>
             </v-input>
             <v-input class="property-box" messages="Display name for pawn in map center." style="width: 100%; position: relative; display: flex; flex-wrap: wrap;">
-                <v-text-field label="First name" type="text" v-model="selected.properties['FirstName']"></v-text-field>
-                <v-text-field label="Nick name" type="text" v-model="selected.properties['NickName']"></v-text-field>
-                <v-text-field label="Last name" type="text" v-model="selected.properties['LastName']"></v-text-field>
+                <v-text-field label="First name" type="text" v-model="selected.properties['FirstName']"/>
+                <v-text-field label="Nick name" type="text" v-model="selected.properties['NickName']"/>
+                <v-text-field label="Last name" type="text" v-model="selected.properties['LastName']"/>
             </v-input>
         </template>
         <v-input class="property-box" messages="Kind of threat on the quest map. Default: no threat.">
@@ -29,22 +29,22 @@
                     v-model="selected.properties['ThreatType']"
                     label="ThreatType"
                     :clearable=true
-            ></v-select>
+            />
         </v-input>
         <v-input class="property-box" messages="2 is twice the strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
-            <NumberField label="Strength as multiplier" :myModel.sync="selected.properties['Points']"></NumberField>
+            <NumberField label="Strength as multiplier" :myModel.sync="selected.properties['Points']"/>
         </v-input>
         <v-input class="property-box" messages="Time until quest is gone.">
-            <NumberField label="Duration in days" :myModel.sync="selected.properties['Duration']"></NumberField>
+            <NumberField label="Duration in days" :myModel.sync="selected.properties['Duration']"/>
         </v-input>
         <v-input class="property-box" messages="Minimal tile distance from target colony.">
-            <NumberField label="Minimal distance in tiles" :myModel.sync="selected.properties['MinTileDist']"></NumberField>
+            <NumberField label="Minimal distance in tiles" :myModel.sync="selected.properties['MinTileDist']"/>
         </v-input>
         <v-input class="property-box" messages="Maximal tile distance from target colony (needs to be bigger than 1)">
-            <NumberField label="Maximal distance in tiles" :myModel.sync="selected.properties['MaxTileDist']"></NumberField>
+            <NumberField label="Maximal distance in tiles" :myModel.sync="selected.properties['MaxTileDist']"/>
         </v-input>
         <template v-if="selected.properties['QuestType'] === 'ItemStash'">
-            <v-divider data-content="QUEST REWARD"></v-divider>
+            <v-divider data-content="QUEST REWARD"/>
             <ThingField
                     label="Item to place"
                     message="The item(s) that spawn in the center of the map. Default: random items"
@@ -54,7 +54,7 @@
             </ThingField>
         </template>
         <template v-if="selected.properties['QuestType'] === 'PreciousLump'">
-            <v-divider data-content="QUEST REWARD"></v-divider>
+            <v-divider data-content="QUEST REWARD"/>
             <v-input class="property-box" :messages="
             selected.properties['MineableRock'] ==='' ||
             selected.properties['MineableRock'] === undefined
@@ -65,7 +65,7 @@
                         v-model="selected.properties['MineableRock']"
                         :items="mineableMaterials"
                         label="Mineable material"
-                ></v-autocomplete>
+                />
             </v-input>
         </template>
         <template v-if="selected.properties['ThreatType'] === 'Outpost'
@@ -78,14 +78,14 @@
                         v-model="selected.properties['Faction']"
                         label="Faction"
                         :clearable=true
-                ></v-select>
+                />
             </v-input>
-            <v-divider data-content="ELIMINATE CAMP REWARD"></v-divider>
+            <v-divider data-content="ELIMINATE CAMP REWARD"/>
             <v-input class="property-box" messages="If enabled a reward is given for eliminating all threats.">
                 <v-switch
                         label="Kill quest"
                         v-model="selected.properties['KillReward']"
-                ></v-switch>
+                />
             </v-input>
             <template v-if="selected.properties['KillReward']">
                 <ThingField
@@ -101,7 +101,7 @@
                             v-model="selected.properties['RewardFaction']"
                             label="Friendly faction"
                             :clearable=true
-                    ></v-select>
+                    />
                 </v-input>
                 <v-input class="property-box" :messages="
                 selected.properties['RewardFactionRelation'] ==='' ||
@@ -109,7 +109,7 @@
                 ?'Relation improvement with friendly faction on eliminating all threats. Default: 0'
                 :'Relation improvement on eliminating all threats.'
             ">
-                    <NumberField label="Amount" :myModel.sync="selected.properties['RewardFactionRelation']"></NumberField>
+                    <NumberField label="Amount" :myModel.sync="selected.properties['RewardFactionRelation']"/>
                 </v-input>
             </template>
         </template>

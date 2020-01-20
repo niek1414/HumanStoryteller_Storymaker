@@ -7,7 +7,7 @@
             <v-switch
                     label="Miracle"
                     v-model="selected.properties['Miracle']"
-            ></v-switch>
+            />
         </v-input>
     </div>
 </template>

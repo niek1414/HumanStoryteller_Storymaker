@@ -8,18 +8,18 @@
                                 :items="factionTypes"
                                 v-model="condition['faction']"
                                 label="Faction"
-                    :clearable=true
-            ></v-select>
+                                :clearable=true
+                        />
                     </v-input>
                 </v-flex>
                 <v-flex xs4>
                     <v-input messages="The check type">
-                        <v-select :items="numeralCompares" label="Compare check" type="text" v-model="condition['compareType']"></v-select>
+                        <v-select :items="numeralCompares" label="Compare check" type="text" v-model="condition['compareType']"/>
                     </v-input>
                 </v-flex>
                 <v-flex xs4>
                     <v-input messages="Relation with player (-100 to 100 cap)">
-                        <NumberField label="Constant" :myModel.sync="condition['constant']"></NumberField>
+                        <NumberField label="Constant" :myModel.sync="condition['constant']"/>
                     </v-input>
                 </v-flex>
             </v-layout>

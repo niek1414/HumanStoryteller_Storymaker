@@ -4,7 +4,7 @@
             <v-layout align-center justify-space-between row>
                 <v-flex xs12>
                     <v-input messages="The research to check. If researched picking left.">
-                        <v-select :items="projects" label="Project" type="text" v-model="condition['project']"></v-select>
+                        <v-select :items="projects" label="Project" type="text" v-model="condition['project']"/>
                     </v-input>
                 </v-flex>
             </v-layout>

@@ -10,7 +10,7 @@
                     v-model="selected.properties['MineableRock']"
                     :items="mineableMaterials"
                     label="Mineable material"
-            ></v-autocomplete>
+            />
         </v-input>
 
         <v-input class="property-box" :messages="
@@ -19,7 +19,7 @@
             ?'Default: 1'
             :'The amount of meteors'
         ">
-            <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"></NumberField>
+            <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"/>
         </v-input>
     </div>
 </template>

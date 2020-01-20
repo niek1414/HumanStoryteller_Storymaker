@@ -9,7 +9,7 @@
                     v-model="selected.properties['HealthAction']"
                     label="Effect"
                     :clearable=true
-            ></v-select>
+            />
         </v-input>
         <template v-if="selected.properties['HealthAction'] === 'MissingBodyPart' || selected.properties['HealthAction'] === 'StabBodyPart'">
             <v-input class="property-box" messages="The body part to apply the effect to">
@@ -17,8 +17,8 @@
                         :items="bodyParts"
                         v-model="selected.properties['BodyPart']"
                         label="Body part"
-                    :clearable=true
-            ></v-select>
+                        :clearable=true
+                />
             </v-input>
         </template>
     </div>

@@ -10,7 +10,7 @@
                     v-model="selected.properties['AnimalKind']"
                     :items="animals"
                     label="Animal kind"
-            ></v-autocomplete>
+            />
         </v-input>
 
         <v-input class="property-box" :messages="
@@ -19,7 +19,7 @@
             ?'Default: between 3 and 5 depending on body size'
             :'The amount of animals'
         ">
-            <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"></NumberField>
+            <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"/>
         </v-input>
     </div>
 </template>

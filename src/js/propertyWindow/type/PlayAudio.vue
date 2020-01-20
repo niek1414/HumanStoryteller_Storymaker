@@ -7,19 +7,19 @@
             Found audio you like? Just paste the full URL in the field below and wait for the author and audio file fields to be filled.
         </p>
         <v-input class="property-box" :messages="error?'Invalid url!':'The url of the audio'">
-            <v-text-field label="url" type="text" v-model="url" v-on:input="getMetadata"></v-text-field>
+            <v-text-field label="url" type="text" v-model="url" v-on:input="getMetadata"/>
         </v-input>
-        <template v-if="fake === '2'"></template>
-        <v-text-field disabled label="Author" type="text" v-model="selected.properties['Author']"></v-text-field>
-        <v-text-field disabled label="Audio file" type="text" v-model="selected.properties['File']"></v-text-field>
+        <template v-if="fake === '2'"/>
+        <v-text-field disabled label="Author" type="text" v-model="selected.properties['Author']"/>
+        <v-text-field disabled label="Audio file" type="text" v-model="selected.properties['File']"/>
         <v-input class="property-box" messages="If enabled audio is played as song. If disabled, audio is played as a sound">
             <v-switch
                     label="Is song"
                     v-model="selected.properties['IsSong']"
-            ></v-switch>
+            />
         </v-input>
         <v-input class="property-box" messages="Volume (between 0 and 1) 0.5 is 50%">
-            <NumberField label="Volume" :myModel.sync="selected.properties['Volume']"></NumberField>
+            <NumberField label="Volume" :myModel.sync="selected.properties['Volume']"/>
         </v-input>
     </div>
 </template>

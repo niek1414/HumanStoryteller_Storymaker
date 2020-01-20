@@ -4,12 +4,12 @@
             <v-layout align-center justify-space-between row>
                 <v-flex xs6>
                     <v-input messages="Check location">
-                        <LocationField :myModel.sync="condition['location']"></LocationField>
+                        <LocationField :myModel.sync="condition['location']"/>
                     </v-input>
                 </v-flex>
                 <v-flex xs6>
                     <v-input messages="Type">
-                        <v-select :items="seeConditions" label="Check if location is .." type="text" v-model="condition['seeConditions']"></v-select>
+                        <v-select :items="seeConditions" label="Check if location is .." type="text" v-model="condition['seeConditions']"/>
                     </v-input>
                 </v-flex>
             </v-layout>

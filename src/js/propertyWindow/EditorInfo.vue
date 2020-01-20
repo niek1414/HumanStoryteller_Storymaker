@@ -10,13 +10,13 @@
             questions!)<br/>If you want, you can always redo a tutorial:</p>
         <div class="info-text property-box" v-if="toolbar != null && toolbar.user != null">
             <template v-if="window_portal.tutorial === 0">
-                <v-btn block color="indigo" v-on:click="window_portal.updateTutorial(1)">Basic <i class="fas fa-sliders-h" style="margin-left: 10px;"></i></v-btn>
+                <v-btn block color="indigo" v-on:click="window_portal.updateTutorial(1)">Basic <i class="fas fa-sliders-h" style="margin-left: 10px;"/></v-btn>
                 <br>
                 <v-btn :disabled="toolbar.user.tutorial < 1" :outline="toolbar.user.tutorial < 1" block color="indigo" v-on:click="window_portal.updateTutorial(2)">Intermediate <i
-                        class="fas fa-code-branch" style="margin-left: 10px;"></i></v-btn>
+                        class="fas fa-code-branch" style="margin-left: 10px;"/></v-btn>
                 <br>
                 <v-btn :disabled="toolbar.user.tutorial < 2" :outline="toolbar.user.tutorial < 2" block color="indigo" v-on:click="window_portal.updateTutorial(3)">Expert <i
-                        class="fas fa-shapes" style="margin-left: 10px;"></i></v-btn>
+                        class="fas fa-shapes" style="margin-left: 10px;"/></v-btn>
             </template>
             <v-btn block color="red" v-else v-on:click="window_portal.updateTutorial(0)">Cancel tutorial</v-btn>
             <br>
@@ -29,12 +29,12 @@
                     <span style="font-size: 120%">Create a link directly to your story!</span><br><br>
                     What state should players, that click on the link, start in?
                     <v-radio-group row v-model="shareUrlStage">
-                        <v-radio label="World generation" value="W"></v-radio>
-                        <v-radio label="Pick landing site" value="S"></v-radio>
-                        <v-radio label="Pick characters" value="C"></v-radio>
-                        <v-radio label="In-game" value="G"></v-radio>
+                        <v-radio label="World generation" value="W"/>
+                        <v-radio label="Pick landing site" value="S"/>
+                        <v-radio label="Pick characters" value="C"/>
+                        <v-radio label="In-game" value="G"/>
                     </v-radio-group>
-                    <span style="font-size: 120%">Sharable link: <a :href="shareUrl" v-text="shareUrl"></a></span>
+                    <span style="font-size: 120%">Sharable link: <a :href="shareUrl" v-text="shareUrl"/></span>
                 </template>
                 <span style="font-size: 120%" v-else>Created your story? Next step is to <template
                         v-if="toolbar && (toolbar.view.projectData === null || toolbar.view.projectData.id === null)"><b>upload it</b> using the upload button below (besides the question mark)</template><template
@@ -45,7 +45,7 @@
             <div class="property-box">
                 Some instructions if you like reading better:<br>
                 <br>
-                Start by drag-and-dropping the <i class="far fa-plus-square"></i> icon on the field to the right.<br>
+                Start by drag-and-dropping the <i class="far fa-plus-square"/> icon on the field to the right.<br>
                 By connecting events you create a storyline. By clicking on a event you can change its type and properties.
                 <br><br>
                 Your root node (the circle) is the start point. By clicking on the root node you can access project settings like project name.
@@ -54,7 +54,7 @@
                 Click on the connection to change this or drag the event around.
                 <br><br>
                 Hold shift while scrolling to zoom in & out.<br>
-                To delete a event or connection, highlight it by clicking and then use the <i class="far fa-trash-alt"></i> button.
+                To delete a event or connection, highlight it by clicking and then use the <i class="far fa-trash-alt"/> button.
                 <br><br>
                 Adding a condition to an event allows you to react on the player's action.<br><br>
                 Important: A condition is constantly checked until the next event can be executed.<br>

@@ -4,7 +4,7 @@
             <v-layout align-center justify-space-between row>
                 <v-flex xs12>
                     <v-input messages="Chance in % (0 or lower is always RIGHT, 100 or higher is always LEFT, 50 is an even mix.)">
-                        <NumberField label="Chance" :myModel.sync="condition['chance']"></NumberField>
+                        <NumberField label="Chance" :myModel.sync="condition['chance']"/>
                     </v-input>
                 </v-flex>
             </v-layout>

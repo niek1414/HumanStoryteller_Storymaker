@@ -8,7 +8,7 @@
                                     multiple
                                     :items="hours"
                                     label="Hours"
-                    ></v-autocomplete>
+                    />
                 </v-flex>
                 <v-flex xs3>
                     <v-autocomplete messages="If hour is among:"
@@ -16,7 +16,7 @@
                                     multiple
                                     :items="days"
                                     label="Days"
-                    ></v-autocomplete>
+                    />
                 </v-flex>
                 <v-flex xs3>
                     <v-autocomplete messages="If hour is among:"
@@ -24,7 +24,7 @@
                                     multiple
                                     :items="quadrums"
                                     label="Quadrums"
-                    ></v-autocomplete>
+                    />
                 </v-flex>
                 <v-flex xs3>
                     <v-autocomplete messages="If hour is among:"
@@ -32,7 +32,7 @@
                                     multiple
                                     :items="years"
                                     label="Years"
-                    ></v-autocomplete>
+                    />
                 </v-flex>
 
             </v-layout>

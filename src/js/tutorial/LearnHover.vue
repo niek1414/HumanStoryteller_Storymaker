@@ -1,6 +1,6 @@
 <template>
     <div class="tip-text" @mouseover="active = true" @mouseleave="active = false">
-        <span class="tip-span"><slot></slot></span>
+        <span class="tip-span"><slot/></span>
         <div class="popup" v-if="active"><img :src="image.src"/></div>
     </div>
 </template>

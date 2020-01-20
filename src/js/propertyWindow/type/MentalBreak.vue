@@ -9,7 +9,7 @@
                     v-model="selected.properties['MentalBreak']"
                     label="Mental break"
                     :clearable=true
-            ></v-select>
+            />
         </v-input>
     </div>
 </template>

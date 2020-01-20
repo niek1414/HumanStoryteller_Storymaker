@@ -6,13 +6,13 @@
                     v-model="selected.properties['Speed']"
                     label="Speed"
                     :clearable=true
-            ></v-select>
+            />
         </v-input>
         <v-input class="property-box" messages="Lock the current speed & remove time buttons?</br>Note 1: If off, controls are unlocked if locked</br>Note 2: Locking while paused is a <b>bad</b> idea..</br>Note 3: opening the main menu still pauses the game">
             <v-switch
                     label="Lock speed controls"
                     v-model="selected.properties['LockControls']"
-            ></v-switch>
+            />
         </v-input>
     </div>
 </template>

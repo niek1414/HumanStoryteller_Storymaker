@@ -4,7 +4,7 @@
             <v-layout align-center justify-space-between row>
                 <v-flex xs12>
                     <v-input messages="The selected difficulty">
-                        <v-select :items="difficulties" label="Difficulty type" type="text" v-model="condition['difficulty']"></v-select>
+                        <v-select :items="difficulties" label="Difficulty type" type="text" v-model="condition['difficulty']"/>
                     </v-input>
                 </v-flex>
             </v-layout>

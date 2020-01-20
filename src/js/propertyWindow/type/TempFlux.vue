@@ -6,10 +6,10 @@
         </p>
 
         <v-input class="property-box" messages="Default: between 1.5 and 3.5 days">
-            <NumberField label="Duration in days" :myModel.sync="selected.properties['Duration']"></NumberField>
+            <NumberField label="Duration in days" :myModel.sync="selected.properties['Duration']"/>
         </v-input>
         <v-input class="property-box" messages="Default: -20 (cold snap), for a heat wave the default is 17">
-            <NumberField label="Change in temperature" :myModel.sync="selected.properties['TempChange']"></NumberField>
+            <NumberField label="Change in temperature" :myModel.sync="selected.properties['TempChange']"/>
         </v-input>
     </div>
 </template>

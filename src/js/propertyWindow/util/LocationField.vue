@@ -6,14 +6,14 @@
                 :label="isOffset ? 'Offset type' : 'Location type'"
                 :clearable=true
                 v-on:change="clean()"
-        ></v-select>
+        />
         <template v-if="myModel.Type === 'Preset'">
             <v-select
                     :items="positions"
                     v-model="myModel.Value"
                     label="Preset type"
                     :clearable=true
-            ></v-select>
+            />
         </template>
         <template v-else-if="myModel.Type === 'Pawn'">
             <v-autocomplete
@@ -21,11 +21,11 @@
                     v-model="myModel.Value"
                     label="Pawn name"
                     :clearable=true
-            ></v-autocomplete>
+            />
         </template>
         <template v-else-if="myModel.Type === 'Precise'">
-            <NumberField label="X" :myModel.sync="myModel.X" :dynamic="true"></NumberField>
-            <NumberField label="Z" :myModel.sync="myModel.Z" :dynamic="true"></NumberField>
+            <NumberField label="X" :myModel.sync="myModel.X" :dynamic="true"/>
+            <NumberField label="Z" :myModel.sync="myModel.Z" :dynamic="true"/>
         </template>
         <template v-else-if="myModel.Type === 'Zone'">
             <v-text-field
@@ -33,8 +33,8 @@
                     type="text"
                     v-model="myModel.Value"
                     :clearable=true
-            ></v-text-field>
-            <LocationField :myModel.sync="myModel.Offset" :isOffset="true"></LocationField>
+            />
+            <LocationField :myModel.sync="myModel.Offset" :isOffset="true"/>
         </template>
     </span>
 </template>

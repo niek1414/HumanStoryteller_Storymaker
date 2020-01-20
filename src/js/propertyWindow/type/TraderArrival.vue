@@ -1,7 +1,7 @@
 <template>
     <div class="info-box">
         <v-input class="property-box" messages="Trader defence strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
-            <NumberField label="Strength as multiplier" :myModel.sync="selected.properties['Points']"></NumberField>
+            <NumberField label="Strength as multiplier" :myModel.sync="selected.properties['Points']"/>
         </v-input>
 
         <v-input class="property-box" :messages="
@@ -14,7 +14,7 @@
                     v-model="selected.properties['TraderKind']"
                     :items="traders"
                     label="Trader kind"
-            ></v-autocomplete>
+            />
         </v-input>
         <v-input class="property-box" messages="Assigned from top to bottom. Name overflow will be ignored.">
             <v-combobox

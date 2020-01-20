@@ -12,7 +12,7 @@
                     <div class="note">(Calculated daily)</div>
                 </div>
                 <div class="remove">
-                    <div v-ripple class="remove-inner" v-on:click="remove(story.id, toolbar)"><i class="far fa-trash-alt fa-2x"></i></div>
+                    <div v-ripple class="remove-inner" v-on:click="remove(story.id, toolbar)"><i class="far fa-trash-alt fa-2x"/></div>
                 </div>
             </div>
 

@@ -7,7 +7,7 @@
                     :label="label"
                     :clearable=true
                     v-on:change="clean()"
-            ></v-autocomplete>
+            />
             <template v-if="myModel.Thing">
                 <v-autocomplete
                         v-if="!hasNoStuff"
@@ -15,17 +15,17 @@
                         v-model="myModel.Stuff"
                         label="Material (if applicable)"
                         :clearable=true
-                ></v-autocomplete>
+                />
                 <v-select
                         v-if="!hasNoQuality"
                         :items="qualities"
                         v-model="myModel.Quality"
                         label="Quality (if applicable)"
                         :clearable=true
-                ></v-select>
-                <NumberField v-if="hasAmount" label="Amount" :myModel.sync="myModel.Amount" :dynamic="true"></NumberField>
+                />
+                <NumberField v-if="hasAmount" label="Amount" :myModel.sync="myModel.Amount" :dynamic="true"/>
             </template>
-            <slot></slot>
+            <slot/>
         </v-input>
     </span>
 </template>

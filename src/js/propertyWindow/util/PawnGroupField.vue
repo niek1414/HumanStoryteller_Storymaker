@@ -1,40 +1,41 @@
 <template>
     <span style="width: 100%; position: relative; display: flex; flex-wrap: wrap;" :key="refreshKey">
-        <PawnGroupSourceField :myModel.sync="myModel['Source']"></PawnGroupSourceField><br/>
+        <PawnGroupSourceField :myModel.sync="myModel['Source']"/><br/>
         <v-autocomplete
                 v-model="picked"
                 :items="availableFilters"
                 label="Add condition"
                 :search-input.sync="search"
-        ></v-autocomplete>
+        />
         <template v-for="(filter) in myModel.Filters">
            <div class="filter-rule" :key="filter.uuid">
                <b>
                    <v-switch
                            :label="filter['Include']?'Include ':'Exclude '"
                            v-model="filter['Include']"
-                   ></v-switch>
+                   />
                </b>
-               <Awake v-if="filter.type === 'Awake'" v-bind:filter="filter"></Awake>
-               <Downed v-if="filter.type === 'Downed'" v-bind:filter="filter"></Downed>
-               <Drafted v-if="filter.type === 'Drafted'" v-bind:filter="filter"></Drafted>
-               <Faction v-if="filter.type === 'Faction'" v-bind:filter="filter"></Faction>
-               <Fighting v-if="filter.type === 'Fighting'" v-bind:filter="filter"></Fighting>
-               <Indoors v-if="filter.type === 'Indoors'" v-bind:filter="filter"></Indoors>
-               <Kind v-if="filter.type === 'Kind'" v-bind:filter="filter"></Kind>
-               <Male v-if="filter.type === 'Male'" v-bind:filter="filter"></Male>
-               <Prisoner v-if="filter.type === 'Prisoner'" v-bind:filter="filter"></Prisoner>
-               <Relation v-if="filter.type === 'Relation'" v-bind:filter="filter"></Relation>
-               <Starving v-if="filter.type === 'Starving'" v-bind:filter="filter"></Starving>
-               <CanReach v-if="filter.type === 'CanReach'" v-bind:filter="filter"></CanReach>
-               <IsHumanlike v-if="filter.type === 'IsHumanlike'" v-bind:filter="filter"></IsHumanlike>
-               <InBed v-if="filter.type === 'InBed'" v-bind:filter="filter"></InBed>
-               <IsKidnapped v-if="filter.type === 'IsKidnapped'" v-bind:filter="filter"></IsKidnapped>
-               <OnFire v-if="filter.type === 'OnFire'" v-bind:filter="filter"></OnFire>
-               <UnderRoof v-if="filter.type === 'UnderRoof'" v-bind:filter="filter"></UnderRoof>
-               <NaturalAgeUnder v-if="filter.type === 'NaturalAgeUnder'" v-bind:filter="filter"></NaturalAgeUnder>
-               <PrisonerInCell v-if="filter.type === 'PrisonerInCell'" v-bind:filter="filter"></PrisonerInCell>
-               <CanSeeOneOf v-if="filter.type === 'CanSeeOneOf'" v-bind:filter="filter"></CanSeeOneOf>
+               <Awake v-if="filter.type === 'Awake'" v-bind:filter="filter"/>
+               <Downed v-if="filter.type === 'Downed'" v-bind:filter="filter"/>
+               <Drafted v-if="filter.type === 'Drafted'" v-bind:filter="filter"/>
+               <Faction v-if="filter.type === 'Faction'" v-bind:filter="filter"/>
+               <Fighting v-if="filter.type === 'Fighting'" v-bind:filter="filter"/>
+               <Indoors v-if="filter.type === 'Indoors'" v-bind:filter="filter"/>
+               <Kind v-if="filter.type === 'Kind'" v-bind:filter="filter"/>
+               <Male v-if="filter.type === 'Male'" v-bind:filter="filter"/>
+               <Prisoner v-if="filter.type === 'Prisoner'" v-bind:filter="filter"/>
+               <Relation v-if="filter.type === 'Relation'" v-bind:filter="filter"/>
+               <Starving v-if="filter.type === 'Starving'" v-bind:filter="filter"/>
+               <CanReach v-if="filter.type === 'CanReach'" v-bind:filter="filter"/>
+               <IsHumanlike v-if="filter.type === 'IsHumanlike'" v-bind:filter="filter"/>
+               <InBed v-if="filter.type === 'InBed'" v-bind:filter="filter"/>
+               <IsKidnapped v-if="filter.type === 'IsKidnapped'" v-bind:filter="filter"/>
+               <OnFire v-if="filter.type === 'OnFire'" v-bind:filter="filter"/>
+               <UnderRoof v-if="filter.type === 'UnderRoof'" v-bind:filter="filter"/>
+               <NaturalAgeUnder v-if="filter.type === 'NaturalAgeUnder'" v-bind:filter="filter"/>
+               <PrisonerInCell v-if="filter.type === 'PrisonerInCell'" v-bind:filter="filter"/>
+               <CanSeeOneOf v-if="filter.type === 'CanSeeOneOf'" v-bind:filter="filter"/>
+               <Location v-if="filter.type === 'Location'" v-bind:filter="filter"/>
                <div class="delete-filter">
                    <v-btn flat color="error" v-on:click="deleteFilter(filter.uuid)">
                        remove
@@ -43,7 +44,7 @@
             </div>
         </template>
         <v-input messages="Default is no limit">
-            <NumberField label="Pawn limit" :myModel.sync="myModel['Limit']"></NumberField>
+            <NumberField label="Pawn limit" :myModel.sync="myModel['Limit']"/>
         </v-input>
     </span>
 </template>
@@ -71,9 +72,11 @@
   import PrisonerInCell from "./filter/PrisonerInCell";
   import CanSeeOneOf from "./filter/CanSeeOneOf";
   import IsKidnapped from "./filter/IsKidnapped";
+  import Location from "./filter/Location";
 
   export default {
     components : {
+      Location,
       IsHumanlike,
       CanSeeOneOf,
       PrisonerInCell,
@@ -123,6 +126,7 @@
           {value : 'IsKidnapped', text : 'Is kidnapped'},
           {value : 'Kind', text : 'Is Kind/Race...'},
           {value : 'Male', text : 'Is male'},
+          {value : 'Location', text : 'Is within location'},
           {value : 'OnFire', text : 'Is on fire'},
           {value : 'Prisoner', text : 'Is prisoner'},
           {value : 'Starving', text : 'Is starving'},

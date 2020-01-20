@@ -4,7 +4,7 @@
             when pawn can reach
         </div>
         <div>
-            <LocationField :myModel.sync="filter['Target']"></LocationField>
+            <LocationField :myModel.sync="filter['Target']"/>
         </div>
         <div>
             .

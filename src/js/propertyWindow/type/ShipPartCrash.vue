@@ -6,7 +6,7 @@
             ?'Default: 1 crash part'
             :'The amount of crashed parts'
         ">
-            <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"></NumberField>
+            <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"/>
         </v-input>
 
         <v-input class="property-box" :messages="
@@ -19,7 +19,7 @@
                     v-model="selected.properties['ShipCrashedPart']"
                     :items="parts"
                     label="Ship part"
-            ></v-autocomplete>
+            />
         </v-input>
     </div>
 </template>

@@ -4,7 +4,7 @@
             <v-layout align-center justify-space-between row>
                 <v-flex xs12>
                     <v-input messages="Name of a map. Pick left if exists (generated & player visited)">
-                        <v-text-field label="Map name" type="text" v-model="condition['mapName']"></v-text-field>
+                        <v-text-field label="Map name" type="text" v-model="condition['mapName']"/>
                     </v-input>
                 </v-flex>
             </v-layout>

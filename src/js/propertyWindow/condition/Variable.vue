@@ -8,17 +8,17 @@
                                 label="Variable"
                                 :items="variables"
                                 v-model="condition['name']"
-                        ></v-autocomplete>
+                        />
                     </v-input>
                 </v-flex>
                 <v-flex xs4>
                     <v-input messages="The check type">
-                        <v-select :items="numeralCompares" label="Compare check" type="text" v-model="condition['compareType']"></v-select>
+                        <v-select :items="numeralCompares" label="Compare check" type="text" v-model="condition['compareType']"/>
                     </v-input>
                 </v-flex>
                 <v-flex xs4>
                     <v-input messages="Value to compare to">
-                        <NumberField label="Constant" :myModel.sync="condition['constant']"></NumberField>
+                        <NumberField label="Constant" :myModel.sync="condition['constant']"/>
                     </v-input>
                 </v-flex>
             </v-layout>

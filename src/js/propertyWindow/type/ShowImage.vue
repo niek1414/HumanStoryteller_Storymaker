@@ -5,11 +5,11 @@
             <v-switch
                     label="Remove all images"
                     v-model="selected.properties['RemoveAll']"
-            ></v-switch>
+            />
         </v-input>
         <template v-if="!selected.properties['RemoveAll']">
             <v-input class="property-box" messages="URL where the image is found. Make sure the url end with .jpg .png .gif etc">
-                <v-text-field label="URL" type="text" v-model="selected.properties['Url']"></v-text-field>
+                <v-text-field label="URL" type="text" v-model="selected.properties['Url']"/>
             </v-input>
         </template>
     </div>

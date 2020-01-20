@@ -6,7 +6,7 @@
                 label="Pawn source"
                 :clearable=true
                 v-on:change="clean()"
-        ></v-select>
+        />
         <template v-if="myModel.Type === 'Pawns'">
             <v-autocomplete
                     :items="names"
@@ -14,7 +14,7 @@
                     label="Pawn name"
                     :clearable=true
                     multiple
-            ></v-autocomplete>
+            />
         </template>
         <template v-else-if="myModel.Type === 'PawnGroup'">
             <v-autocomplete
@@ -23,7 +23,7 @@
                     label="Pawn group"
                     :clearable=true
                     multiple
-            ></v-autocomplete>
+            />
         </template>
     </span>
 </template>

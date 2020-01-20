@@ -4,7 +4,7 @@
             <v-layout align-center justify-space-between row>
                 <v-flex xs6>
                     <v-input messages="Name of a map. Pick left if exists (generated & player visited)">
-                        <v-text-field label="Map name" type="text" v-model="condition['mapName']"></v-text-field>
+                        <v-text-field label="Map name" type="text" v-model="condition['mapName']"/>
                     </v-input>
                 </v-flex>
                 <v-flex xs6>
@@ -13,7 +13,7 @@
                                 v-model="condition['pawnName']"
                                 :items="names"
                                 small-chips
-                        ></v-autocomplete>
+                        />
                     </v-input>
                 </v-flex>
             </v-layout>

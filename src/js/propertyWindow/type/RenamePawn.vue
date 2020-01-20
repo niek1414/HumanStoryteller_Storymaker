@@ -7,7 +7,7 @@
             <v-switch
                     label="Unnamed colonist"
                     v-model="selected.properties['UnnamedColonist']"
-            ></v-switch>
+            />
         </v-input>
         <template v-if="!selected.properties['UnnamedColonist']">
             <v-input class="property-box" messages="Target pawn, if multiple a random one is selected">
@@ -15,7 +15,7 @@
             </v-input>
         </template>
         <v-input class="property-box" messages="New identifiable name of the pawn, MANDATORY">
-            <v-text-field label="New name" type="text" v-model="selected.properties['OutName']"></v-text-field>
+            <v-text-field label="New name" type="text" v-model="selected.properties['OutName']"/>
         </v-input>
     </div>
 </template>

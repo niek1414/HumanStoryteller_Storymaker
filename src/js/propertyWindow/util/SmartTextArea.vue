@@ -5,25 +5,25 @@
                 <button :class="{ 'is-active': isActive.bold() }"
                         @click="commands.bold"
                         class="menubar__button">
-                    <i class="fas fa-bold"></i>
+                    <i class="fas fa-bold"/>
                 </button>
                 <button :class="{ 'is-active': isActive.italic() }"
                         @click="commands.italic"
                         class="menubar__button">
-                    <i class="fas fa-italic"></i>
+                    <i class="fas fa-italic"/>
                 </button>
                 <button :class="{ 'is-active': getMarkAttrs('fontsize').level === 5}"
                         @click="commands.fontsize({ level: 5, current: getMarkAttrs('fontsize').level})"
                         class="menubar__button"
-                        style="margin-left: 10px"><i class="fas fa-font" style="font-size: 0.6em"></i>
+                        style="margin-left: 10px"><i class="fas fa-font" style="font-size: 0.6em"/>
                 </button>
                 <button :class="{ 'is-active': getMarkAttrs('fontsize').level === 6}"
                         @click="commands.fontsize({ level: 6, current: getMarkAttrs('fontsize').level})"
-                        class="menubar__button"><i class="fas fa-font" style="font-size: 1em"></i>
+                        class="menubar__button"><i class="fas fa-font" style="font-size: 1em"/>
                 </button>
                 <button :class="{ 'is-active': getMarkAttrs('fontsize').level === 7}"
                         @click="commands.fontsize({ level: 7, current:  getMarkAttrs('fontsize').level})"
-                        class="menubar__button"><i class="fas fa-font" style="font-size: 1.5em"></i>
+                        class="menubar__button"><i class="fas fa-font" style="font-size: 1.5em"/>
                 </button>
                 <button :class="{ 'is-active': insertPawnTab}" class="menubar__button"
                         style="margin-left: 10px;width: auto;padding: 0 10px"
@@ -49,12 +49,12 @@
                                 :items="names"
                                 label="Pawn name"
                                 v-model="pawnName"
-                        ></v-autocomplete>
+                        />
                         <v-autocomplete
                                 :items="['IdName','FullName','ShortName','Age']"
                                 label="Pawn attribute"
                                 v-model="pawnAttribute"
-                        ></v-autocomplete>
+                        />
                         <v-btn :disabled="!pawnName || !pawnAttribute" v-on:click="function() {commands.pmention({ pawn: pawnName, attr: pawnAttribute })}">
                             Insert
                         </v-btn>
@@ -64,7 +64,7 @@
                                 :items="variables"
                                 label="Variable"
                                 v-model="variable"
-                        ></v-autocomplete>
+                        />
                         <v-btn :disabled="!variable" v-on:click="function() {
                                 commands.vmention({ variable: variable })
                             }">

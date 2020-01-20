@@ -8,20 +8,20 @@
                     v-model="selected.properties['ThoughtType']"
                     :items="thoughtTypes"
                     label="Thoughts"
-            ></v-autocomplete>
+            />
         </v-input>
         <template v-if="selected.properties['ThoughtType'] === 'custom'">
             <v-input class="property-box" messages="Label of thought">
-                <v-text-field label="Label text" type="text" v-model="selected.properties['ThoughtLabel']"></v-text-field>
+                <v-text-field label="Label text" type="text" v-model="selected.properties['ThoughtLabel']"/>
             </v-input>
             <v-input class="property-box" messages="Description of thought">
-                <v-text-field label="Description text" type="text" v-model="selected.properties['ThoughtDescription']"></v-text-field>
+                <v-text-field label="Description text" type="text" v-model="selected.properties['ThoughtDescription']"/>
             </v-input>
             <v-input class="property-box" messages="Mood boost (if bigger than 0) or mood loss (if lower than 0)">
-                <NumberField label="Thought effect" :myModel.sync="selected.properties['ThoughtEffect']"></NumberField>
+                <NumberField label="Thought effect" :myModel.sync="selected.properties['ThoughtEffect']"/>
             </v-input>
             <v-input class="property-box" messages="Thought duration in days">
-                <NumberField label="Thought duration" :myModel.sync="selected.properties['ThoughtDuration']"></NumberField>
+                <NumberField label="Thought duration" :myModel.sync="selected.properties['ThoughtDuration']"/>
             </v-input>
         </template>
         <template v-else-if="selected.properties['ThoughtType'] !=='' && selected.properties['ThoughtType'] !== undefined && selected.properties['ThoughtType'] !== 'custom'">
@@ -31,7 +31,7 @@
                         :items="names"
                         label="Other pawn"
                         small-chips
-                ></v-autocomplete>
+                />
             </v-input>
         </template>
     </div>

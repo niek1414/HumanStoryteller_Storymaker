@@ -4,7 +4,7 @@
             <v-switch
                     label="Complete current research"
                     v-model="selected.properties['FinishCurrent']"
-            ></v-switch>
+            />
         </v-input>
 
         <v-input class="property-box" messages="Research to finish. All preconditions will also be researched.">
@@ -13,7 +13,7 @@
                     multiple
                     :items="projects"
                     label="Projects"
-            ></v-autocomplete>
+            />
         </v-input>
     </div>
 </template>

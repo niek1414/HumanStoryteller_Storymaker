@@ -8,12 +8,12 @@
                                 v-model="condition['pawnName']"
                                 :items="names"
                                 small-chips
-                        ></v-autocomplete>
+                        />
                     </v-input>
                 </v-flex>
                 <v-flex xs6>
                     <v-input messages="Condition of the pawn">
-                        <v-select :items="pawnConditions" label="State" type="text" v-model="condition['pawnCondition']"></v-select>
+                        <v-select :items="pawnConditions" label="State" type="text" v-model="condition['pawnCondition']"/>
                     </v-input>
                 </v-flex>
             </v-layout>

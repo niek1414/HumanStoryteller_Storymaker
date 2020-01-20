@@ -6,7 +6,7 @@
             ?'Default: 15 tiles from origin plant'
             :'Amount of tiles that the infection can spread (Max 56)'
         ">
-            <NumberField label="Infection range" :myModel.sync="selected.properties['Radius']"></NumberField>
+            <NumberField label="Infection range" :myModel.sync="selected.properties['Radius']"/>
         </v-input>
         <v-input class="property-box" :messages="
             selected.properties['Chance'] ==='' ||
@@ -14,7 +14,7 @@
             ?'Default: 0.4 (= 40%)'
             :'The change (between 0 and 1) of a plant being affected (every plan in the radius is checked once)'
         ">
-            <NumberField label="Infection chance" :myModel.sync="selected.properties['Chance']"></NumberField>
+            <NumberField label="Infection chance" :myModel.sync="selected.properties['Chance']"/>
         </v-input>
     </div>
 </template>

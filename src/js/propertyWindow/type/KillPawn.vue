@@ -7,7 +7,7 @@
             <v-switch
                     label="Destroy"
                     v-model="selected.properties['Destroy']"
-            ></v-switch>
+            />
         </v-input>
     </div>
 </template>

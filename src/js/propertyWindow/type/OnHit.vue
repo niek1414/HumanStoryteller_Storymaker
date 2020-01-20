@@ -16,7 +16,7 @@
                     v-model="selected.properties['HitResponse']"
                     label="Response"
                     :clearable=true
-            ></v-select>
+            />
         </v-input>
     </div>
 </template>

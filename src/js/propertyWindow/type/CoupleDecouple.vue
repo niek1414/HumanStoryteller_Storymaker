@@ -4,14 +4,14 @@
             <v-switch
                     label="Couple target map"
                     v-model="selected.properties['Couple']"
-            ></v-switch>
+            />
         </v-input>
         <template v-if="!selected.properties['Couple']">
             <v-input class="property-box">
                 <v-switch
                         label="Permanently remove site"
                         v-model="selected.properties['Permanent']"
-                ></v-switch>
+                />
             </v-input>
         </template>
         <br/>

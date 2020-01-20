@@ -8,7 +8,7 @@
             ?'Default: free'
             :'Price that needs to be paid to select `accept`'
         ">
-            <NumberField label="Silver price" :myModel.sync="selected.properties['Silver']"></NumberField>
+            <NumberField label="Silver price" :myModel.sync="selected.properties['Silver']"/>
         </v-input>
         <v-input class="property-box" :messages="
             selected.properties['Duration'] ==='' ||
@@ -16,7 +16,7 @@
             ?'Default: 1 day (to show instantly just input 0.001 and never expire is 0)'
             :'Amount of days the proposal can be postponed (b.v.: 0.5 for half a day). To show instantly just input 0.001 and never expire is 0.'
         ">
-            <NumberField label="Proposal duration" :myModel.sync="selected.properties['Duration']"></NumberField>
+            <NumberField label="Proposal duration" :myModel.sync="selected.properties['Duration']"/>
         </v-input>
     </div>
 </template>

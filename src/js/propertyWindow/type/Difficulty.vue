@@ -11,7 +11,7 @@
                     v-model="selected.properties['Difficulty']"
                     :items="difficulties"
                     label="Difficulty level"
-            ></v-autocomplete>
+            />
         </v-input>
     </div>
 </template>

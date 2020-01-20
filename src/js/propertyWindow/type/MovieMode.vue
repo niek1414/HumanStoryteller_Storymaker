@@ -4,7 +4,7 @@
             <v-switch
                     label="Movie mode"
                     v-model="selected.properties['Enable']"
-            ></v-switch>
+            />
         </v-input>
     </div>
 </template>

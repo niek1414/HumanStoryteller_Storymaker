@@ -9,7 +9,7 @@
                 v-model="filter['Type']"
                 label="relation"
                 :clearable=true
-        ></v-select>
+        />
         <div>
             .
         </div>

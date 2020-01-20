@@ -6,10 +6,10 @@
                     v-model="selected.properties['OrbitalType']"
                     label="Type"
                     :clearable=true
-            ></v-select>
+            />
         </v-input>
         <v-input class="property-box" messages="Strike location, default is random">
-            <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
+            <LocationField :myModel.sync="selected.properties['Location']"/>
         </v-input>
     </div>
 </template>

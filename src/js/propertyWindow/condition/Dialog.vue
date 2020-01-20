@@ -4,7 +4,7 @@
             <v-layout align-center justify-space-between row>
                 <v-flex xs12>
                     <v-input messages="Status of the dialog response">
-                        <v-select :items="dialogResponse" label="Response status" type="text" v-model="condition['response']"></v-select>
+                        <v-select :items="dialogResponse" label="Response status" type="text" v-model="condition['response']"/>
                     </v-input>
                 </v-flex>
             </v-layout>

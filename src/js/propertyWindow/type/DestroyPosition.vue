@@ -4,28 +4,28 @@
             <v-switch
                     label="Destroy items"
                     v-model="selected.properties['DestroyItems']"
-            ></v-switch>
+            />
         </v-input>
         <v-input class="property-box" messages="Destroy pawns?">
             <v-switch
                     label="Destroy pawns"
                     v-model="selected.properties['DestroyPawns']"
-            ></v-switch>
+            />
         </v-input>
         <v-input class="property-box" messages="Destroy structures?">
             <v-switch
                     label="Destroy structures"
                     v-model="selected.properties['DestroyStructures']"
-            ></v-switch>
+            />
         </v-input>
         <v-input class="property-box" messages="Destroy plants?">
             <v-switch
                     label="Destroy plants"
                     v-model="selected.properties['DestroyPlants']"
-            ></v-switch>
+            />
         </v-input>
         <v-input class="property-box" messages="Position that should be destroyed. Can be a zone or single cell">
-            <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
+            <LocationField :myModel.sync="selected.properties['Location']"/>
         </v-input>
     </div>
 </template>

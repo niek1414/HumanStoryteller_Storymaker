@@ -4,7 +4,7 @@
             <v-switch
                     label="Black screen"
                     v-model="selected.properties['Enable']"
-            ></v-switch>
+            />
         </v-input>
     </div>
 </template>

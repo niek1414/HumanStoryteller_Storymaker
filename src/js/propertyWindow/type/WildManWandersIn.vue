@@ -1,7 +1,7 @@
 <template>
     <div class="info-box">
         <v-input class="property-box" messages="Identifiable name of the wild man">
-            <v-text-field label="Pawn name" type="text" v-model="selected.properties['OutName']"></v-text-field>
+            <v-text-field label="Pawn name" type="text" v-model="selected.properties['OutName']"/>
         </v-input>
         <v-input class="property-box">
             <v-select
@@ -9,7 +9,7 @@
                     v-model="selected.properties['Gender']"
                     label="Gender"
                     :clearable=true
-            ></v-select>
+            />
         </v-input>
     </div>
 </template>

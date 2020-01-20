@@ -11,10 +11,10 @@
             <v-switch
                     label="Instantly place"
                     v-model="selected.properties['InstaPlace']"
-            ></v-switch>
+            />
         </v-input>
         <v-input class="property-box" messages="Drop location, default is random">
-            <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
+            <LocationField :myModel.sync="selected.properties['Location']"/>
         </v-input>
     </div>
 </template>

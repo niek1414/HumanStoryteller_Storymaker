@@ -7,11 +7,11 @@
             <v-switch
                     :label="selected.properties['Unfog']?'Unfog':'Fog'"
                     v-model="selected.properties['Unfog']"
-            ></v-switch>
+            />
         </v-input>
         <template v-if="selected.properties['Unfog']">
             <v-input class="property-box" messages="Location to start unfog, default is all colonists">
-                <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
+                <LocationField :myModel.sync="selected.properties['Location']"/>
             </v-input>
         </template>
     </div>

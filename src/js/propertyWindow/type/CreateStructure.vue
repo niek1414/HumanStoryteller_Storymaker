@@ -11,10 +11,10 @@
             <li>Click 'copy home area' and follow the instructions</li>
         </ol>
         <v-input class="property-box" messages="Paste here">
-            <v-text-field label="Structure" type="text" v-model="selected.properties['Structure']"></v-text-field>
+            <v-text-field label="Structure" type="text" v-model="selected.properties['Structure']"/>
         </v-input>
         <v-input class="property-box" messages="Structure location offset (from structure origin), default is 0:0">
-            <LocationField :myModel.sync="selected.properties['Location']"></LocationField>
+            <LocationField :myModel.sync="selected.properties['Location']"/>
         </v-input>
     </div>
 </template>

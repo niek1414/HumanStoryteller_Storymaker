@@ -1,7 +1,7 @@
 <template>
     <div class="info-box">
         <v-input class="property-box" messages="2 is twice the strength, 0.5 half and 1 is default (takes player difficulty & playtime in account)">
-            <NumberField label="Strength as multiplier" :myModel.sync="selected.properties['Points']"></NumberField>
+            <NumberField label="Strength as multiplier" :myModel.sync="selected.properties['Points']"/>
         </v-input>
 
         <v-input class="property-box" messages="If the faction is friendly at the time, they will come but not attack">
@@ -10,7 +10,7 @@
                     :items="factionTypes"
                     v-model="selected.properties['Faction']"
                     label="Faction"
-            ></v-select>
+            />
         </v-input>
 
         <v-input class="property-box" messages="Not all factions are usable for all strategies and arrive modes">
@@ -19,7 +19,7 @@
                     :items="strategyTypes"
                     v-model="selected.properties['Strategy']"
                     label="Strategy"
-            ></v-select>
+            />
         </v-input>
 
         <v-input class="property-box">
@@ -28,10 +28,10 @@
                     :items="arriveModeTypes"
                     v-model="selected.properties['ArriveMode']"
                     label="Arrive mode"
-            ></v-select>
+            />
         </v-input>
         <v-input class="property-box" messages="ATTENTION: This will generate batches with above parameters until enough and remove redundant if too much. This means it MAY NOT be in line with set difficulty!">
-            <NumberField label="Amount of pawns" :myModel.sync="selected.properties['Amount']"></NumberField>
+            <NumberField label="Amount of pawns" :myModel.sync="selected.properties['Amount']"/>
         </v-input>
         <v-input class="property-box" messages="Assigned from top to bottom. Name overflow will be ignored.">
             <v-combobox

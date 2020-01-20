@@ -9,7 +9,7 @@
                 label="faction"
                 multiple
                 v-model="filter['Factions']"
-        ></v-select>
+        />
         <div>
             .
         </div>

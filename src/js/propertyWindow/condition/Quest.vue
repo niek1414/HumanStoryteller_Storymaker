@@ -4,7 +4,7 @@
             <v-layout align-center justify-space-between row>
                 <v-flex xs12>
                     <v-input messages="Status of the quest">
-                        <v-select :items="questResponse" label="Quest status" type="text" v-model="condition['questState']"></v-select>
+                        <v-select :items="questResponse" label="Quest status" type="text" v-model="condition['questState']"/>
                     </v-input>
                 </v-flex>
             </v-layout>

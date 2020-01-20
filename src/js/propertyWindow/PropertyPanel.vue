@@ -3,22 +3,22 @@
         <div id="property-action-buttons">
             <input type="radio" class="radio-tab" id="home" value="home" v-model="tab">
             <label for="home" class="action-item">
-                <i class="far fa-list-alt fa-2x"></i>
+                <i class="far fa-list-alt fa-2x"/>
                 <span class="tooltip-text tooltip-right">Properties</span>
             </label>
             <input type="radio" class="radio-tab" id="condition" value="condition" v-model="tab">
             <label for="condition" class="action-item">
-                <i class="fas fa-code-branch fa-2x"></i>
+                <i class="fas fa-code-branch fa-2x"/>
                 <span class="tooltip-text tooltip-right">Conditional</span>
             </label>
             <input type="radio" class="radio-tab" id="mail" value="mail" v-model="tab">
             <label for="mail" class="action-item">
-                <i class="far fa-envelope fa-2x"></i>
+                <i class="far fa-envelope fa-2x"/>
                 <span class="tooltip-text tooltip-right">Messages</span>
             </label>
             <input type="radio" class="radio-tab" id="variable" value="variable" v-model="tab">
             <label for="variable" class="action-item">
-                <i class="fas fa-shapes fa-2x"></i>
+                <i class="fas fa-shapes fa-2x"/>
                 <span class="tooltip-text tooltip-right">Variables</span>
             </label>
             <div id="slider"></div>
@@ -26,7 +26,7 @@
         <div id="property-page">
             <property-header>
                 <input id="name-input" placeholder="Event name" maxlength="15" v-model="selected.eventName" v-on:input="nameChangeHandler(selected)">
-                <i class="far fa-edit"></i>
+                <i class="far fa-edit"/>
                 <model-select
                         id="type-select"
                         :options="options"
@@ -35,9 +35,9 @@
                         placeholder="Type to search..">
                 </model-select>
             </property-header>
-            <conditional v-if="tab === 'condition'" v-bind:selected="selected" v-bind:canvas="canvas"></conditional>
-            <mail v-else-if="tab === 'mail'" v-bind:selected="selected" v-bind:canvas="canvas"></mail>
-            <variable v-else-if="tab === 'variable'" v-bind:selected="selected" v-bind:canvas="canvas"></variable>
+            <conditional v-if="tab === 'condition'" v-bind:selected="selected" v-bind:canvas="canvas"/>
+            <mail v-else-if="tab === 'mail'" v-bind:selected="selected" v-bind:canvas="canvas"/>
+            <variable v-else-if="tab === 'variable'" v-bind:selected="selected" v-bind:canvas="canvas"/>
             <template v-else>
                 <RaidEnemy v-if="selected.type.value.value === 'RaidEnemy'" v-bind:selected="selected"/>
                 <Disease v-else-if="selected.type.value.value === 'Disease'" v-bind:selected="selected"/>
@@ -110,7 +110,7 @@
                 <CoupleDecouple v-else-if="selected.type.value.value === 'CoupleDecouple'" v-bind:selected="selected"/>
                 <FadeBlack v-else-if="selected.type.value.value === 'FadeBlack'" v-bind:selected="selected"/>
                 <Nothing v-else v-bind:selected="selected"/>
-                <v-divider></v-divider>
+                <v-divider/>
                 <div class="info-box">
                     <v-input messages="How to specify the map?">
                         <v-radio-group v-model="selected.properties['Target']['CustomTarget']">
@@ -121,7 +121,7 @@
                     </v-input>
                     <template v-if="selected.properties['Target']['CustomTarget'] === 'Name'">
                         <v-input messages="Name of the map on which the event will be executed.">
-                            <v-text-field label="Map name" type="text" v-model="selected.properties['Target']['TargetName']"></v-text-field>
+                            <v-text-field label="Map name" type="text" v-model="selected.properties['Target']['TargetName']"/>
                         </v-input>
                     </template>
                     <template v-else-if="selected.properties['Target']['CustomTarget'] === 'Preset'">
@@ -131,13 +131,13 @@
                                     v-model="selected.properties['Target']['TargetPreset']"
                                     label="Map preset"
                                     :clearable=true
-                            ></v-select>
+                            />
                         </v-input>
                     </template>
                     <template v-else-if="selected.properties['Target']['CustomTarget'] === 'Tile'">
                         <v-input
                                 messages="Tile of the map on which the event will be executed. Best used when targeting a map tile and not a map (there may be no map on the tile)">
-                            <v-text-field label="Map tile" type="number" v-model="selected.properties['Target']['TargetTile']"></v-text-field>
+                            <v-text-field label="Map tile" type="number" v-model="selected.properties['Target']['TargetTile']"/>
                         </v-input>
                     </template>
                 </div>

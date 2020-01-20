@@ -4,11 +4,11 @@
             <v-switch
                     label="Explode on death"
                     v-model="selected.properties['ExplodeOnDeath']"
-            ></v-switch>
+            />
         </v-input>
 
         <v-input class="property-box" v-if="selected.properties['ExplodeOnDeath'] !== undefined && selected.properties['ExplodeOnDeath']" messages="Explosion radius. Default ~6">
-            <NumberField label="Explosion radius" :myModel.sync="selected.properties['ExplodeRadius']"></NumberField>
+            <NumberField label="Explosion radius" :myModel.sync="selected.properties['ExplodeRadius']"/>
         </v-input>
         <v-input class="property-box" messages="Forbidden buildings. Clears old restrictions first.">
             <v-autocomplete
@@ -16,7 +16,7 @@
                     multiple
                     :items="buildings"
                     label="Forbidden buildings"
-            ></v-autocomplete>
+            />
         </v-input>
         <v-input class="property-box" messages="Forbidden actions. Clears old restrictions first.">
             <v-autocomplete
@@ -25,9 +25,9 @@
                     multiple
                     :items="actions"
                     label="Forbidden actions"
-            ></v-autocomplete>
+            />
         </v-input>
-        <v-divider data-content="STATS"></v-divider>
+        <v-divider data-content="STATS"/>
         <v-input class="property-box" messages="Game stats" :key="refreshKey">
             <div style="width: 100%">
                 <v-autocomplete
@@ -35,13 +35,13 @@
                         :items="availableStats"
                         label="Add stat"
                         :search-input.sync="search"
-                ></v-autocomplete>
+                />
                 <template v-for="(val, name) in selected.properties['Stats']" >
                     <v-card :key="name">
                         <v-card-title primary-title>{{name}}</v-card-title>
                         <v-card-text>
                             <v-input messages="Stat factor (2 is STAT * 2). Default is 1 which makes the stat normal.">
-                                <NumberField label="Factor" :myModel.sync="selected.properties['Stats'][name]"></NumberField>
+                                <NumberField label="Factor" :myModel.sync="selected.properties['Stats'][name]"/>
                             </v-input>
                         </v-card-text>
                         <v-card-actions>

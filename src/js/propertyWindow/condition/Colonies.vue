@@ -4,12 +4,12 @@
             <v-layout align-center justify-space-between row>
                 <v-flex xs6>
                     <v-input messages="The check type">
-                        <v-select :items="numeralCompares" label="Compare check" type="text" v-model="condition['compareType']"></v-select>
+                        <v-select :items="numeralCompares" label="Compare check" type="text" v-model="condition['compareType']"/>
                     </v-input>
                 </v-flex>
                 <v-flex xs6>
                     <v-input messages="Amount of colonies to compare to (don't confuse with colonists)">
-                        <NumberField label="Constant" :myModel.sync="condition['constant']"></NumberField>
+                        <NumberField label="Constant" :myModel.sync="condition['constant']"/>
                     </v-input>
                 </v-flex>
             </v-layout>

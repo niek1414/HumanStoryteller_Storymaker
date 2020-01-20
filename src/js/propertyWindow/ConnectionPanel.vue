@@ -7,10 +7,10 @@
                     label="Custom time"
                     v-model="selected.customSwitch"
                     v-on:change="selected.updateWeight()"
-            ></v-switch>
+            />
             <template v-if="selected.customSwitch">
                 <v-input messages="Override value in days (e.g.: 0.5 is half a day)">
-                    <v-text-field label="Duration" type="number" v-model="selected.customWeight" v-on:input="selected.updateWeight()"></v-text-field>
+                    <v-text-field label="Duration" type="number" v-model="selected.customWeight" v-on:input="selected.updateWeight()"/>
                 </v-input>
             </template>
         </div>

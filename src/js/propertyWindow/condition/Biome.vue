@@ -8,7 +8,7 @@
                                     multiple
                                     :items="biomes"
                                     label="Biomes"
-                    ></v-autocomplete>
+                    />
                 </v-flex>
             </v-layout>
             <p>Uses same map the event is executed on.</p>

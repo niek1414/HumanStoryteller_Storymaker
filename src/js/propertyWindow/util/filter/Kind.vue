@@ -9,7 +9,7 @@
                 v-model="filter['Kinds']"
                 label="kind/race"
                 :clearable=true
-        ></v-autocomplete>
+        />
         <div>
             .
         </div>

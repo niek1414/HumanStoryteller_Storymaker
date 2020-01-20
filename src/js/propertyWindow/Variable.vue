@@ -11,23 +11,23 @@
                             <v-layout align-center justify-space-between row>
                                 <v-flex xs4>
                                     <v-input messages="The name of the variable. This is case sensitive">
-                                        <v-text-field label="Variable name" type="text" v-model="storage['Name']"></v-text-field>
+                                        <v-text-field label="Variable name" type="text" v-model="storage['Name']"/>
                                     </v-input>
                                 </v-flex>
                                 <v-flex xs4>
                                     <v-input messages="Modification type. Dividing by zero results in no change.">
-                                        <v-select :items="modifications" label="Modification type" type="text" v-model="storage['Modification']"></v-select>
+                                        <v-select :items="modifications" label="Modification type" type="text" v-model="storage['Modification']"/>
                                     </v-input>
                                 </v-flex>
                                 <template v-if="storage['Modification'] === 'EqualVar'">
                                     <v-input messages="The name of the variable to copy. This is case sensitive">
-                                        <v-text-field label="Variable name" type="text" v-model="storage['NewVar']"></v-text-field>
+                                        <v-text-field label="Variable name" type="text" v-model="storage['NewVar']"/>
                                     </v-input>
                                 </template>
                                 <template v-else>
                                     <v-flex xs4>
                                         <v-input messages="The number at the end of the modification. (`var` add 1 becomes var + 1)">
-                                            <NumberField label="Constant" :myModel.sync="storage['Constant']"></NumberField>
+                                            <NumberField label="Constant" :myModel.sync="storage['Constant']"/>
                                         </v-input>
                                     </v-flex>
                                 </template>
@@ -38,7 +38,7 @@
                         <v-btn flat color="error" v-on:click="selected.storage = selected.storage.filter(function(item) {return item !== storage})">remove</v-btn>
                     </v-card-actions>
                 </v-card>
-                <v-divider v-if="index + 1 < selected.storage.length"></v-divider>
+                <v-divider v-if="index + 1 < selected.storage.length"/>
             </template>
             <br><br>
             <b>Explanation:</b><br>

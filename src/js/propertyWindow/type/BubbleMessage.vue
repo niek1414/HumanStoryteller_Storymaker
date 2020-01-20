@@ -7,20 +7,20 @@
                     small-chips
                     v-model="selected.properties['Name']"
                     :clearable=true
-            ></v-autocomplete>
+            />
         </v-input>
         <SmartTextArea
                 :myModel.sync="selected.properties['Message']"
                 :start-big="true"
                 label="Bubble message"
-        ></SmartTextArea>
+        />
         <v-input class="property-box" messages="Type of text bubble">
             <v-select
                     :items="bubbleTypes"
                     v-model="selected.properties['BubbleType']"
                     label="Bubble type"
                     :clearable=true
-            ></v-select>
+            />
         </v-input>
     </div>
 </template>

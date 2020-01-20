@@ -6,7 +6,7 @@
             ?'Default: between 10 and 20'
             :'The amount of plants'
         ">
-            <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"></NumberField>
+            <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"/>
         </v-input>
         <v-input class="property-box" :messages="
             selected.properties['Range'] ==='' ||
@@ -14,7 +14,7 @@
             ?'Default: 6 tiles'
             :'Distance in tiles that the ambrosia can sprout'
         ">
-            <NumberField label="Sprout distance" :myModel.sync="selected.properties['Range']"></NumberField>
+            <NumberField label="Sprout distance" :myModel.sync="selected.properties['Range']"/>
         </v-input>
 
         <v-input class="property-box" :messages="
@@ -27,7 +27,7 @@
                     v-model="selected.properties['PlantKind']"
                     :items="plants"
                     label="Plant kind"
-            ></v-autocomplete>
+            />
         </v-input>
     </div>
 </template>
