@@ -25,24 +25,6 @@
         <div v-else><p class="info-text" style="color: #FF0000;">Tutorials not available :(<br>Please try refreshing or logging out & in.</p></div>
         <div class="info-text">
             <div class="property-box">
-                <template v-if="toolbar && toolbar.view.projectData !== null && toolbar.view.projectData.id !== null && toolbar.view.projectData.publish">
-                    <span style="font-size: 120%">Create a link directly to your story!</span><br><br>
-                    What state should players, that click on the link, start in?
-                    <v-radio-group row v-model="shareUrlStage">
-                        <v-radio label="World generation" value="W"/>
-                        <v-radio label="Pick landing site" value="S"/>
-                        <v-radio label="Pick characters" value="C"/>
-                        <v-radio label="In-game" value="G"/>
-                    </v-radio-group>
-                    <span style="font-size: 120%">Sharable link: <a :href="shareUrl" v-text="shareUrl"/></span>
-                </template>
-                <span style="font-size: 120%" v-else>Created your story? Next step is to <template
-                        v-if="toolbar && (toolbar.view.projectData === null || toolbar.view.projectData.id === null)"><b>upload it</b> using the upload button below (besides the question mark)</template><template
-                        v-else><b>publish it</b> by changing the publish setting in the project settings (make sure to upload it again afterwards!)</template>.</span>
-                <br><br>
-            </div>
-            <br><br>
-            <div class="property-box">
                 Some instructions if you like reading better:<br>
                 <br>
                 Start by drag-and-dropping the <i class="far fa-plus-square"/> icon on the field to the right.<br>
@@ -76,17 +58,9 @@
   import PropertyHeader from "./PropertyHeader";
 
   export default {
-    name : "editor-info",
+    name : "help-panel",
     props : ["toolbar"],
-    components : {PropertyHeader},
-    data : () => ({
-      shareUrlStage : "W",
-    }),
-    computed : {
-      shareUrl : function() {
-        return "steam://run/294100//HumanStoryteller:" + this.toolbar.view.projectData.id + ":" + this.shareUrlStage + "/";
-      }
-    }
+    components : {PropertyHeader}
   }
 </script>
 

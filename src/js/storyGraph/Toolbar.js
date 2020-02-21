@@ -1,14 +1,17 @@
 import draw2d from 'draw2d'
 import Event from './shape/Event';
 import DeleteEvent from "./command/DeleteEvent";
+import DebugConnection from "./DebugConnection";
 
 export default Class.extend({
 
   init : function(view, propertyPanel) {
     const that = this;
     this.view = view;
+    this.debug = new DebugConnection(this);
     this.propertyPanel = propertyPanel;
     this.user = null;
+    this.changesSaved = true;
 
     $.ajax({
       url : '/me',
@@ -32,11 +35,13 @@ export default Class.extend({
     this.undoButton = $("#undo-action");
     this.undoButton.button().click($.proxy(function() {
       this.view.getCommandStack().undo();
+      that.propertyPanel.selectionChanged();
     }, this)).button("option", "disabled", true);
 
     this.redoButton = $("#redo-action");
     this.redoButton.button().click($.proxy(function() {
       this.view.getCommandStack().redo();
+      that.propertyPanel.selectionChanged();
     }, this)).button("option", "disabled", true);
 
     this.deleteButton = $("#delete-action");
@@ -51,6 +56,7 @@ export default Class.extend({
           }
         }
         this.view.getCommandStack().execute(new DeleteEvent(item));
+        that.propertyPanel.selectionChanged();
       }
     }, this)).button("option", "disabled", true);
 
@@ -71,7 +77,15 @@ export default Class.extend({
         if (item.isDivider) {
           nextSelection.add(view.addDivider(item.x, item.y + 60));
         } else {
-          nextSelection.add(view.addEvent(item.x, item.y + 60, item.type.value.value, JSON.parse(JSON.stringify(item.properties)), JSON.parse(JSON.stringify(item.conditions)), JSON.parse(JSON.stringify(item.storage))));
+          nextSelection.add(view.addEvent(
+            item.x,
+            item.y + 60,
+            item.type.value.value,
+            JSON.parse(JSON.stringify(item.properties)),
+            JSON.parse(JSON.stringify(item.conditions)),
+            JSON.parse(JSON.stringify(item.storage)),
+            true,
+            item.eventName));
         }
       }
 
@@ -82,6 +96,7 @@ export default Class.extend({
           }
         })
       });
+      that.propertyPanel.selectionChanged();
       this.view.setCurrentSelection(nextSelection);
     }, this)).button("option", "disabled", true);
 
@@ -105,6 +120,7 @@ export default Class.extend({
               window.updateTutorial(0, false);
               that.propertyPanel.$modal.hide('dialog');
               that.view.newStory();
+              that.propertyPanel.selectionChanged();
             }
           }
         ]
@@ -275,6 +291,8 @@ export default Class.extend({
       success : function(data) {
         if (removeLocal) {
           that.view.newStory();
+          that.view.serverState = null;
+          that.propertyPanel.selectionChanged();
         } else {
           that.loadStories();
         }
@@ -489,6 +507,8 @@ export default Class.extend({
       success : function(data) {
         window.updateTutorial(0);
         that.view.loadStory(data);
+        that.view.serverState = that.view.saveStory();
+        that.propertyPanel.selectionChanged();
       },
       error : function(jqXhr, textStatus, errorThrown) {
         console.log(errorThrown);
@@ -503,15 +523,19 @@ export default Class.extend({
       return;
     }
     const that = this;
+    const storyData = this.view.saveStory();
     $.ajax({
       url : '/story',
       dataType : 'json',
       type : 'POST',
-      data : this.view.saveStory(),
+      data : storyData,
       success : function(data) {
         if (data.id !== undefined) {
+          that.view.serverState = storyData;
           that.view.projectData.id = data.id;
         }
+        that.view.serverState = storyData;
+        that.propertyPanel.selectionChanged();
       },
       error : function(jqXhr, textStatus, errorThrown) {
         if (jqXHR.status === 403) {

@@ -1,15 +1,6 @@
 <template>
     <div class="info-box">
         <v-input class="property-box" :messages="
-            selected.properties['Amount'] ==='' ||
-            selected.properties['Amount'] === undefined
-            ?'Default: 1 crash part'
-            :'The amount of crashed parts'
-        ">
-            <NumberField label="Amount" :myModel.sync="selected.properties['Amount']"/>
-        </v-input>
-
-        <v-input class="property-box" :messages="
             selected.properties['ShipCrashedPart'] ==='' ||
             selected.properties['ShipCrashedPart'] === undefined
             ?'Default: Mechanoid ship part (Emanator)'

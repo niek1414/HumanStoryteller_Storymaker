@@ -28,12 +28,19 @@
             <NumberField label="Z" :myModel.sync="myModel.Z" :dynamic="true"/>
         </template>
         <template v-else-if="myModel.Type === 'Zone'">
-            <v-text-field
+             <v-btn v-if="ConnectionState.CONNECTED === connectionState"
+                    color="teal"
+                    :outline="myModel.Value === '' || myModel.Value === undefined"
+                    @click="askForZone">
+                Copy zone from RimWorld
+            </v-btn>
+            <v-text-field v-else
                     label="Zone (paste from in-game)"
                     type="text"
                     v-model="myModel.Value"
                     :clearable=true
             />
+
             <LocationField :myModel.sync="myModel.Offset" :isOffset="true"/>
         </template>
     </span>
@@ -48,7 +55,7 @@
     props : ["myModel", "isOffset"],
     name : "LocationField",
     beforeMount : function() {
-      if (!(this.myModel && typeof this.myModel === 'object')) {
+      if (!(this.myModel && typeof this.myModel === "object")) {
         this.myModel = {};
       }
     },
@@ -70,12 +77,16 @@
           {value : "Pawn", text : "Pawn"},
           {value : "Precise", text : "Precise"},
         ],
-        positions : EventTypes.Positions
+        positions : EventTypes.Positions,
+        ConnectionState : Object.freeze({"DISCONNECTED" : 1, "CONNECTING" : 2, "CONNECTED" : 3, "DISCONNECTING" : 4}),
       }
     },
     computed : {
       names : function() {
         return window.toolbar.view.getNames();
+      },
+      connectionState : function() {
+        return window.toolbar.debug.remoteConnectionState;
       }
     },
     methods : {
@@ -84,6 +95,26 @@
         this.myModel.Offset = undefined;
         this.myModel.X = undefined;
         this.myModel.Y = undefined;
+      },
+      askForZone : function() {
+        window.inputReceiver = this.myModel;
+        window.inputReceiverProp = 'Value';
+        window.inputReceiverRefresh = this;
+        window.toolbar.debug.requestZoneInfo();
+        window.toolbar.propertyPanel.$modal.show('dialog', {
+          title : 'Waiting..',
+          text : "Switch to RimWorld to copy the zone",
+          buttons : [
+            {
+              title : 'Cancel',
+              default : true,
+              handler : () => {
+                window.inputReceiver = null;
+                window.toolbar.propertyPanel.$modal.hide('dialog');
+              }
+            }
+          ]
+        });
       }
     },
     watch : {

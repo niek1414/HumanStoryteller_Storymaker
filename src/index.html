@@ -74,6 +74,8 @@
                     </button>
                     <button id="undo-action" class="action-item action-button"><i class="fas fa-undo fa-2x"></i><span class="tooltip-text tooltip-right">Undo action</span></button>
                     <button id="redo-action" class="action-item action-button"><i class="fas fa-redo fa-2x"></i><span class="tooltip-text tooltip-right">Redo action</span></button>
+
+                    <button id="save-indicator" class="action-item"><span class="tooltip-text tooltip-strait">Story changes not saved</span></button>
                 </div>
                 <div id="flow-wrapper">
                     <div id="story-graph">
@@ -94,13 +96,14 @@
                         <divider-panel v-else-if="state === 'node' && selected.isDivider"></divider-panel>
                         <connection-panel v-else-if="state === 'connection'" v-bind:selected="selected"></connection-panel>
                         <stories-panel v-else-if="state === 'stories'" v-bind:stories="selected" v-bind:toolbar="toolbar"></stories-panel>
-                        <editor-info v-else v-bind:toolbar="toolbar">
+                        <overview-panel v-else-if="state === 'overview'" v-bind:project="graph.projectData" v-bind:toolbar="toolbar"></overview-panel>
+                        <help-panel v-else v-bind:toolbar="toolbar">
                             <div style="color: #cfcfcf; padding: 50px">Please enable JavaScript :)<br><br>Is JavaScript enabled? Try Google Chrome!<br><br>Are you using Chrome?
                                 Then
                                 its a
                                 bug..<br><br> If you know how, please send any console errors to niek@keyboxsoftware.nl,<br><br> Thanks :D
                             </div>
-                        </editor-info>
+                        </help-panel>
                         <v-dialog></v-dialog>
                     </v-app>
                 </div>

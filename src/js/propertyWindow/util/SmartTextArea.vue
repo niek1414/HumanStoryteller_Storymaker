@@ -190,7 +190,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     .editor {
         margin-top: 5px;
     }
@@ -208,14 +208,14 @@
         color: #FFF !important;
     }
 
-    /deep/ .editor__content span {
+    .editor__content span {
         padding: 5px;
         margin: 5px;
         border-radius: 50px;
         border: solid 1px #383838;
     }
 
-    /deep/ .ProseMirror {
+    .ProseMirror {
         outline: none !important;
     }
 

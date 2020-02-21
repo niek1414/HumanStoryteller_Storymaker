@@ -114,7 +114,7 @@
                 <div class="info-box">
                     <v-input messages="How to specify the map?">
                         <v-radio-group v-model="selected.properties['Target']['CustomTarget']">
-                            <v-radio  value="Preset" label="Preset"/>
+                            <v-radio value="Preset" label="Preset"/>
                             <v-radio value="Name" label="Name"/>
                             <v-radio value="Tile" label="Tile"/>
                         </v-radio-group>
@@ -141,6 +141,21 @@
                         </v-input>
                     </template>
                 </div>
+                <template v-if="ConnectionState.CONNECTED === connectionState">
+                    <v-divider/>
+                    <div class="info-box">
+                        <div class="property-box">
+                            <div style="display: flex">
+                                <v-btn style="flex: auto;" color="teal darken-2" @click="window_portal.toolbar.debug.executeEvent(selected.getId())">Execute event<i class="fas fa-step-forward"
+                                                                                                                                                       style="margin-left: 10px;"/>
+                                </v-btn>
+                                <v-btn style="flex: auto;" color="teal" @click="window_portal.toolbar.debug.executeEventsFrom(selected.getId())">Execute & create new runner <i
+                                        class="fas fa-play" style="margin-left: 10px;"/></v-btn>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </template>
             </template>
         </div>
     </div>
@@ -323,9 +338,15 @@
           {value : "RandomOfPlayer", text : "Random map of player"},
           {value : "SameAsLastEvent", text : "Same as last event"},
           {value : "LastColonized", text : "Last colonized by player"},
-        ]
+        ],
+        ConnectionState : Object.freeze({"DISCONNECTED" : 1, "CONNECTING" : 2, "CONNECTED" : 3, "DISCONNECTING" : 4}),
       }
-    }
+    },
+    computed : {
+      connectionState : function() {
+        return window.toolbar.debug.remoteConnectionState;
+      }
+    },
   }
 </script>
 

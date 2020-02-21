@@ -13,12 +13,6 @@
                     label="Description"
                     v-model="project.description"
             />
-            <v-input messages="Publicly visible. Change becomes active after upload!">
-                <v-switch
-                        label="Show publicly"
-                        v-model="project.publish"
-                />
-            </v-input>
             <v-divider data-content="MAP GENERATION & SELECTION"/>
             <v-input messages="Force map generation settings?">
                 <v-switch
@@ -48,6 +42,9 @@
                 <v-input messages="Temperature in the world. 0 is very cold and 1 very warm">
                     <v-text-field label="Temperature" type="number" v-model="selected.properties['Temperature']"/>
                 </v-input>
+                <v-input messages="population in the world. 0 is very little and 1 is a lot">
+                    <v-text-field label="Population" type="number" v-model="selected.properties['Population']"/>
+                </v-input>
             </template>
             <v-input messages="Force player starting location?">
                 <v-switch
@@ -56,7 +53,7 @@
                 />
             </v-input>
             <template v-if="selected.properties['OverrideMapLoc']">
-                <v-input messages="Number can be found ingame top-left on world selection screen (with mod enabled).">
+                <v-input messages="Number can be found in-game top-left on world selection screen (with mod enabled).">
                     <v-text-field label="First landing site" type="number" v-model="selected.properties['Site']"/>
                 </v-input>
                 <v-input messages="Minimal 200, maximal 400. Default is 250">

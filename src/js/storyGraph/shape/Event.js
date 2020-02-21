@@ -1,5 +1,6 @@
 import draw2d from 'draw2d';
 import EventTypes from '../EventTypes';
+import TopRightLocator from "../util/TopRightLocator";
 
 export default draw2d.shape.basic.Rectangle.extend({
 
@@ -8,13 +9,15 @@ export default draw2d.shape.basic.Rectangle.extend({
     this.isDivider = false;
     this.label = null;
     const found = EventTypes[attr.type];
-    this.type = found === undefined ? EventTypes.RaidEnemy : found;
+    this.type = found === undefined ? EventTypes.Nothing : found;
     this.type = {text : this.type.text, value : this.type};
     attr.text = attr.text === undefined ? this.type.text : attr.text;
     this.eventName = attr.text;
     this.conditions = attr.conditions ? attr.conditions : [];
     this.properties = attr.properties ? attr.properties : {};
     this.storage = attr.storage ? attr.storage : [];
+    this.currentDebugRunners = [];
+
     if (!this.properties['Target']) {
       this.properties['Target'] = {
         CustomTarget : "Preset",
@@ -41,7 +44,7 @@ export default draw2d.shape.basic.Rectangle.extend({
         label : this.getLabel
       }, getter)
     );
-    this.minEventWidth = this.getWidth();
+    this.minEventWidth = 50;
     this.maxEventWidth = 200;
     this.setLabel(this.eventName);
 
@@ -61,6 +64,21 @@ export default draw2d.shape.basic.Rectangle.extend({
 
       return this
     };
+  },
+
+  addDebugRunner : function() {
+    let _this = this;
+    let circle = new draw2d.shape.basic.Circle({stroke : 2, diameter : 10, bgColor : "#87dc74", color : "#000000"});
+    this.add(circle, new TopRightLocator(15 + (this.currentDebugRunners.length * 15), 5));
+    circle.setSelectionAdapter(function() {
+      return _this
+    });
+    this.currentDebugRunners.push(circle);
+  },
+
+  resetDebugRunners : function() {
+    this.currentDebugRunners.forEach(shape => this.remove(shape))
+    this.currentDebugRunners = [];
   },
 
   setAlpha : function(percent) {
@@ -85,6 +103,7 @@ export default draw2d.shape.basic.Rectangle.extend({
       this.label.setSelectionAdapter(function() {
         return _this
       });
+      setTimeout(() => this.setWidth(Math.min(this.maxEventWidth, Math.max(this.minEventWidth, this.label.getWidth()))), 1);
     } else {
       this.updateLabel(labelString);
     }

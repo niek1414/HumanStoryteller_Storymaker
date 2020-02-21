@@ -1,7 +1,7 @@
 <template>
     <div class="info-box">
         <v-input class="property-box"
-                 messages="Fade out all images if on.<br>Note: Unless changed using the `SpeedControl` event, the game will continue to run normally.<br>Note: User input will be disabled when the fade starts.">
+                 messages="Fade out all images if on. Note: Unless changed using the `SpeedControl` event, the game will continue to run normally. Note: User input will be disabled when the fade starts.">
             <v-switch
                     label="Remove all images"
                     v-model="selected.properties['RemoveAll']"

@@ -106,11 +106,11 @@
           this.finishCallback();
         }
       },
-      update : _.debounce(function(graph) {
+      update : function(graph) {
         if (this.recursiveHint(this.activeStep.graph, graph.lastRoot, []) === null && !this.activeStep.button) {
           this.next();
         }
-      }, 1000),
+      },
       stop : function() {
         window.updateTutorial(0);
       },

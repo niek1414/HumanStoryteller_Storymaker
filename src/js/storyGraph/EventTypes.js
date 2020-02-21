@@ -29,6 +29,7 @@ EventTypes.GAME_ENDINGS = {
 EventTypes.Disease = {
   value : "Disease",
   text : "Disease",
+  desc : "Give pawns a disease",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -36,6 +37,7 @@ EventTypes.Disease = {
 EventTypes.Divider = {
   value : "Divider",
   text : "Divider",
+  desc : "Split in two runners",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -43,6 +45,7 @@ EventTypes.Divider = {
 EventTypes.RaidEnemy = {
   value : "RaidEnemy",
   text : "Raid",
+  desc : "Create a (enemy) raid",
   type : EventTypes.BIG_THREATS,
   conditions : []
 };
@@ -50,6 +53,7 @@ EventTypes.RaidEnemy = {
 EventTypes.ShipPartCrash = {
   value : "ShipPartCrash",
   text : "Ship part",
+  desc : "Drop ship parts",
   type : EventTypes.BIG_THREATS,
   conditions : []
 };
@@ -57,6 +61,7 @@ EventTypes.ShipPartCrash = {
 EventTypes.ManhunterPack = {
   value : "ManhunterPack",
   text : "Manhunter pack",
+  desc : "Spawns a pack of manhunting animals",
   type : EventTypes.BIG_THREATS,
   conditions : []
 };
@@ -64,6 +69,7 @@ EventTypes.ManhunterPack = {
 EventTypes.Flashstorm = {
   value : "Flashstorm",
   text : "Flashstorm",
+  desc : "Creates a flashstorm",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -71,6 +77,7 @@ EventTypes.Flashstorm = {
 EventTypes.Unfog = {
   value : "Unfog",
   text : "(Un)Fog",
+  desc : "Adds or removes the fog of war in areas",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -78,6 +85,7 @@ EventTypes.Unfog = {
 EventTypes.MeteoriteImpact = {
   value : "MeteoriteImpact",
   text : "Meteorite",
+  desc : "Drops meteorite(s)",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
@@ -85,6 +93,7 @@ EventTypes.MeteoriteImpact = {
 EventTypes.HerdMigration = {
   value : "HerdMigration",
   text : "Herd migration",
+  desc : "Let a group of animals travel through an area",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -92,6 +101,7 @@ EventTypes.HerdMigration = {
 EventTypes.Infestation = {
   value : "Infestation",
   text : "Infestation",
+  desc : "Spawn an insect infestation",
   type : EventTypes.BIG_THREATS,
   conditions : []
 };
@@ -99,6 +109,7 @@ EventTypes.Infestation = {
 EventTypes.AnimalInsanitySingle = {
   value : "AnimalInsanitySingle",
   text : "Animal insanity",
+  desc : "Drives a single animal to hunt for humans",
   type : EventTypes.SMALL_THREATS,
   conditions : []
 };
@@ -106,6 +117,7 @@ EventTypes.AnimalInsanitySingle = {
 EventTypes.AnimalInsanityMass = {
   value : "AnimalInsanityMass",
   text : "Animal insanity all",
+  desc : "Drives all animals of the same kind to hunt for humans",
   type : EventTypes.BIG_THREATS,
   conditions : []
 };
@@ -113,6 +125,7 @@ EventTypes.AnimalInsanityMass = {
 EventTypes.FarmAnimalsWanderIn = {
   value : "FarmAnimalsWanderIn",
   text : "Animals join",
+  desc : "Spawns animals that join the colony",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
@@ -120,20 +133,15 @@ EventTypes.FarmAnimalsWanderIn = {
 EventTypes.SelfTame = {
   value : "SelfTame",
   text : "Self tame",
+  desc : "A single animal on the map joins the colony",
   type : EventTypes.GENERALLY_GOOD,
-  conditions : []
-};
-
-EventTypes.ColdSnap = {
-  value : "ColdSnap",
-  text : "Cold snap",
-  type : EventTypes.SMALL_THREATS,
   conditions : []
 };
 
 EventTypes.Aurora = {
   value : "Aurora",
   text : "Aurora",
+  desc : "Shows an aurora in the sky",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -141,6 +149,7 @@ EventTypes.Aurora = {
 EventTypes.Eclipse = {
   value : "Eclipse",
   text : "Eclipse",
+  desc : "Hides the sun during the day for a while",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -148,6 +157,7 @@ EventTypes.Eclipse = {
 EventTypes.SolarFlare = {
   value : "SolarFlare",
   text : "Solar flare",
+  desc : "Disables electronics for a while",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -155,6 +165,7 @@ EventTypes.SolarFlare = {
 EventTypes.PsychicDrone = {
   value : "PsychicDrone",
   text : "Psychic drone",
+  desc : "Decreases pawns mod of one gender",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -162,6 +173,7 @@ EventTypes.PsychicDrone = {
 EventTypes.ShortCircuit = {
   value : "ShortCircuit",
   text : "Short circuit",
+  desc : "Discharges the batteries of one powergrid with an explosion",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -169,6 +181,7 @@ EventTypes.ShortCircuit = {
 EventTypes.PlayAudio = {
   value : "PlayAudio",
   text : "Play audio",
+  desc : "Plays a sound or song",
   type : EventTypes.NEUTRAL,
   conditions : [
     {value : "Audio", text : "Audio"}
@@ -178,6 +191,7 @@ EventTypes.PlayAudio = {
 EventTypes.CropBlight = {
   value : "CropBlight",
   text : "Crop blight",
+  desc : "Spawns plant disease",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -185,6 +199,7 @@ EventTypes.CropBlight = {
 EventTypes.ToxicFallout = {
   value : "ToxicFallout",
   text : "Toxic fallout",
+  desc : "Makes it toxic outside",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -192,6 +207,7 @@ EventTypes.ToxicFallout = {
 EventTypes.TransferPawn = {
   value : "TransferPawn",
   text : "Transfer pawn",
+  desc : "Transfers a pawn to a map",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -199,6 +215,7 @@ EventTypes.TransferPawn = {
 EventTypes.VolcanicWinter = {
   value : "VolcanicWinter",
   text : "Volcanic winter",
+  desc : "Creates a unusual long and cold period",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -206,6 +223,7 @@ EventTypes.VolcanicWinter = {
 EventTypes.TraderArrival = {
   value : "TraderArrival",
   text : "Trader",
+  desc : "A group visits with stuff to trade",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
@@ -213,6 +231,7 @@ EventTypes.TraderArrival = {
 EventTypes.VisitorGroup = {
   value : "VisitorGroup",
   text : "Visitors",
+  desc : "A group visits",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
@@ -220,6 +239,7 @@ EventTypes.VisitorGroup = {
 EventTypes.CreatePawn = {
   value : "CreatePawn",
   text : "Create pawn",
+  desc : "Create a new custom pawn",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -227,6 +247,7 @@ EventTypes.CreatePawn = {
 EventTypes.ResourcePodCrash = {
   value : "ResourcePodCrash",
   text : "Resource pod",
+  desc : "Drop some resources",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
@@ -234,6 +255,7 @@ EventTypes.ResourcePodCrash = {
 EventTypes.RefugeePodCrash = {
   value : "RefugeePodCrash",
   text : "Refugee crash",
+  desc : "Drop a pawn",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
@@ -241,6 +263,7 @@ EventTypes.RefugeePodCrash = {
 EventTypes.PsychicSoothe = {
   value : "PsychicSoothe",
   text : "Psychic soothe",
+  desc : "Increases pawns mod of one gender",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
@@ -248,6 +271,7 @@ EventTypes.PsychicSoothe = {
 EventTypes.RefugeeChased = {
   value : "RefugeeChased",
   text : "Refugee chased",
+  desc : "A pawn joins followed by a raid",
   type : EventTypes.NEUTRAL,
   conditions : [
     {value : "Dialog", text : "Dialog"}
@@ -257,6 +281,7 @@ EventTypes.RefugeeChased = {
 EventTypes.TimeTravel = {
   value : "TimeTravel",
   text : "Time travel",
+  desc : "Change the current time",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -264,6 +289,7 @@ EventTypes.TimeTravel = {
 EventTypes.KillPawn = {
   value : "KillPawn",
   text : "Kill pawn",
+  desc : "Kills a pawn",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -271,6 +297,7 @@ EventTypes.KillPawn = {
 EventTypes.PointTo = {
   value : "PointTo",
   text : "Point to",
+  desc : "Draws a arrow on the screen",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -278,6 +305,7 @@ EventTypes.PointTo = {
 EventTypes.ShowImage = {
   value : "ShowImage",
   text : "Show image",
+  desc : "Shows a custom image",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -285,6 +313,7 @@ EventTypes.ShowImage = {
 EventTypes.SavePawnGroup = {
   value : "SavePawnGroup",
   text : "Save pawn group",
+  desc : "Save a group of pawns for later reference",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
@@ -292,6 +321,7 @@ EventTypes.SavePawnGroup = {
 EventTypes.Alphabeavers = {
   value : "Alphabeavers",
   text : "Alphabeavers",
+  desc : "Spawns a group of tree eating beavers",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -299,6 +329,7 @@ EventTypes.Alphabeavers = {
 EventTypes.CoupleDecouple = {
   value : "CoupleDecouple",
   text : "(De)couple map",
+  desc : "Show or hide a map, reappear on caravan arrival",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -306,6 +337,7 @@ EventTypes.CoupleDecouple = {
 EventTypes.ChapterSplash = {
   value : "ChapterSplash",
   text : "Chapter splash",
+  desc : "Shows a banner with a title and subtext",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -313,6 +345,7 @@ EventTypes.ChapterSplash = {
 EventTypes.ControlCamera = {
   value : "ControlCamera",
   text : "Control camera",
+  desc : "Control what the player is looking at",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -320,6 +353,7 @@ EventTypes.ControlCamera = {
 EventTypes.MovieMode = {
   value : "MovieMode",
   text : "Movie mode",
+  desc : "Shows movie bars and disables player controls",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -327,6 +361,7 @@ EventTypes.MovieMode = {
 EventTypes.OnHit = {
   value : "OnHit",
   text : "On hit",
+  desc : "Do something on getting hit from range",
   type : EventTypes.NEUTRAL,
   conditions : [
     {value : "QueueEvent", text : "Queued event fired"}
@@ -336,6 +371,7 @@ EventTypes.OnHit = {
 EventTypes.FadeBlack = {
   value : "FadeBlack",
   text : "Fade to black",
+  desc : "Fade the screen to black",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -343,6 +379,7 @@ EventTypes.FadeBlack = {
 EventTypes.RenameMap = {
   value : "RenameMap",
   text : "Rename map",
+  desc : "Name a map for later reference",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -350,6 +387,7 @@ EventTypes.RenameMap = {
 EventTypes.RadioMessage = {
   value : "RadioMessage",
   text : "Radio message",
+  desc : "Show a message box with the pawn image",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -357,6 +395,7 @@ EventTypes.RadioMessage = {
 EventTypes.BubbleMessage = {
   value : "BubbleMessage",
   text : "Bubble message",
+  desc : "Show a bubble message coming from a pawn",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -364,6 +403,7 @@ EventTypes.BubbleMessage = {
 EventTypes.SpeedControl = {
   value : "SpeedControl",
   text : "Speed control",
+  desc : "Forces a specific speed and/or locks it",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -371,6 +411,7 @@ EventTypes.SpeedControl = {
 EventTypes.AmbrosiaSprout = {
   value : "AmbrosiaSprout",
   text : "Ambrosia sprouted",
+  desc : "Create a few plants with addicting fruits",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
@@ -378,6 +419,7 @@ EventTypes.AmbrosiaSprout = {
 EventTypes.TempFlux = {
   value : "TempFlux",
   text : "Cold snap/Heat wave",
+  desc : "Change the temperature for a bit",
   type : EventTypes.SMALL_THREATS,
   conditions : []
 };
@@ -385,6 +427,7 @@ EventTypes.TempFlux = {
 EventTypes.Nothing = {
   value : "Nothing",
   text : "Nothing",
+  desc : "Can be used to manipulate the story without executing a event",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -392,6 +435,7 @@ EventTypes.Nothing = {
 EventTypes.Root = {
   value : "Root",
   text : "Root",
+  desc : "This it the entry event",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -399,6 +443,7 @@ EventTypes.Root = {
 EventTypes.Dialog = {
   value : "Dialog",
   text : "Dialog",
+  desc : "Show a dialog screen with options",
   type : EventTypes.NEUTRAL,
   conditions : [
     {value : "Dialog", text : "Dialog"}
@@ -408,6 +453,7 @@ EventTypes.Dialog = {
 EventTypes.WildManWandersIn = {
   value : "WildManWandersIn",
   text : "Wild man wanders in",
+  desc : "A wild man or woman enters the area",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -415,6 +461,7 @@ EventTypes.WildManWandersIn = {
 EventTypes.Planetkiller = {
   value : "Planetkiller",
   text : "Planetkiller",
+  desc : "Creates a countdown that ends the game",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -422,6 +469,7 @@ EventTypes.Planetkiller = {
 EventTypes.Difficulty = {
   value : "Difficulty",
   text : "Set difficulty",
+  desc : "Change the difficulty",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -429,6 +477,7 @@ EventTypes.Difficulty = {
 EventTypes.SetRelation = {
   value : "SetRelation",
   text : "Set Relation",
+  desc : "Change the relation between factions",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -436,6 +485,7 @@ EventTypes.SetRelation = {
 EventTypes.HealPawn = {
   value : "HealPawn",
   text : "Heal pawn",
+  desc : "Heal a pawn",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
@@ -443,6 +493,7 @@ EventTypes.HealPawn = {
 EventTypes.PawnHealth = {
   value : "PawnHealth",
   text : "Pawn health",
+  desc : "Inflict health complications",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -450,6 +501,7 @@ EventTypes.PawnHealth = {
 EventTypes.GiveThought = {
   value : "GiveThought",
   text : "Give thought",
+  desc : "Give a pawn a positive or negative thought",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -457,6 +509,7 @@ EventTypes.GiveThought = {
 EventTypes.CreateStructure = {
   value : "CreateStructure",
   text : "Create structure",
+  desc : "Spawn objects",
   type : EventTypes.NEUTRAL,
   conditions : [
     {value : "CreatedStructure", text : "Created structure"}
@@ -466,6 +519,7 @@ EventTypes.CreateStructure = {
 EventTypes.DestroyPosition = {
   value : "DestroyPosition",
   text : "Destroy position",
+  desc : "Remove all objects from the position",
   type : EventTypes.SMALL_THREATS,
   conditions : []
 };
@@ -473,6 +527,7 @@ EventTypes.DestroyPosition = {
 EventTypes.RenamePawn = {
   value : "RenamePawn",
   text : "Rename pawn",
+  desc : "Name a pawn for later reference",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -480,6 +535,7 @@ EventTypes.RenamePawn = {
 EventTypes.EditPawn = {
   value : "EditPawn",
   text : "Edit pawn",
+  desc : "Change an existing pawn",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -487,6 +543,7 @@ EventTypes.EditPawn = {
 EventTypes.Rules = {
   value : "Rules",
   text : "Rules",
+  desc : "Enforce specific game rules",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -494,6 +551,7 @@ EventTypes.Rules = {
 EventTypes.Research = {
   value : "Research",
   text : "Research",
+  desc : "Finish research projects",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
@@ -501,6 +559,7 @@ EventTypes.Research = {
 EventTypes.DeleteItems = {
   value : "DeleteItems",
   text : "Delete items",
+  desc : "Remove a specific amount of items",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -508,6 +567,7 @@ EventTypes.DeleteItems = {
 EventTypes.OrbitalStrike = {
   value : "OrbitalStrike",
   text : "Orbital strike",
+  desc : "Use a satellite to execute a space-to-ground attack",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -515,6 +575,7 @@ EventTypes.OrbitalStrike = {
 EventTypes.MentalBreak = {
   value : "MentalBreak",
   text : "Mental break",
+  desc : "Give a pawn a mental break",
   type : EventTypes.GENERALLY_BAD,
   conditions : []
 };
@@ -522,6 +583,7 @@ EventTypes.MentalBreak = {
 EventTypes.Quest = {
   value : "Quest",
   text : "Quest",
+  desc : "Make a specific request to the colony",
   type : EventTypes.GENERALLY_GOOD,
   conditions : [
     {value : "Quest", text : "Quest"}
@@ -531,6 +593,7 @@ EventTypes.Quest = {
 EventTypes.TradeRequest = {
   value : "TradeRequest",
   text : "Trade request",
+  desc : "Make a specific trade request to the colony",
   type : EventTypes.GENERALLY_GOOD,
   conditions : [
     {value : "Trade", text : "Trade"}
@@ -540,6 +603,7 @@ EventTypes.TradeRequest = {
 EventTypes.CreateSettlement = {
   value : "CreateSettlement",
   text : "Create settlement",
+  desc : "Create a new settlement on the map",
   type : EventTypes.GENERALLY_GOOD,
   conditions : []
 };
@@ -547,6 +611,7 @@ EventTypes.CreateSettlement = {
 EventTypes.IntentGiver = {
   value : "IntentGiver",
   text : "Intent & Job-Giver",
+  desc : "Make a pawn do something",
   type : EventTypes.NEUTRAL,
   conditions : [
     {value : "Traveled", text : "Traveled"}
@@ -624,6 +689,88 @@ EventTypes.Events = [
   {text : "Visitors", value : EventTypes.VisitorGroup},
   {text : "Volcanic winter", value : EventTypes.VolcanicWinter},
   {text : "Wild man wanders in", value : EventTypes.WildManWandersIn},
+];
+
+EventTypes.NativeEvents = [
+  EventTypes.Alphabeavers,
+  EventTypes.AmbrosiaSprout,
+  EventTypes.AnimalInsanityMass,
+  EventTypes.AnimalInsanitySingle,
+  EventTypes.FarmAnimalsWanderIn,
+  EventTypes.Aurora,
+  EventTypes.TempFlux,
+  EventTypes.CropBlight,
+  EventTypes.Disease,
+  EventTypes.Eclipse,
+  EventTypes.Flashstorm,
+  EventTypes.HerdMigration,
+  EventTypes.Infestation,
+  EventTypes.ManhunterPack,
+  EventTypes.MeteoriteImpact,
+  EventTypes.OrbitalStrike,
+  EventTypes.PsychicDrone,
+  EventTypes.PsychicSoothe,
+  EventTypes.Quest,
+  EventTypes.RefugeePodCrash,
+  EventTypes.RefugeeChased,
+  EventTypes.ShipPartCrash,
+  EventTypes.RaidEnemy,
+  EventTypes.ResourcePodCrash,
+  EventTypes.ShortCircuit,
+  EventTypes.SolarFlare,
+  EventTypes.SelfTame,
+  EventTypes.ToxicFallout,
+  EventTypes.TraderArrival,
+  EventTypes.TradeRequest,
+  EventTypes.VisitorGroup,
+  EventTypes.VolcanicWinter,
+  EventTypes.WildManWandersIn,
+];
+
+EventTypes.GodlikeEvents = [
+  EventTypes.CreatePawn,
+  EventTypes.CreateSettlement,
+  EventTypes.CreateStructure,
+  EventTypes.DeleteItems,
+  EventTypes.DestroyPosition,
+  EventTypes.Difficulty,
+  EventTypes.CoupleDecouple,
+  EventTypes.EditPawn,
+  EventTypes.GiveThought,
+  EventTypes.HealPawn,
+  EventTypes.IntentGiver,
+  EventTypes.KillPawn,
+  EventTypes.MentalBreak,
+  EventTypes.OnHit,
+  EventTypes.Planetkiller,
+  EventTypes.PawnHealth,
+  EventTypes.Rules,
+  EventTypes.Research,
+  EventTypes.SetRelation,
+  EventTypes.TransferPawn,
+  EventTypes.TimeTravel,
+];
+
+EventTypes.PresentationEvents = [
+  EventTypes.BubbleMessage,
+  EventTypes.ChapterSplash,
+  EventTypes.ControlCamera,
+  EventTypes.Dialog,
+  EventTypes.FadeBlack,
+  EventTypes.MovieMode,
+  EventTypes.PointTo,
+  EventTypes.PlayAudio,
+  EventTypes.RadioMessage,
+  EventTypes.ShowImage,
+  EventTypes.SpeedControl,
+  EventTypes.Unfog,
+];
+
+EventTypes.UtilityEvents = [
+  EventTypes.RenameMap,
+  EventTypes.Nothing,
+  EventTypes.RenamePawn,
+  EventTypes.SavePawnGroup,
 ];
 
 EventTypes.EventsAsString = [
@@ -1286,6 +1433,43 @@ EventTypes.PawnTraits = [
   {value : "Beauty|-2", text : "Staggeringly ugly"},
   {value : "Immunity|1", text : "Super-immune"},
   {value : "Immunity|-1", text : "Sickly"},
+];
+//</editor-fold>
+//<editor-fold desc="HairTypes">
+EventTypes.HairTypes = [
+  {value : "Afro", text : "Afro"},
+  {value : "Bob", text : "Bob"},
+  {value : "Burgundy", text : "Burgundy"},
+  {value : "Flowy", text : "Flowy"},
+  {value : "Long", text : "Long"},
+  {value : "Mohawk", text : "Mohawk"},
+  {value : "Mop", text : "Mop"},
+  {value : "Pigtails", text : "Pigtails"},
+  {value : "Shaved", text : "Shaved"},
+  {value : "Spikes", text : "Spikes"},
+  {value : "Tuft", text : "Tuft"},
+  {value : "Wavy", text : "Wavy"},
+  {value : "BraidedKnot", text : "Braided knot"},
+  {value : "Topdog", text : "Topdog"},
+  {value : "Senorita", text : "Senorita"},
+  {value : "ScorpionTail", text : "Scorpion tail"},
+  {value : "BriefPonytail", text : "Brief ponytail"},
+  {value : "Troubadour", text : "Troubadour"},
+  {value : "Messy", text : "Messy"},
+  {value : "Princess", text : "Princess"},
+  {value : "Firestarter", text : "Firestarter"},
+  {value : "GreasySwoop", text : "Greasy swoop"},
+  {value : "Curly", text : "Curly"},
+  {value : "Scatman", text : "Scatman"},
+];
+//</editor-fold>
+//<editor-fold desc="HairTypes">
+EventTypes.BodyTypes = [
+  {value : "Male", text : "Male"},
+  {value : "Female", text : "Female"},
+  {value : "Thin", text : "Thin"},
+  {value : "Hulk", text : "Hulk"},
+  {value : "Fat", text : "Fat"},
 ];
 //</editor-fold>
 //<editor-fold desc="Items">

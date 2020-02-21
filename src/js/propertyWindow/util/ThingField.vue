@@ -31,46 +31,51 @@
 </template>
 
 <script>
-  import EventTypes from "../../storyGraph/EventTypes";
-  import NumberField from "./NumberField";
+    import EventTypes from "../../storyGraph/EventTypes";
+    import NumberField from "./NumberField";
 
-  export default {
-    components : {NumberField},
-    props : ["label", "message", "myModel", "things", "hasAmount", "hasNoQuality", "hasNoStuff"],
-    name : "ThingField",
-    beforeUpdate : function() {
-      if (!(this.myModel && typeof this.myModel === 'object')) {
-        this.myModel = {};
-      }
-    },
-    data() {
-      if (!(this.myModel && typeof this.myModel === 'object')) {
-        this.myModel = {};
-      }
-      return {
-        stuffs : EventTypes.Stuff,
-        qualities : EventTypes.ItemQualities,
-      }
-    },
-    methods : {
-      clean : function() {
-        if (!(this.myModel && typeof this.myModel === 'object')) {
-          this.myModel = {};
-        }
-        var temp = this.myModel.Thing;
-        this.myModel = {};
-        this.myModel.Thing = temp;
-      }
-    },
-    watch : {
-      myModel : {
-        handler : function(newVal) {
-          this.$emit('update:myModel', newVal);
+    export default {
+        components: {NumberField},
+        props: ["label", "message", "myModel", "things", "hasAmount", "hasNoQuality", "hasNoStuff"],
+        name: "ThingField",
+        beforeUpdate: function () {
+            if (!(this.myModel && typeof this.myModel === 'object')) {
+                this.myModel = {};
+            }
         },
-        deep : true
-      }
+        data() {
+            if (!(this.myModel && typeof this.myModel === 'object')) {
+                this.myModel = {};
+            }
+            return {
+                stuffs: EventTypes.Stuff,
+                qualities: EventTypes.ItemQualities,
+            }
+        },
+        methods: {
+            clean: function () {
+                if (!(this.myModel && typeof this.myModel === 'object')) {
+                    this.myModel = {};
+                }
+                const myModel = this.myModel;
+
+                this.myModel.Thing =  myModel.Thing;
+                delete myModel.Stuff;
+                delete myModel.Quality;
+                this.myModel.Thing = myModel.Thing;
+
+                this.myModel = myModel;
+            }
+        },
+        watch: {
+            myModel: {
+                handler: function (newVal) {
+                    this.$emit('update:myModel', newVal);
+                },
+                deep: true
+            }
+        }
     }
-  }
 </script>
 
 <style scoped>

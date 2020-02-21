@@ -1,6 +1,6 @@
 <template>
     <div class="info-box">
-        <v-input class="property-box" messages="Couple a map from the world view<br>Note: uses target tile defined below<br>Note: Decouples map if off">
+        <v-input class="property-box" messages="Couple a map from the world view. Note: uses target tile defined below. Note: Decouples map if off">
             <v-switch
                     label="Couple target map"
                     v-model="selected.properties['Couple']"

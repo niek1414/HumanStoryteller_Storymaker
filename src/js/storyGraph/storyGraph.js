@@ -13,6 +13,7 @@ export default draw2d.Canvas.extend({
     this._super(id, w, h);
     this.projectData = null;
     this.lastRoot = null;
+    this.serverState = null;
 
     this.containerModification();
     this.installPolicies();
@@ -40,7 +41,7 @@ export default draw2d.Canvas.extend({
   loadStory : function(data, tutorial = false) {
     this.clear();
     this.projectData = {
-      id : data.id,
+      id : tutorial ? null : data.id,
       name : data.name,
       description : data.description,
       publish : data.publish === undefined ? false : data.publish,
@@ -122,8 +123,7 @@ export default draw2d.Canvas.extend({
       x * (1 / this.zoomFactor) + rect.left,
       y * (1 / this.zoomFactor) + rect.top
     )
-  }
-  ,
+  },
 
   /**
    * Load the JSON data into the view/canvas
@@ -154,8 +154,8 @@ export default draw2d.Canvas.extend({
       show : true,
       type : "Default"
     }
-  }, conditions = [], storage = [], createOutputPorts = true) {
-    const d = new Event({width : 100, height : 50, x : x, y : y, type : type, properties : properties, conditions : conditions, storage : storage});
+  }, conditions = [], storage = [], createOutputPorts = true, text = undefined) {
+    const d = new Event({text: text, width : 100, height : 50, x : x, y : y, type : type, properties : properties, conditions : conditions, storage : storage});
 
     d.input = d.createPort("input", new this.inputPortPos);
     d.left = d.createPort("output", new this.outputPortPos);
@@ -278,7 +278,7 @@ export default draw2d.Canvas.extend({
     return names;
   },
 
-  toJSON : function() {
+  toJSON : function(local = false) {
     const story = [];
     const data = {name : this.projectData.name, description : this.projectData.description, publish : this.projectData.publish, story : story};
     const figures = this.getFigures();
@@ -290,11 +290,11 @@ export default draw2d.Canvas.extend({
       }
       story.push(item.toJSON());
     }
-    return JSON.stringify(data);
+    return local ? data : JSON.stringify(data);
   },
 
-  saveStory : function() {
-    let data = {name : this.projectData.name, description : this.projectData.description, publish : this.projectData.publish, data : this.toJSON()};
+  saveStory : function(local = false) {
+    let data = {name : this.projectData.name, description : this.projectData.description, publish : this.projectData.publish, data : this.toJSON(local)};
     if (this.projectData.id != null) {
       data.id = this.projectData.id;
     }

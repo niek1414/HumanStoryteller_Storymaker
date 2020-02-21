@@ -9,8 +9,9 @@ import Vue from 'vue'
 import VueTutorial from 'vue'
 import PropertyPanel from "./propertyWindow/PropertyPanel";
 import DetailPanel from "./propertyWindow/DetailPanel";
-import EditorInfo from "./propertyWindow/EditorInfo";
+import HelpPanel from "./propertyWindow/HelpPanel";
 import StoriesPanel from "./propertyWindow/StoriesPanel";
+import OverviewPanel from "./propertyWindow/OverviewPanel";
 import 'vuetify/dist/vuetify.min.css'
 
 import VModal from 'vue-js-modal'
@@ -21,12 +22,15 @@ import RouteConnection from "./storyGraph/shape/RouteConnection";
 import BasicTutorial from "./tutorial/BasicTutorial";
 import IntermediateTutorial from "./tutorial/IntermediateTutorial";
 import ExpertTutorial from "./tutorial/ExpertTutorial";
+import _ from "lodash";
 
 ajaxCache();
 
 window.onbeforeunload = function() {
   return 'All unsaved changes will be discarded!';
 };
+window.inputReceiver = null;
+window.inputReceiverProp = "";
 Vue.prototype.window_portal = window;
 Vue.use(Vuetify, {theme : {primary : '#65b9ff'}});
 VueTutorial.use(Vuetify, {theme : {primary : '#65b9ff'}});
@@ -34,6 +38,7 @@ Vue.use(VModal, {dialog : true});
 window.tutorial = 0;
 
 const infoBar = $("#info-bottom");
+const saveIndicator = $("#save-indicator");
 const canvas = new StoryGraph("story-canvas", 2000, 4000);
 const propertyPanel = new Vue({
   el : "#event-panel",
@@ -57,46 +62,58 @@ const propertyPanel = new Vue({
         }
       } else {
         this.selected = null;
-        this.state = "info";
+        if (canvas.projectData === null || canvas.projectData.id === null) {
+          this.state = "info";
+        } else {
+          this.state = "overview";
+        }
       }
       updateInfoBar();
     },
   },
   watch : {
+    "graph.projectData" : {
+      handler() {
+        updateInfoBar();
+      },
+      deep : true
+    },
+    "selected.customWeight" : {
+      handler() {
+        updateInfoBar();
+      },
+    },
+    "selected.customSwitch" : {
+      handler() {
+        updateInfoBar();
+      },
+    },
     "selected.conditions" : {
       handler() {
-        if (window.onStoryEdit !== undefined) {
-          window.onStoryEdit(canvas);
-        }
+        updateInfoBar();
       },
       deep : true
     },
     "selected.properties" : {
       handler() {
-        if (window.onStoryEdit !== undefined) {
-          window.onStoryEdit(canvas);
-        }
+        updateInfoBar();
       },
       deep : true
     },
     "selected.storage" : {
       handler() {
-        if (window.onStoryEdit !== undefined) {
-          window.onStoryEdit(canvas);
-        }
+        updateInfoBar();
       },
       deep : true
     },
     "selected.type" : {
       handler() {
-        if (window.onStoryEdit !== undefined) {
-          window.onStoryEdit(canvas);
-        }
+        updateInfoBar();
       },
       deep : true
     },
   },
-  components : {PropertyPanel, EditorInfo, DetailPanel, StoriesPanel, DividerPanel, ConnectionPanel}
+  components : {PropertyPanel, HelpPanel, DetailPanel, OverviewPanel, StoriesPanel, DividerPanel, ConnectionPanel}
 });
 
 const toolbar = new Toolbar(canvas, propertyPanel);
@@ -117,6 +134,7 @@ window.updateTutorial = function(num, update = true) {
     window.tutorial = num;
     leftPanel.tutorial = num;
     propertyPanel.$forceUpdate();
+    propertyPanel.selectionChanged();
     return;
   }
   if (num !== 0) {
@@ -139,6 +157,7 @@ window.updateTutorial = function(num, update = true) {
             leftPanel.tutorial = num;
             propertyPanel.$forceUpdate();
             propertyPanel.$modal.hide('dialog');
+            propertyPanel.selectionChanged();
           }
         }
       ]
@@ -149,21 +168,18 @@ window.updateTutorial = function(num, update = true) {
     leftPanel.tutorial = num;
     propertyPanel.$forceUpdate();
     toolbar.view.newStory();
+    propertyPanel.selectionChanged();
   }
 };
 
-canvas.on("select", $.proxy(propertyPanel.selectionChanged, this));
-canvas.on("unselect", $.proxy(propertyPanel.selectionChanged, this));
-
-function updateInfoBar() {
-  if (window.onStoryEdit !== undefined) {
-    window.onStoryEdit(canvas);
-  }
+const updateInfoBar = _.debounce(() => {
   let storyId;
   if (canvas.projectData.id === null) {
     storyId = "new";
+    saveIndicator.hide();
   } else {
     storyId = "#" + canvas.projectData.id;
+    saveIndicator.show();
   }
 
   let nodeId = "";
@@ -180,9 +196,33 @@ function updateInfoBar() {
   }
 
   infoBar.html("Story: " + storyId + "&nbsp;&nbsp;&nbsp;&nbsp;" + nodeId);
-}
+  checkForStoryChange();
+}, 50);
+
+const checkForStoryChange =
+  _.debounce(() => {
+    if (window.onStoryEdit !== undefined) {
+      window.onStoryEdit(canvas);
+    }
+
+    if (JSON.stringify(canvas.saveStory()) === JSON.stringify(canvas.serverState)) {
+      if (!saveIndicator.hasClass("saved")) {
+        saveIndicator.addClass("saved");
+        saveIndicator.find("span").html("Story saved");
+      }
+    } else {
+      if (saveIndicator.hasClass("saved")) {
+        saveIndicator.removeClass("saved");
+        saveIndicator.find("span").html("Story changes not saved");
+      }
+    }
+  }, 1000);
 
 updateInfoBar();
+
+canvas.on("select", $.proxy(propertyPanel.selectionChanged, this));
+canvas.on("unselect", $.proxy(propertyPanel.selectionChanged, this));
+canvas.on("dragend", $.proxy(updateInfoBar, this));
 
 function ajaxCache() {
   var localCache = {
@@ -243,10 +283,11 @@ window.LoadStory = function(id) {
 };
 
 window.LoadStoryJson = function(data) {
-  var wrapData = {id : 0,
+  var wrapData = {
+    id : 0,
     name : "Loaded test story",
     description : "This story is loaded through the debug function.",
-    publish :  false,
+    publish : false,
     tutorial : false,
     storyline : data
   };
