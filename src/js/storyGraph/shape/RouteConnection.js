@@ -1,7 +1,6 @@
 import draw2d from "draw2d";
 import ManhattenInverseRouter from "../util/ManhattenInverseRouter";
 import AlmostMidpointLocator from "../util/AlmostMidpointLocator";
-import LabelInPlaceNumberEditor from "../util/LabelInPlaceNumberEditor";
 
 export default draw2d.Connection.extend({
   NAME : "sankey.shape.Connection",
@@ -25,7 +24,6 @@ export default draw2d.Connection.extend({
     this._super(attr, setter, getter);
 
     this.add(this.label, new AlmostMidpointLocator());
-    this.label.installEditor(new LabelInPlaceNumberEditor());
     this.draggable = false;
     this.corona = 0;
     this.attr({
@@ -37,11 +35,11 @@ export default draw2d.Connection.extend({
       color : '#2f7cad'
     });
     const color = new draw2d.util.Color(43, 43, 43);
-    this.sourceDecorator = new draw2d.decoration.connection.ArrowDecorator(15, 10);
+    // this.sourceDecorator = new draw2d.decoration.connection.ArrowDecorator(15, 10);
     this.targetDecorator = new draw2d.decoration.connection.CircleDecorator(15, 10);
-    this.sourceDecorator.backgroundColor = color;
+    // this.sourceDecorator.backgroundColor = color;
     this.targetDecorator.backgroundColor = color;
-    this.setSourceDecorator(this.sourceDecorator);
+    // this.setSourceDecorator(this.sourceDecorator);
     this.setTargetDecorator(this.targetDecorator);
     if (attr !== undefined && attr.offset !== undefined && this.targetPort.getAbsoluteY() - this.sourcePort.getAbsoluteY() !== attr.offset / 10) {
       this.customWeight = attr.offset / 1000;
@@ -78,6 +76,11 @@ export default draw2d.Connection.extend({
   setText : function(val) {
     if (val !== this.label.getText()) {
       this.label.setText(val);
+      if (val === "0" && this.label.visible){
+        this.label.setVisible(false);
+      } else if (val !== "0" && !this.label.visible) {
+        this.label.setVisible(true);
+      }
     }
   },
 

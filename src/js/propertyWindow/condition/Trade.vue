@@ -4,7 +4,7 @@
             <v-layout align-center justify-space-between row>
                 <v-flex xs12>
                     <v-input messages="Status of the trade (If expired before expiry time you can conclude it has been used).">
-                        <v-select :items="tradeResponse" label="Quest status" type="text" v-model="condition['tradeState']"/>
+                        <v-select :items="tradeResponse" label="Trade status" type="text" v-model="condition['tradeState']"/>
                     </v-input>
                 </v-flex>
             </v-layout>

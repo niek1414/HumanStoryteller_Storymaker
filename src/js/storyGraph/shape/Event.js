@@ -21,7 +21,7 @@ export default draw2d.shape.basic.Rectangle.extend({
     if (!this.properties['Target']) {
       this.properties['Target'] = {
         CustomTarget : "Preset",
-        TargetPreset : "FirstOfPlayer"
+        TargetPreset : "SameAsLastEvent"
       };
     }
     if (!this.properties['letter']) {
@@ -126,7 +126,7 @@ export default draw2d.shape.basic.Rectangle.extend({
     this.properties = {
       Target : {
         CustomTarget : "Preset",
-        TargetPreset : "FirstOfPlayer"
+        TargetPreset : "SameAsLastEvent"
       },
       letter : {
         show : true,

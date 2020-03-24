@@ -20,7 +20,7 @@
 
 <script>
   import NumberField from "../util/NumberField";
-  import EventTypes from "../../storyGraph/EventTypes";
+  import DataFile from "../../storyGraph/DataFile";
 
   export default {
     components : {NumberField},
@@ -28,7 +28,7 @@
     name : "Research",
     data : function() {
       return {
-        projects : EventTypes.ResearchProject
+        projects : DataFile.ResearchProject
       }
     }
   }

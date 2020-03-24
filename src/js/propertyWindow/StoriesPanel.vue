@@ -74,8 +74,8 @@
               title : 'Override my local story',
               default : false,
               handler : () => {
-                toolbar.loadStory(id);
                 toolbar.propertyPanel.$modal.hide('dialog');
+                toolbar.loadStory(id);
               }
             }
           ]
@@ -97,8 +97,8 @@
               title : 'Override my local story',
               default : false,
               handler : () => {
-                toolbar.loadStory(-1);
                 toolbar.propertyPanel.$modal.hide('dialog');
+                toolbar.loadStory(-1);
               }
             }
           ]

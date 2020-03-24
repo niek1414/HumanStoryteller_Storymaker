@@ -101,7 +101,7 @@
                 <DeleteItems v-else-if="selected.type.value.value === 'DeleteItems'" v-bind:selected="selected"/>
                 <OrbitalStrike v-else-if="selected.type.value.value === 'OrbitalStrike'" v-bind:selected="selected"/>
                 <MentalBreak v-else-if="selected.type.value.value === 'MentalBreak'" v-bind:selected="selected"/>
-                <Quest v-else-if="selected.type.value.value === 'Quest'" v-bind:selected="selected"/>
+<!--                <Quest v-else-if="selected.type.value.value === 'Quest'" v-bind:selected="selected"/>--> <!--Disabled because of compatibility issues between RW 1.0 and 1.1-->
                 <TradeRequest v-else-if="selected.type.value.value === 'TradeRequest'" v-bind:selected="selected"/>
                 <CreateSettlement v-else-if="selected.type.value.value === 'CreateSettlement'" v-bind:selected="selected"/>
                 <IntentGiver v-else-if="selected.type.value.value === 'IntentGiver'" v-bind:selected="selected"/>
@@ -109,6 +109,8 @@
                 <DestroyPosition v-else-if="selected.type.value.value === 'DestroyPosition'" v-bind:selected="selected"/>
                 <CoupleDecouple v-else-if="selected.type.value.value === 'CoupleDecouple'" v-bind:selected="selected"/>
                 <FadeBlack v-else-if="selected.type.value.value === 'FadeBlack'" v-bind:selected="selected"/>
+                <DisableStoryEvent v-else-if="selected.type.value.value === 'DisableStoryEvent'" v-bind:selected="selected"/>
+                <Explosion v-else-if="selected.type.value.value === 'Explosion'" v-bind:selected="selected"/>
                 <Nothing v-else v-bind:selected="selected"/>
                 <v-divider/>
                 <div class="info-box">
@@ -218,7 +220,7 @@
   import DeleteItems from "./type/DeleteItems";
   import OrbitalStrike from "./type/OrbitalStrike";
   import MentalBreak from "./type/MentalBreak";
-  import Quest from "./type/Quest";
+  // import Quest from "./type/Quest";
   import TradeRequest from "./type/TradeRequest";
   import CreateSettlement from "./type/CreateSettlement";
   import IntentGiver from "./type/IntentGiver";
@@ -239,6 +241,8 @@
   import BubbleMessage from "./type/BubbleMessage";
   import Unfog from "./type/Unfog";
   import OnHit from "./type/OnHit";
+  import DisableStoryEvent from "./type/DisableStoryEvent";
+  import Explosion from "./type/Explosion";
 
   export default {
     name : "property-panel",
@@ -252,6 +256,8 @@
       }
     },
     components : {
+        Explosion,
+        DisableStoryEvent,
       OnHit,
       Unfog,
       BubbleMessage,
@@ -272,7 +278,7 @@
       IntentGiver,
       CreateSettlement,
       TradeRequest,
-      Quest,
+      // Quest,
       MentalBreak,
       OrbitalStrike,
       DeleteItems,

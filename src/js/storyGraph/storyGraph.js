@@ -141,14 +141,68 @@ export default draw2d.Canvas.extend({
    * @param y
    */
   add : function(figure, x, y) {
-    draw2d.Canvas.prototype.add.call(this, figure, x, y);
+    function extracted() {
+      if (figure.getCanvas() === this) {
+        return
+      }
+
+      if (figure instanceof draw2d.shape.basic.Line) {
+        this.lines.add(figure)
+        this.linesToRepaintAfterDragDrop = this.lines
+      } else {
+        this.figures.add(figure)
+        if (typeof y !== "undefined") {
+          figure.setPosition(x, y)
+        } else if (typeof x !== "undefined") {
+          figure.setPosition(x)
+        }
+      }
+      figure.setCanvas(this)
+
+      // to avoid drag&drop outside of this canvas
+      figure.installEditPolicy(this.regionDragDropConstraint)
+
+      // important inital call
+      figure.getShapeElement()
+
+      // init a repaint of the figure. This enforce that all properties
+      // ( color, dim, stroke,...) will be set and pushed to SVG node.
+      figure.repaint()
+
+      // fire the figure:add event before the "move" event and after the figure.repaint() call!
+      //   - the move event can only be fired if the figure part of the canvas.
+      //     and in this case the notification event should be fired to the listener before
+      this.fireEvent("figure:add", {figure: figure, canvas: this})
+
+      // fire the event that the figure is part of the canvas
+      figure.fireEvent("added", {figure: figure, canvas: this})
+
+      // ...now we can fire the initial move event
+      figure.fireEvent("move", {figure: figure, dx: 0, dy: 0})
+
+      // this is only required if the used router requires the crossing information
+      // of the connections
+      // if (figure instanceof draw2d.shape.basic.PolyLine) {
+      //   this.calculateConnectionIntersection()
+      //   this.linesToRepaintAfterDragDrop.each(function (i, line) {
+      //     line.svgPathString = null
+      //     line.repaint()
+      //   })
+      //   this.linesToRepaintAfterDragDrop = new draw2d.util.ArrayList()
+      // }
+
+      return this
+    }
+
+    const result = extracted.call(this);
     figure.installEditPolicy(new EventFeedbackPolicy());
+    return result;
   },
 
   addEvent : function(x, y, type = "", properties = {
     Target : {
       CustomTarget : "Preset",
-      TargetPreset : "FirstOfPlayer"
+      TargetPreset : "SameAsLastEvent"
     },
     letter : {
       show : true,
@@ -294,7 +348,7 @@ export default draw2d.Canvas.extend({
   },
 
   saveStory : function(local = false) {
-    let data = {name : this.projectData.name, description : this.projectData.description, publish : this.projectData.publish, data : this.toJSON(local)};
+    let data = {name : this.projectData.name, description : this.projectData.description, publish : this.projectData.publish, version: window.MOD_VERSION, data : this.toJSON(local)};
     if (this.projectData.id != null) {
       data.id = this.projectData.id;
     }

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import EventTypes from "../../storyGraph/EventTypes";
+  import DataFile from "../../storyGraph/DataFile";
   import NumberField from "../util/NumberField";
   import LocationField from "../util/LocationField";
   import ThingField from "../util/ThingField";
@@ -31,8 +31,8 @@
     name : "ResourcePodCrash",
     data : function() {
       return {
-        items : EventTypes.Items,
-        positions : EventTypes.Positions
+        items : DataFile.Items,
+        positions : DataFile.Positions
       }
     }
   }

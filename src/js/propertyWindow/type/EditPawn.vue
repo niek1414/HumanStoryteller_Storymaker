@@ -135,7 +135,7 @@
 </template>
 
 <script>
-    import EventTypes from "../../storyGraph/EventTypes";
+    import DataFile from "../../storyGraph/DataFile";
     import NumberField from "../util/NumberField";
     import LocationField from "../util/LocationField";
     import PawnGroupField from "../util/PawnGroupField";
@@ -153,19 +153,12 @@
         data: function () {
             return {
                 refreshKey: "",
-                factionTypes: [
-                    {value: "OutlanderCivil", text: "Outlander Civil"},
-                    {value: "OutlanderRough", text: "Outlander Rough"},
-                    {value: "Pirate", text: "Pirate"},
-                    {value: "PlayerColony", text: "Player Colony"},
-                    {value: "TribeCivil", text: "Tribe Civil"},
-                    {value: "TribeRough", text: "Tribe Rough"},
-                ],
-                positions: EventTypes.Positions,
-                pawnTraits: EventTypes.PawnTraits,
-                hairTypes: EventTypes.HairTypes,
-                bodyTypes: EventTypes.BodyTypes,
-                items: EventTypes.Items,
+                factionTypes: DataFile.Factions,
+                positions: DataFile.Positions,
+                pawnTraits: DataFile.PawnTraits,
+                hairTypes: DataFile.HairTypes,
+                bodyTypes: DataFile.BodyTypes,
+                items: DataFile.Items,
             }
         },
         computed: {

@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  import EventTypes from "../../storyGraph/EventTypes";
+  import DataFile from "../../storyGraph/DataFile";
   import NumberField from "../util/NumberField";
 
   export default {
@@ -34,7 +34,7 @@
     name : "HerdMigration",
     data : function() {
       return {
-        animals : EventTypes.AnimalTypes,
+        animals : DataFile.AnimalTypes,
       }
     }
   }

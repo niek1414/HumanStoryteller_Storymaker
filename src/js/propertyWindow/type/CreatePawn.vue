@@ -104,7 +104,7 @@
 </template>
 
 <script>
-    import EventTypes from "../../storyGraph/EventTypes";
+    import DataFile from "../../storyGraph/DataFile";
     import NumberField from "../util/NumberField";
     import ThingField from "../util/ThingField";
     import LocationField from "../util/LocationField";
@@ -115,22 +115,11 @@
         name: "CreatePawn",
         data: function () {
             return {
-                factionTypes: [
-                    {value: "Ancients", text: "Ancients"},
-                    {value: "AncientsHostile", text: "Ancients Hostile"},
-                    {value: "Insect", text: "Insect"},
-                    {value: "Mechanoid", text: "Mechanoid"},
-                    {value: "OutlanderCivil", text: "Outlander Civil"},
-                    {value: "OutlanderRough", text: "Outlander Rough"},
-                    {value: "Pirate", text: "Pirate"},
-                    {value: "PlayerColony", text: "Player Colony"},
-                    {value: "TribeCivil", text: "Tribe Civil"},
-                    {value: "TribeRough", text: "Tribe Rough"},
-                ],
-                pawnKind: EventTypes.PawnKind,
-                weapons: EventTypes.Weapons,
-                hairTypes: EventTypes.HairTypes,
-                bodyTypes: EventTypes.BodyTypes,
+                factionTypes: DataFile.Factions,
+                pawnKind: DataFile.PawnKind,
+                weapons: DataFile.Weapons,
+                hairTypes: DataFile.HairTypes,
+                bodyTypes: DataFile.BodyTypes,
                 genderTypes: [
                     {value: "MALE", text: "Male"},
                     {value: "FEMALE", text: "Female"}

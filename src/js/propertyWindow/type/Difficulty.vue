@@ -17,14 +17,14 @@
 </template>
 
 <script>
-  import EventTypes from "../../storyGraph/EventTypes";
+  import DataFile from "../../storyGraph/DataFile";
 
   export default {
     props : ["selected"],
     name : "Difficulty",
     data : function() {
       return {
-        difficulties : EventTypes.DifficultyLevel,
+        difficulties : DataFile.DifficultyLevel,
       }
     }
   }

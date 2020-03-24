@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import EventTypes from "../../../storyGraph/EventTypes";
+  import DataFile from "../../../storyGraph/EventTypes";
 
   export default {
     props : ["filter"],

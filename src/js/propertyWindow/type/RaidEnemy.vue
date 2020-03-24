@@ -57,37 +57,16 @@
 
 <script>
   import NumberField from "../util/NumberField";
+  import DataFile from "../../storyGraph/DataFile";
   export default {
     components : {NumberField},
     props : ["selected"],
     name : "RaidEnemy",
     data : function() {
       return {
-        factionTypes : [
-          {value : "Mechanoid", text : "Mechanoid"},
-          {value : "OutlanderCivil", text : "Outlander Civil"},
-          {value : "OutlanderRough", text : "Outlander Rough"},
-          {value : "Pirate", text : "Pirate"},
-          {value : "TribeCivil", text : "Tribe Civil"},
-          {value : "TribeRough", text : "Tribe Rough"},
-        ],
-
-        strategyTypes : [
-          {value : "ImmediateAttack", text : "Immediate attack"},
-          {value : "ImmediateAttackSmart", text : "Immediate attack smart"},
-          {value : "ImmediateAttackSappers", text : "Immediate attack sappers"},
-          {value : "Siege", text : "Siege"},
-          {value : "StageThenAttack", text : "Preparing then attack"},
-        ],
-
-        arriveModeTypes : [
-          {value : "CenterDrop", text : "Center drop"},
-          {value : "EdgeWalkIn", text : "Edge walk in"},
-          {value : "EdgeDrop", text : "Edge drop"},
-          {value : "EdgeWalkInGroups", text : "Edge walk in groups"},
-          {value : "EdgeDropGroups", text : "Edge drop groups"},
-          {value : "RandomDrop", text : "Random drop"},
-        ],
+        factionTypes : DataFile.Factions,
+        strategyTypes : DataFile.StrategyTypes,
+        arriveModeTypes : DataFile.ArriveModeTypes,
       }
     }
   }

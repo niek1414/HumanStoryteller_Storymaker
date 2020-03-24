@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import EventTypes from "../../storyGraph/EventTypes";
+  import DataFile from "../../storyGraph/DataFile";
   import PawnGroupField from "../util/PawnGroupField";
 
   export default {
@@ -28,7 +28,7 @@
     name : "Disease",
     data : function() {
       return {
-        diseaseTypes : EventTypes.DiseaseTypes,
+        diseaseTypes : DataFile.DiseaseTypes,
       }
     }
   }

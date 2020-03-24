@@ -39,7 +39,7 @@
 </template>
 
 <script>
-  import EventTypes from "../../storyGraph/EventTypes";
+  import DataFile from "../../storyGraph/DataFile";
   import NumberField from "../util/NumberField";
 
   export default {
@@ -48,7 +48,7 @@
     name : "TraderArrival",
     data : function() {
       return {
-        traders : EventTypes.Traders,
+        traders : DataFile.Traders,
       }
     }
   }

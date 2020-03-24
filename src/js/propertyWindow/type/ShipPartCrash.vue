@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import EventTypes from "../../storyGraph/EventTypes";
+  import DataFile from "../../storyGraph/DataFile";
   import NumberField from "../util/NumberField";
 
   export default {
@@ -25,7 +25,7 @@
     name : "ShipPartCrash",
     data : function() {
       return {
-        parts : EventTypes.ShipParts,
+        parts : DataFile.ShipParts,
       }
     }
   }

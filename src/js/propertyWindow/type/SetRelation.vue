@@ -19,18 +19,14 @@
 
 <script>
   import NumberField from "../util/NumberField";
+  import DataFile from "../../storyGraph/DataFile";
   export default {
     components : {NumberField},
     props : ["selected"],
     name : "SetRelation",
     data : function() {
       return {
-        factionTypes : [
-          {value : "OutlanderCivil", text : "Outlander Civil"},
-          {value : "OutlanderRough", text : "Outlander Rough"},
-          {value : "TribeCivil", text : "Tribe Civil"},
-          {value : "TribeRough", text : "Tribe Rough"},
-        ]
+        factionTypes : DataFile.Factions
       }
     }
   }

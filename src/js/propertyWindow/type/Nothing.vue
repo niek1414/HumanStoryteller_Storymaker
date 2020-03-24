@@ -107,7 +107,7 @@
 </template>
 
 <script>
-  import EventTypes from "../../storyGraph/EventTypes";
+  import DataFile from "../../storyGraph/DataFile";
 
   export default {
     props : ["selected"],
@@ -119,10 +119,10 @@
       }
     },
     data : () => ({
-      NativeEvents : EventTypes.NativeEvents,
-      GodlikeEvents : EventTypes.GodlikeEvents,
-      PresentationEvents : EventTypes.PresentationEvents,
-      UtilityEvents : EventTypes.UtilityEvents,
+      NativeEvents : DataFile.NativeEvents,
+      GodlikeEvents : DataFile.GodlikeEvents,
+      PresentationEvents : DataFile.PresentationEvents,
+      UtilityEvents : DataFile.UtilityEvents,
     })
   }
 </script>

@@ -25,6 +25,7 @@ import ExpertTutorial from "./tutorial/ExpertTutorial";
 import _ from "lodash";
 
 ajaxCache();
+window.MOD_VERSION = 0.5;
 
 window.onbeforeunload = function() {
   return 'All unsaved changes will be discarded!';
@@ -37,7 +38,10 @@ VueTutorial.use(Vuetify, {theme : {primary : '#65b9ff'}});
 Vue.use(VModal, {dialog : true});
 window.tutorial = 0;
 
-const infoBar = $("#info-bottom");
+const infoBarRight = $("#info-right");
+const infoBarLeft = $("#info-left");
+infoBarRight.html("Version: " + window.MOD_VERSION);
+
 const saveIndicator = $("#save-indicator");
 const canvas = new StoryGraph("story-canvas", 2000, 4000);
 const propertyPanel = new Vue({
@@ -137,7 +141,7 @@ window.updateTutorial = function(num, update = true) {
     propertyPanel.selectionChanged();
     return;
   }
-  if (num !== 0) {
+  if (num > 0) {
     propertyPanel.$modal.show('dialog', {
       title : 'Start tutorial?',
       text : 'Starting a tutorial will delete all local data.<br> To save a story upload it. Are you sure?',
@@ -162,6 +166,11 @@ window.updateTutorial = function(num, update = true) {
         }
       ]
     });
+  } else if (num === -1) {
+    num = 0;
+    window.onStoryEdit = undefined;
+    window.tutorial = num;
+    leftPanel.tutorial = num;
   } else {
     window.onStoryEdit = undefined;
     window.tutorial = num;
@@ -195,7 +204,7 @@ const updateInfoBar = _.debounce(() => {
     nodeId = "Node: " + nodeId;
   }
 
-  infoBar.html("Story: " + storyId + "&nbsp;&nbsp;&nbsp;&nbsp;" + nodeId);
+  infoBarLeft.html("Story: " + storyId + "&nbsp;&nbsp;&nbsp;&nbsp;" + nodeId);
   checkForStoryChange();
 }, 50);
 

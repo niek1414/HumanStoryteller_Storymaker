@@ -17,13 +17,13 @@
 </template>
 
 <script>
-  import EventTypes from "../../storyGraph/EventTypes";
+  import DataFile from "../../storyGraph/DataFile";
 
   export default {
     props : ["condition"],
     name : "Biome",
     data : () => ({
-      biomes : EventTypes.Biomes
+      biomes : DataFile.Biomes
     })
   }
 </script>

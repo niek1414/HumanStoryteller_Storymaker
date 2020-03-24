@@ -52,7 +52,8 @@
 </template>
 
 <script>
-  import NumberField from "../util/NumberField";
+    import DataFile from "../../storyGraph/DataFile";
+    import NumberField from "../util/NumberField";
 
   export default {
     components : {NumberField},
@@ -60,19 +61,8 @@
     name : "CreateSettlement",
     data : function() {
       return {
-        factionTypes : [
-          {value : "OutlanderCivil", text : "Outlander Civil"},
-          {value : "OutlanderRough", text : "Outlander Rough"},
-          {value : "Pirate", text : "Pirate"},
-          {value : "PlayerColony", text : "Player Colony"},
-          {value : "TribeCivil", text : "Tribe Civil"},
-          {value : "TribeRough", text : "Tribe Rough"},
-        ],
-        siteTypes : [
-          {value : "Base", text : "Base"},
-          {value : "Encounter", text : "Encounter (empty)"},
-          {value : "SpaceShip", text : "Space ship"}
-        ],
+        factionTypes : DataFile.Factions,
+        siteTypes : DataFile.SiteTypes,
       }
     }
   }

@@ -45,7 +45,7 @@
 </template>
 
 <script>
-  import EventTypes from "../../storyGraph/EventTypes";
+  import DataFile from "../../storyGraph/DataFile";
   import NumberField from "../util/NumberField";
 
   export default {
@@ -54,7 +54,7 @@
     name : "FarmAnimalsWanderIn",
     data : function() {
       return {
-        animals : EventTypes.AnimalTypes,
+        animals : DataFile.AnimalTypes,
       }
     }
   }

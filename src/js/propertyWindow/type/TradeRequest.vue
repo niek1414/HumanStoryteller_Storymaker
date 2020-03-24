@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  import EventTypes from "../../storyGraph/EventTypes";
+  import DataFile from "../../storyGraph/DataFile";
   import NumberField from "../util/NumberField";
   import ThingField from "../util/ThingField";
 
@@ -35,7 +35,7 @@
     name : "TradeRequest",
     data : function() {
       return {
-        items : EventTypes.Items,
+        items : DataFile.Items,
       }
     }
   }

@@ -266,12 +266,17 @@ body {
     display: flex;
 }
 
-#info-bottom {
+.info-line {
     height: 20px;
     padding-left: 6px;
     line-height: 1.4;
     color: #40464e;
-    width: 100%;
+    width: calc(50% - 2px);
+    display: inline-block;
+}
+
+#info-right {
+    text-align: right;
 }
 
 #graph-panel {
@@ -423,6 +428,7 @@ body {
 }
 
 #story-canvas {
+    width: fit-content;
     font-family: 'Open Sans', sans-serif !important;
 }
 
