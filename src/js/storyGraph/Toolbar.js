@@ -31,6 +31,24 @@ export default Class.extend({
         view.on("select", $.proxy(this.onSelectionChanged, this));
         view.on("unselect", $.proxy(this.onSelectionChanged, this));
 
+        $("#snap-to-grid").change(function() {
+            if(this.checked) {
+                that.view.uninstallEditPolicy(that.view.gridPolicy);
+                that.view.gridPolicy = new draw2d.policy.canvas.SnapToGridEditPolicy(10);
+                that.view.gridPolicy.setGridColor("#2f3034");
+                that.view.installEditPolicy(that.view.gridPolicy);
+            } else {
+                that.view.uninstallEditPolicy(that.view.gridPolicy);
+                that.view.gridPolicy = new draw2d.policy.canvas.ShowGridEditPolicy(100);
+                that.view.gridPolicy.setGridColor("#3a3f44");
+                that.view.installEditPolicy(that.view.gridPolicy);
+            }
+        });
+
+        $("#auto-zero").change(function() {
+            window.autoZeroConnection = this.checked;
+        });
+
         this.undoButton = $("#undo-action");
         this.undoButton.button().click($.proxy(function () {
             this.view.getCommandStack().undo();
@@ -180,6 +198,7 @@ export default Class.extend({
             that.propertyPanel.$modal.show('dialog', {
                 title: 'Upload story?',
                 text: 'This will upload the story to the storybook (server).<br>All mod user will be able to see the story.',
+                clickToClose: false,
                 buttons: [
                     {
                         title: 'Cancel',

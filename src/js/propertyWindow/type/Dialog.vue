@@ -14,7 +14,7 @@
             selected.properties['Duration'] ==='' ||
             selected.properties['Duration'] === undefined
             ?'Default: 1 day (to show instantly just input 0.001 and never expire is 0)'
-            :'Amount of days the proposal can be postponed (b.v.: 0.5 for half a day). To show instantly just input 0.001 and never expire is 0.'
+            :'Amount of days the proposal can be postponed (e.a. 0.5 for half a day). To show instantly just input 0.001 and never expire is 0.'
         ">
             <NumberField label="Proposal duration" :myModel.sync="selected.properties['Duration']"/>
         </v-input>

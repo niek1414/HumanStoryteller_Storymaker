@@ -434,7 +434,7 @@ EventTypes.TempFlux = {
 
 EventTypes.Nothing = {
   value : "Nothing",
-  text : "Nothing",
+  text : "Empty event",
   desc : "Can be used to manipulate the story without executing a event",
   type : EventTypes.NEUTRAL,
   conditions : []
@@ -672,7 +672,7 @@ EventTypes.Events = [
   {text : "Mental break", value : EventTypes.MentalBreak},
   {text : "Movie mode", value : EventTypes.MovieMode},
   {text : "Rename map", value : EventTypes.RenameMap},
-  {text : "Nothing", value : EventTypes.Nothing},
+  {text : "Empty event", value : EventTypes.Nothing},
   {text : "On hit", value : EventTypes.OnHit},
   {text : "Orbital strike", value : EventTypes.OrbitalStrike},
   {text : "Planetkiller", value : EventTypes.Planetkiller},
@@ -831,7 +831,7 @@ EventTypes.EventsAsString = [
   "Mental break",
   "Movie mode",
   "Rename map",
-  "Nothing",
+  "Empty event",
   "On hit",
   "Orbital strike",
   "Planetkiller",

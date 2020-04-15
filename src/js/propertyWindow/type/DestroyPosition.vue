@@ -1,5 +1,11 @@
 <template>
     <div class="info-box">
+        <v-input class="property-box" messages="Destroy roof?">
+            <v-switch
+                    label="Destroy roof"
+                    v-model="selected.properties['DestroyRoof']"
+            />
+        </v-input>
         <v-input class="property-box" messages="Destroy items?">
             <v-switch
                     label="Destroy items"

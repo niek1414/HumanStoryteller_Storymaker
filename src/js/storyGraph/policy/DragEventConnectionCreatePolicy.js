@@ -59,79 +59,82 @@ export default draw2d.policy.connection.DragConnectionCreatePolicy.extend({
             var ct = this.currentTarget;
             // start CommandStack transaction
             canvas.getCommandStack().startTransaction();
+            try {
+                de.onDragEnd(x, y, shiftKey, ctrlKey);
+                // notify all installed policies
+                //
+                if (ct) {
+                    de.editPolicy.each(function (i, e) {
+                        if (e instanceof draw2d.policy.port.PortFeedbackPolicy) {
+                            e.onHoverLeave(canvas, de, ct);
+                        }
+                    });
+                }
 
-            de.onDragEnd(x, y, shiftKey, ctrlKey);
-            // notify all installed policies
-            //
-            if(ct){
-                de.editPolicy.each(function(i,e){
-                    if(e instanceof draw2d.policy.port.PortFeedbackPolicy){
-                        e.onHoverLeave(canvas, de, ct);
+                de.editPolicy.each(function (i, e) {
+                    if (e instanceof draw2d.policy.figure.DragDropEditPolicy) {
+                        e.onDragEnd(canvas, de, x, y, shiftKey, ctrlKey);
                     }
                 });
-            }
 
-            de.editPolicy.each(function(i,e){
-                if(e instanceof draw2d.policy.figure.DragDropEditPolicy){
-                    e.onDragEnd(canvas, de, x, y, shiftKey, ctrlKey);
-                }
-            });
-
-            // Reset the drag&drop flyover information
-            //
-            this.currentTarget = null;
-            de.isInDragDrop =false;
-
-            // fire an event
-            // @since 5.3.3
-            de.fireEvent("dragend",{x:x, y:y, shiftKey:shiftKey, ctrlKey:ctrlKey});
-
-
-            // check if we drop the port onto a valid
-            // drop target and create a connection if possible
-            //
-            if (this.currentDropTarget !== null) {
-                this.mouseDraggingElement.onDrop(this.currentDropTarget, x, y, shiftKey, ctrlKey);
-
-                this.currentDropTarget.onDragLeave(this.mouseDraggingElement);
-                this.currentDropTarget.fireEvent("dragLeave", {draggingElement: this.mouseDraggingElement});
-
-                // Ports accepts only Ports as DropTarget
+                // Reset the drag&drop flyover information
                 //
-                if(this.currentDropTarget instanceof draw2d.Port){
-                    var request = new draw2d.command.CommandType(draw2d.command.CommandType.CONNECT);
-                    request.source = this.currentDropTarget;
-                    request.target = this.mouseDraggingElement;
-                    var command = this.mouseDraggingElement.createCommand(request);
+                this.currentTarget = null;
+                de.isInDragDrop = false;
 
-                    if(command!==null){
-                        //First remove old connections from the source
-                        const conn = command.source.getConnections();
-                        for (let i = 0; i < conn.getSize(); ++i) {
-                            this.canvas.remove(conn.get(i))
+                // fire an event
+                // @since 5.3.3
+                de.fireEvent("dragend", {x: x, y: y, shiftKey: shiftKey, ctrlKey: ctrlKey});
+
+
+                // check if we drop the port onto a valid
+                // drop target and create a connection if possible
+                //
+                if (this.currentDropTarget !== null) {
+                    this.mouseDraggingElement.onDrop(this.currentDropTarget, x, y, shiftKey, ctrlKey);
+
+                    this.currentDropTarget.onDragLeave(this.mouseDraggingElement);
+                    this.currentDropTarget.fireEvent("dragLeave", {draggingElement: this.mouseDraggingElement});
+
+                    // Ports accepts only Ports as DropTarget
+                    //
+                    if (this.currentDropTarget instanceof draw2d.Port) {
+                        var request = new draw2d.command.CommandType(draw2d.command.CommandType.CONNECT);
+                        request.source = this.currentDropTarget;
+                        request.target = this.mouseDraggingElement;
+                        var command = this.mouseDraggingElement.createCommand(request);
+
+                        if (command !== null) {
+                            //First remove old connections from the source
+                            const conn = command.source.getConnections();
+                            for (let i = 0; i < conn.getSize(); ++i) {
+                                this.canvas.remove(conn.get(i))
+                            }
+
+                            command.setConnection(this.createConnection());
+                            canvas.getCommandStack().execute(command);
+                            this.currentDropTarget.onCatch(this.mouseDraggingElement, x, y, shiftKey, ctrlKey);
+
+                            // command.target
+
+
+                            // if (command.target instanceof draw2d.InputPort) {
+                            //     // This is the difference to the InputPort implementation of createCommand.
+                            //     return new draw2d.command.CommandConnect(request.target, request.source, request.source);
+                            // }
+                            // else if (command.target instanceof draw2d.OutputPort) {
+                            //     // This is the different to the OutputPort implementation of createCommand
+                            //     return new draw2d.command.CommandConnect(request.source, request.target, request.source);
+                            // }
+                            // else if (command.target instanceof draw2d.HybridPort) {
+                            //     // This is the different to the OutputPort implementation of createCommand
+                            //     return new draw2d.command.CommandConnect(request.target,request.source, request.source);
+                            // }
                         }
-
-                        command.setConnection(this.createConnection());
-                        canvas.getCommandStack().execute(command);
-                        this.currentDropTarget.onCatch(this.mouseDraggingElement, x, y, shiftKey, ctrlKey);
-
-                        // command.target
-
-
-                        // if (command.target instanceof draw2d.InputPort) {
-                        //     // This is the difference to the InputPort implementation of createCommand.
-                        //     return new draw2d.command.CommandConnect(request.target, request.source, request.source);
-                        // }
-                        // else if (command.target instanceof draw2d.OutputPort) {
-                        //     // This is the different to the OutputPort implementation of createCommand
-                        //     return new draw2d.command.CommandConnect(request.source, request.target, request.source);
-                        // }
-                        // else if (command.target instanceof draw2d.HybridPort) {
-                        //     // This is the different to the OutputPort implementation of createCommand
-                        //     return new draw2d.command.CommandConnect(request.target,request.source, request.source);
-                        // }
                     }
                 }
+            } catch (e) {
+                console.error(e);
             }
 
             // end command stack trans
@@ -142,7 +145,9 @@ export default draw2d.policy.connection.DragConnectionCreatePolicy.extend({
     },
 
     createConnection : function(sourcePort, targetPort) {
-        var conn = new RouteConnection();
+        var conn = new RouteConnection({
+            customOffset: window.autoZeroConnection ? 0 : undefined
+        })
         // conn.setRouter(this.defaultRouter);
         // conn.setOutlineStroke(1);
         // conn.setOutlineColor("#303030");

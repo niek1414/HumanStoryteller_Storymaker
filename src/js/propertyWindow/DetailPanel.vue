@@ -42,7 +42,7 @@
                 <v-input messages="Temperature in the world. 0 is very cold and 1 very warm">
                     <v-text-field label="Temperature" type="number" v-model="selected.properties['Temperature']"/>
                 </v-input>
-                <v-input messages="population in the world. 0 is very little and 1 is a lot">
+                <v-input messages="Population in the world. 0 is very little and 1 is a lot">
                     <v-text-field label="Population" type="number" v-model="selected.properties['Population']"/>
                 </v-input>
             </template>

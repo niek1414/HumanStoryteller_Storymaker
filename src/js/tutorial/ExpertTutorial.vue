@@ -21,7 +21,7 @@
             button : true,
           }, {
             title : `Setup`,
-            content : `Let's start with a basic setup. First one raid, then one Dialog event.<br/>Set the dialog <LearnHover img="hundredSilver.png">silver price</LearnHover> to 100.<br/>Add the <LearnHover img="dialogCondition.png">'Dialog' condition</LearnHover> to the dialog.<br/>The <LearnHover img="dialogDenied.png">response status</LearnHover> should be 'denied'.<br/>Lastly lets connect the LEFT dialog port back up to the raid event and give the <LearnHover img="twoDays.png">connection a duration</LearnHover> of 2 days.`,
+            content : `Let's start with a basic setup. First one raid, then one Dialog event.<br/>Set the dialog <LearnHover img="hundredSilver.png">silver price</LearnHover> to 100.<br/>Add the <LearnHover img="dialogCondition.png">'Dialog' condition</LearnHover> to the dialog.<br/>The <LearnHover img="dialogDenied.png">response status</LearnHover> should be 'denied'.<br/>Lastly let's connect the LEFT dialog port back up to the raid event and give the <LearnHover img="twoDays.png">connection a duration</LearnHover> of 2 days.`,
             name : "e2",
           }, {
             title : `Counter`,
