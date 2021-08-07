@@ -5,9 +5,173 @@
     <option name="CUSTOM_SCOPE_NAME" value="Current File" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e89fdbb1-fa2e-4704-a360-e042655e8f3a" name="Default Changelist" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="e89fdbb1-fa2e-4704-a360-e042655e8f3a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/android-chrome-192x192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/android-chrome-512x512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/browserconfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/favicon-16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/favicon-32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/fonts/rimwordfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/fonts/rimwordfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/images/bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/images/rep.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/mstile-144x144.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/mstile-150x150.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/mstile-310x150.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/mstile-310x310.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/mstile-70x70.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/oembed.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/safari-pinned-tab.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/site.webmanifest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/b1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/b2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/b3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/b4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/b5.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/b6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/e1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/e2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/e3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/e4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/i1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/i2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/i3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/i4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/i5.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/i6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/conditionTab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/connect.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/connection.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/customTime.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/dialogCondition.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/dialogDenied.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/divider.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/dividerIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/event.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/eventType.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/healthPawnCheck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/hint.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/hundredSilver.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/mailTab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/newName.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/propertyTab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/twoDays.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/variableSwitch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/backup06082021/tutorial/img/variableTab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/backup08082021/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/backup08082021/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/storyGraph/StoryArc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/storyGraph/policy/ShowTransparentGridEditPolicy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/storyGraph/util/Math.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/VueSearchSelect.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/controllers/maker.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/controllers/maker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/controllers/storybook.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/controllers/storybook.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/b1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/b1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/b2.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/b2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/b3.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/b3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/b4.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/b4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/b5.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/b5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/b6.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/b6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/e1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/e1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/e2.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/e2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/e3.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/e3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/e4.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/e4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/i1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/i1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/i2.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/i2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/i3.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/i3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/i4.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/i4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/i5.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/i5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/i6.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storyteller/tutorial/i6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/browserconfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/browserconfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/safari-pinned-tab.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/safari-pinned-tab.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/site.webmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/site.webmanifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/b1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/b1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/b2.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/b2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/b3.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/b3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/b4.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/b4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/b5.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/b5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/b6.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/b6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/e1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/e1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/e2.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/e2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/e3.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/e3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/e4.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/e4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/i1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/i1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/i2.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/i2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/i3.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/i3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/i4.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/i4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/i5.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/i5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/i6.json" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storytellertest/tutorial/i6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/templates/maker/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/templates/maker/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/templates/makerTest/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/templates/makerTest/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/util/DAO/StoryDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/util/DAO/StoryDAO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/util/DAO/models/Story.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/util/DAO/models/Story.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/DataCollection/HeaderDataCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/DataCollection/HeaderDataCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/DataCollection/ResponseCookieDataCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/DataCollection/ResponseCookieDataCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/DataCollection/RouteCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/DataCollection/RouteCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/DataCollection/ServerDataCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/DataCollection/ServerDataCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/DispatchHaltedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/DispatchHaltedException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/DuplicateServiceException.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/DuplicateServiceException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/HttpExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/HttpExceptionInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/KleinExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/KleinExceptionInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/LockedResponseException.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/LockedResponseException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/ResponseAlreadySentException.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/ResponseAlreadySentException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/RoutePathCompilationException.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/RoutePathCompilationException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/UnhandledException.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/UnhandledException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/UnknownServiceException.php" beforeDir="false" afterPath="$PROJECT_DIR$/../HumanStoryteller_Storybook/vendors/Klein/Exceptions/UnknownServiceException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c975582791da6f060261188096d6aad85db6e09" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c975582791da6f060261188096d6aad85db6e09" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/8/885bdaa65802dbd79591577baac1d67d5386cd98" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/Fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/fonts/Fonts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/HelpPanel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/HelpPanel.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/OverviewPanel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/OverviewPanel.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/PropertyPanel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/PropertyPanel.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/condition/ColonistOnMap.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/condition/ColonistOnMap.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/condition/GroupCount.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/condition/GroupCount.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/condition/OnLocation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/condition/OnLocation.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/condition/PawnHealth.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/condition/PawnHealth.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/condition/PawnState.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/condition/PawnState.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/condition/Variable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/condition/Variable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/type/BubbleMessage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/type/BubbleMessage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/type/EditPawn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/type/EditPawn.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/type/GiveThought.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/type/GiveThought.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/type/IntentGiver.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/type/IntentGiver.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/type/KillPawn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/type/KillPawn.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/type/Nothing.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/type/Nothing.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/type/RadioMessage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/type/RadioMessage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/type/RenamePawn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/type/RenamePawn.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/util/LocationField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/util/LocationField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/util/NumberField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/util/NumberField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/util/PawnGroupSourceField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/util/PawnGroupSourceField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/propertyWindow/util/SmartTextArea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/propertyWindow/util/SmartTextArea.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/storyGraph/DebugConnection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/storyGraph/DebugConnection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/storyGraph/EventTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/storyGraph/EventTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/storyGraph/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/storyGraph/Toolbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/storyGraph/policy/DragEventConnectionCreatePolicy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/storyGraph/policy/DragEventConnectionCreatePolicy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/storyGraph/policy/HighlightSelectionFeedbackPolicy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/storyGraph/policy/HighlightSelectionFeedbackPolicy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/storyGraph/storyGraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/storyGraph/storyGraph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/tutorial/BasicTutorial.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/tutorial/BasicTutorial.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/tutorial/Tutorial.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/tutorial/Tutorial.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/app.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,67 +184,12 @@
       </map>
     </option>
   </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
   <component name="ElmWorkspace">
     <elmProjects />
     <settings binDirPath="" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/storyGraph/shape/Event.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/propertyWindow/DetailPanel.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/storyGraph/EventTypes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-666">
-              <caret line="191" column="48" selection-start-line="191" selection-start-column="48" selection-end-line="191" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="70" column="18" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
-              <folding>
-                <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -128,6 +237,17 @@
       <dir>D:\myDocuments\MEGA\Projects\human-storycreator\node_modules\draw2d\src\shape\basic</dir>
       <dir>D:\myDocuments\MEGA\Projects\human-storycreator\node_modules\draw2d\src</dir>
     </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -189,6 +309,8 @@
     <option name="width" value="1936" />
     <option name="height" value="1100" />
   </component>
+  <component name="ProjectId" id="1wH1uneoYTBWou2IYr00h6HhXQM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -209,7 +331,12 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
@@ -221,43 +348,35 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545686227441" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules/draw2d/src" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HumanStoryteller_Storybook/templates/maker" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="$PROJECT_DIR$/../../Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\myDocuments\MEGA\Projects\human-storycreator\src\js\propertyWindow" />
-      <recent name="D:\myDocuments\MEGA\Projects\human-storycreator" />
-      <recent name="D:\myDocuments\MEGA\Projects\human-storycreator\node_modules\draw2d\docs" />
-      <recent name="D:\myDocuments\MEGA\Projects\human-storycreator\src\js\policy" />
+      <recent name="C:\git\HumanStoryteller_Storybook\templates\maker" />
+      <recent name="C:\git\HumanStoryteller_Storybook\storyteller\backup06082021" />
+      <recent name="C:\git\HumanStoryteller_Storybook\storyteller" />
+      <recent name="C:\git\HumanStoryteller_Storybook\storytellertest" />
+      <recent name="C:\git\HumanStoryteller_Storymaker\src\style" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\git\HumanStoryteller_Storybook\storyteller\backup06082021" />
       <recent name="D:\myDocuments\MEGA\Projects\human-storycreator\src" />
       <recent name="D:\myDocuments\MEGA\Projects\human-storycreator\src\js\storyGraph" />
       <recent name="D:\myDocuments\MEGA\Projects\human-storycreator\src\images" />
       <recent name="D:\myDocuments\MEGA\Projects\human-storycreator\src\js\policies" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.dev">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -275,33 +394,45 @@
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$" />
       <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
       <module name="human-storycreator" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <framework value="gotest" />
       <kind value="DIRECTORY" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
     </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -315,10 +446,12 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>C:\Users\niek1\AppData\Roaming\Subversion</configuration>
   </component>
@@ -343,6 +476,10 @@
       <workItem from="1545569961357" duration="26392000" />
       <workItem from="1545669236051" duration="12178000" />
       <workItem from="1545734034650" duration="2934000" />
+      <workItem from="1628100929610" duration="4530000" />
+      <workItem from="1628181098025" duration="14559000" />
+      <workItem from="1628260851232" duration="5931000" />
+      <workItem from="1628336568317" duration="3554000" />
     </task>
     <servers />
   </component>
@@ -431,7 +568,17 @@
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/draw2d/src/policy/line/LineSelectionFeedbackPolicy.js">

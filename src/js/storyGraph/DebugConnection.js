@@ -88,7 +88,7 @@ export default Class.extend({
    * Reset visual runner-indicators and add new ones
    */
   reDistributeRunners : _.debounce(function(uuidList) {
-    const figures = this.toolbar.view.getFigures();
+    const figures = this.toolbar.storyArc.currentStory.getFigures();
     const figureLength = figures.getSize();
     for (let i = 0; i < figureLength; i++) {
       const item = figures.get(i);
@@ -135,7 +135,7 @@ export default Class.extend({
 
   /**
    * @method
-   * Execute a event with uuid
+   * Execute an event with uuid
    */
   executeEvent : function(uuid) {
     this.connection.send(JSON.stringify({Type : "ExecuteEvent", WithRunner: false, Uuid: uuid}));
@@ -186,8 +186,7 @@ export default Class.extend({
    * @returns {{storyline: *, publish, name: *, description}}
    */
   getStoryForLocal : function() {
-    const story = this.toolbar.view.saveStory(true);
-    story.storyline = story.data;
+    const story = this.toolbar.storyArc.saveStory(true);
     story.creator = -1;
     delete story.date;
     return story;

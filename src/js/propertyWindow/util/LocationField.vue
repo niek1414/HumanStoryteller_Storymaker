@@ -83,7 +83,7 @@
     },
     computed : {
       names : function() {
-        return window.toolbar.view.getNames();
+        return window.toolbar.storyArc.getNames();
       },
       connectionState : function() {
         return window.toolbar.debug.remoteConnectionState;

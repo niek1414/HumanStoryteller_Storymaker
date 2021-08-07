@@ -465,7 +465,7 @@ body {
     overflow: auto;
 }
 
-#story-canvas {
+.story-canvas {
     width: fit-content;
     font-family: 'Open Sans', sans-serif !important;
 }

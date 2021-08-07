@@ -79,7 +79,6 @@
                 </div>
                 <div id="flow-wrapper">
                     <div id="story-graph">
-                        <div onselectstart="javascript:/*IE8 hack*/return false" id="story-canvas"></div>
                     </div>
                     <div id="left-panel">
                         <basic-tutorial v-if="tutorial === 1"></basic-tutorial>
@@ -91,12 +90,12 @@
             <div id="right-panel">
                 <div id="event-panel">
                     <v-app dark>
-                        <property-panel v-if="state === 'node' && !selected.isRoot && !selected.isDivider" v-bind:selected="selected" v-bind:canvas="graph"></property-panel>
-                        <detail-panel v-else-if="state === 'node' && selected.isRoot" v-bind:project="graph.projectData" v-bind:selected="selected"></detail-panel>
+                        <property-panel v-if="state === 'node' && !selected.isRoot && !selected.isDivider" v-bind:selected="selected" v-bind:canvas="arc.currentStory"></property-panel>
+                        <detail-panel v-else-if="state === 'node' && selected.isRoot" v-bind:project="arc" v-bind:selected="selected"></detail-panel>
                         <divider-panel v-else-if="state === 'node' && selected.isDivider"></divider-panel>
                         <connection-panel v-else-if="state === 'connection'" v-bind:selected="selected"></connection-panel>
                         <stories-panel v-else-if="state === 'stories'" v-bind:stories="selected" v-bind:toolbar="toolbar"></stories-panel>
-                        <overview-panel v-else-if="state === 'overview'" v-bind:project="graph.projectData" v-bind:toolbar="toolbar"></overview-panel>
+                        <overview-panel v-else-if="state === 'overview'" v-bind:project="arc" v-bind:toolbar="toolbar"></overview-panel>
                         <help-panel v-else v-bind:toolbar="toolbar">
                             <div style="color: #cfcfcf; padding: 50px">Please enable JavaScript :)<br><br>Is JavaScript enabled? Try Google Chrome!<br><br>Are you using Chrome?
                                 Then

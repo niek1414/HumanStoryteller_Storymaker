@@ -60,10 +60,10 @@
     },
     computed : {
       names : function() {
-        return window.toolbar.view.getNames();
+        return window.toolbar.storyArc.getNames();
       },
       groups : function() {
-        return window.toolbar.view.getGroups();
+        return window.toolbar.storyArc.getGroups();
       },
     },
     methods : {

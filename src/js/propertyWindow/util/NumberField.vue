@@ -35,7 +35,7 @@
         }
       },
       variables : function(){
-        return window.toolbar.view.getVariables();
+        return window.toolbar.storyArc.getVariables();
       }
     },
     watch : {

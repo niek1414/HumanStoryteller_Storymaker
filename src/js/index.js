@@ -1,7 +1,6 @@
 import 'babel-polyfill'
 import '../style/app.css';
 
-import StoryGraph from './storyGraph/storyGraph';
 import Toolbar from "./storyGraph/Toolbar";
 import Event from "./storyGraph/shape/Event"
 
@@ -23,9 +22,10 @@ import BasicTutorial from "./tutorial/BasicTutorial";
 import IntermediateTutorial from "./tutorial/IntermediateTutorial";
 import ExpertTutorial from "./tutorial/ExpertTutorial";
 import _ from "lodash";
+import StoryArc from "./storyGraph/StoryArc";
 
 ajaxCache();
-window.MOD_VERSION = 0.5;
+window.MOD_VERSION = 0.6;
 
 window.onbeforeunload = function() {
   return 'All unsaved changes will be discarded!';
@@ -43,20 +43,21 @@ const infoBarLeft = $("#info-left");
 infoBarRight.html("Version: " + window.MOD_VERSION);
 
 const saveIndicator = $("#save-indicator");
-const canvas = new StoryGraph("story-canvas", 2000, 4000);
+const storyArc = new StoryArc();
 const propertyPanel = new Vue({
   el : "#event-panel",
   data : {
     selected : null,
     state : "info",
-    graph : canvas,
+    arc : storyArc,
     toolbar : null,
   },
   methods : {
     selectionChanged : function() {
-      const selectionList = canvas.getSelection();
+      if (!storyArc.currentStory) return;
+      const selectionList = storyArc.currentStory.getSelection();
       if (selectionList.getSize() === 1) {
-        const item = canvas.getSelection().getPrimary();
+        const item = storyArc.currentStory.getSelection().getPrimary();
         if (item instanceof Event) {
           this.selected = item;
           this.state = "node";
@@ -66,7 +67,7 @@ const propertyPanel = new Vue({
         }
       } else {
         this.selected = null;
-        if (canvas.projectData === null || canvas.projectData.id === null) {
+        if (storyArc.id === null) {//TODO pack or no pack
           this.state = "info";
         } else {
           this.state = "overview";
@@ -76,11 +77,30 @@ const propertyPanel = new Vue({
     },
   },
   watch : {
-    "graph.projectData" : {
+    "arc.name" : {
       handler() {
         updateInfoBar();
-      },
-      deep : true
+      }
+    },
+    "arc.description" : {
+      handler() {
+        updateInfoBar();
+      }
+    },
+    "arc.publish" : {
+      handler() {
+        updateInfoBar();
+      }
+    },
+    "arc.currentStory" : {
+      handler() {
+        updateInfoBar();
+      }
+    },
+    "arc.stories.length" : {
+      handler() {
+        updateInfoBar();
+      }
     },
     "selected.customWeight" : {
       handler() {
@@ -120,7 +140,7 @@ const propertyPanel = new Vue({
   components : {PropertyPanel, HelpPanel, DetailPanel, OverviewPanel, StoriesPanel, DividerPanel, ConnectionPanel}
 });
 
-const toolbar = new Toolbar(canvas, propertyPanel);
+const toolbar = new Toolbar(storyArc, propertyPanel);
 propertyPanel.toolbar = toolbar;
 window.toolbar = toolbar;
 
@@ -132,15 +152,7 @@ const leftPanel = new VueTutorial({
   components : {BasicTutorial, IntermediateTutorial, ExpertTutorial}
 });
 window.leftPanel = leftPanel;
-window.updateTutorial = function(num, update = true) {
-  if (!update) {
-    window.onStoryEdit = undefined;
-    window.tutorial = num;
-    leftPanel.tutorial = num;
-    propertyPanel.$forceUpdate();
-    propertyPanel.selectionChanged();
-    return;
-  }
+window.updateTutorial = function(num) {
   if (num > 0) {
     propertyPanel.$modal.show('dialog', {
       title : 'Start tutorial?',
@@ -166,7 +178,7 @@ window.updateTutorial = function(num, update = true) {
         }
       ]
     });
-  } else if (num === -1) {
+  } else if (num === -1) { //Reset without canvas reset
     num = 0;
     window.onStoryEdit = undefined;
     window.tutorial = num;
@@ -175,19 +187,20 @@ window.updateTutorial = function(num, update = true) {
     window.onStoryEdit = undefined;
     window.tutorial = num;
     leftPanel.tutorial = num;
+    storyArc.destroy();
+    storyArc.start();
     propertyPanel.$forceUpdate();
-    toolbar.view.newStory();
     propertyPanel.selectionChanged();
   }
 };
 
 const updateInfoBar = _.debounce(() => {
   let storyId;
-  if (canvas.projectData.id === null) {
+  if (storyArc.id === null) {
     storyId = "new";
     saveIndicator.hide();
   } else {
-    storyId = "#" + canvas.projectData.id;
+    storyId = "#" + storyArc.id;
     saveIndicator.show();
   }
 
@@ -204,17 +217,17 @@ const updateInfoBar = _.debounce(() => {
     nodeId = "Node: " + nodeId;
   }
 
-  infoBarLeft.html("Story: " + storyId + "&nbsp;&nbsp;&nbsp;&nbsp;" + nodeId);
+  infoBarLeft.html("Story: " + storyId + "&nbsp;&nbsp;&nbsp;&nbsp;" + nodeId);//TODO pack or no pack
   checkForStoryChange();
 }, 50);
 
 const checkForStoryChange =
   _.debounce(() => {
     if (window.onStoryEdit !== undefined) {
-      window.onStoryEdit(canvas);
+      window.onStoryEdit(storyArc.currentStory);
     }
 
-    if (JSON.stringify(canvas.saveStory()) === JSON.stringify(canvas.serverState)) {
+    if (JSON.stringify(storyArc.saveStory()) === JSON.stringify(storyArc.serverState)) {
       if (!saveIndicator.hasClass("saved")) {
         saveIndicator.addClass("saved");
         saveIndicator.find("span").html("Story saved");
@@ -229,9 +242,13 @@ const checkForStoryChange =
 
 updateInfoBar();
 
-canvas.on("select", $.proxy(propertyPanel.selectionChanged, this));
-canvas.on("unselect", $.proxy(propertyPanel.selectionChanged, this));
-canvas.on("dragend", $.proxy(updateInfoBar, this));
+storyArc.onRegisterStory.push((story) => {
+  story.on("select", $.proxy(propertyPanel.selectionChanged, this));
+  story.on("unselect", $.proxy(propertyPanel.selectionChanged, this));
+  story.on("dragend", $.proxy(updateInfoBar, this));
+});
+
+storyArc.start();
 
 function ajaxCache() {
   var localCache = {
@@ -291,14 +308,14 @@ window.LoadStory = function(id) {
   toolbar.loadStory(id)
 };
 
-window.LoadStoryJson = function(data) {
+window.LoadStoryJson = function(stories) {
   var wrapData = {
     id : 0,
     name : "Loaded test story",
     description : "This story is loaded through the debug function.",
     publish : false,
-    tutorial : false,
-    storyline : data
+    pack : false,
+    stories : stories
   };
-  toolbar.view.loadStory(wrapData)
+  storyArc.loadStory(wrapData)
 };

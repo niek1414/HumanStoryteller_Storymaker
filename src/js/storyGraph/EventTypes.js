@@ -435,14 +435,14 @@ EventTypes.TempFlux = {
 EventTypes.Nothing = {
   value : "Nothing",
   text : "Empty event",
-  desc : "Can be used to manipulate the story without executing a event",
+  desc : "Can be used to manipulate the story without executing an event",
   type : EventTypes.NEUTRAL,
   conditions : []
 };
 
-EventTypes.Root = {
-  value : "Root",
-  text : "Root",
+EventTypes.LongEntry = {
+  value : "LongEntry",
+  text : "LongEntry",
   desc : "This it the entry event",
   type : EventTypes.NEUTRAL,
   conditions : []

@@ -173,10 +173,10 @@
     },
     computed : {
       variables : function() {
-        return window.toolbar.view.getVariables();
+        return window.toolbar.storyArc.getVariables();
       },
       names : function() {
-        return window.toolbar.view.getNames();
+        return window.toolbar.storyArc.getNames();
       },
     },
     mounted() {

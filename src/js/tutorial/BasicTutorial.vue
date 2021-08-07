@@ -26,7 +26,7 @@
             button : true,
           }, {
             title : `Add an event`,
-            content : `Starting of, let's add a event to this storyline.<br/>Drag the <i class="far fa-plus-square"></i> icon on the graph.<br/>Drag the yellow orb to <LearnHover img="connect.png">connect</LearnHover> events.<br/>Hint: giving events a name makes it easier to read your story & when using the tutorial hint function, the name will be used to identify an event!`,
+            content : `Starting off, let's add an event to this storyline.<br/>Drag the <i class="far fa-plus-square"></i> icon onto the graph.<br/>Drag the yellow orbs to <LearnHover img="connect.png">connect</LearnHover> the events.<br/>Hint: giving events a name makes it easier to read your story & when using the tutorial hint function, the name will be used to identify an event!`,
             name : "b2",
           }, {
             title : `Time`,
@@ -38,7 +38,7 @@
             name : "b4",
           }, {
             title : `Event properties`,
-            content : `A pawn's <b>name</b> can be used to reference it in other events.<br/>Input as <LearnHover img="newName.png">new name</LearnHover> 'bob' (names are not case sensitive but this tutorial is).<br/>Check the unnamed colonist option, a random (unnamed) colonist will be picked.<br/>Unless clearly stated, every property is optional!`,
+            content : `A pawn's <b>name</b> can be used as a reference in other events.<br/>Input as <LearnHover img="newName.png">new name</LearnHover> 'bob' (names are not case sensitive but this tutorial is).<br/>Check the unnamed colonist option, a random (unnamed) colonist will be picked.<br/>Unless clearly stated, every property is optional!`,
             name : "b5",
           }, {
             title : `End with a bang`,

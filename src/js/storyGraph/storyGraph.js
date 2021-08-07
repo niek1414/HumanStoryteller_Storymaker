@@ -1,18 +1,20 @@
 import draw2d from 'draw2d';
 import Event from './shape/Event'
-import EventTypes from './EventTypes'
 import EventFeedbackPolicy from "./policy/EventFeedbackPolicy";
 import DragEventConnectionCreatePolicy from "./policy/DragEventConnectionCreatePolicy";
 import CoronaDragDecorationPolicy from "./policy/CoronaDragDecorationPolicy";
+import ShowTransparentGridEditPolicy from "./policy/ShowTransparentGridEditPolicy";
 import AddEvent from "./command/AddEvent";
 import RouteConnection from "./shape/RouteConnection";
 import AddDivider from "./command/AddDivider";
 import DeleteEvent from "./command/DeleteEvent";
+import DataFile from "./DataFile";
 
 export default draw2d.Canvas.extend({
-    init: function (id, w, h) {
+    init: function (uuid, id, w, h) {
         this._super(id, w, h);
-        this.projectData = null;
+        if (!uuid) console.error("storygraph initialised without uuid")
+        this.uuid = uuid;
         this.lastRoot = null;
         this.serverState = null;
         this.gridPolicy = null;
@@ -20,19 +22,10 @@ export default draw2d.Canvas.extend({
         this.containerModification();
         this.installPolicies();
         this.installFactoryPorts();
-
-        this.newStory();
     },
 
-    newStory: function () {
+    newGraph: function () {
         this.clear();
-        this.projectData = {
-            id: null,
-            name: "My story",
-            description: "Small description explaining stuff... like.. uhm? Difficulty? What? I'am a coder, not a placeholder writer.. -.- ",
-            publish: false,
-        };
-
         var conn = new RouteConnection({
             source: this.addRoot(375, 75).getOutputPort(0),
             target: this.addEvent(350, 225, "TraderArrival").getInputPort(0)
@@ -40,17 +33,10 @@ export default draw2d.Canvas.extend({
         this.add(conn);
     },
 
-    loadStory: function (data, tutorial = false) {
+    loadGraph: function (nodes) {
         this.clear();
-        this.projectData = {
-            id: tutorial ? null : data.id,
-            name: data.name,
-            description: data.description,
-            publish: data.publish === undefined ? false : data.publish,
-            tutorial: tutorial,
-        };
         const createdList = [];
-        for (const event of data.storyline === undefined ? data.story : data.storyline.story) {
+        for (const event of nodes) {
             let created;
             if (event.uuid === "root") {
                 delete event.incident.type;
@@ -233,6 +219,7 @@ export default draw2d.Canvas.extend({
         return d;
     },
 
+    //TODO fix root => entryLong & entryShort
     addRoot: function (x, y, properties = {letter: {show: false}}) {
         const d = new Event({
             width: 50,
@@ -241,7 +228,7 @@ export default draw2d.Canvas.extend({
             x: x,
             y: y,
             text: "",
-            type: "Root",
+            type: "LongEntry",
             properties: properties,
             storage: []
         });
@@ -292,7 +279,7 @@ export default draw2d.Canvas.extend({
     },
 
     getVariables: function () {
-        const variables = JSON.parse(JSON.stringify(EventTypes.SystemVariables));
+        const variables = JSON.parse(JSON.stringify(DataFile.SystemVariables));
         const figures = this.getFigures();
         const figureLength = figures.getSize();
         for (let i = 0; i < figureLength; i++) {
@@ -354,14 +341,8 @@ export default draw2d.Canvas.extend({
         return names;
     },
 
-    toJSON: function (local = false) {
-        const story = [];
-        const data = {
-            name: this.projectData.name,
-            description: this.projectData.description,
-            publish: this.projectData.publish,
-            story: story
-        };
+    toJSON: function () {
+        const graph = [];
         const figures = this.getFigures();
         const figureLength = figures.getSize();
         for (let i = 0; i < figureLength; i++) {
@@ -369,23 +350,9 @@ export default draw2d.Canvas.extend({
             if (!(item instanceof Event)) {
                 continue;
             }
-            story.push(item.toJSON());
+            graph.push(item.toJSON());
         }
-        return local ? data : JSON.stringify(data);
-    },
-
-    saveStory: function (local = false) {
-        let data = {
-            name: this.projectData.name,
-            description: this.projectData.description,
-            publish: this.projectData.publish,
-            version: window.MOD_VERSION,
-            data: this.toJSON(local)
-        };
-        if (this.projectData.id != null) {
-            data.id = this.projectData.id;
-        }
-        return data;
+        return graph;
     },
 
     containerModification: function () {
@@ -401,9 +368,7 @@ export default draw2d.Canvas.extend({
         this.installEditPolicy(keyboardPolicy);
         this.installEditPolicy(new draw2d.policy.canvas.DropInterceptorPolicy());
         this.installEditPolicy(new DragEventConnectionCreatePolicy());
-        const gridPolicy = new draw2d.policy.canvas.ShowGridEditPolicy(100);
-        gridPolicy.setGridColor("#3a3f44");
-        this.installEditPolicy(gridPolicy);
+        this.installEditPolicy(new ShowTransparentGridEditPolicy(100, 1, "#3a3f44"));
         this.installEditPolicy(new CoronaDragDecorationPolicy({diameterToBeVisible: 100}));
     },
 

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/human-storycreator.iml" filepath="$PROJECT_DIR$/human-storycreator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../HumanStoryteller_Storybook/storybook.iml" filepath="$PROJECT_DIR$/../HumanStoryteller_Storybook/storybook.iml" />
       <module fileurl="file://$PROJECT_DIR$/storymaker/storymaker.iml" filepath="$PROJECT_DIR$/storymaker/storymaker.iml" />
     </modules>
   </component>

@@ -93,7 +93,7 @@
     },
     methods : {
       next : function() {
-        if (this.recursiveHint(this.activeStep.graph, window.toolbar.view.lastRoot, []) !== null) {
+        if (this.recursiveHint(this.activeStep.graph, window.toolbar.storyArc.currentStory.lastRoot, []) !== null) {
           this.reset();
         }
         if (this.currentStep < this.numberOfSteps - 1) {
@@ -116,11 +116,11 @@
       },
       reset : function() {
         if (this.currentStep - 1 >= 0) {
-          window.toolbar.view.loadStory(JSON.parse(JSON.stringify(this.steps[this.currentStep - 1].file)), true);
+          window.toolbar.storyArc.loadTutorial(JSON.parse(JSON.stringify(this.steps[this.currentStep - 1].file)));
         }
       },
       hint : function() {
-        const hint = this.recursiveHint(this.activeStep.graph, window.toolbar.view.lastRoot, []);
+        const hint = this.recursiveHint(this.activeStep.graph, window.toolbar.storyArc.currentStory.lastRoot, []);
         window.toolbar.popupMessage(hint !== null ? hint : "🤔 This is the solution, press the next button!");
       },
       /**
@@ -149,7 +149,7 @@
           return null;
         }
         if (actualNode === null || actualNode === undefined) {
-          return `Expected a event of type ${exampleNode.type}. This hint should not happen D:`;
+          return `Expected an event of type ${exampleNode.type}. This hint should not happen D:`;
         }
         if (exampleNode.type !== actualNode.type.value.value && !shouldIgnore(exampleNode, "type")) {
           if (!actualNode.isRoot) {
@@ -290,7 +290,7 @@
                 let created;
                 if (event.uuid === "root") {
                   delete event.incident.type;
-                  created = {type : "Root", properties : event.incident, conditions : [], storage : [], isDivider : false, isRoot : true, __ignore : event.incident.__ignore};
+                  created = {type : "LongEntry", properties : event.incident, conditions : [], storage : [], isDivider : false, isRoot : true, __ignore : event.incident.__ignore};
                   root = created;
                 } else if (event.uuid.startsWith("D__")) {
                   created = {
@@ -364,7 +364,7 @@
         }
         window.onStoryEdit = that.update;
         if (that.steps.length > 0) {
-          window.toolbar.view.loadStory(JSON.parse(JSON.stringify(that.steps[0].file)), true);
+          window.toolbar.storyArc.loadTutorial(JSON.parse(JSON.stringify(that.steps[0].file)));
         }
       });
     }

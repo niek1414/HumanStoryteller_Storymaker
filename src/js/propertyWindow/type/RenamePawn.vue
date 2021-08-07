@@ -29,7 +29,7 @@
     name : "RenamePawn",
     computed : {
       names : function() {
-        return window.toolbar.view.getNames();
+        return window.toolbar.storyArc.getNames();
       }
     }
   }

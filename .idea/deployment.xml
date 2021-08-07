@@ -2,10 +2,39 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
+      <paths name="Luikbeslag sftp">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="keybox">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="keybox 2">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="luikbeslagshop">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="storyteller">
+        <serverdata>
+          <mappings>
+            <mapping deploy="" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/subdomains" local="$PROJECT_DIR$/../HumanStoryteller_Storybook" web="/" />
           </mappings>
         </serverdata>
       </paths>

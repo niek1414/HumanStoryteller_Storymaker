@@ -181,7 +181,7 @@
     }),
     computed : {
       shareUrl : function() {
-        return "steam://run/294100//HumanStoryteller:" + this.toolbar.view.projectData.id + ":" + this.shareUrlStage + "/";
+        return "steam://run/294100//HumanStoryteller:" + this.toolbar.storyArc.id + ":" + this.shareUrlStage + "/";
       },
       connectionState : function() {
         return this.toolbar.debug.remoteConnectionState;

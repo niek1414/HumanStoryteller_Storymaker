@@ -43,7 +43,7 @@
     }),
     computed : {
       groups : function() {
-        return window.toolbar.view.getGroups();
+        return window.toolbar.storyArc.getGroups();
       },
     },
   }

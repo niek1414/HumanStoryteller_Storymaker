@@ -169,6 +169,7 @@
   import Variable from "./Variable";
   import PropertyHeader from "./PropertyHeader";
   import {ModelSelect} from 'vue-search-select';
+  import '../../style/VueSearchSelect.css'
   import EventTypes from "../storyGraph/EventTypes";
   import RaidEnemy from "./type/RaidEnemy";
   import Disease from "./type/Disease";
